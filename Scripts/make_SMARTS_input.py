@@ -1,22 +1,6 @@
+from Modules.functions import fill_number, yyyy_mm_dd2yymmdd
 from pandas import read_csv, Timestamp, DataFrame
 from os.path import join
-
-
-def fill(number: int, zfill: int) -> str:
-    return str(number).zfill(zfill)
-
-
-def date_format(date: Timestamp) -> str:
-    year = str(date.year)
-    month = fill(date.month, 2)
-    day = fill(date.day, 2)
-    year = year[2:]
-    date = [year,
-            month,
-            day]
-    date = "".join(date)
-    return date
-
 
 params = {
     "path data": "../Data",
@@ -50,7 +34,7 @@ for i, date in enumerate(AOD.index):
     day = date.day
     month = date.month
     year = date.year
-    date = date_format(date)
+    date = yyyy_mm_dd2yymmdd(date)
     data.loc[i] = [date,
                    ozone,
                    aod,
