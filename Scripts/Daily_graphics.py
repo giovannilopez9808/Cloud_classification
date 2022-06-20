@@ -1,15 +1,16 @@
+from pandas import read_csv, to_datetime, DataFrame, to_timedelta
 from Modules.data_model import SIMA_model, SMARTS_model
 from Modules.functions import yymmdd2yyyy_mm_dd
-from pandas import read_csv, to_datetime, DataFrame
 import matplotlib.pyplot as plt
 from os.path import join
 from tqdm import tqdm
 
 
 def plot(SMARTS: DataFrame, SIMA: DataFrame, params: dict) -> None:
-    date = SMARTS.index[0].date()
+    date = SIMA.index[0].date()
     plt.subplots(figsize=(8, 4))
     plt.title(date)
+    SMARTS.index = SIMA[7:17]+to_timedelta("00:30:00")
     plt.plot(SMARTS,
              label="SMARTS model",
              color="#003049",
@@ -33,6 +34,13 @@ def plot(SMARTS: DataFrame, SIMA: DataFrame, params: dict) -> None:
     filename = join(params["path graphics"],
                     filename)
     plt.savefig(filename)
+    plt.close()
+
+
+def hourly_mean(data: DataFrame) -> DataFrame:
+    hours = data.index.hour
+    data = data.groupby(hours).mean()
+    return data
 
 
 params = {
@@ -54,7 +62,7 @@ filename = join(params["path station data"],
                 params["file data"])
 data = read_csv(filename)
 data["Fecha"] = data["Date"].apply(yymmdd2yyyy_mm_dd)
-data = data[data["year"] <= 2017]
+data = data[data["year"] > 2017]
 year = ""
 bar = tqdm(data.index)
 for index in bar:
@@ -67,6 +75,7 @@ for index in bar:
         SIMA.get_station_data(params["station"],
                               params["pollutant"])
     date = data["Fecha"][index]
+    bar.set_postfix(date=date)
     SIMA_daily = SIMA.get_data_date(date)
     n_null = int(SIMA_daily.isnull().sum())
     if n_null < params["null threshold"]:
@@ -76,10 +85,7 @@ for index in bar:
                         params["path SMARTS"],
                         filename)
         SMARTS_daily = SMARTS.read(filename)
+        SMARTS_daily = hourly_mean(SMARTS_daily)
         plot(SMARTS_daily,
              SIMA_daily,
              params)
-    # print(data["Fecha"][index])
-    # print(SIMA.data)
-# data.index = to_datetime(data["Fecha"])
-# data = data.drop(columns=["Fecha"])
