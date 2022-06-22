@@ -12,7 +12,7 @@ params = {
     "folder results": "Results_SMARTS_DM",
     "path stations": "../Data",
     "igas": 1,
-    "stations": ["Centro"],
+    "stations": ["Noroeste"],
     "hour initial": 8,
     "hour final": 17,
     "wavelength initial": 285,
