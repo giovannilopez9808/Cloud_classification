@@ -8,7 +8,7 @@ params = {
     "path results": "../Results",
     "file results": "Count.csv",
     "parameter": "SR",
-    "Minimum data per day": 18,
+    "Minimum data per day": 10,
     "Minimum data per month": 21,
 }
 
@@ -39,6 +39,8 @@ for file in bar:
                if value == params["parameter"]]
     # Get data with restrictions
     data = data[columns]
+    data = data[data.index.hour >= 8]
+    data = data[data.index.hour <= 19]
     # Daily count
     data = data.resample("D").count()
     data = data >= params["Minimum data per day"]
