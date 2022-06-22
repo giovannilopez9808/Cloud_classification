@@ -1,4 +1,10 @@
 from pandas import Timestamp
+from os import listdir
+
+
+def ls(path: str) -> list:
+    files = sorted(listdir(path))
+    return files
 
 
 def fill_number(number: int, zfill: int) -> str:
