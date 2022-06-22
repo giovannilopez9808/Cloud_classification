@@ -84,19 +84,18 @@ for index in bar:
         SIMA.read(filename)
         SIMA.get_station_data(params["station"],
                               params["pollutant"])
-    if year == 2020:
-        date = data["Fecha"][index]
-        bar.set_postfix(date=date)
-        SIMA_daily = SIMA.get_data_date(date)
-        n_null = int(SIMA_daily.isnull().sum())
-        if n_null < params["null threshold"]:
-            filename = f"{data['Date'][index]}.txt"
-            filename = join(params["path station data"],
-                            params["station"],
-                            params["path SMARTS"],
-                            filename)
-            SMARTS_daily = SMARTS.read(filename)
-            SMARTS_daily = hourly_mean(SMARTS_daily)
-            plot(SMARTS_daily,
-                 SIMA_daily,
-                 params)
+    date = data["Fecha"][index]
+    bar.set_postfix(date=date)
+    SIMA_daily = SIMA.get_data_date(date)
+    n_null = int(SIMA_daily.isnull().sum())
+    if n_null < params["null threshold"]:
+        filename = f"{data['Date'][index]}.txt"
+        filename = join(params["path station data"],
+                        params["station"],
+                        params["path SMARTS"],
+                        filename)
+        SMARTS_daily = SMARTS.read(filename)
+        SMARTS_daily = hourly_mean(SMARTS_daily)
+        plot(SMARTS_daily,
+             SIMA_daily,
+             params)
