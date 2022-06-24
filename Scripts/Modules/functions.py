@@ -1,5 +1,11 @@
-from pandas import Timestamp
+from pandas import Timestamp, DataFrame
 from os import listdir
+
+
+def hourly_mean(data: DataFrame) -> DataFrame:
+    hours = data.index.hour
+    data = data.groupby(hours).mean()
+    return data
 
 
 def ls(path: str) -> list:
@@ -7,7 +13,8 @@ def ls(path: str) -> list:
     return files
 
 
-def fill_number(number: int, zfill: int) -> str:
+def fill_number(number: int,
+                zfill: int) -> str:
     return str(number).zfill(zfill)
 
 
@@ -32,3 +39,7 @@ def yyyy_mm_dd2yymmdd(date: Timestamp) -> str:
             day]
     date = "".join(date)
     return date
+
+
+if "__main__" == __name__:
+    pass
