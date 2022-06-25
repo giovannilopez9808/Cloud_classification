@@ -1,11 +1,32 @@
-from pandas import Timestamp, DataFrame
-from os import listdir
+from pandas import (Timestamp,
+                    DataFrame,
+                    to_datetime)
+from os import listdir, makedirs
+
+
+def datetime_format(date: Timestamp,
+                    hour: int) -> str:
+    date = str(date)
+    hour = fill_number(hour,
+                       2)
+    datetime = f"{date} {hour}:00"
+    return datetime
 
 
 def hourly_mean(data: DataFrame) -> DataFrame:
+    date = data.index[0].date()
     hours = data.index.hour
     data = data.groupby(hours).mean()
+    hours = list(set(hours))
+    index = [datetime_format(date, hour)
+             for hour in hours]
+    data.index = to_datetime(index)
     return data
+
+
+def mkdir(path: str) -> None:
+    makedirs(path,
+             exist_ok=True)
 
 
 def ls(path: str) -> list:

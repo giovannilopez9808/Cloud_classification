@@ -10,7 +10,13 @@ class clear_sky_model:
 
     def run(self, params: dict) -> DataFrame:
         results = DataFrame(columns=["H0"])
-        for minutes in range(1440):
+        hour_inital = params["hour initial"]
+        hour_inital *= 60
+        hour_final = params["hour final"]
+        hour_final *= 60
+        hours = range(hour_inital,
+                      hour_final+1)
+        for minutes in hours:
             datetime = self._get_datetime(params["date"],
                                           minutes)
             params["datetime"] = datetime
