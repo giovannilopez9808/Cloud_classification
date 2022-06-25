@@ -9,759 +9,45 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
-$(OBJECTS)	SMARTS/Scripts/Code/Makefile	/^$(OBJECTS): $(SOURCES)$/;"	t
-1	SMARTS/Scripts/Code/smarts.f	/^ 1      continue$/;"	l	subroutine:VISTAU	file:
-1	SMARTS/Scripts/Code/smarts.f	/^ 1    continue$/;"	l	function:PhF1	file:
-1	SMARTS/Scripts/Code/smarts.f	/^ 1    continue$/;"	l	subroutine:ALBDAT	file:
-1	SMARTS/Scripts/Code/smarts.f	/^ 1    continue$/;"	l	subroutine:ALFA	file:
-1	SMARTS/Scripts/Code/smarts.f	/^ 1    continue$/;"	l	subroutine:Interp	file:
-10	SMARTS/Scripts/Code/smarts.f	/^ 10   CONTINUE$/;"	l	file:
-10	SMARTS/Scripts/Code/smarts.f	/^ 10   CONTINUE$/;"	l	subroutine:Ozon	file:
-10	SMARTS/Scripts/Code/smarts.f	/^ 10   CONTINUE$/;"	l	subroutine:Ozon2	file:
-10	SMARTS/Scripts/Code/smarts.f	/^ 10   CONTINUE$/;"	l	subroutine:RefAtm	file:
-10	SMARTS/Scripts/Code/smarts.f	/^ 10   CONTINUE$/;"	l	subroutine:UVDAT	file:
-10	SMARTS/Scripts/Code/smarts.f	/^ 10   continue$/;"	l	subroutine:ALBDAT	file:
-10	SMARTS/Scripts/Code/smarts.f	/^ 10   continue$/;"	l	subroutine:ALFA	file:
-10	SMARTS/Scripts/Code/smarts.f	/^ 10   continue$/;"	l	subroutine:Phase1	file:
-10	SMARTS/Scripts/Code/smarts.f	/^ 10   continue$/;"	l	subroutine:ScanG	file:
-10	SMARTS/Scripts/Code/smarts.f	/^ 10   continue$/;"	l	subroutine:ScanT	file:
-100	SMARTS/Scripts/Code/smarts.f	/^ 100  FORMAT('* INPUTS:'\/,5x,'Pressure (mb) = ',F8.3,'   Ground ', $/;"	l	file:
-100	SMARTS/Scripts/Code/smarts.f	/^ 100  format(' ** WARNING #14',\/,'Lower limit for scans needs to',$/;"	l	subroutine:ScanG	file:
-100	SMARTS/Scripts/Code/smarts.f	/^ 100  format(' ** WARNING #14',\/,'Lower limit for scans needs to',$/;"	l	subroutine:ScanT	file:
-1001	SMARTS/Scripts/Code/smarts.f	/^ 1001 Format(\/\/,' Mean daily results for the average day of'$/;"	l	file:
-1002	SMARTS/Scripts/Code/smarts.f	/^ 1002 Format('* Monthly-average daily-total irradiations (MJ\/m2)',\/,$/;"	l	file:
-1003	SMARTS/Scripts/Code/smarts.f	/^ 1003 format(\/\/,'* Monthly-average daily-total UV dose (kJ\/m2): ',$/;"	l	file:
-1004	SMARTS/Scripts/Code/smarts.f	/^ 1004 format(\/\/,'* Monthly-average illuminances (klux)',\/,$/;"	l	file:
-101	SMARTS/Scripts/Code/smarts.f	/^ 101  Format(\/,' Total column abundances (atm-cm) for all gases except',$/;"	l	file:
-101	SMARTS/Scripts/Code/smarts.f	/^ 101  format(' ** WARNING #15 ',9('*'),\/,'\\\\ Lower limit for scans is',$/;"	l	subroutine:ScanG	file:
-101	SMARTS/Scripts/Code/smarts.f	/^ 101  format(' ** WARNING #15 ',9('*'),\/,'\\\\ Lower limit for scans is',$/;"	l	subroutine:ScanT	file:
-1018	SMARTS/Scripts/Code/smarts.f	/^ 1018 format('** WARNING #1',9('*'),\/,'\\\\ The calculated ozone tempe',$/;"	l	file:
-1019	SMARTS/Scripts/Code/smarts.f	/^ 1019 format('** WARNING #2',9('*'),\/,'\\\\ The calculated ozone tempe',$/;"	l	file:
-102	SMARTS/Scripts/Code/smarts.f	/^ 102  Format(' Corrected total column abundances for all gases '$/;"	l	file:
-102	SMARTS/Scripts/Code/smarts.f	/^ 102  format(' ** WARNING #16',\/,'Upper limit for scans needs to be < ',$/;"	l	subroutine:ScanT	file:
-102	SMARTS/Scripts/Code/smarts.f	/^ 102  format(' ** WARNING #16',\/,'Upper limit for scans needs to',$/;"	l	subroutine:ScanG	file:
-1021	SMARTS/Scripts/Code/smarts.f	/^ 1021 format('** WARNING #3',9('*'),\/,'\\\\ The ozone columnar amount, ',$/;"	l	file:
-1027	SMARTS/Scripts/Code/smarts.f	/^ 1027 format('*** ERROR #2 ***',\/,' The value selected or calculated '$/;"	l	file:
-103	SMARTS/Scripts/Code/smarts.f	/^ 103  FORMAT(\/\/,'** ERROR #7 *** Value of Zenit = ',F6.2,' is > 90 deg.'$/;"	l	file:
-103	SMARTS/Scripts/Code/smarts.f	/^ 103  format('** WARNING #17',9('*'),\/,'\\\\ Upper limit for scans is',$/;"	l	subroutine:ScanG	file:
-103	SMARTS/Scripts/Code/smarts.f	/^ 103  format('** WARNING #17',9('*'),\/,'\\\\ Upper limit for scans is',$/;"	l	subroutine:ScanT	file:
-109	SMARTS/Scripts/Code/smarts.f	/^ 109  Format(\/\/,'** ERROR #8 *** Value of AMASS = ',f6.2,' is > 38.2. ',$/;"	l	file:
-1099	SMARTS/Scripts/Code/smarts.f	/^ 1099 format(\/,90('*'),\/\/,'*** ERROR #6 *** Sun is too low for the',$/;"	l	file:
-11	SMARTS/Scripts/Code/smarts.f	/^ 11   CONTINUE$/;"	l	file:
-11	SMARTS/Scripts/Code/smarts.f	/^ 11   continue$/;"	l	subroutine:ALBDAT	file:
-11	SMARTS/Scripts/Code/smarts.f	/^ 11   continue$/;"	l	subroutine:Phase1	file:
-11	SMARTS/Scripts/Code/smarts.f	/^ 11   continue$/;"	l	subroutine:Phase2	file:
-11	SMARTS/Scripts/Code/smarts.f	/^ 11   continue$/;"	l	subroutine:ScanG	file:
-11	SMARTS/Scripts/Code/smarts.f	/^ 11   continue$/;"	l	subroutine:ScanT	file:
-110	SMARTS/Scripts/Code/smarts.f	/^ 110  FORMAT('*** IRRADIANCES IN W\/(m2 nm) AND TRANSMITTANCES FOR A ',$/;"	l	file:
-111	SMARTS/Scripts/Code/smarts.f	/^ 111  FORMAT('*** IRRADIANCES IN W\/m2 nm FOR A ',$/;"	l	file:
-112	SMARTS/Scripts/Code/smarts.f	/^ 112  FORMAT(\/,'* ANGLES (deg.) FOR TILTED SURFACE CALCULATIONS: ',\/,$/;"	l	file:
-113	SMARTS/Scripts/Code/smarts.f	/^ 113  Format('Wvlgth',50(1x,a24))$/;"	l	file:
-114	SMARTS/Scripts/Code/smarts.f	/^ 114  FORMAT('*** IRRADIANCES IN W\/(m2 nm) FOR A ',$/;"	l	file:
-115	SMARTS/Scripts/Code/smarts.f	/^ 115  FORMAT('* GEOMETRY (half-angles) OF THE SIMULATED RADIOMETER ',$/;"	l	file:
-116	SMARTS/Scripts/Code/smarts.f	/^ 116  FORMAT('*** IRRADIANCES IN W\/m2 nm FOR A ',$/;"	l	file:
-12	SMARTS/Scripts/Code/smarts.f	/^ 12   CONTINUE$/;"	l	file:
-12	SMARTS/Scripts/Code/smarts.f	/^ 12   continue$/;"	l	subroutine:ALBDAT	file:
-12	SMARTS/Scripts/Code/smarts.f	/^ 12   continue$/;"	l	subroutine:Phase1	file:
-12	SMARTS/Scripts/Code/smarts.f	/^ 12   continue$/;"	l	subroutine:Phase2	file:
-120	SMARTS/Scripts/Code/smarts.f	/^ 120  FORMAT(f7.1,1X,F7.3,2X,3(E11.5,1X),2X,5(E11.5,1X))$/;"	l	file:
-121	SMARTS/Scripts/Code/smarts.f	/^ 121  FORMAT(e9.4,50(1X,e9.4))$/;"	l	file:
-122	SMARTS/Scripts/Code/smarts.f	/^ 122  FORMAT(\/,'Wavelength Range = '$/;"	l	file:
-123	SMARTS/Scripts/Code/smarts.f	/^ 123  FORMAT( '* FOR THE TILTED PLANE: ',\/,'  Direct Beam = ',F7.2,$/;"	l	file:
-124	SMARTS/Scripts/Code/smarts.f	/^ 124  FORMAT(f7.1,1X,F7.3,2X,3(E11.5,1X),2X,2(E11.5,1X))$/;"	l	file:
-125	SMARTS/Scripts/Code/smarts.f	/^ 125  FORMAT(f7.1,1X,F7.3,2X,3(E11.5,1X),2X,E11.5,3X,2(E11.5,1X))$/;"	l	file:
-126	SMARTS/Scripts/Code/smarts.f	/^ 126  FORMAT(\/,33('*',2x),\/\/,'** SPECTRUM:',\/,'   Total (0-100 �m) ',$/;"	l	file:
-127	SMARTS/Scripts/Code/smarts.f	/^ 127  format(' To account for the chosen Solar Constant value, the ',$/;"	l	file:
-128	SMARTS/Scripts/Code/smarts.f	/^ 128  FORMAT(f7.1,1X,F7.3,2X,7(E11.5,1X))$/;"	l	file:
-13	SMARTS/Scripts/Code/smarts.f	/^ 13   CONTINUE$/;"	l	file:
-13	SMARTS/Scripts/Code/smarts.f	/^ 13   continue$/;"	l	subroutine:ALBDAT	file:
-1301	SMARTS/Scripts/Code/smarts.f	/^ 1301 format('** WARNING #4',9('*'),\/,'\\\\ Pressure cannot be < 0.000',$/;"	l	file:
-1302	SMARTS/Scripts/Code/smarts.f	/^ 1302 format('** WARNING #5',9('*'),\/,'\\\\ Precipitable water was not '$/;"	l	file:
-1303	SMARTS/Scripts/Code/smarts.f	/^ 1303 format('** WARNING #6',9('*'),\/,'\\\\ The ozone amount was not pro'$/;"	l	file:
-1307	SMARTS/Scripts/Code/smarts.f	/^ 1307 format('** WARNING #7',9('*'),\/,'\\\\ The aerosol type has been ',$/;"	l	file:
-1308	SMARTS/Scripts/Code/smarts.f	/^ 1308 format('** WARNING #9',9('*'),\/,'\\\\ The aerosol optical depth ',$/;"	l	file:
-1309	SMARTS/Scripts/Code/smarts.f	/^ 1309 format('** WARNING #8',9('*'),\/,'\\\\ The aerosol optical depth ',$/;"	l	file:
-1310	SMARTS/Scripts/Code/smarts.f	/^ 1310 continue$/;"	l	file:
-1311	SMARTS/Scripts/Code/smarts.f	/^ 1311 continue$/;"	l	file:
-1312	SMARTS/Scripts/Code/smarts.f	/^ 1312 format('** WARNING #20',9('*'),\/,'\\\\ Receiver is at more than 6 ',$/;"	l	file:
-1314	SMARTS/Scripts/Code/smarts.f	/^ 1314 format('** WARNING #21',9('*'),\/,'\\\\ Receiver is at more than ',$/;"	l	file:
-134	SMARTS/Scripts/Code/smarts.f	/^ 134  FORMAT('* TEMPERATURES:',\/,5x,'Instantaneous at site''s altitude'$/;"	l	file:
-135	SMARTS/Scripts/Code/smarts.f	/^ 135  FORMAT('  Diffuse irradiance origination details:',\/,$/;"	l	file:
-1355	SMARTS/Scripts/Code/smarts.f	/^ 1355 CONTINUE$/;"	l	file:
-137	SMARTS/Scripts/Code/smarts.f	/^ 137  FORMAT('* EXPERIMENTAL (WITH CIRCUMSOLAR CORRECTION):',\/,2x,$/;"	l	file:
-14	SMARTS/Scripts/Code/smarts.f	/^ 14   continue$/;"	l	subroutine:ALBDAT	file:
-143	SMARTS/Scripts/Code/smarts.f	/^ 143  FORMAT(\/\/\/,'*** UV IRRADIANCES (W\/m2):',\/\/,' TOTAL UV-A IRRADIAN'$/;"	l	file:
-144	SMARTS/Scripts/Code/smarts.f	/^ 144  FORMAT('*** DOSE RATE IN MED\/h from an ideal Robertson-Berger',$/;"	l	file:
-147	SMARTS/Scripts/Code/smarts.f	/^ 147  Format(\/,'The following spectral variables will be output to ',$/;"	l	file:
-148	SMARTS/Scripts/Code/smarts.f	/^ 148  Format(' * ',A24)$/;"	l	file:
-15	SMARTS/Scripts/Code/smarts.f	/^ 15   continue$/;"	l	file:
-15	SMARTS/Scripts/Code/smarts.f	/^ 15   continue$/;"	l	subroutine:ALBDAT	file:
-151	SMARTS/Scripts/Code/smarts.f	/^ 151  Format('** WARNING #10',9('*'),\/,'\\\\ The values of both Apert ',$/;"	l	file:
-152	SMARTS/Scripts/Code/smarts.f	/^ 152  Format('** WARNING #11',9('*'),\/'\\\\ The radiometer''s Slope ',$/;"	l	file:
-153	SMARTS/Scripts/Code/smarts.f	/^ 153  Format('** WARNING #12',9('*'),\/,'\\\\ Circumsolar calculations ',$/;"	l	file:
-155	SMARTS/Scripts/Code/smarts.f	/^ 155  FORMAT(' SMOOTHED RESULTS TO SIMULATE A ',F5.2,' nm FWHM',$/;"	l	file:
-1599	SMARTS/Scripts/Code/smarts.f	/^ 1599 format('*** ERROR #1 ***',\/,' The altitude cannot be > 100 km!',$/;"	l	file:
-16	SMARTS/Scripts/Code/smarts.f	/^ 16   continue$/;"	l	subroutine:ALBDAT	file:
-17	SMARTS/Scripts/Code/smarts.f	/^ 17   CONTINUE$/;"	l	file:
-17	SMARTS/Scripts/Code/smarts.f	/^ 17   continue$/;"	l	subroutine:ALBDAT	file:
-170	SMARTS/Scripts/Code/smarts.f	/^ 170      FORMAT('  Results below are for this specific day:',\/,' Year',$/;"	l	file:
-171	SMARTS/Scripts/Code/smarts.f	/^ 171  FORMAT(\/\/,3x,A6,' ALBEDO (constant and Lambertian) = ',F5.3,\/\/)$/;"	l	file:
-172	SMARTS/Scripts/Code/smarts.f	/^ 172  FORMAT(2(\/,100('=')),\/\/,'* SOLAR POSITION (deg.):',\/,4x,$/;"	l	file:
-173	SMARTS/Scripts/Code/smarts.f	/^ 173  Format(\/\/,'      Spectral ',A5,' albedo data: ',A24,\/,$/;"	l	file:
-174	SMARTS/Scripts/Code/smarts.f	/^ 174  format(\/,' CO2 Mixing Ratio (ppmv): ',f6.1,\/\/)$/;"	l	file:
-18	SMARTS/Scripts/Code/smarts.f	/^ 18   continue$/;"	l	subroutine:ALBDAT	file:
-180	SMARTS/Scripts/Code/smarts.f	/^ 180  FORMAT('*** LUMINOUS EFFICACY (lm\/W):',\/,$/;"	l	file:
-181	SMARTS/Scripts/Code/smarts.f	/^ 181  FORMAT(6x,'LUMINOUS EFFICACY WITH CIRCUMSOLAR CORRECTION (lm\/W)'$/;"	l	file:
-1824	SMARTS/Scripts/Code/smarts.f	/^ 1824 continue$/;"	l	file:
-1825	SMARTS/Scripts/Code/smarts.f	/^ 1825 continue$/;"	l	file:
-1825	SMARTS/Scripts/Code/smarts.f	/^ 1825 continue$/;"	l	subroutine:ALFA	file:
-1826	SMARTS/Scripts/Code/smarts.f	/^ 1826 continue$/;"	l	file:
-1827	SMARTS/Scripts/Code/smarts.f	/^ 1827 continue$/;"	l	file:
-1827	SMARTS/Scripts/Code/smarts.f	/^ 1827 continue$/;"	l	subroutine:ALFA	file:
-188	SMARTS/Scripts/Code/smarts.f	/^ 188  FORMAT(\/\/\/,'*** ILLUMINANCES (klux) obtained with the Vlambda'$/;"	l	file:
-189	SMARTS/Scripts/Code/smarts.f	/^ 189  FORMAT(6x,'ILLUMINANCES WITH CIRCUMSOLAR CORRECTION (klux):',\/,$/;"	l	file:
-19	SMARTS/Scripts/Code/smarts.f	/^ 19   CONTINUE$/;"	l	subroutine:Phase2	file:
-19	SMARTS/Scripts/Code/smarts.f	/^ 19   continue$/;"	l	file:
-19	SMARTS/Scripts/Code/smarts.f	/^ 19   continue$/;"	l	subroutine:ALBDAT	file:
-192	SMARTS/Scripts/Code/smarts.f	/^ 192  Format(\/,'***** ERROR #5!',\/,' Input value for ',$/;"	l	file:
-1920	SMARTS/Scripts/Code/smarts.f	/^ 1920 Format(\/,'***** ERROR #4!',\/,' Input value for ',$/;"	l	file:
-193	SMARTS/Scripts/Code/smarts.f	/^ 193  FORMAT('   WVLGTH',2X,'ET_SPCTRUM  BEAM_NORMAL',$/;"	l	file:
-194	SMARTS/Scripts/Code/smarts.f	/^ 194  FORMAT(\/,'******************   SMARTS, version 2.9.5   *********'$/;"	l	file:
-1949	SMARTS/Scripts/Code/smarts.f	/^ 1949 format(\/,'***** ERROR #3!',\/,' Input value for ',$/;"	l	file:
-195	SMARTS/Scripts/Code/smarts.f	/^ 195  Format('** WARNING #13 ',9('*'),\/,'\\\\ Ground reflectance data ',$/;"	l	subroutine:ALBCHK	file:
-198	SMARTS/Scripts/Code/smarts.f	/^ 198  FORMAT(' *** WARNING #18 ***',\/,'  Parameter INTVL on Card 12a',$/;"	l	file:
-2	SMARTS/Scripts/Code/smarts.f	/^ 2    CONTINUE$/;"	l	file:
-2	SMARTS/Scripts/Code/smarts.f	/^ 2    continue$/;"	l	subroutine:ALBDAT	file:
-20	SMARTS/Scripts/Code/smarts.f	/^ 20   CONTINUE$/;"	l	subroutine:Circum	file:
-20	SMARTS/Scripts/Code/smarts.f	/^ 20   continue$/;"	l	file:
-20	SMARTS/Scripts/Code/smarts.f	/^ 20   continue$/;"	l	subroutine:ALBDAT	file:
-20	SMARTS/Scripts/Code/smarts.f	/^ 20   continue$/;"	l	subroutine:Ozon	file:
-20	SMARTS/Scripts/Code/smarts.f	/^ 20   continue$/;"	l	subroutine:Ozon2	file:
-20	SMARTS/Scripts/Code/smarts.f	/^ 20   continue$/;"	l	subroutine:Phase1	file:
-20	SMARTS/Scripts/Code/smarts.f	/^ 20   continue$/;"	l	subroutine:RefAtm	file:
-20	SMARTS/Scripts/Code/smarts.f	/^ 20   continue$/;"	l	subroutine:ScanG	file:
-20	SMARTS/Scripts/Code/smarts.f	/^ 20   continue$/;"	l	subroutine:ScanT	file:
-200	SMARTS/Scripts/Code/smarts.f	/^ 200  FORMAT(3x,f6.1,2X,5(E10.4,2X))$/;"	l	subroutine:ScanG	file:
-200	SMARTS/Scripts/Code/smarts.f	/^ 200  FORMAT(3x,f6.1,2X,5(E10.4,2X))$/;"	l	subroutine:ScanT	file:
-21	SMARTS/Scripts/Code/smarts.f	/^ 21   continue$/;"	l	subroutine:ALBDAT	file:
-21	SMARTS/Scripts/Code/smarts.f	/^ 21   continue$/;"	l	subroutine:Circum	file:
-21	SMARTS/Scripts/Code/smarts.f	/^ 21   continue$/;"	l	subroutine:Ozon	file:
-21	SMARTS/Scripts/Code/smarts.f	/^ 21   continue$/;"	l	subroutine:Ozon2	file:
-21	SMARTS/Scripts/Code/smarts.f	/^ 21   continue$/;"	l	subroutine:Phase1	file:
-21	SMARTS/Scripts/Code/smarts.f	/^ 21   continue$/;"	l	subroutine:RefAtm	file:
-21	SMARTS/Scripts/Code/smarts.f	/^ 21   continue$/;"	l	subroutine:ScanG	file:
-21	SMARTS/Scripts/Code/smarts.f	/^ 21   continue$/;"	l	subroutine:ScanT	file:
-22	SMARTS/Scripts/Code/smarts.f	/^ 22   CONTINUE$/;"	l	subroutine:Circum	file:
-22	SMARTS/Scripts/Code/smarts.f	/^ 22   continue$/;"	l	subroutine:ALBDAT	file:
-22	SMARTS/Scripts/Code/smarts.f	/^ 22   continue$/;"	l	subroutine:Phase1	file:
-222	SMARTS/Scripts/Code/smarts.f	/^ 222  continue$/;"	l	file:
-223	SMARTS/Scripts/Code/smarts.f	/^ 223  continue$/;"	l	file:
-23	SMARTS/Scripts/Code/smarts.f	/^ 23   CONTINUE$/;"	l	subroutine:Circum	file:
-23	SMARTS/Scripts/Code/smarts.f	/^ 23   continue$/;"	l	subroutine:ALBDAT	file:
-23	SMARTS/Scripts/Code/smarts.f	/^ 23   continue$/;"	l	subroutine:Phase1	file:
-24	SMARTS/Scripts/Code/smarts.f	/^ 24   CONTINUE$/;"	l	subroutine:Circum	file:
-24	SMARTS/Scripts/Code/smarts.f	/^ 24   continue$/;"	l	subroutine:ALBDAT	file:
-25	SMARTS/Scripts/Code/smarts.f	/^ 25   continue$/;"	l	subroutine:ALBDAT	file:
-25	SMARTS/Scripts/Code/smarts.f	/^ 25   continue$/;"	l	subroutine:Circum	file:
-26	SMARTS/Scripts/Code/smarts.f	/^ 26   continue$/;"	l	subroutine:ALBDAT	file:
-27	SMARTS/Scripts/Code/smarts.f	/^ 27   continue$/;"	l	subroutine:ALBDAT	file:
-28	SMARTS/Scripts/Code/smarts.f	/^ 28   continue$/;"	l	subroutine:ALBDAT	file:
-281	SMARTS/Scripts/Code/smarts.f	/^ 281  continue$/;"	l	file:
-287	SMARTS/Scripts/Code/smarts.f	/^ 287  continue$/;"	l	file:
-288	SMARTS/Scripts/Code/smarts.f	/^ 288  continue$/;"	l	file:
-29	SMARTS/Scripts/Code/smarts.f	/^ 29   continue$/;"	l	subroutine:ALBDAT	file:
-295	SMARTS/Scripts/Code/smarts.f	/^ 295  continue$/;"	l	file:
-298	SMARTS/Scripts/Code/smarts.f	/^ 298  continue$/;"	l	file:
-299	SMARTS/Scripts/Code/smarts.f	/^ 299  continue$/;"	l	file:
-3	SMARTS/Scripts/Code/smarts.f	/^ 3    CONTINUE$/;"	l	file:
-3	SMARTS/Scripts/Code/smarts.f	/^ 3    continue$/;"	l	subroutine:ALBDAT	file:
-30	SMARTS/Scripts/Code/smarts.f	/^ 30   continue$/;"	l	subroutine:ALBDAT	file:
-30	SMARTS/Scripts/Code/smarts.f	/^ 30   continue$/;"	l	subroutine:ScanG	file:
-30	SMARTS/Scripts/Code/smarts.f	/^ 30   continue$/;"	l	subroutine:ScanT	file:
-30	SMARTS/Scripts/Code/smarts.f	/^ 30   continue$/;"	l	subroutine:VISTAU	file:
-300	SMARTS/Scripts/Code/smarts.f	/^ 300  CONTINUE$/;"	l	file:
-300	SMARTS/Scripts/Code/smarts.f	/^ 300  Continue$/;"	l	subroutine:ALBDAT	file:
-3002	SMARTS/Scripts/Code/smarts.f	/^ 3002 continue$/;"	l	file:
-3003	SMARTS/Scripts/Code/smarts.f	/^ 3003 continue$/;"	l	file:
-301	SMARTS/Scripts/Code/smarts.f	/^ 301  CONTINUE$/;"	l	file:
-302	SMARTS/Scripts/Code/smarts.f	/^ 302  CONTINUE$/;"	l	file:
-303	SMARTS/Scripts/Code/smarts.f	/^ 303  continue$/;"	l	file:
-31	SMARTS/Scripts/Code/smarts.f	/^ 31   continue$/;"	l	subroutine:ALBDAT	file:
-311	SMARTS/Scripts/Code/smarts.f	/^ 311  continue$/;"	l	file:
-319	SMARTS/Scripts/Code/smarts.f	/^ 319  continue$/;"	l	file:
-32	SMARTS/Scripts/Code/smarts.f	/^ 32   continue$/;"	l	subroutine:ALBDAT	file:
-32	SMARTS/Scripts/Code/smarts.f	/^ 32   continue$/;"	l	subroutine:Phase1	file:
-32	SMARTS/Scripts/Code/smarts.f	/^ 32   continue$/;"	l	subroutine:ScanG	file:
-32	SMARTS/Scripts/Code/smarts.f	/^ 32   continue$/;"	l	subroutine:ScanT	file:
-320	SMARTS/Scripts/Code/smarts.f	/^ 320  continue$/;"	l	file:
-321	SMARTS/Scripts/Code/smarts.f	/^ 321  continue$/;"	l	file:
-327	SMARTS/Scripts/Code/smarts.f	/^ 327  continue$/;"	l	file:
-328	SMARTS/Scripts/Code/smarts.f	/^ 328  CONTINUE$/;"	l	file:
-329	SMARTS/Scripts/Code/smarts.f	/^ 329  continue$/;"	l	file:
-33	SMARTS/Scripts/Code/smarts.f	/^ 33   CONTINUE$/;"	l	file:
-33	SMARTS/Scripts/Code/smarts.f	/^ 33   continue$/;"	l	subroutine:ALBDAT	file:
-331	SMARTS/Scripts/Code/smarts.f	/^ 331  continue$/;"	l	file:
-332	SMARTS/Scripts/Code/smarts.f	/^ 332  continue$/;"	l	file:
-335	SMARTS/Scripts/Code/smarts.f	/^  335 continue$/;"	l	file:
-34	SMARTS/Scripts/Code/smarts.f	/^ 34   CONTINUE$/;"	l	file:
-34	SMARTS/Scripts/Code/smarts.f	/^ 34   continue$/;"	l	subroutine:ALBDAT	file:
-340	SMARTS/Scripts/Code/smarts.f	/^ 340  CONTINUE$/;"	l	file:
-344	SMARTS/Scripts/Code/smarts.f	/^ 344  continue$/;"	l	file:
-3440	SMARTS/Scripts/Code/smarts.f	/^ 3440 continue$/;"	l	subroutine:VISTAU	file:
-3442	SMARTS/Scripts/Code/smarts.f	/^ 3442 continue$/;"	l	subroutine:VISTAU	file:
-3444	SMARTS/Scripts/Code/smarts.f	/^ 3444 continue$/;"	l	subroutine:VISTAU	file:
-3446	SMARTS/Scripts/Code/smarts.f	/^ 3446 continue$/;"	l	subroutine:VISTAU	file:
-3447	SMARTS/Scripts/Code/smarts.f	/^ 3447 continue$/;"	l	subroutine:VISTAU	file:
-3448	SMARTS/Scripts/Code/smarts.f	/^ 3448 continue$/;"	l	subroutine:VISTAU	file:
-345	SMARTS/Scripts/Code/smarts.f	/^ 345  continue$/;"	l	subroutine:VISTAU	file:
-346	SMARTS/Scripts/Code/smarts.f	/^ 346  continue$/;"	l	subroutine:VISTAU	file:
-348	SMARTS/Scripts/Code/smarts.f	/^ 348  continue$/;"	l	file:
-349	SMARTS/Scripts/Code/smarts.f	/^ 349  continue$/;"	l	file:
-35	SMARTS/Scripts/Code/smarts.f	/^ 35   CONTINUE$/;"	l	file:
-35	SMARTS/Scripts/Code/smarts.f	/^ 35   continue$/;"	l	subroutine:ALBDAT	file:
-350	SMARTS/Scripts/Code/smarts.f	/^ 350  CONTINUE$/;"	l	file:
-351	SMARTS/Scripts/Code/smarts.f	/^ 351  continue$/;"	l	file:
-352	SMARTS/Scripts/Code/smarts.f	/^ 352  CONTINUE$/;"	l	file:
-353	SMARTS/Scripts/Code/smarts.f	/^ 353  CONTINUE$/;"	l	file:
-354	SMARTS/Scripts/Code/smarts.f	/^ 354  CONTINUE$/;"	l	file:
-355	SMARTS/Scripts/Code/smarts.f	/^ 355  continue$/;"	l	file:
-356	SMARTS/Scripts/Code/smarts.f	/^ 356  CONTINUE$/;"	l	file:
-3560	SMARTS/Scripts/Code/smarts.f	/^ 3560 continue$/;"	l	file:
-3569	SMARTS/Scripts/Code/smarts.f	/^ 3569 continue$/;"	l	file:
-357	SMARTS/Scripts/Code/smarts.f	/^ 357  CONTINUE$/;"	l	file:
-3570	SMARTS/Scripts/Code/smarts.f	/^ 3570 continue$/;"	l	file:
-3571	SMARTS/Scripts/Code/smarts.f	/^ 3571 continue$/;"	l	file:
-358	SMARTS/Scripts/Code/smarts.f	/^ 358  CONTINUE$/;"	l	file:
-359	SMARTS/Scripts/Code/smarts.f	/^ 359  CONTINUE$/;"	l	file:
-3590	SMARTS/Scripts/Code/smarts.f	/^ 3590 continue      $/;"	l	file:
-3591	SMARTS/Scripts/Code/smarts.f	/^ 3591 continue$/;"	l	file:
-36	SMARTS/Scripts/Code/smarts.f	/^ 36   continue$/;"	l	file:
-36	SMARTS/Scripts/Code/smarts.f	/^ 36   continue$/;"	l	subroutine:ALBDAT	file:
-360	SMARTS/Scripts/Code/smarts.f	/^ 360  continue$/;"	l	file:
-362	SMARTS/Scripts/Code/smarts.f	/^ 362  continue$/;"	l	file:
-364	SMARTS/Scripts/Code/smarts.f	/^ 364  CONTINUE$/;"	l	file:
-3641	SMARTS/Scripts/Code/smarts.f	/^ 3641 continue$/;"	l	file:
-3642	SMARTS/Scripts/Code/smarts.f	/^ 3642 continue$/;"	l	file:
-37	SMARTS/Scripts/Code/smarts.f	/^ 37   continue$/;"	l	file:
-37	SMARTS/Scripts/Code/smarts.f	/^ 37   continue$/;"	l	subroutine:ALBDAT	file:
-370	SMARTS/Scripts/Code/smarts.f	/^ 370  Continue$/;"	l	subroutine:ALBDAT	file:
-371	SMARTS/Scripts/Code/smarts.f	/^ 371  continue$/;"	l	subroutine:ALBDAT	file:
-374	SMARTS/Scripts/Code/smarts.f	/^ 374  continue$/;"	l	file:
-379	SMARTS/Scripts/Code/smarts.f	/^ 379  continue$/;"	l	file:
-38	SMARTS/Scripts/Code/smarts.f	/^ 38   CONTINUE$/;"	l	file:
-38	SMARTS/Scripts/Code/smarts.f	/^ 38   continue$/;"	l	subroutine:ALBDAT	file:
-383	SMARTS/Scripts/Code/smarts.f	/^ 383  continue$/;"	l	file:
-384	SMARTS/Scripts/Code/smarts.f	/^ 384  Continue$/;"	l	file:
-385	SMARTS/Scripts/Code/smarts.f	/^ 385  Continue$/;"	l	file:
-389	SMARTS/Scripts/Code/smarts.f	/^ 389  Continue$/;"	l	file:
-39	SMARTS/Scripts/Code/smarts.f	/^ 39   continue$/;"	l	file:
-39	SMARTS/Scripts/Code/smarts.f	/^ 39   continue$/;"	l	subroutine:ALBDAT	file:
-390	SMARTS/Scripts/Code/smarts.f	/^ 390  continue$/;"	l	file:
-3900	SMARTS/Scripts/Code/smarts.f	/^ 3900 continue$/;"	l	file:
-3901	SMARTS/Scripts/Code/smarts.f	/^ 3901 continue$/;"	l	file:
-3902	SMARTS/Scripts/Code/smarts.f	/^ 3902 continue $/;"	l	file:
-3903	SMARTS/Scripts/Code/smarts.f	/^ 3903 continue $/;"	l	file:
-3904	SMARTS/Scripts/Code/smarts.f	/^ 3904 continue$/;"	l	file:
-3905	SMARTS/Scripts/Code/smarts.f	/^ 3905 continue$/;"	l	file:
-3906	SMARTS/Scripts/Code/smarts.f	/^ 3906 continue$/;"	l	file:
-3907	SMARTS/Scripts/Code/smarts.f	/^ 3907 continue$/;"	l	file:
-3908	SMARTS/Scripts/Code/smarts.f	/^ 3908 continue$/;"	l	file:
-3909	SMARTS/Scripts/Code/smarts.f	/^ 3909 continue$/;"	l	file:
-3910	SMARTS/Scripts/Code/smarts.f	/^ 3910 continue$/;"	l	file:
-3912	SMARTS/Scripts/Code/smarts.f	/^ 3912 continue$/;"	l	file:
-3914	SMARTS/Scripts/Code/smarts.f	/^ 3914 continue$/;"	l	file:
-3915	SMARTS/Scripts/Code/smarts.f	/^ 3915 continue$/;"	l	file:
-392	SMARTS/Scripts/Code/smarts.f	/^ 392  continue$/;"	l	file:
-396	SMARTS/Scripts/Code/smarts.f	/^ 396  continue$/;"	l	file:
-397	SMARTS/Scripts/Code/smarts.f	/^ 397  continue$/;"	l	file:
-399	SMARTS/Scripts/Code/smarts.f	/^ 399  continue$/;"	l	file:
-3992	SMARTS/Scripts/Code/smarts.f	/^ 3992 continue$/;"	l	file:
-3994	SMARTS/Scripts/Code/smarts.f	/^ 3994 continue$/;"	l	file:
-3998	SMARTS/Scripts/Code/smarts.f	/^ 3998 continue$/;"	l	file:
-3999	SMARTS/Scripts/Code/smarts.f	/^ 3999 continue$/;"	l	file:
-4	SMARTS/Scripts/Code/smarts.f	/^ 4    continue$/;"	l	file:
-4	SMARTS/Scripts/Code/smarts.f	/^ 4    continue$/;"	l	subroutine:ALBDAT	file:
-40	SMARTS/Scripts/Code/smarts.f	/^ 40   continue$/;"	l	file:
-40	SMARTS/Scripts/Code/smarts.f	/^ 40   continue$/;"	l	subroutine:ALBDAT	file:
-40	SMARTS/Scripts/Code/smarts.f	/^ 40   continue$/;"	l	subroutine:ScanG	file:
-40	SMARTS/Scripts/Code/smarts.f	/^ 40   continue$/;"	l	subroutine:ScanT	file:
-400	SMARTS/Scripts/Code/smarts.f	/^ 400  continue$/;"	l	file:
-401	SMARTS/Scripts/Code/smarts.f	/^ 401  continue$/;"	l	file:
-402	SMARTS/Scripts/Code/smarts.f	/^ 402  continue$/;"	l	file:
-403	SMARTS/Scripts/Code/smarts.f	/^ 403  continue$/;"	l	file:
-404	SMARTS/Scripts/Code/smarts.f	/^ 404  CONTINUE$/;"	l	file:
-405	SMARTS/Scripts/Code/smarts.f	/^ 405  CONTINUE$/;"	l	file:
-406	SMARTS/Scripts/Code/smarts.f	/^ 406  CONTINUE$/;"	l	file:
-408	SMARTS/Scripts/Code/smarts.f	/^ 408  continue$/;"	l	file:
-409	SMARTS/Scripts/Code/smarts.f	/^ 409  CONTINUE$/;"	l	file:
-41	SMARTS/Scripts/Code/smarts.f	/^ 41   CONTINUE$/;"	l	file:
-41	SMARTS/Scripts/Code/smarts.f	/^ 41   continue$/;"	l	subroutine:ALBDAT	file:
-41	SMARTS/Scripts/Code/smarts.f	/^ 41   continue$/;"	l	subroutine:Circum	file:
-411	SMARTS/Scripts/Code/smarts.f	/^ 411  continue$/;"	l	file:
-413	SMARTS/Scripts/Code/smarts.f	/^ 413  continue$/;"	l	file:
-419	SMARTS/Scripts/Code/smarts.f	/^ 419  CONTINUE$/;"	l	file:
-42	SMARTS/Scripts/Code/smarts.f	/^ 42   CONTINUE$/;"	l	file:
-42	SMARTS/Scripts/Code/smarts.f	/^ 42   continue$/;"	l	subroutine:ALBDAT	file:
-421	SMARTS/Scripts/Code/smarts.f	/^ 421  continue$/;"	l	file:
-422	SMARTS/Scripts/Code/smarts.f	/^ 422  continue$/;"	l	file:
-423	SMARTS/Scripts/Code/smarts.f	/^ 423  continue$/;"	l	file:
-424	SMARTS/Scripts/Code/smarts.f	/^ 424  CONTINUE$/;"	l	file:
-426	SMARTS/Scripts/Code/smarts.f	/^ 426  continue$/;"	l	file:
-427	SMARTS/Scripts/Code/smarts.f	/^ 427  Continue$/;"	l	file:
-428	SMARTS/Scripts/Code/smarts.f	/^ 428  Continue$/;"	l	file:
-429	SMARTS/Scripts/Code/smarts.f	/^ 429  Continue$/;"	l	file:
-43	SMARTS/Scripts/Code/smarts.f	/^ 43   CONTINUE$/;"	l	file:
-43	SMARTS/Scripts/Code/smarts.f	/^ 43   continue$/;"	l	subroutine:ALBDAT	file:
-44	SMARTS/Scripts/Code/smarts.f	/^ 44   continue$/;"	l	file:
-44	SMARTS/Scripts/Code/smarts.f	/^ 44   continue$/;"	l	subroutine:ALBDAT	file:
-45	SMARTS/Scripts/Code/smarts.f	/^ 45   continue$/;"	l	subroutine:ALBDAT	file:
-450	SMARTS/Scripts/Code/smarts.f	/^ 450  Continue$/;"	l	file:
-451	SMARTS/Scripts/Code/smarts.f	/^ 451  Continue$/;"	l	file:
-453	SMARTS/Scripts/Code/smarts.f	/^ 453  Continue$/;"	l	file:
-454	SMARTS/Scripts/Code/smarts.f	/^ 454  continue$/;"	l	file:
-457	SMARTS/Scripts/Code/smarts.f	/^ 457  continue$/;"	l	file:
-46	SMARTS/Scripts/Code/smarts.f	/^ 46   continue$/;"	l	subroutine:ALBDAT	file:
-464	SMARTS/Scripts/Code/smarts.f	/^ 464  Continue$/;"	l	file:
-47	SMARTS/Scripts/Code/smarts.f	/^ 47   continue$/;"	l	subroutine:ALBDAT	file:
-48	SMARTS/Scripts/Code/smarts.f	/^ 48   continue$/;"	l	subroutine:ALBDAT	file:
-49	SMARTS/Scripts/Code/smarts.f	/^ 49   continue$/;"	l	subroutine:ALBDAT	file:
-49	SMARTS/Scripts/Code/smarts.f	/^ 49   continue$/;"	l	subroutine:Circum	file:
-5	SMARTS/Scripts/Code/smarts.f	/^ 5    CONTINUE$/;"	l	file:
-5	SMARTS/Scripts/Code/smarts.f	/^ 5    continue$/;"	l	subroutine:ALBDAT	file:
-50	SMARTS/Scripts/Code/smarts.f	/^ 50   continue$/;"	l	subroutine:ALBDAT	file:
-5000	SMARTS/Scripts/Code/smarts.f	/^ 5000 continue$/;"	l	file:
-5002	SMARTS/Scripts/Code/smarts.f	/^ 5002 continue$/;"	l	file:
-5007	SMARTS/Scripts/Code/smarts.f	/^ 5007	continue$/;"	l	file:
-5008	SMARTS/Scripts/Code/smarts.f	/^ 5008	continue$/;"	l	file:
-51	SMARTS/Scripts/Code/smarts.f	/^ 51   continue$/;"	l	subroutine:ALBDAT	file:
-52	SMARTS/Scripts/Code/smarts.f	/^ 52   continue$/;"	l	subroutine:ALBDAT	file:
-53	SMARTS/Scripts/Code/smarts.f	/^ 53   continue$/;"	l	subroutine:ALBDAT	file:
-54	SMARTS/Scripts/Code/smarts.f	/^ 54   continue$/;"	l	subroutine:ALBDAT	file:
-55	SMARTS/Scripts/Code/smarts.f	/^ 55   continue$/;"	l	subroutine:ALBDAT	file:
-56	SMARTS/Scripts/Code/smarts.f	/^ 56   continue$/;"	l	subroutine:ALBDAT	file:
-57	SMARTS/Scripts/Code/smarts.f	/^ 57   continue$/;"	l	subroutine:ALBDAT	file:
-58	SMARTS/Scripts/Code/smarts.f	/^ 58   continue$/;"	l	subroutine:ALBDAT	file:
-59	SMARTS/Scripts/Code/smarts.f	/^ 59   continue$/;"	l	subroutine:ALBDAT	file:
-6	SMARTS/Scripts/Code/smarts.f	/^ 6    CONTINUE$/;"	l	file:
-6	SMARTS/Scripts/Code/smarts.f	/^ 6    continue$/;"	l	subroutine:ALBDAT	file:
-60	SMARTS/Scripts/Code/smarts.f	/^ 60   continue$/;"	l	file:
-60	SMARTS/Scripts/Code/smarts.f	/^ 60   continue$/;"	l	subroutine:ALBDAT	file:
-601	SMARTS/Scripts/Code/smarts.f	/^ 601  continue$/;"	l	file:
-6010	SMARTS/Scripts/Code/smarts.f	/^ 6010 continue$/;"	l	file:
-6012	SMARTS/Scripts/Code/smarts.f	/^ 6012 continue$/;"	l	file:
-6014	SMARTS/Scripts/Code/smarts.f	/^ 6014 continue$/;"	l	file:
-602	SMARTS/Scripts/Code/smarts.f	/^ 602  continue$/;"	l	file:
-61	SMARTS/Scripts/Code/smarts.f	/^ 61   continue$/;"	l	file:
-61	SMARTS/Scripts/Code/smarts.f	/^ 61   continue$/;"	l	subroutine:ALBDAT	file:
-62	SMARTS/Scripts/Code/smarts.f	/^ 62   CONTINUE$/;"	l	file:
-62	SMARTS/Scripts/Code/smarts.f	/^ 62   continue$/;"	l	subroutine:ALBDAT	file:
-63	SMARTS/Scripts/Code/smarts.f	/^ 63   continue$/;"	l	subroutine:ALBDAT	file:
-64	SMARTS/Scripts/Code/smarts.f	/^ 64   continue$/;"	l	subroutine:ALBDAT	file:
-65	SMARTS/Scripts/Code/smarts.f	/^ 65   CONTINUE$/;"	l	file:
-65	SMARTS/Scripts/Code/smarts.f	/^ 65   continue$/;"	l	subroutine:ALBDAT	file:
-66	SMARTS/Scripts/Code/smarts.f	/^ 66   continue$/;"	l	subroutine:ALBDAT	file:
-7	SMARTS/Scripts/Code/smarts.f	/^ 7    continue$/;"	l	file:
-7	SMARTS/Scripts/Code/smarts.f	/^ 7    continue$/;"	l	subroutine:ALBDAT	file:
-7001	SMARTS/Scripts/Code/smarts.f	/^ 7001 continue$/;"	l	file:
-7009	SMARTS/Scripts/Code/smarts.f	/^ 7009 continue     $/;"	l	file:
-7021	SMARTS/Scripts/Code/smarts.f	/^ 7021 continue$/;"	l	file:
-7029	SMARTS/Scripts/Code/smarts.f	/^ 7029 continue$/;"	l	file:
-7100	SMARTS/Scripts/Code/smarts.f	/^ 7100 continue$/;"	l	file:
-7101	SMARTS/Scripts/Code/smarts.f	/^ 7101 continue$/;"	l	file:
-72	SMARTS/Scripts/Code/smarts.f	/^ 72      continue$/;"	l	file:
-7200	SMARTS/Scripts/Code/smarts.f	/^ 7200 continue$/;"	l	file:
-73	SMARTS/Scripts/Code/smarts.f	/^ 73   continue$/;"	l	file:
-730	SMARTS/Scripts/Code/smarts.f	/^ 730  Continue$/;"	l	subroutine:ALBDOS	file:
-731	SMARTS/Scripts/Code/smarts.f	/^ 731  continue$/;"	l	subroutine:ALBDOS	file:
-732	SMARTS/Scripts/Code/smarts.f	/^ 732  continue$/;"	l	subroutine:ALBDOS	file:
-733	SMARTS/Scripts/Code/smarts.f	/^ 733  Continue$/;"	l	subroutine:ALBDOS	file:
-734	SMARTS/Scripts/Code/smarts.f	/^ 734  Continue$/;"	l	subroutine:ALBDOS	file:
-738	SMARTS/Scripts/Code/smarts.f	/^ 738  Continue$/;"	l	subroutine:ALBDOS	file:
-74	SMARTS/Scripts/Code/smarts.f	/^ 74   continue$/;"	l	file:
-741	SMARTS/Scripts/Code/smarts.f	/^ 741  continue$/;"	l	subroutine:ALBDOS	file:
-75	SMARTS/Scripts/Code/smarts.f	/^ 75   continue$/;"	l	file:
-76	SMARTS/Scripts/Code/smarts.f	/^ 76   continue$/;"	l	file:
-77	SMARTS/Scripts/Code/smarts.f	/^ 77   CONTINUE$/;"	l	file:
-776	SMARTS/Scripts/Code/smarts.f	/^ 776  continue$/;"	l	file:
-777	SMARTS/Scripts/Code/smarts.f	/^ 777  continue$/;"	l	file:
-778	SMARTS/Scripts/Code/smarts.f	/^ 778  continue$/;"	l	file:
-779	SMARTS/Scripts/Code/smarts.f	/^ 779  continue$/;"	l	file:
-78	SMARTS/Scripts/Code/smarts.f	/^ 78   continue$/;"	l	file:
-787	SMARTS/Scripts/Code/smarts.f	/^ 787  continue$/;"	l	file:
-788	SMARTS/Scripts/Code/smarts.f	/^ 788  continue$/;"	l	file:
-8	SMARTS/Scripts/Code/smarts.f	/^ 8    continue$/;"	l	file:
-8	SMARTS/Scripts/Code/smarts.f	/^ 8    continue$/;"	l	subroutine:ALBDAT	file:
-80	SMARTS/Scripts/Code/smarts.f	/^ 80   continue$/;"	l	file:
-800	SMARTS/Scripts/Code/smarts.f	/^ 800  continue$/;"	l	file:
-801	SMARTS/Scripts/Code/smarts.f	/^ 801  continue$/;"	l	file:
-803	SMARTS/Scripts/Code/smarts.f	/^ 803  continue$/;"	l	subroutine:GSCH4	file:
-806	SMARTS/Scripts/Code/smarts.f	/^ 806  continue$/;"	l	file:
-807	SMARTS/Scripts/Code/smarts.f	/^ 807  continue$/;"	l	file:
-808	SMARTS/Scripts/Code/smarts.f	/^ 808  continue$/;"	l	file:
-809	SMARTS/Scripts/Code/smarts.f	/^ 809  continue$/;"	l	file:
-81	SMARTS/Scripts/Code/smarts.f	/^ 81   continue$/;"	l	file:
-810	SMARTS/Scripts/Code/smarts.f	/^ 810  continue$/;"	l	file:
-811	SMARTS/Scripts/Code/smarts.f	/^ 811  continue$/;"	l	file:
-82	SMARTS/Scripts/Code/smarts.f	/^ 82   continue$/;"	l	file:
-820	SMARTS/Scripts/Code/smarts.f	/^ 820  continue$/;"	l	file:
-821	SMARTS/Scripts/Code/smarts.f	/^ 821  continue$/;"	l	file:
-822	SMARTS/Scripts/Code/smarts.f	/^ 822  continue$/;"	l	file:
-823	SMARTS/Scripts/Code/smarts.f	/^ 823      continue$/;"	l	file:
-824	SMARTS/Scripts/Code/smarts.f	/^ 824  continue$/;"	l	file:
-825	SMARTS/Scripts/Code/smarts.f	/^ 825  continue$/;"	l	file:
-826	SMARTS/Scripts/Code/smarts.f	/^ 826  continue$/;"	l	file:
-827	SMARTS/Scripts/Code/smarts.f	/^ 827  continue$/;"	l	file:
-828	SMARTS/Scripts/Code/smarts.f	/^ 828  continue$/;"	l	file:
-829	SMARTS/Scripts/Code/smarts.f	/^ 829  continue$/;"	l	file:
-83	SMARTS/Scripts/Code/smarts.f	/^ 83   continue$/;"	l	file:
-830	SMARTS/Scripts/Code/smarts.f	/^ 830  continue$/;"	l	file:
-831	SMARTS/Scripts/Code/smarts.f	/^ 831  continue$/;"	l	file:
-832	SMARTS/Scripts/Code/smarts.f	/^ 832  continue$/;"	l	file:
-833	SMARTS/Scripts/Code/smarts.f	/^ 833  continue$/;"	l	file:
-834	SMARTS/Scripts/Code/smarts.f	/^ 834  continue$/;"	l	file:
-835	SMARTS/Scripts/Code/smarts.f	/^ 835  continue$/;"	l	file:
-837	SMARTS/Scripts/Code/smarts.f	/^ 837  continue$/;"	l	file:
-852	SMARTS/Scripts/Code/smarts.f	/^ 852  continue$/;"	l	file:
-853	SMARTS/Scripts/Code/smarts.f	/^ 853  continue$/;"	l	file:
-854	SMARTS/Scripts/Code/smarts.f	/^ 854  continue$/;"	l	file:
-855	SMARTS/Scripts/Code/smarts.f	/^ 855  continue$/;"	l	file:
-857	SMARTS/Scripts/Code/smarts.f	/^ 857  CONTINUE$/;"	l	file:
-858	SMARTS/Scripts/Code/smarts.f	/^ 858  continue$/;"	l	file:
-859	SMARTS/Scripts/Code/smarts.f	/^ 859  CONTINUE$/;"	l	file:
-860	SMARTS/Scripts/Code/smarts.f	/^ 860  continue$/;"	l	file:
-861	SMARTS/Scripts/Code/smarts.f	/^ 861  CONTINUE$/;"	l	file:
-862	SMARTS/Scripts/Code/smarts.f	/^ 862  continue$/;"	l	file:
-863	SMARTS/Scripts/Code/smarts.f	/^ 863  continue$/;"	l	file:
-864	SMARTS/Scripts/Code/smarts.f	/^ 864  continue$/;"	l	file:
-865	SMARTS/Scripts/Code/smarts.f	/^ 865  continue$/;"	l	file:
-866	SMARTS/Scripts/Code/smarts.f	/^ 866  continue$/;"	l	file:
-867	SMARTS/Scripts/Code/smarts.f	/^ 867  continue$/;"	l	file:
-868	SMARTS/Scripts/Code/smarts.f	/^ 868  continue$/;"	l	file:
-869	SMARTS/Scripts/Code/smarts.f	/^ 869  continue$/;"	l	file:
-870	SMARTS/Scripts/Code/smarts.f	/^ 870  continue$/;"	l	file:
-872	SMARTS/Scripts/Code/smarts.f	/^ 872  continue$/;"	l	file:
-874	SMARTS/Scripts/Code/smarts.f	/^ 874  continue$/;"	l	file:
-875	SMARTS/Scripts/Code/smarts.f	/^ 875  continue$/;"	l	file:
-880	SMARTS/Scripts/Code/smarts.f	/^ 880  continue$/;"	l	file:
-881	SMARTS/Scripts/Code/smarts.f	/^ 881  continue$/;"	l	file:
-882	SMARTS/Scripts/Code/smarts.f	/^ 882  continue$/;"	l	file:
-883	SMARTS/Scripts/Code/smarts.f	/^ 883  continue$/;"	l	file:
-884	SMARTS/Scripts/Code/smarts.f	/^ 884  continue$/;"	l	file:
-885	SMARTS/Scripts/Code/smarts.f	/^ 885  continue$/;"	l	file:
-886	SMARTS/Scripts/Code/smarts.f	/^ 886  continue$/;"	l	file:
-887	SMARTS/Scripts/Code/smarts.f	/^ 887  continue$/;"	l	file:
-888	SMARTS/Scripts/Code/smarts.f	/^ 888  continue$/;"	l	file:
-889	SMARTS/Scripts/Code/smarts.f	/^ 889  continue$/;"	l	file:
-89	SMARTS/Scripts/Code/smarts.f	/^ 89   continue$/;"	l	subroutine:Ozon	file:
-89	SMARTS/Scripts/Code/smarts.f	/^ 89   continue$/;"	l	subroutine:Ozon2	file:
-89	SMARTS/Scripts/Code/smarts.f	/^ 89   continue$/;"	l	subroutine:RefAtm	file:
-890	SMARTS/Scripts/Code/smarts.f	/^ 890  continue$/;"	l	file:
-891	SMARTS/Scripts/Code/smarts.f	/^ 891  continue$/;"	l	file:
-894	SMARTS/Scripts/Code/smarts.f	/^ 894  continue$/;"	l	file:
-895	SMARTS/Scripts/Code/smarts.f	/^ 895  continue$/;"	l	file:
-897	SMARTS/Scripts/Code/smarts.f	/^ 897  continue$/;"	l	file:
-898	SMARTS/Scripts/Code/smarts.f	/^ 898  CONTINUE$/;"	l	file:
-899	SMARTS/Scripts/Code/smarts.f	/^ 899  continue$/;"	l	file:
-9	SMARTS/Scripts/Code/smarts.f	/^ 9    CONTINUE$/;"	l	file:
-9	SMARTS/Scripts/Code/smarts.f	/^ 9    continue$/;"	l	subroutine:ALBDAT	file:
-90	SMARTS/Scripts/Code/smarts.f	/^ 90   CONTINUE$/;"	l	subroutine:UVDAT	file:
-91	SMARTS/Scripts/Code/smarts.f	/^ 91   CONTINUE$/;"	l	file:
-911	SMARTS/Scripts/Code/smarts.f	/^ 911  format('** WARNING #19 ** Error in albedo file # ',i2,': Number ',$/;"	l	subroutine:ALBDAT	file:
-92	SMARTS/Scripts/Code/smarts.f	/^ 92   CONTINUE$/;"	l	file:
-953	SMARTS/Scripts/Code/smarts.f	/^ 953  CONTINUE$/;"	l	file:
-960	SMARTS/Scripts/Code/smarts.f	/^ 960   CONTINUE$/;"	l	file:
-968	SMARTS/Scripts/Code/smarts.f	/^ 968   continue$/;"	l	file:
-98	SMARTS/Scripts/Code/smarts.f	/^ 98   continue$/;"	l	file:
-99	SMARTS/Scripts/Code/smarts.f	/^ 99   CONTINUE$/;"	l	subroutine:Ozon	file:
-99	SMARTS/Scripts/Code/smarts.f	/^ 99   CONTINUE$/;"	l	subroutine:Ozon2	file:
-99	SMARTS/Scripts/Code/smarts.f	/^ 99   CONTINUE$/;"	l	subroutine:RefAtm	file:
-99	SMARTS/Scripts/Code/smarts.f	/^ 99   CONTINUE$/;"	l	subroutine:UVDAT	file:
-99	SMARTS/Scripts/Code/smarts.f	/^ 99   continue$/;"	l	file:
-998	SMARTS/Scripts/Code/smarts.f	/^ 998  CONTINUE$/;"	l	file:
-999	SMARTS/Scripts/Code/smarts.f	/^ 999  CONTINUE$/;"	l	file:
-999	SMARTS/Scripts/Code/smarts.f	/^ 999  CONTINUE$/;"	l	subroutine:Circum	file:
-999	SMARTS/Scripts/Code/smarts.f	/^ 999  continue$/;"	l	subroutine:ScanG	file:
-999	SMARTS/Scripts/Code/smarts.f	/^ 999  continue$/;"	l	subroutine:ScanT	file:
-999	SMARTS/Scripts/Code/smarts.f	/^ 999  continue$/;"	l	subroutine:UVDAT	file:
-AEROS	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*64 AEROS,/;"	v
-AG0	SMARTS/Scripts/Code/smarts.f	/^      REAL BP0(7),BP1(7),BP2(7),BP3(7),AG0(/;"	v
-AG00	SMARTS/Scripts/Code/smarts.f	/^      REAL AG4(7),AG00(/;"	v
-AG01	SMARTS/Scripts/Code/smarts.f	/^      REAL AG4(7),AG00(4),AG01(/;"	v
-AG02	SMARTS/Scripts/Code/smarts.f	/^      REAL AG4(7),AG00(4),AG01(4),AG02(/;"	v
-AG1	SMARTS/Scripts/Code/smarts.f	/^      REAL BP0(7),BP1(7),BP2(7),BP3(7),AG0(7),AG1(/;"	v
-AG10	SMARTS/Scripts/Code/smarts.f	/^      REAL AG4(7),AG00(4),AG01(4),AG02(4),AG10(/;"	v
-AG11	SMARTS/Scripts/Code/smarts.f	/^      REAL AG4(7),AG00(4),AG01(4),AG02(4),AG10(4),AG11(/;"	v
-AG12	SMARTS/Scripts/Code/smarts.f	/^      REAL AG4(7),AG00(4),AG01(4),AG02(4),AG10(4),AG11(4),AG12(/;"	v
-AG2	SMARTS/Scripts/Code/smarts.f	/^      REAL BP0(7),BP1(7),BP2(7),BP3(7),AG0(7),AG1(7),AG2(/;"	v
-AG20	SMARTS/Scripts/Code/smarts.f	/^      REAL AG20(/;"	v
-AG21	SMARTS/Scripts/Code/smarts.f	/^      REAL AG20(4),AG21(/;"	v
-AG22	SMARTS/Scripts/Code/smarts.f	/^      REAL AG20(4),AG21(4),AG22(/;"	v
-AG3	SMARTS/Scripts/Code/smarts.f	/^      REAL BP0(7),BP1(7),BP2(7),BP3(7),AG0(7),AG1(7),AG2(7),AG3(/;"	v
-AG30	SMARTS/Scripts/Code/smarts.f	/^      REAL AG20(4),AG21(4),AG22(4),AG30(/;"	v
-AG31	SMARTS/Scripts/Code/smarts.f	/^      REAL AG20(4),AG21(4),AG22(4),AG30(4),AG31(/;"	v
-AG32	SMARTS/Scripts/Code/smarts.f	/^      REAL AG20(4),AG21(4),AG22(4),AG30(4),AG31(4),AG32(/;"	v
-AG4	SMARTS/Scripts/Code/smarts.f	/^      REAL AG4(/;"	v
-AG40	SMARTS/Scripts/Code/smarts.f	/^      REAL AG20(4),AG21(4),AG22(4),AG30(4),AG31(4),AG32(4),AG40(/;"	v
-AG41	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ0(7),BQ1(7),BQ2(7),AG41(/;"	v
-AG42	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ0(7),BQ1(7),BQ2(7),AG41(4),AG42(/;"	v
-ALBCHK	SMARTS/Scripts/Code/smarts.f	/^      Subroutine ALBCHK(/;"	s
-ALBDAT	SMARTS/Scripts/Code/smarts.f	/^      Subroutine ALBDAT(/;"	s
-ALBDOS	SMARTS/Scripts/Code/smarts.f	/^      Subroutine ALBDOS /;"	s
-ALFA	SMARTS/Scripts/Code/smarts.f	/^      Subroutine ALFA(/;"	s
-AMZ	SMARTS/Scripts/Code/smarts.f	/^      FUNCTION AMZ(/;"	f
-AO3	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tmixd,TmixdP,Trace,TraceP,Phot,Rhor,Rhos,Roro,AO3$/;"	v
-AO4	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tcoro3,tz3,AO4,/;"	v
-AOD	make_SMARTS_input.py	/^AOD = read_csv(filename,$/;"	v
-AbO4	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO2,TO2P,TCO2,TCO2P,NLosch,Bw,Bp,Prod,AbO4$/;"	v
-Albdo1	SMARTS/Scripts/Code/smarts.f	/^      Real Wvla1(3000),Albdo1(/;"	v
-Albdo2	SMARTS/Scripts/Code/smarts.f	/^      Real Wvla1(3000),Albdo1(3000),Wvla2(3000),Albdo2(/;"	v
-AmCO2	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmO2,AmCO2,/;"	v
-AmH2O	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmH2O,/;"	v
-AmO2	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmO2,/;"	v
-Area	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*6 SEASON, Area$/;"	v
-Atmos	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*4 Atmos,/;"	v
-Avogad	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PFGSeV,Avogad,/;"	v
-BNORM	SMARTS/Scripts/Code/smarts.f	/^      Double Precision BNORM(/;"	v
-BP0	SMARTS/Scripts/Code/smarts.f	/^      REAL BP0(/;"	v
-BP00	SMARTS/Scripts/Code/smarts.f	/^      REAL BP00(/;"	v
-BP01	SMARTS/Scripts/Code/smarts.f	/^      REAL BP00(4),BP01(/;"	v
-BP02	SMARTS/Scripts/Code/smarts.f	/^      REAL BP02(/;"	v
-BP1	SMARTS/Scripts/Code/smarts.f	/^      REAL BP0(7),BP1(/;"	v
-BP10	SMARTS/Scripts/Code/smarts.f	/^      REAL BP02(4),BP10(/;"	v
-BP11	SMARTS/Scripts/Code/smarts.f	/^      REAL BP02(4),BP10(4),BP11(/;"	v
-BP12	SMARTS/Scripts/Code/smarts.f	/^      REAL BP02(4),BP10(4),BP11(4),BP12(/;"	v
-BP2	SMARTS/Scripts/Code/smarts.f	/^      REAL BP0(7),BP1(7),BP2(/;"	v
-BP20	SMARTS/Scripts/Code/smarts.f	/^      REAL BP02(4),BP10(4),BP11(4),BP12(4),BP20(/;"	v
-BP21	SMARTS/Scripts/Code/smarts.f	/^      REAL BP02(4),BP10(4),BP11(4),BP12(4),BP20(4),BP21(/;"	v
-BP22	SMARTS/Scripts/Code/smarts.f	/^      REAL BP02(4),BP10(4),BP11(4),BP12(4),BP20(4),BP21(4),BP22(/;"	v
-BP3	SMARTS/Scripts/Code/smarts.f	/^      REAL BP0(7),BP1(7),BP2(7),BP3(/;"	v
-BP30	SMARTS/Scripts/Code/smarts.f	/^      REAL BP30(/;"	v
-BP31	SMARTS/Scripts/Code/smarts.f	/^      REAL BP30(4),BP31(/;"	v
-BP32	SMARTS/Scripts/Code/smarts.f	/^      REAL BP30(4),BP31(4),BP32(/;"	v
-BQ0	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ0(/;"	v
-BQ00	SMARTS/Scripts/Code/smarts.f	/^      REAL BP30(4),BP31(4),BP32(4),BQ00(/;"	v
-BQ01	SMARTS/Scripts/Code/smarts.f	/^      REAL BP30(4),BP31(4),BP32(4),BQ00(4),BQ01(/;"	v
-BQ02	SMARTS/Scripts/Code/smarts.f	/^      REAL BP30(4),BP31(4),BP32(4),BQ00(4),BQ01(4),BQ02(/;"	v
-BQ1	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ0(7),BQ1(/;"	v
-BQ10	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ10(/;"	v
-BQ11	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ10(4),BQ11(/;"	v
-BQ12	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ10(4),BQ11(4),BQ12(/;"	v
-BQ2	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ0(7),BQ1(7),BQ2(/;"	v
-BQ20	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ10(4),BQ11(4),BQ12(4),BQ20(/;"	v
-BQ21	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ10(4),BQ11(4),BQ12(4),BQ20(4),BQ21(/;"	v
-BQ22	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ10(4),BQ11(4),BQ12(4),BQ20(4),BQ21(4),BQ22(/;"	v
-Bmw	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmH2O,wAmw,wAmp,tauw,Bmw,/;"	v
-Bmwp	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmH2O,wAmw,wAmp,tauw,Bmw,Bmwp,/;"	v
-Bmwx	SMARTS/Scripts/Code/smarts.f	/^      Real Bmx(2),Bmwx(/;"	v
-Bmx	SMARTS/Scripts/Code/smarts.f	/^      Real Bmx(/;"	v
-Bp	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO2,TO2P,TCO2,TCO2P,NLosch,Bw,Bp,/;"	v
-Bw	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO2,TO2P,TCO2,TCO2P,NLosch,Bw,/;"	v
-C1	SMARTS/Scripts/Code/smarts.f	/^      REAL C1(/;"	v
-C2	SMARTS/Scripts/Code/smarts.f	/^      REAL C1(4),C2(/;"	v
-C3	SMARTS/Scripts/Code/smarts.f	/^      REAL C1(4),C2(4),C3(/;"	v
-C4	SMARTS/Scripts/Code/smarts.f	/^      REAL C1(4),C2(4),C3(4),C4(/;"	v
-C5	SMARTS/Scripts/Code/smarts.f	/^      REAL C1(4),C2(4),C3(4),C4(4),C5(/;"	v
-C6	SMARTS/Scripts/Code/smarts.f	/^      REAL C1(4),C2(4),C3(4),C4(4),C5(4),C6(/;"	v
-CC	SMARTS/Scripts/Code/Makefile	/^CC=gfortran$/;"	m
-CDFLAGS	SMARTS/Scripts/Code/Makefile	/^CDFLAGS=-O3 -g$/;"	m
-CIEYr	SMARTS/Scripts/Code/smarts.f	/^      INTEGER IOUT(54),CIEYr,/;"	v
-COEF	SMARTS/Scripts/Code/smarts.f	4832;"	c	blockData:PhData
-COEF	SMARTS/Scripts/Code/smarts.f	4898;"	c	function:PhF1
-Circum	SMARTS/Scripts/Code/smarts.f	/^      Subroutine Circum /;"	s
-Comnt	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*64 AEROS, Spctrm, Comnt$/;"	v
-D1	SMARTS/Scripts/Code/smarts.f	/^      REAL C1(4),C2(4),C3(4),C4(4),C5(4),C6(4),D1(/;"	v
-D2	SMARTS/Scripts/Code/smarts.f	/^      REAL C1(4),C2(4),C3(4),C4(4),C5(4),C6(4),D1(4),D2(/;"	v
-D3	SMARTS/Scripts/Code/smarts.f	/^      REAL C1(4),C2(4),C3(4),C4(4),C5(4),C6(4),D1(4),D2(4),D3(/;"	v
-D4	SMARTS/Scripts/Code/smarts.f	/^      REAL C1(4),C2(4),C3(4),C4(4),C5(4),C6(4),D1(4),D2(4),D3(4),D4(/;"	v
-D5	SMARTS/Scripts/Code/smarts.f	/^      REAL BP00(4),BP01(4),D5(/;"	v
-D6	SMARTS/Scripts/Code/smarts.f	/^      REAL BP00(4),BP01(4),D5(4),D6(/;"	v
-DAER	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TABS,TDIR,DAER,/;"	v
-DECLI	SMARTS/Scripts/Code/smarts.f	/^      REAL DECLI(/;"	v
-DGRND	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRS,DIFS,DIREXP,DIFEXP,DGRND,/;"	v
-DIF	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO3,TAUZ3,DIR,DIF0/;"	v
-DIF0	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO3,TAUZ3,DIR,DIF0,/;"	v
-DIFEXP	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRS,DIFS,DIREXP,DIFEXP,/;"	v
-DIFS	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRS,DIFS,/;"	v
-DIR	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO3,TAUZ3,DIR,/;"	v
-DIREXP	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRS,DIFS,DIREXP,/;"	v
-DIRH	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO3,TAUZ3,DIR,DIF0,DIF,GLOB,GLOBS,DIRH,/;"	v
-DIRS	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRS,/;"	v
-DIRWL	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRWL,/;"	v
-DIRX	SMARTS/Scripts/Code/smarts.f	/^      Double Precision BNORM(2002),GLOBH(2002),GLOBT(2002),DIRX(/;"	v
-DRAY	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRS,DIFS,DIREXP,DIFEXP,DGRND,HT,DRAY,/;"	v
-DayUT	SMARTS/Scripts/Code/smarts.f	/^      INTEGER IOUT(54),CIEYr,year,day,DayoYr,DayUT$/;"	v
-DayoYr	SMARTS/Scripts/Code/smarts.f	/^      INTEGER IOUT(54),CIEYr,year,day,DayoYr,/;"	v
-Difccs	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRWL,SUMBN,SUMBX,SUMD,SUMDX,SUMBS,Difccs,/;"	v
-ETSPCT	SMARTS/Scripts/Code/smarts.f	/^      REAL VL(515),ETSPCT(/;"	v
-FHTO	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO3,TAUZ3,DIR,DIF0,DIF,GLOB,GLOBS,DIRH,FHTO,/;"	v
-FileExt	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*100 FileIn,FileOut,FileExt,/;"	v
-FileIn	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*100 FileIn,/;"	v
-FileOut	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*100 FileIn,FileOut,/;"	v
-FileScn	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*100 FileIn,FileOut,FileExt,FileScn,/;"	v
-Filen1	SMARTS/Scripts/Code/smarts.f	/^      Character*24 Filen1,/;"	v
-Filen2	SMARTS/Scripts/Code/smarts.f	/^      Character*24 Filen1, Filen2,/;"	v
-Filter	SMARTS/Scripts/Code/smarts.f	/^      Character*12 Filter$/;"	v
-GAMOZ	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TABS,TDIR,DAER,PFGS,PFD,PFB,GAMOZ,/;"	v
-GLOB	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO3,TAUZ3,DIR,DIF0,DIF,GLOB,/;"	v
-GLOBH	SMARTS/Scripts/Code/smarts.f	/^      Double Precision BNORM(2002),GLOBH(/;"	v
-GLOBS	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO3,TAUZ3,DIR,DIF0,DIF,GLOB,GLOBS,/;"	v
-GLOBT	SMARTS/Scripts/Code/smarts.f	/^      Double Precision BNORM(2002),GLOBH(2002),GLOBT(/;"	v
-GRNS	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TABS,TDIR,DAER,PFGS,PFD,PFB,GAMOZ,WPHT,GRNS$/;"	v
-GSCH2O	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSCH2O(/;"	s
-GSCH4	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSCH4(/;"	s
-GSCO	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSCO(/;"	s
-GSHNO2	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSHNO2(/;"	s
-GSHNO3	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSHNO3(/;"	s
-GSNO	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSNO(/;"	s
-GSNO2	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSNO2(/;"	s
-GSNO3	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSNO3(/;"	s
-GSO3U	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSO3U(/;"	s
-GSSO2I	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSSO2I(/;"	s
-GSSO2U	SMARTS/Scripts/Code/smarts.f	/^      Subroutine GSSO2U(/;"	s
-Gases	SMARTS/Scripts/Code/smarts.f	/^      Subroutine Gases(/;"	s
-Glob0	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRWL,SUMBN,SUMBX,SUMD,SUMDX,SUMBS,Difccs,Glob0$/;"	v
-HT	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRS,DIFS,DIREXP,DIFEXP,DGRND,HT,/;"	v
-HTa	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Julian,dec,Longit,Latit,phi2,xlim,HTa$/;"	v
-IOUT	SMARTS/Scripts/Code/smarts.f	/^      INTEGER IOUT(/;"	v
-Interp	SMARTS/Scripts/Code/smarts.f	/^      Subroutine Interp /;"	s
-Julian	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Julian,/;"	v
-KW	SMARTS/Scripts/Code/smarts.f	/^      Real Bmx(2),Bmwx(2),intvl,KW$/;"	v
-Lambr1	SMARTS/Scripts/Code/smarts.f	/^      Character*24 Filen1, Filen2, Lambr1,/;"	v
-Lambr2	SMARTS/Scripts/Code/smarts.f	/^      Character*24 Filen1, Filen2, Lambr1, Lambr2$/;"	v
-Latit	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Julian,dec,Longit,Latit,/;"	v
-Load	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*24 Load$/;"	v
-Longit	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Julian,dec,Longit,/;"	v
-MnPhFn	SMARTS/Scripts/Code/smarts.f	4828;"	c	blockData:PhData
-MnPhFn	SMARTS/Scripts/Code/smarts.f	4897;"	c	function:PhF1
-NLosch	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO2,TO2P,TCO2,TCO2P,NLosch,/;"	v
-Nday	SMARTS/Scripts/Code/smarts.f	/^      Function Nday(/;"	f
-Number	SMARTS/Scripts/Code/smarts.f	4316;"	c	subroutine:GSCH2O
-Number	SMARTS/Scripts/Code/smarts.f	4339;"	c	subroutine:GSHNO2
-Number	SMARTS/Scripts/Code/smarts.f	4354;"	c	subroutine:GSHNO3
-Number	SMARTS/Scripts/Code/smarts.f	4378;"	c	subroutine:GSNO2
-Number	SMARTS/Scripts/Code/smarts.f	4392;"	c	subroutine:GSNO3
-Number	SMARTS/Scripts/Code/smarts.f	4407;"	c	subroutine:GSO3U
-Number	SMARTS/Scripts/Code/smarts.f	4425;"	c	subroutine:GSSO2U
-Number	SMARTS/Scripts/Code/smarts.f	83;"	c
-OBJECTS	SMARTS/Scripts/Code/Makefile	/^OBJECTS=$(SOURCES:.f=.out)$/;"	m
-Out	SMARTS/Scripts/Code/smarts.f	/^      Character*24 Out(/;"	v
-Output	SMARTS/Scripts/Code/smarts.f	/^      REAL VL(515),ETSPCT(2002),Output(/;"	v
-Output compilation	SMARTS/README.md	/^## Output compilation$/;"	s	chapter:SMARTS model
-Ozon	SMARTS/Scripts/Code/smarts.f	/^      Subroutine Ozon(/;"	s
-Ozon2	SMARTS/Scripts/Code/smarts.f	/^      Subroutine Ozon2(/;"	s
-Ozone	make_SMARTS_input.py	/^Ozone = read_csv(filename,$/;"	v
-PFB	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TABS,TDIR,DAER,PFGS,PFD,PFB,/;"	v
-PFBeV	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PPFG,PPFB,PPFD,PPFGS,PhoteV,PFGeV,PFBeV,/;"	v
-PFD	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TABS,TDIR,DAER,PFGS,PFD,/;"	v
-PFDeV	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PPFG,PPFB,PPFD,PPFGS,PhoteV,PFGeV,PFBeV,PFDeV$/;"	v
-PFGS	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TABS,TDIR,DAER,PFGS,/;"	v
-PFGSeV	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PFGSeV,/;"	v
-PFGeV	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PPFG,PPFB,PPFD,PPFGS,PhoteV,PFGeV,/;"	v
-PPFB	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PPFG,PPFB,/;"	v
-PPFD	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PPFG,PPFB,PPFD,/;"	v
-PPFG	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PPFG,/;"	v
-PPFGS	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PPFG,PPFB,PPFD,PPFGS,/;"	v
-Path	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*2000 Path$/;"	v
-PhData	SMARTS/Scripts/Code/smarts.f	/^      BLOCK DATA PhData$/;"	b
-PhF1	SMARTS/Scripts/Code/smarts.f	/^      Function PhF1 /;"	f
-Phase1	SMARTS/Scripts/Code/smarts.f	/^      Subroutine Phase1(/;"	s
-Phase2	SMARTS/Scripts/Code/smarts.f	/^      Subroutine Phase2(/;"	s
-Phot	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tmixd,TmixdP,Trace,TraceP,Phot,/;"	v
-PhoteV	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PPFG,PPFB,PPFD,PPFGS,PhoteV,/;"	v
-Prod	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO2,TO2P,TCO2,TCO2P,NLosch,Bw,Bp,Prod,/;"	v
-RB0	SMARTS/Scripts/Code/smarts.f	/^      REAL RB0(/;"	v
-RB1	SMARTS/Scripts/Code/smarts.f	/^      REAL RB0(4),RB1(/;"	v
-RB2	SMARTS/Scripts/Code/smarts.f	/^      REAL RB0(4),RB1(4),RB2(/;"	v
-RB3	SMARTS/Scripts/Code/smarts.f	/^      REAL RB0(4),RB1(4),RB2(4),RB3(/;"	v
-RDHB	SMARTS/Scripts/Code/smarts.f	/^      REAL RB0(4),RB1(4),RB2(4),RB3(4),RDHB(/;"	v
-RD_decision	SMARTS/Scripts/SMARTS_algorithm.py	/^    def RD_decision(self, model: float, measurement: float) -> tuple:$/;"	m	class:SMARTS_DR	typeref:typename:tuple
-RD_search	SMARTS/Scripts/SMARTS_algorithm.py	/^    def RD_search(self, RD: float) -> bool:$/;"	m	class:SMARTS_DR	typeref:typename:bool
-RSUN	SMARTS/Scripts/Code/smarts.f	/^      REAL DECLI(12),RSUN(/;"	v
-RefAtm	SMARTS/Scripts/Code/smarts.f	/^      SUBROUTINE RefAtm(/;"	s
-Requeriments	SMARTS/README.md	/^## Requeriments$/;"	s	chapter:SMARTS model
-Rhor	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tmixd,TmixdP,Trace,TraceP,Phot,Rhor,/;"	v
-Rhos	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tmixd,TmixdP,Trace,TraceP,Phot,Rhor,Rhos,/;"	v
-Roro	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tmixd,TmixdP,Trace,TraceP,Phot,Rhor,Rhos,Roro,/;"	v
-SEASON	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*6 SEASON,/;"	v
+GHI	get_clear_sky.py	/^GHI = model.run(params)$/;"	v
 SIMA	Daily_graphics.py	/^SIMA = SIMA_model()$/;"	v
-SIMA_daily	Daily_graphics.py	/^        SIMA_daily = SIMA.get_data_date(date)$/;"	v
+SIMA	get_clear_sky.py	/^SIMA = SIMA_model()$/;"	v
+SIMA	get_differences_and_ratios.py	/^SIMA = SIMA_model()$/;"	v
+SIMA_daily	Daily_graphics.py	/^    SIMA_daily = SIMA.get_data_date(date)$/;"	v
+SIMA_daily	get_differences_and_ratios.py	/^    SIMA_daily = SIMA.get_data_date(date)$/;"	v
+SIMA_daily	get_differences_and_ratios.py	/^    SIMA_daily = get_data_between_hours(SIMA_daily,$/;"	v
 SIMA_model	Modules/data_model.py	/^class SIMA_model:$/;"	c
 SMARTS	Daily_graphics.py	/^SMARTS = SMARTS_model()$/;"	v
-SMARTS	SMARTS/Scripts/SMARTS_algorithm.py	/^class SMARTS:$/;"	c
-SMARTS model	SMARTS/README.md	/^# SMARTS model$/;"	c
-SMARTS_DR	SMARTS/Scripts/SMARTS_algorithm.py	/^class SMARTS_DR(SMARTS):$/;"	c
-SMARTS_DR_SSAAER_CUSTOM	SMARTS/Scripts/SMARTS_algorithm.py	/^class SMARTS_DR_SSAAER_CUSTOM(SMARTS_DR):$/;"	c
-SMARTS_Model	SMARTS/Scripts/SMARTS_DM.py	/^    SMARTS_Model = SMARTS(params,$/;"	v
-SMARTS_daily	Daily_graphics.py	/^            SMARTS_daily = SMARTS.read(filename)$/;"	v
-SMARTS_daily	Daily_graphics.py	/^            SMARTS_daily = hourly_mean(SMARTS_daily)$/;"	v
-SMARTS_model	Modules/data_model.py	/^class SMARTS_model:$/;"	c
-SOLAR1	SMARTS/Scripts/Code/smarts.f	5393;"	c	subroutine:ScanG
-SOLAR1	SMARTS/Scripts/Code/smarts.f	5493;"	c	subroutine:ScanT
-SOLAR1	SMARTS/Scripts/Code/smarts.f	79;"	c
-SOLAR2	SMARTS/Scripts/Code/smarts.f	5394;"	c	subroutine:ScanG
-SOLAR2	SMARTS/Scripts/Code/smarts.f	5494;"	c	subroutine:ScanT
-SOLAR2	SMARTS/Scripts/Code/smarts.f	80;"	c
-SOURCES	SMARTS/Scripts/Code/Makefile	/^SOURCES=smarts.f$/;"	m
-STEPS	SMARTS/Scripts/Code/smarts.f	/^      SUBROUTINE STEPS /;"	s
-SUMBN	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRWL,SUMBN,/;"	v
-SUMBS	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRWL,SUMBN,SUMBX,SUMD,SUMDX,SUMBS,/;"	v
-SUMBX	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRWL,SUMBN,SUMBX,/;"	v
-SUMD	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRWL,SUMBN,SUMBX,SUMD,/;"	v
-SUMDX	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRWL,SUMBN,SUMBX,SUMD,SUMDX,/;"	v
-ScanG	SMARTS/Scripts/Code/smarts.f	/^      Subroutine ScanG(/;"	s
-ScanT	SMARTS/Scripts/Code/smarts.f	/^      Subroutine ScanT(/;"	s
-Seasn2	SMARTS/Scripts/Code/smarts.f	/^      Character*24 Out(54), Seasn2$/;"	v
-Solar3	SMARTS/Scripts/Code/smarts.f	4105;"	c	subroutine:Circum
-Solar3	SMARTS/Scripts/Code/smarts.f	81;"	c
-Spctrm	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*64 AEROS, Spctrm,/;"	v
-SunPSA	SMARTS/Scripts/Code/smarts.f	/^      Subroutine SunPSA(/;"	s
-TAAP	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tcoro3,tz3,AO4,TO4,TO4P,TxO3,TABS0,TABS0p,TAAP$/;"	v
-TABS	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TABS,/;"	v
-TABS0	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tcoro3,tz3,AO4,TO4,TO4P,TxO3,TABS0,/;"	v
-TABS0p	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tcoro3,tz3,AO4,TO4,TO4P,TxO3,TABS0,TABS0p,/;"	v
-TAUZ3	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO3,TAUZ3,/;"	v
-TCO2	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO2,TO2P,TCO2,/;"	v
-TCO2P	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO2,TO2P,TCO2,TCO2P,/;"	v
-TDIR	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TABS,TDIR,/;"	v
-TH2O	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRS,DIFS,DIREXP,DIFEXP,DGRND,HT,DRAY,TH2O,/;"	v
-TH2OP	SMARTS/Scripts/Code/smarts.f	/^      Double Precision DIRS,DIFS,DIREXP,DIFEXP,DGRND,HT,DRAY,TH2O,TH2OP$/;"	v
-TO2	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO2,/;"	v
-TO2P	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO2,TO2P,/;"	v
-TO3	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO3,/;"	v
-TO4	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tcoro3,tz3,AO4,TO4,/;"	v
-TO4P	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tcoro3,tz3,AO4,TO4,TO4P,/;"	v
-TTP5	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PFGSeV,Avogad,evolt,sumd0,fht1,upward,TTP5$/;"	v
-Tcoro3	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tcoro3,/;"	v
-Tmixd	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tmixd,/;"	v
-TmixdP	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tmixd,TmixdP,/;"	v
-Trace	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tmixd,TmixdP,Trace,/;"	v
-TraceP	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tmixd,TmixdP,Trace,TraceP,/;"	v
-TxO3	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tcoro3,tz3,AO4,TO4,TO4P,TxO3,/;"	v
-UVDAT	SMARTS/Scripts/Code/smarts.f	/^      SUBROUTINE UVDAT(/;"	s
-Usernm	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*100 FileIn,FileOut,FileExt,FileScn, Usernm$/;"	v
-VISTAU	SMARTS/Scripts/Code/smarts.f	/^      Subroutine VISTAU(/;"	s
-VL	SMARTS/Scripts/Code/smarts.f	/^      REAL VL(/;"	v
-WPHT	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TABS,TDIR,DAER,PFGS,PFD,PFB,GAMOZ,WPHT,/;"	v
-WV	SMARTS/Scripts/Code/smarts.f	/^      REAL BQ0(7),BQ1(7),BQ2(7),AG41(4),AG42(4),WV(/;"	v
-Wvla1	SMARTS/Scripts/Code/smarts.f	/^      Real Wvla1(/;"	v
-Wvla2	SMARTS/Scripts/Code/smarts.f	/^      Real Wvla1(3000),Albdo1(3000),Wvla2(/;"	v
-Xout	SMARTS/Scripts/Code/smarts.f	/^      REAL VL(515),ETSPCT(2002),Output(54),Xout(/;"	v
-YesNo	SMARTS/Scripts/Code/smarts.f	/^      CHARACTER*4 Atmos, YesNo$/;"	v
+SMARTS	get_differences_and_ratios.py	/^SMARTS = SMARTS_model()$/;"	v
+SMARTS_daily	Daily_graphics.py	/^        SMARTS_daily = SMARTS.read(filename)$/;"	v
+SMARTS_daily	Daily_graphics.py	/^        SMARTS_daily = hourly_mean(SMARTS_daily)$/;"	v
+SMARTS_daily	get_differences_and_ratios.py	/^    SMARTS_daily = SMARTS.read(file)$/;"	v
+SMARTS_daily	get_differences_and_ratios.py	/^    SMARTS_daily = hourly_mean(SMARTS_daily)$/;"	v
+__init__	Modules/clear_sky.py	/^    def __init__(self) -> None:$/;"	m	class:clear_sky_model	typeref:typename:None
 __init__	Modules/data_model.py	/^    def __init__(self) -> None:$/;"	m	class:SIMA_model	typeref:typename:None
-__init__	Modules/data_model.py	/^    def __init__(self) -> None:$/;"	m	class:SMARTS_model	typeref:typename:None
-__init__	SMARTS/Scripts/SMARTS_algorithm.py	/^    def __init__(self, parameters: dict, station: str) -> None:$/;"	m	class:SMARTS	typeref:typename:None
-__init__	SMARTS/Scripts/SMARTS_algorithm.py	/^    def __init__(self, parameters: dict, station: str) -> None:$/;"	m	class:SMARTS_DR	typeref:typename:None
-__init__	SMARTS/Scripts/SMARTS_algorithm.py	/^    def __init__(self, parameters: dict, station: str) -> None:$/;"	m	class:SMARTS_DR_SSAAER_CUSTOM	typeref:typename:None
-aod	make_SMARTS_input.py	/^    aod = AOD["500nm"][date]$/;"	v
-aod_binary_search	SMARTS/Scripts/SMARTS_algorithm.py	/^    def aod_binary_search(self, aod: float, RD: float) -> float:$/;"	m	class:SMARTS_DR	typeref:typename:float
-atmosphere_state	SMARTS/Scripts/SMARTS_algorithm.py	/^    def atmosphere_state(self):$/;"	m	class:SMARTS
+__init__	Modules/extraterrestrial_solar.py	/^    def __init__(self) -> None:$/;"	m	class:extraterrestial_solar_model	typeref:typename:None
+_get_datetime	Modules/clear_sky.py	/^    def _get_datetime(self,$/;"	m	class:clear_sky_model	typeref:typename:str
+_get_day_and_hour	Modules/extraterrestrial_solar.py	/^    def _get_day_and_hour(self,$/;"	m	class:extraterrestial_solar_model	typeref:typename:tuple
+_get_declination_angle	Modules/extraterrestrial_solar.py	/^    def _get_declination_angle(self,$/;"	m	class:extraterrestial_solar_model	typeref:typename:float
+_get_eccentricity_correction	Modules/extraterrestrial_solar.py	/^    def _get_eccentricity_correction(self,$/;"	m	class:extraterrestial_solar_model	typeref:typename:float
+_get_gamma	Modules/extraterrestrial_solar.py	/^    def _get_gamma(self,$/;"	m	class:extraterrestial_solar_model	typeref:typename:float
+_get_hour	Modules/clear_sky.py	/^    def _get_hour(self, minutes: int) -> str:$/;"	m	class:clear_sky_model	typeref:typename:str
+_get_hour_correction	Modules/extraterrestrial_solar.py	/^    def _get_hour_correction(self,$/;"	m	class:extraterrestial_solar_model	typeref:typename:float
+_get_hour_from_datetime	Modules/extraterrestrial_solar.py	/^    def _get_hour_from_datetime(self,$/;"	m	class:extraterrestial_solar_model	typeref:typename:float
+_get_minute	Modules/clear_sky.py	/^    def _get_minute(self, minutes: int) -> str:$/;"	m	class:clear_sky_model	typeref:typename:str
+_get_offset	Modules/extraterrestrial_solar.py	/^    def _get_offset(self,$/;"	m	class:extraterrestial_solar_model	typeref:typename:float
+_get_solar_hour_angle	Modules/extraterrestrial_solar.py	/^    def _get_solar_hour_angle(self,$/;"	m	class:extraterrestial_solar_model	typeref:typename:float
+_get_time	Modules/clear_sky.py	/^    def _get_time(self, minutes: int) -> str:$/;"	m	class:clear_sky_model	typeref:typename:str
 bar	Count_data.py	/^bar = tqdm(files)$/;"	v
 bar	Daily_graphics.py	/^bar = tqdm(data.index)$/;"	v
-batch	SMARTS/Scripts/Code/smarts.f	/^      LOGICAL batch$/;"	v
-clean	SMARTS/Scripts/Code/Makefile	/^clean:$/;"	t
+bar	get_differences_and_ratios.py	/^bar = tqdm(classification.index)$/;"	v
+classification	get_differences_and_ratios.py	/^classification = read_csv(filename,$/;"	v
+clear_sky_model	Modules/clear_sky.py	/^class clear_sky_model:$/;"	c
 columns	Count_data.py	/^    columns = [(station, value)$/;"	v
 columns	Count_data.py	/^    columns = data.columns$/;"	v
 columns	organize_2021_data.py	/^    columns = list(results.columns)$/;"	v
+comparison	get_differences_and_ratios.py	/^    comparison = comparison_operation(SIMA_daily,$/;"	v
+comparison_operation	get_differences_and_ratios.py	/^def comparison_operation(measurement: DataFrame, model: DataFrame, operation: str) -> DataFrame:$/;"	f	typeref:typename:DataFrame
 data	Count_data.py	/^    data = data >= params["Minimum data per day"]$/;"	v
 data	Count_data.py	/^    data = data >= params["Minimum data per month"]$/;"	v
 data	Count_data.py	/^    data = data.resample("D").count()$/;"	v
@@ -772,123 +58,91 @@ data	Count_data.py	/^    data = data[data.index.hour <= 19]$/;"	v
 data	Count_data.py	/^    data = data[data.index.hour >= 8]$/;"	v
 data	Count_data.py	/^    data = read_csv(filename,$/;"	v
 data	Daily_graphics.py	/^data = read_csv(filename)$/;"	v
-data	SMARTS/Scripts/SMARTS_DM.py	/^    data = read_csv(filename)$/;"	v
-data	make_SMARTS_input.py	/^data = DataFrame(columns=["Date",$/;"	v
+data	get_clear_sky.py	/^data = SIMA.get_data_date(params["date"])$/;"	v
 data	organize_2021_data.py	/^        data = data_format(data)$/;"	v
 data	organize_2021_data.py	/^        data = read_csv(file)$/;"	v
 data	test_pvlib.py	/^data = data.get_data_date(params["Date"])$/;"	v
 data	test_pvlib.py	/^data = data_model()$/;"	v
 data_format	organize_2021_data.py	/^def data_format(data: DataFrame) -> DataFrame:$/;"	f	typeref:typename:DataFrame
-date	Daily_graphics.py	/^        date = data["Fecha"][index]$/;"	v
-date	make_SMARTS_input.py	/^    date = yyyy_mm_dd2yymmdd(date)$/;"	v
+date	Daily_graphics.py	/^    date = data["Fecha"][index]$/;"	v
+date	get_differences_and_ratios.py	/^    date = date.date()$/;"	v
 date_format	organize_2021_data.py	/^def date_format(date: str) -> str:$/;"	f	typeref:typename:str
 dates	make_template_classification.py	/^dates = [file.split(".")[0]$/;"	v
-day	SMARTS/Scripts/Code/smarts.f	/^      INTEGER IOUT(54),CIEYr,year,day,/;"	v
-day	make_SMARTS_input.py	/^    day = date.day$/;"	v
-dec	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Julian,dec,/;"	v
-define_location	SMARTS/Scripts/SMARTS_algorithm.py	/^    def define_location(self, station: str) -> None:$/;"	m	class:SMARTS	typeref:typename:None
-dummy	SMARTS/Scripts/Code/smarts.f	/^      Character*48 dummy,/;"	v
-evolt	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PFGSeV,Avogad,evolt,/;"	v
-fht1	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PFGSeV,Avogad,evolt,sumd0,fht1,/;"	v
+extraterrestial_solar_model	Modules/extraterrestrial_solar.py	/^class extraterrestial_solar_model:$/;"	c
+file	get_differences_and_ratios.py	/^        file = f"{year}.csv"$/;"	v
+file	get_differences_and_ratios.py	/^        file = join(params["path data"],$/;"	v
+file	get_differences_and_ratios.py	/^    file = f"{file}.txt"$/;"	v
+file	get_differences_and_ratios.py	/^    file = join(params["path SMARTS data"],$/;"	v
+file	get_differences_and_ratios.py	/^    file = yyyy_mm_dd2yymmdd(date)$/;"	v
 filename	Count_data.py	/^    filename = join(params["path data"],$/;"	v
 filename	Count_data.py	/^filename = join(params["path results"],$/;"	v
-filename	Daily_graphics.py	/^            filename = f"{data['Date'][index]}.txt"$/;"	v
-filename	Daily_graphics.py	/^            filename = join(params["path station data"],$/;"	v
+filename	Daily_graphics.py	/^        filename = f"{data['Date'][index]}.txt"$/;"	v
 filename	Daily_graphics.py	/^        filename = f"{year}.csv"$/;"	v
 filename	Daily_graphics.py	/^        filename = join(params["path SIMA data"],$/;"	v
+filename	Daily_graphics.py	/^        filename = join(params["path station data"],$/;"	v
 filename	Daily_graphics.py	/^filename = join(params["path station data"],$/;"	v
-filename	SMARTS/Scripts/SMARTS_DM.py	/^    filename = join(station_path,$/;"	v
-filename	make_SMARTS_input.py	/^filename = join(params["path data"],$/;"	v
-filename	make_SMARTS_input.py	/^filename = join(params["path results"],$/;"	v
+filename	get_clear_sky.py	/^filename = join(params["path data"],$/;"	v
+filename	get_differences_and_ratios.py	/^filename = join(params["path SMARTS data"],$/;"	v
+filename	get_differences_and_ratios.py	/^filename = join(params["path results"],$/;"	v
 filename	make_template_classification.py	/^filename = join(params["path SMARTS data"],$/;"	v
 filename	test_pvlib.py	/^filename = join(params["path data"],$/;"	v
 files	Count_data.py	/^files = sorted(ls(params["path data"]))$/;"	v
 files	make_template_classification.py	/^files = ls(path)$/;"	v
 files	organize_2021_data.py	/^    files = [file$/;"	v
 files	organize_2021_data.py	/^    files = sorted(ls())$/;"	v
-fill_number	Modules/functions.py	/^def fill_number(number: int, zfill: int) -> str:$/;"	f	typeref:typename:str
-fill_number	SMARTS/Scripts/functions.py	/^def fill_number(number: int, fill: int) -> str:$/;"	f	typeref:typename:str
-fill_year	Modules/data_model.py	/^    def fill_year(self,$/;"	m	class:SMARTS_model	typeref:typename:DataFrame
-format_time	Modules/data_model.py	/^    def format_time(self, hour: float) -> str:$/;"	m	class:SMARTS_model	typeref:typename:str
-get_data_date	Modules/data_model.py	/^    def get_data_date(self, date: str) -> DataFrame:$/;"	m	class:SIMA_model	typeref:typename:DataFrame
+fill_number	Modules/functions.py	/^def fill_number(number: int,$/;"	f	typeref:typename:str
+get_H0	Modules/extraterrestrial_solar.py	/^    def get_H0(self,$/;"	m	class:extraterrestial_solar_model	typeref:typename:float
+get_data_between_hours	get_differences_and_ratios.py	/^def get_data_between_hours(data: DataFrame, params: dict) -> DataFrame:$/;"	f	typeref:typename:DataFrame
+get_data_date	Modules/data_model.py	/^    def get_data_date(self,$/;"	m	class:SIMA_model	typeref:typename:DataFrame
 get_parameter_name	organize_2021_data.py	/^def get_parameter_name(file: str) -> str:$/;"	f	typeref:typename:str
 get_params	Modules/params.py	/^def get_params() -> dict:$/;"	f	typeref:typename:dict
-get_station_data	Modules/data_model.py	/^    def get_station_data(self, station: str, pollutant: str) -> DataFrame:$/;"	m	class:SIMA_model	typeref:typename:DataFrame
-hour_and_minute_to_hours	SMARTS/Scripts/SMARTS_algorithm.py	/^    def hour_and_minute_to_hours(self, minute: int) -> float:$/;"	m	class:SMARTS	typeref:typename:float
-hourly_mean	Daily_graphics.py	/^def hourly_mean(data: DataFrame) -> DataFrame:$/;"	f	typeref:typename:DataFrame
-initialize_aod	SMARTS/Scripts/SMARTS_algorithm.py	/^    def initialize_aod(self, aod_i: float, aod_lim: float) -> None:$/;"	m	class:SMARTS_DR	typeref:typename:None
-intvl	SMARTS/Scripts/Code/smarts.f	/^      Real Bmx(2),Bmwx(2),intvl,/;"	v
-limit	SMARTS/Scripts/Code/smarts.f	/^      REAL RB0(4),RB1(4),RB2(4),RB3(4),RDHB(4),limit$/;"	v
+get_station_data	Modules/data_model.py	/^    def get_station_data(self,$/;"	m	class:SIMA_model	typeref:typename:DataFrame
+hourly_mean	Modules/functions.py	/^def hourly_mean(data: DataFrame) -> DataFrame:$/;"	f	typeref:typename:DataFrame
 location	test_pvlib.py	/^location = Location($/;"	v
 ls	Count_data.py	/^from os import listdir as ls$/;"	x	nameref:unknown:listdir
 ls	Modules/functions.py	/^def ls(path: str) -> list:$/;"	f	typeref:typename:list
 ls	organize_2021_data.py	/^from os import listdir as ls$/;"	x	nameref:unknown:listdir
-mkdir	SMARTS/Scripts/functions.py	/^def mkdir(path: str) -> None:$/;"	f	typeref:typename:None
+model	get_clear_sky.py	/^model = clear_sky_model()$/;"	v
 model	test_pvlib.py	/^model = location.get_clearsky($/;"	v
-month	make_SMARTS_input.py	/^    month = date.month$/;"	v
 montly	Count_data.py	/^        montly = data.loc[(station, value)]$/;"	v
-n_null	Daily_graphics.py	/^        n_null = int(SIMA_daily.isnull().sum())$/;"	v
-obtain_aod	SMARTS/Scripts/SMARTS_algorithm.py	/^    def obtain_aod(self, aod_i: float, aod_f: float) -> float:$/;"	m	class:SMARTS_DR	typeref:typename:float
-obtain_maximum_from_results	SMARTS/Scripts/SMARTS_algorithm.py	/^    def obtain_maximum_from_results(self, name, path=""):$/;"	m	class:SMARTS_DR
-ozone	make_SMARTS_input.py	/^    ozone = Ozone["Ozone"][date]$/;"	v
+n_null	Daily_graphics.py	/^    n_null = int(SIMA_daily.isnull().sum())$/;"	v
 parameter	organize_2021_data.py	/^        parameter = get_parameter_name(file)$/;"	v
 parameters	organize_2021_data.py	/^    parameters = DataFrame(parameters,$/;"	v
 parameters	organize_2021_data.py	/^    parameters = [[column[1]$/;"	v
 params	Count_data.py	/^params = {$/;"	v
 params	Daily_graphics.py	/^params = get_params()$/;"	v
-params	SMARTS/Scripts/SMARTS_DM.py	/^params = {$/;"	v
-params	make_SMARTS_input.py	/^params = {$/;"	v
+params	get_clear_sky.py	/^params = get_params()$/;"	v
+params	get_differences_and_ratios.py	/^params = get_params()$/;"	v
 params	make_template_classification.py	/^params = get_params()$/;"	v
 params	test_pvlib.py	/^params = {$/;"	v
 path	make_template_classification.py	/^path = join(params["path graphics"],$/;"	v
-path_results	SMARTS/Scripts/SMARTS_DM.py	/^    path_results = join(station_path,$/;"	v
-phi2	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Julian,dec,Longit,Latit,phi2,/;"	v
 plot	Daily_graphics.py	/^def plot(SMARTS: DataFrame, SIMA: DataFrame, params: dict) -> None:$/;"	f	typeref:typename:None
 plt	Daily_graphics.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
+plt	get_clear_sky.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
+plt	get_differences_and_ratios.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	test_pvlib.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
-read	Modules/data_model.py	/^    def read(self, filename: str) -> DataFrame:$/;"	m	class:SIMA_model	typeref:typename:DataFrame
-read	Modules/data_model.py	/^    def read(self, filename: str) -> DataFrame:$/;"	m	class:SMARTS_model	typeref:typename:DataFrame
-read_results	SMARTS/Scripts/SMARTS_algorithm.py	/^    def read_results(self, name_result: str = "data.ext.txt"):$/;"	m	class:SMARTS
+read	Modules/data_model.py	/^    def read(self,$/;"	m	class:SIMA_model	typeref:typename:DataFrame
 results	Count_data.py	/^results = DataFrame(results)$/;"	v
 results	Count_data.py	/^results = dict()$/;"	v
 results	Count_data.py	/^results = results.T$/;"	v
+results	get_differences_and_ratios.py	/^    results = concat([results, comparison[0]],$/;"	v
+results	get_differences_and_ratios.py	/^results = DataFrame()$/;"	v
 results	organize_2021_data.py	/^        results = concat($/;"	v
 results	organize_2021_data.py	/^    results = DataFrame()$/;"	v
 results	organize_2021_data.py	/^    results = concat([parameters,$/;"	v
 results	organize_2021_data.py	/^    results = concat([stations,$/;"	v
 results	organize_2021_data.py	/^    results = results[columns]$/;"	v
 results	test_pvlib.py	/^results = model.groupby(model.index.hour).mean()$/;"	v
-rocb	SMARTS/Scripts/Code/smarts.f	/^      Double Precision TO3,TAUZ3,DIR,DIF0,DIF,GLOB,GLOBS,DIRH,FHTO,rocb$/;"	v
-run	SMARTS/Scripts/SMARTS_algorithm.py	/^    def run(self,$/;"	m	class:SMARTS	typeref:typename:array
-run_search	SMARTS/Scripts/SMARTS_algorithm.py	/^    def run_search(self) -> DataFrame:$/;"	m	class:SMARTS_DR	typeref:typename:DataFrame
-select_path_name_for_results	SMARTS/Scripts/SMARTS_algorithm.py	/^    def select_path_name_for_results(self) -> dict:$/;"	m	class:SMARTS_DR	typeref:typename:dict
-smart	SMARTS/Scripts/Code/smarts.f	/^      Character*48 dummy, smart$/;"	v
-station_path	SMARTS/Scripts/SMARTS_DM.py	/^    station_path = join(params["path stations"],$/;"	v
+run	Modules/clear_sky.py	/^    def run(self, params: dict) -> DataFrame:$/;"	m	class:clear_sky_model	typeref:typename:DataFrame
 stations	organize_2021_data.py	/^    stations = DataFrame(stations,$/;"	v
 stations	organize_2021_data.py	/^    stations = [[column[0]$/;"	v
 stations	organize_2021_data.py	/^stations = {$/;"	v
-sumd0	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PFGSeV,Avogad,evolt,sumd0,/;"	v
-taa	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmO2,AmCO2,tauo2,tauco2,taa,/;"	v
-tas	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmO2,AmCO2,tauo2,tauco2,taa,tas,/;"	v
-tat	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmO2,AmCO2,tauo2,tauco2,taa,tas,tat$/;"	v
-tauco2	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmO2,AmCO2,tauo2,tauco2,/;"	v
-tauo2	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmO2,AmCO2,tauo2,/;"	v
-tauw	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmH2O,wAmw,wAmp,tauw,/;"	v
 template	make_template_classification.py	/^template = DataFrame(dates,$/;"	v
-terminal	SMARTS/Scripts/SMARTS_algorithm.py	/^from os import system as terminal$/;"	x	nameref:unknown:system
 times	test_pvlib.py	/^times = date_range($/;"	v
-tz3	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Tcoro3,tz3,/;"	v
-upward	SMARTS/Scripts/Code/smarts.f	/^      Double Precision PFGSeV,Avogad,evolt,sumd0,fht1,upward,/;"	v
-wAmp	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmH2O,wAmw,wAmp,/;"	v
-wAmw	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmH2O,wAmw,/;"	v
-write_data_input	SMARTS/Scripts/SMARTS_algorithm.py	/^    def write_data_input(self, day: int,$/;"	m	class:SMARTS	typeref:typename:None
-write_data_input	SMARTS/Scripts/SMARTS_algorithm.py	/^    def write_data_input(self, day: int,$/;"	m	class:SMARTS_DR_SSAAER_CUSTOM	typeref:typename:None
-ww02	SMARTS/Scripts/Code/smarts.f	/^      Double Precision AmH2O,wAmw,wAmp,tauw,Bmw,Bmwp,ww02$/;"	v
-xlim	SMARTS/Scripts/Code/smarts.f	/^      Double Precision Julian,dec,Longit,Latit,phi2,xlim,/;"	v
 year	Count_data.py	/^    year = file.split(".")[0]$/;"	v
 year	Daily_graphics.py	/^        year = data["year"][index]$/;"	v
 year	Daily_graphics.py	/^year = ""$/;"	v
-year	SMARTS/Scripts/Code/smarts.f	/^      INTEGER IOUT(54),CIEYr,year,/;"	v
-year	make_SMARTS_input.py	/^    year = date.year$/;"	v
+year	get_differences_and_ratios.py	/^        year = date.year$/;"	v
+year	get_differences_and_ratios.py	/^year = ""$/;"	v
 yymmdd2yyyy_mm_dd	Modules/functions.py	/^def yymmdd2yyyy_mm_dd(date: int) -> str:$/;"	f	typeref:typename:str
 yyyy_mm_dd2yymmdd	Modules/functions.py	/^def yyyy_mm_dd2yymmdd(date: Timestamp) -> str:$/;"	f	typeref:typename:str

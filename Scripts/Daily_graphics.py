@@ -1,22 +1,29 @@
-from pandas import read_csv, to_datetime, DataFrame, to_timedelta
-from Modules.data_model import SIMA_model, SMARTS_model
-from Modules.functions import yymmdd2yyyy_mm_dd
+from pandas import (read_csv,
+                    to_datetime,
+                    DataFrame,
+                    to_timedelta)
+from Modules.data_model import (SIMA_model,
+                                clear_sky_data)
+from Modules.functions import (hourly_mean,
+                               mkdir)
 from Modules.params import get_params
 import matplotlib.pyplot as plt
 from os.path import join
 from tqdm import tqdm
 
 
-def plot(SMARTS: DataFrame, SIMA: DataFrame, params: dict) -> None:
+def plot(SIMA: DataFrame,
+         Clear_sky: DataFrame,
+         params: dict) -> None:
     date = SIMA.index[0].date()
     plt.subplots(figsize=(8, 4))
     plt.title(date)
-    hours = SIMA[7:17].index+to_timedelta("00:15:00")
-    SMARTS.index = hours
-    SIMA.index = SIMA.index-to_timedelta("00:30:00")
-    plt.plot(hours,
-             SMARTS,
-             label="SMARTS model",
+    # hours = SIMA[7:17]
+    # hours = SIMA[6:20].index+to_timedelta("00:30:00")
+    # SMARTS.index = hours
+    # SIMA.index = SIMA.index-to_timedelta("00:30:00")
+    plt.plot(Clear_sky,
+             label="Clear sky model",
              color="#003049",
              ls="--",
              marker="o")
@@ -28,10 +35,10 @@ def plot(SMARTS: DataFrame, SIMA: DataFrame, params: dict) -> None:
     plt.ylabel("Irradiance solar (W/m$^2$)")
     plt.xticks(SIMA.index,
                SIMA.index.hour)
-    plt.yticks(range(0, 1400, 200))
-    plt.xlim(SIMA.index[7],
-             SIMA.index[18])
-    plt.ylim(0, 1200)
+    plt.yticks(range(0, 1800, 200))
+    plt.xlim(SIMA.index[6],
+             SIMA.index[21])
+    plt.ylim(0, 1600)
     plt.legend(ncol=2,
                frameon=False,
                loc="upper center")
@@ -40,62 +47,44 @@ def plot(SMARTS: DataFrame, SIMA: DataFrame, params: dict) -> None:
              alpha=0.6)
     plt.tight_layout()
     filename = f"{date}.png"
-    filename = join(params["path graphics"],
+    filename = join(params["path station graphics"],
                     filename)
     plt.savefig(filename)
     plt.close()
 
 
-def hourly_mean(data: DataFrame) -> DataFrame:
-    hours = data.index.hour
-    data = data.groupby(hours).mean()
-    return data
-
-
 params = get_params()
 params.update({
-    "path SIMA data": "../Data/SIMA",
-    "path station data": "SMARTS/Data/",
     "path graphics": "../Graphics/Daily",
-    "path SMARTS": "Results_DM",
-    "station": "Noroeste",
-    "pollutant": "SR",
-    "file data": "datos.txt",
     "null threshold": 14,
+    "pollutant": "SR",
+    "year": 2021,
 })
 
 
 SIMA = SIMA_model()
-SMARTS = SMARTS_model()
-filename = join(params["path station data"],
-                params["station"],
-                params["file data"])
-data = read_csv(filename)
-data["Fecha"] = data["Date"].apply(yymmdd2yyyy_mm_dd)
-
-year = ""
-bar = tqdm(data.index)
-for index in bar:
-    if year != data["year"][index]:
-        year = data["year"][index]
-        filename = f"{year}.csv"
-        filename = join(params["path SIMA data"],
-                        filename)
-        SIMA.read(filename)
-        SIMA.get_station_data(params["station"],
-                              params["pollutant"])
-    date = data["Fecha"][index]
-    bar.set_postfix(date=date)
-    SIMA_daily = SIMA.get_data_date(date)
-    n_null = int(SIMA_daily.isnull().sum())
-    if n_null < params["null threshold"]:
-        filename = f"{data['Date'][index]}.txt"
-        filename = join(params["path station data"],
-                        params["station"],
-                        params["path SMARTS"],
-                        filename)
-        SMARTS_daily = SMARTS.read(filename)
-        SMARTS_daily = hourly_mean(SMARTS_daily)
-        plot(SMARTS_daily,
-             SIMA_daily,
+filename = f"{params['year']}.csv"
+filename = join(params["path data"],
+                params["SIMA folder"],
+                filename)
+SIMA.read(filename)
+clear_sky = clear_sky_data(params)
+dates = clear_sky.get_dates()
+stations_bar = tqdm(params["stations"])
+dates_bar = tqdm(dates)
+for station in stations_bar:
+    stations_bar.set_postfix(station=station)
+    clear_sky.get_station_data(station)
+    SIMA.get_station_data(station,
+                          params["pollutant"])
+    params["path station graphics"] = join(params["path graphics"],
+                                           station)
+    mkdir(params["path station graphics"])
+    for date in dates_bar:
+        dates_bar.set_postfix(date=date)
+        SIMA_daily = SIMA.get_data_date(date)
+        clear_sky_daily = clear_sky.get_date_date(date)
+        clear_sky_daily = hourly_mean(clear_sky_daily)
+        plot(SIMA_daily,
+             clear_sky_daily,
              params)
