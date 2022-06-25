@@ -1,11 +1,11 @@
-from pandas import (read_csv,
-                    to_datetime,
-                    DataFrame,
-                    to_timedelta)
 from Modules.data_model import (SIMA_model,
                                 clear_sky_data)
 from Modules.functions import (hourly_mean,
                                mkdir)
+from pandas import (read_csv,
+                    to_datetime,
+                    DataFrame,
+                    to_timedelta)
 from Modules.params import get_params
 import matplotlib.pyplot as plt
 from os.path import join
@@ -71,8 +71,8 @@ SIMA.read(filename)
 clear_sky = clear_sky_data(params)
 dates = clear_sky.get_dates()
 stations_bar = tqdm(params["stations"])
-dates_bar = tqdm(dates)
 for station in stations_bar:
+    dates_bar = tqdm(dates)
     stations_bar.set_postfix(station=station)
     clear_sky.get_station_data(station)
     SIMA.get_station_data(station,
