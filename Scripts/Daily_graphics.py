@@ -18,10 +18,6 @@ def plot(SIMA: DataFrame,
     date = SIMA.index[0].date()
     plt.subplots(figsize=(8, 4))
     plt.title(date)
-    # hours = SIMA[7:17]
-    # hours = SIMA[6:20].index+to_timedelta("00:30:00")
-    # SMARTS.index = hours
-    # SIMA.index = SIMA.index-to_timedelta("00:30:00")
     plt.plot(Clear_sky,
              label="Clear sky model",
              color="#003049",
