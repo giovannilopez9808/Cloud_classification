@@ -63,7 +63,6 @@ class clear_sky_data:
         self.data = read_csv(filename,
                              index_col=0,
                              parse_dates=True)
-        self.data.index = self.data.index + to_timedelta("01:0:00")
 
     def get_dates(self) -> list:
         dates = sorted(list(set(self.data.index.date)))
