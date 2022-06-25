@@ -5,18 +5,17 @@ from os.path import join
 
 params = get_params()
 params.update({
-    "station": "Noroeste",
     "template file": "Classification.csv",
+    "path graphics": "../Graphics/Daily",
 })
 path = join(params["path graphics"],
-            "Daily")
+            params["stations"][0])
 files = ls(path)
 dates = [file.split(".")[0]
          for file in files]
-template = DataFrame(dates,
-                     columns=["Date"])
-filename = join(params["path SMARTS data"],
-                params["station"],
+template = DataFrame(index=dates,
+                     columns=params["stations"])
+filename = join(params["path results"],
                 params["template file"])
-template.to_csv(filename,
-                index=False)
+template.index.name = "Date"
+template.to_csv(filename)
