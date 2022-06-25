@@ -12,7 +12,7 @@ params.update({
     "year": "2021",
     "timezone": -5,
     "hour initial": 6,
-    "hour final": 19,
+    "hour final": 21,
 })
 
 
