@@ -1,4 +1,5 @@
 from pandas import (read_csv,
+                    Timestamp,
                     DataFrame,
                     to_datetime,
                     to_timedelta)
@@ -7,7 +8,7 @@ from os.path import join
 
 class SIMA_model:
     def __init__(self) -> None:
-        pass
+        self.station_data = None
 
     def read(self,
              filename: str) -> DataFrame:
@@ -17,6 +18,7 @@ class SIMA_model:
                              index_col=0,
                              parse_dates=True,
                              low_memory=False)
+        self.data = self.data*1000
 
     def get_dates(self) -> list:
         dates = self.data.index.date
@@ -29,13 +31,17 @@ class SIMA_model:
         station = station.upper()
         self.station_data = DataFrame(self.data[(station,
                                                  pollutant)])
-        self.station_data = self.station_data*1000
+        self.station_data = self.station_data
 
     def get_data_date(self,
                       date: str) -> DataFrame:
         date = to_datetime(date)
-        select_data = self.station_data.index.date == date.date()
-        data = self.station_data[select_data]
+        if self.station_data != None:
+            select_data = self.station_data.index.date == date.date()
+            data = self.station_data[select_data]
+            return data
+        select_data = self.data.index.date == date.date()
+        data = self.data[select_data]
         return data
 
     def get_station_info(self,
@@ -54,6 +60,7 @@ class SIMA_model:
 class clear_sky_data:
     def __init__(self,
                  params: dict) -> None:
+        self.station_data = None
         self.params = params
         self._read()
 
@@ -75,8 +82,45 @@ class clear_sky_data:
     def get_date_date(self,
                       date: str) -> DataFrame:
         date = to_datetime(date)
-        select_data = self.station_data.index.date == date.date()
-        data = self.station_data[select_data]
+        if self.station_data != None:
+            select_data = self.station_data.index.date == date.date()
+            data = self.station_data[select_data]
+            return data
+        select_data = self.data.index.date == date.date()
+        data = self.data[select_data]
+        return data
+
+
+class classification_data:
+    def __init__(self,
+                 params: dict) -> None:
+        self.params = params
+        self.station_data = None
+        self._read()
+
+    def _read(self) -> DataFrame:
+        filename = join(self.params["path results"],
+                        self.params["classification file"])
+        self.data = read_csv(filename,
+                             index_col=0,
+                             parse_dates=True)
+        self.data = self.data.fillna(-1)
+
+    def get_dates(self) -> list:
+        dates = sorted(list(set(self.data.index.date)))
+        return dates
+
+    def get_station_data(self,
+                         station: str) -> DataFrame:
+        self.station_data = DataFrame(self.data[station])
+
+    def get_date_date(self,
+                      date: str) -> DataFrame:
+        date = to_datetime(date)
+        if self.station_data != None:
+            data = self.station_data.loc[date]
+            return data
+        data = self.data.loc[date]
         return data
 
 
