@@ -46,7 +46,8 @@ class extraterrestial_solar_model:
     def _get_gamma(self,
                    day: int,
                    hour: float) -> float:
-        gamma = 2*pi*(284+day-1+(hour-12)/24)/365
+        gamma = 284+day+(hour-12.5)/24
+        gamma = 2*pi*gamma/365
         return gamma
 
     def _get_eccentricity_correction(self,
