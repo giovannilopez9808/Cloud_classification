@@ -7,6 +7,7 @@ def get_params() -> dict:
         "SIMA folder": "SIMA",
         "stations info": "Stations_information.csv",
         "clear sky file": "Clear_sky.csv",
+        "classification file": "Classification.csv",
         "stations": ["Sureste2",
                      "Noreste",
                      "Noroeste",
