@@ -1,82 +1,80 @@
-from pandas import read_csv, to_datetime, DataFrame, to_timedelta, concat
-from Modules.functions import yymmdd2yyyy_mm_dd, hourly_mean, ls, yyyy_mm_dd2yymmdd
-from Modules.data_model import SIMA_model, SMARTS_model
+from Modules.data_model import (SIMA_model,
+                                clear_sky_data,
+                                classification_data)
+from Modules.functions import hourly_mean
 from Modules.params import get_params
-import matplotlib.pyplot as plt
+from pandas import DataFrame, concat
 from os.path import join
+from numpy import inf
 from tqdm import tqdm
 
 
-def get_data_between_hours(data: DataFrame, params: dict) -> DataFrame:
+def get_data_between_hours(data: DataFrame,
+                           params: dict) -> DataFrame:
     data = data[data.index.hour >= params["hour initial"]]
     data = data[data.index.hour <= params["hour final"]]
     return data
 
 
-def comparison_operation(measurement: DataFrame, model: DataFrame, operation: str) -> DataFrame:
+def comparison_operation(measurement: DataFrame,
+                         model: DataFrame,
+                         operation: str) -> DataFrame:
+    index = model.index
+    station = model.name
+    model = model.to_numpy()
+    measurement = measurement.to_numpy()
     if "diff" == operation:
-        comparison = model["Data"]-measurement["SIMA"]
+        comparison = model-measurement
     if "ratio" == operation:
-        comparison = model["Data"]/measurement["SIMA"]
-    comparison = comparison.reset_index()
+        comparison = model/measurement
+        comparison[comparison == inf] = 0
+    comparison = DataFrame(comparison,
+                           index=index,
+                           columns=[station])
     return comparison
 
 
 params = get_params()
 params.update({
-    "classification file": "Classification.csv",
-    "file results": "ratio.csv",
-    "operation comparison": "ratio",
-    "station": "Noroeste",
+    "operation comparison": "diff",
     "pollutant": "SR",
-    "hour initial": 7,
-    "hour final": 16,
+    "hour initial": 8,
+    "hour final": 18,
+    "year": 2021,
 })
-filename = join(params["path SMARTS data"],
-                params["station"],
-                params["classification file"])
-classification = read_csv(filename,
-                          index_col=0,
-                          parse_dates=True)
-results = DataFrame()
+results = DataFrame(columns=params["stations"])
+clear_sky = clear_sky_data(params)
 SIMA = SIMA_model()
-SMARTS = SMARTS_model()
-year = ""
-bar = tqdm(classification.index)
-for date in bar:
-    date = date.date()
-    bar.set_postfix(date=date)
-    if year != date.year:
-        year = date.year
-        file = f"{year}.csv"
-        file = join(params["path data"],
-                    params["SIMA folder"],
-                    file)
-        SIMA.read(file)
-        SIMA.get_station_data(params["station"],
-                              params["pollutant"])
-    file = yyyy_mm_dd2yymmdd(date)
-    file = f"{file}.txt"
-    file = join(params["path SMARTS data"],
-                params["station"],
-                params["SMARTS DM"],
-                file)
-    SMARTS_daily = SMARTS.read(file)
-    SMARTS_daily = hourly_mean(SMARTS_daily)
+filename = f"{params['year']}.csv"
+filename = join(params["path data"],
+                params["SIMA folder"],
+                filename)
+SIMA.read(filename)
+dates = clear_sky.get_dates()
+bar_dates = tqdm(dates)
+for date in bar_dates:
+    bar_dates.set_postfix(date=date)
     SIMA_daily = SIMA.get_data_date(date)
-    SIMA_daily.index = SIMA_daily.index-to_timedelta("00:30:00")
-    SIMA_daily = get_data_between_hours(SIMA_daily,
-                                        params)
-    SIMA_daily.columns = ["SIMA"]
-    SMARTS_daily.index = SIMA_daily.index
-    comparison = comparison_operation(SIMA_daily,
-                                      SMARTS_daily,
-                                      params["operation comparison"])
-    results = concat([results, comparison[0]],
-                     axis=1,
-                     ignore_index=True)
-filename = join(params["path results"],
-                params["file results"])
-results.columns = classification.index.date
-results.to_csv(filename,
-               index=False)
+    clear_sky_daily = clear_sky.get_date_date(date)
+    results_per_day = DataFrame()
+    for station in params["stations"]:
+        clear_sky_station = clear_sky_daily[station]
+        clear_sky_station = hourly_mean(clear_sky_station)
+        clear_sky_station = get_data_between_hours(clear_sky_station,
+                                                   params)
+        SIMA_station = SIMA_daily[(station.upper(),
+                                   params["pollutant"])]
+        SIMA_station = get_data_between_hours(SIMA_station,
+                                              params)
+        comparison = comparison_operation(SIMA_station,
+                                          clear_sky_station,
+                                          params["operation comparison"])
+        results_per_day = concat([results_per_day,
+                                  comparison],
+                                 axis=1)
+    results = concat([results,
+                      results_per_day])
+filename = f"{params['operation comparison']}.csv"
+filename = join(params['path results'],
+                filename)
+results.to_csv(filename)
