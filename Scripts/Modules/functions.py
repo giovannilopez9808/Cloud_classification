@@ -6,6 +6,18 @@ from os import listdir, makedirs
 
 def datetime_format(date: Timestamp,
                     hour: int) -> str:
+    """
+    Obtiene la fecha con hora en formato Y-M-D H:m
+
+    Input:
+    --------------------
+    date -> fecha con formato Timestamp o datetime
+    hour -> numeor entrero de la hora
+
+    Output:
+    --------------------
+    fecha con formato Y-M-D H:m
+    """
     date = str(date)
     hour = fill_number(hour,
                        2)
@@ -14,52 +26,73 @@ def datetime_format(date: Timestamp,
 
 
 def hourly_mean(data: DataFrame) -> DataFrame:
+    """
+    Obtiene el promerio horario de  un dataframe
+
+    Inputs:
+    --------------------
+    data -> dataframe con los dato, el indice debe tener formato Timestamp
+
+    Outputs:
+    --------------------
+    Dataframe con el promedio por hora, el indice tiene formato Timestamp
+    """
+    # Obtiene la fecha de los datos
     date = data.index[0].date()
+    # Obtiene las horas
     hours = data.index.hour
+    # Realiza el promedio por hora
     data = data.groupby(hours).mean()
+    # Obtiene las horas totales
     hours = list(set(hours))
+    # Indice
     index = [datetime_format(date, hour)
              for hour in hours]
+    # To Timestamp
     data.index = to_datetime(index)
     return data
 
 
 def mkdir(path: str) -> None:
+    """
+    Generalizacion del mkdir
+
+    Inputs:
+    --------------------
+    path -> carpeta a crear
+    """
     makedirs(path,
              exist_ok=True)
 
 
 def ls(path: str) -> list:
+    """
+    Generalizacion del ls
+
+    Inputs:
+    --------------------
+    path -> direccion a leer los archivos
+    """
     files = sorted(listdir(path))
     return files
 
 
 def fill_number(number: int,
                 zfill: int) -> str:
+    """
+    Convierte un numero a string a n caracteres, los caracteres faltantes
+    seran 0
+
+    Inputs:
+    --------------------
+    number -> numero a convertir
+    zfill -> numero de caracteres a rellenar
+
+    Output:
+    --------------------
+    numero con tipo string
+    """
     return str(number).zfill(zfill)
-
-
-def yymmdd2yyyy_mm_dd(date: int) -> str:
-    date = str(date)
-    date = [date[i:i+2]
-            for i in range(0,
-                           len(date),
-                           2)]
-    date[0] = f"20{date[0]}"
-    date = "-".join(date)
-    return date
-
-
-def yyyy_mm_dd2yymmdd(date: Timestamp) -> str:
-    year = str(date.year)
-    month = fill_number(date.month, 2)
-    day = fill_number(date.day, 2)
-    year = year[2:]
-    date = [year,
-            month,
-            day]
-    date = "".join(date)
-    return date
 
 
 if "__main__" == __name__:
