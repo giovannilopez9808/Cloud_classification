@@ -18,11 +18,26 @@ def get_params() -> dict:
         # Archivo con las clasificaciones
         "classification file": "Classification.csv",
         # Estaciones a utilizar
-        "stations": ["Sureste2",
-                     "Noreste",
-                     "Noroeste",
-                     "Suroeste",
-                     ],
+        "stations": [
+            "Sureste2",
+            "Noreste",
+            "Noroeste",
+            "Suroeste",
+        ],
+        "classification": {
+            0: {
+                "label": "Nublado",
+                "color": "#00171f"
+            },
+            1: {
+                "label": "Medio nublado",
+                "color": "#003459"
+            },
+            2: {
+                "label": "Despejado",
+                "color": "#007ea7"
+            },
+        }
     }
     return params
 
