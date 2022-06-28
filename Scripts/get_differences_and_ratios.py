@@ -1,7 +1,7 @@
 from Modules.data_model import (SIMA_model,
                                 clear_sky_data,
                                 classification_data)
-from Modules.functions import hourly_mean
+from Modules.functions import get_hourly_mean
 from Modules.params import get_params
 from pandas import DataFrame, concat
 from os.path import join
@@ -26,7 +26,7 @@ def comparison_operation(measurement: DataFrame,
     if "diff" == operation:
         comparison = model-measurement
     if "ratio" == operation:
-        comparison = model/measurement
+        comparison = measurement/model
         comparison[comparison == inf] = 0
     comparison = DataFrame(comparison,
                            index=index,
@@ -36,6 +36,7 @@ def comparison_operation(measurement: DataFrame,
 
 params = get_params()
 params.update({
+    # "operation comparison": "ratio",
     "operation comparison": "diff",
     "pollutant": "SR",
     "hour initial": 8,
@@ -59,7 +60,7 @@ for date in bar_dates:
     results_per_day = DataFrame()
     for station in params["stations"]:
         clear_sky_station = clear_sky_daily[station]
-        clear_sky_station = hourly_mean(clear_sky_station)
+        clear_sky_station = get_hourly_mean(clear_sky_station)
         clear_sky_station = get_data_between_hours(clear_sky_station,
                                                    params)
         SIMA_station = SIMA_daily[(station.upper(),
@@ -77,4 +78,5 @@ for date in bar_dates:
 filename = f"{params['operation comparison']}.csv"
 filename = join(params['path results'],
                 filename)
+results.index.name = "Date"
 results.to_csv(filename)
