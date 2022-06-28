@@ -33,6 +33,7 @@ class extraterrestial_solar_model:
         datetime = params["datetime"]
         # Latitud
         phi = params["latitude"]
+        phi = self._to_radian(phi)
         # Longitud
         lamb = params["longitude"]
         # Zona horaria
@@ -75,7 +76,7 @@ class extraterrestial_solar_model:
         gamma = self._get_gamma(day,
                                 hour)
         delta = 24.45*sin(gamma)
-        delta = pi*delta/180
+        delta = self._to_radian(delta)
         return delta
 
     def _get_gamma(self,
@@ -144,7 +145,7 @@ class extraterrestial_solar_model:
                                            longitude,
                                            timezone)
         sha = 15*(hour_c-12.5)
-        sha = pi*sha/180
+        sha = self._to_radian(sha)
         return sha
 
     def _get_offset(self,
@@ -240,6 +241,11 @@ class extraterrestial_solar_model:
         minute = date.minute
         hour += minute/60
         return hour
+
+    def _to_radian(self,
+                   degree: float) -> float:
+        rad = pi*degree/180
+        return rad
 
 
 if "__main__" == __name__:
