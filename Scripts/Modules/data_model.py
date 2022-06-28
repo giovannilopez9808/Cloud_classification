@@ -18,7 +18,7 @@ class SIMA_model:
 
     def __init__(self) -> None:
         # Inicializacion de los datos
-        self.station_data = None
+        self.station_data = DataFrame()
 
     def read(self,
              filename: str) -> DataFrame:
@@ -89,7 +89,7 @@ class SIMA_model:
         # Mismo formato que el indice
         date = to_datetime(date)
         # Si no hay una estacion seleccionada
-        if self.station_data != None:
+        if len(self.station_data) != 0:
             select_data = self.station_data.index.date == date.date()
             data = self.station_data[select_data]
             return data
@@ -112,8 +112,8 @@ class SIMA_model:
 
         Output
         --------------------
-        Dataframe con los datos de las estaciones, el indice son las 
-        caracteristicas de la informacion y el header el nombre de las 
+        Dataframe con los datos de las estaciones, el indice son las
+        caracteristicas de la informacion y el header el nombre de las
         estaciones
         """
         # Nombre con la ruta del archivo
@@ -142,7 +142,7 @@ class clear_sky_data:
             path results -> direccion de los resultados generales
             clear sky file -> nombre del archivo que contiene los datos
         """
-        self.station_data = None
+        self.station_data = DataFrame()
         self.params = params
         self._read()
 
@@ -187,7 +187,7 @@ class clear_sky_data:
         Dataframe de los datos en la fecha seleccionada
         """
         date = to_datetime(date)
-        if self.station_data != None:
+        if len(self.station_data) != 0:
             select_data = self.station_data.index.date == date.date()
             data = self.station_data[select_data]
             return data
@@ -209,8 +209,8 @@ class classification_data:
             path results -> direccion de los resultados generales
             classification file -> nombre del archivo que contiene los datos
         """
+        self.station_data = DataFrame()
         self.params = params
-        self.station_data = None
         self._read()
 
     def _read(self) -> DataFrame:
@@ -226,7 +226,7 @@ class classification_data:
         self.data = read_csv(filename,
                              index_col=0,
                              parse_dates=True)
-        self.data = self.data.fillna(-1)
+        # self.data = self.data.fillna(-1)
 
     def get_dates(self) -> list:
         """
@@ -257,10 +257,40 @@ class classification_data:
         Dataframe de los datos en la fecha seleccionada
         """
         date = to_datetime(date)
-        if self.station_data != None:
+        if len(self.station_data) != 0:
             data = self.station_data.loc[date]
             return data
         data = self.data.loc[date]
+        return data
+
+    def get_data_from_type(self,
+                           data_type: int) -> DataFrame:
+        if len(self.station_data) != 0:
+            data = self.station_data[self.station_data == data_type]
+            data = data.dropna()
+            return data
+
+
+class comparison_data:
+    def __init__(self,
+                 params: dict) -> None:
+        self.params = params
+
+    def read(self, file: str) -> DataFrame:
+        filename = f"{file}.csv"
+        filename = join(self.params["path results"],
+                        filename)
+        self.data = read_csv(filename,
+                             index_col=0,
+                             parse_dates=True)
+
+    def get_daily_mean(self) -> DataFrame:
+        daily = self.data.resample("D").mean()
+        return daily
+
+    def get_data_per_dates(self,
+                           dates: list) -> DataFrame:
+        data = self.data.loc[dates]
         return data
 
 
