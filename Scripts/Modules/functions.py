@@ -25,7 +25,7 @@ def datetime_format(date: Timestamp,
     return datetime
 
 
-def hourly_mean(data: DataFrame) -> DataFrame:
+def get_hourly_mean(data: DataFrame) -> DataFrame:
     """
     Obtiene el promerio horario de  un dataframe
 
@@ -93,6 +93,19 @@ def fill_number(number: int,
     numero con tipo string
     """
     return str(number).zfill(zfill)
+
+
+def get_labels(params: dict) -> tuple:
+    keys = list(params["classification"].keys())
+    label = [params["classification"][key]["label"]
+             for key in keys]
+    return keys, label
+
+
+def get_colors(params: dict) -> list:
+    colors = [params["classification"][key]["color"]
+              for key in params["classification"]]
+    return colors
 
 
 if "__main__" == __name__:

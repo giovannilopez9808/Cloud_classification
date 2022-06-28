@@ -1,6 +1,6 @@
 from Modules.data_model import (SIMA_model,
                                 clear_sky_data)
-from Modules.functions import (hourly_mean,
+from Modules.functions import (get_hourly_mean,
                                mkdir)
 from pandas import (read_csv,
                     to_datetime,
@@ -80,7 +80,7 @@ for station in stations_bar:
         dates_bar.set_postfix(date=date)
         SIMA_daily = SIMA.get_data_date(date)
         clear_sky_daily = clear_sky.get_date_date(date)
-        clear_sky_daily = hourly_mean(clear_sky_daily)
+        clear_sky_daily = get_hourly_mean(clear_sky_daily)
         plot(SIMA_daily,
              clear_sky_daily,
              params)
