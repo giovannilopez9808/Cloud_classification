@@ -285,7 +285,7 @@ class comparison_data:
                              parse_dates=True)
 
     def get_daily_mean(self) -> DataFrame:
-        daily = self.data.resample("D").mean()
+        daily = self.data.resample("D").median()
         return daily
 
     def get_data_per_dates(self,

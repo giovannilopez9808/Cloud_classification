@@ -7,15 +7,15 @@ from os.path import join
 
 params = get_params()
 params.update({
-    "comparison": "diff",
+    "comparison": "ratio",
     "graphics params": {
         "ratio": {
             "x label": "Ratio",
             "y label": "Frecuency",
-            "bins": 700,
+            "bins": 75,
             "x ticks": linspace(0, 1, 11),
             "x limit": [0, 1],
-            "y limit": [0, 40],
+            "y limit": [0, 25],
         },
         "diff": {
             "x label": "Difference",
@@ -64,7 +64,7 @@ for i, ax in enumerate([ax1, ax2, ax3]):
             color="#000000",
             alpha=0.6)
 plt.tight_layout()
-filename = f"{params['comparison']}.png"
+filename = f"distribution_{params['comparison']}.png"
 filename = join(params["path graphics"],
                 filename)
 plt.savefig(filename,

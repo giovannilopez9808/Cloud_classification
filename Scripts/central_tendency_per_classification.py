@@ -7,7 +7,8 @@ from os.path import join
 
 params = get_params()
 params.update({
-    "comparison": "diff",
+    "comparison": "ratio",
+    # "comparison": "diff",
     "file results": "Central_tendency",
 })
 cloud_types, names = get_labels(params)
