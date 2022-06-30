@@ -19,7 +19,7 @@ def plot(SIMA: DataFrame,
     plt.subplots(figsize=(8, 4))
     plt.title(date)
     plt.plot(Clear_sky,
-             label="Clear sky model",
+             label="GHI$_0$",
              color="#003049",
              ls="--",
              marker="o")
@@ -28,7 +28,7 @@ def plot(SIMA: DataFrame,
              color="#d62828",
              marker="o")
     plt.xlabel("Local time (h)")
-    plt.ylabel("Irradiance solar (W/m$^2$)")
+    plt.ylabel("Solar Irradiance (W/m$^2$)")
     plt.xticks(SIMA.index,
                SIMA.index.hour)
     plt.yticks(range(0, 1800, 200))
