@@ -93,7 +93,8 @@ class extraterrestial_solar_model:
         --------------------
         Angulo
         """
-        gamma = 284+day+(hour-12.5)/24
+        # gamma = 284+day+hour/24
+        gamma = day-81
         gamma = 2*pi*gamma/365
         return gamma
 
@@ -112,12 +113,15 @@ class extraterrestial_solar_model:
         """
         gamma = self._get_gamma(day,
                                 hour)
-        e0 = 0.000075
-        e0 += 0.001868*cos(gamma)
-        e0 -= 0.032077*sin(gamma)
-        e0 -= 0.014615*cos(2*gamma)
-        e0 -= 0.040849*sin(2*gamma)
-        e0 *= 229.18
+        e0 = 9.87*sin(2*gamma)
+        e0 -= 7.53*cos(gamma)
+        e0 -= 1.5*sin(gamma)
+        # e0 = 0.000075
+        # e0 += 0.001868*cos(gamma)
+        # e0 -= 0.032077*sin(gamma)
+        # e0 -= 0.014615*cos(2*gamma)
+        # e0 -= 0.040849*sin(2*gamma)
+        # e0 *= 229.18
         return e0
 
     def _get_solar_hour_angle(self,
@@ -140,19 +144,19 @@ class extraterrestial_solar_model:
         --------------------
         valor del angulo horario solar
         """
-        hour_c = self._get_hour_correction(day,
-                                           hour,
-                                           longitude,
-                                           timezone)
-        sha = 15*(hour_c-12.5)
+        hour_c = self._get_local_solar_time(day,
+                                            hour,
+                                            longitude,
+                                            timezone)
+        sha = 15*(hour_c-12)
         sha = self._to_radian(sha)
         return sha
 
-    def _get_offset(self,
-                    day: int,
-                    hour: float,
-                    longitude: float,
-                    timezone: int) -> float:
+    def _get_time_correction_factor(self,
+                                    day: int,
+                                    hour: float,
+                                    longitude: float,
+                                    timezone: int) -> float:
         """
         Correccion horaria
 
@@ -172,11 +176,11 @@ class extraterrestial_solar_model:
         offset = e0+4*(longitude-15*timezone)
         return offset
 
-    def _get_hour_correction(self,
-                             day: int,
-                             hour: float,
-                             longitude: float,
-                             timezone: int) -> float:
+    def _get_local_solar_time(self,
+                              day: int,
+                              hour: float,
+                              longitude: float,
+                              timezone: int) -> float:
         """
         Input:
         --------------------
@@ -189,11 +193,11 @@ class extraterrestial_solar_model:
         --------------------
         correccion de la hora
         """
-        offset = self._get_offset(day,
-                                  hour,
-                                  longitude,
-                                  timezone)
-        hour_corrected = hour + offset/60
+        tc = self._get_time_correction_factor(day,
+                                              hour,
+                                              longitude,
+                                              timezone)
+        hour_corrected = hour + tc/60
         return hour_corrected
 
     def _get_day_and_hour(self,
