@@ -72,6 +72,17 @@ class SIMA_model:
                                                  pollutant)])
         self.station_data = self.station_data
 
+    def get_data(self,
+                 station: str,
+                 pollutant: str,
+                 date: str) -> DataFrame:
+        date = to_datetime(date)
+        station = station.upper()
+        data = self.data[(station,
+                         pollutant)]
+        data = data[data.index.date == date.date()]
+        return data
+
     def get_data_date(self,
                       date: str) -> DataFrame:
         """
