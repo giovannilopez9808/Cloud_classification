@@ -37,7 +37,9 @@ def get_params() -> dict:
                 "label": "Clear sky",
                 "color": "#007ea7"
             },
-        }
+        },
+        "hour initial": 9,
+        "hour final": 18,
     }
     return params
 

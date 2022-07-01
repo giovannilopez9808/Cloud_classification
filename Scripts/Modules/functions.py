@@ -25,6 +25,13 @@ def datetime_format(date: Timestamp,
     return datetime
 
 
+def get_data_between_hours(data: DataFrame,
+                           params: dict) -> DataFrame:
+    data = data[data.index.hour >= params["hour initial"]]
+    data = data[data.index.hour <= params["hour final"]]
+    return data
+
+
 def get_hourly_mean(data: DataFrame) -> DataFrame:
     """
     Obtiene el promerio horario de  un dataframe
