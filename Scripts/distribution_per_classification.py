@@ -7,11 +7,12 @@ from os.path import join
 
 params = get_params()
 params.update({
-    "comparison": "ratio",
+    # "comparison": "ratio",
+    "comparison": "diff",
     "graphics params": {
         "ratio": {
             "x label": "Ratio",
-            "y label": "Frecuency",
+            "y label": "Frequency",
             "bins": 75,
             "x ticks": linspace(0, 1, 11),
             "x limit": [0, 1],
@@ -19,7 +20,7 @@ params.update({
         },
         "diff": {
             "x label": "Difference",
-            "y label": "Frecuency",
+            "y label": "Frequency",
             "bins": 75,
             "x ticks": linspace(0, 1000, 11),
             "x limit": [0, 1000],

@@ -33,7 +33,7 @@ def plot(SIMA: DataFrame,
                SIMA.index.hour)
     plt.yticks(range(0, 1800, 200))
     plt.xlim(SIMA.index[6],
-             SIMA.index[21])
+             SIMA.index[20])
     plt.ylim(0, 1600)
     plt.legend(ncol=2,
                frameon=False,

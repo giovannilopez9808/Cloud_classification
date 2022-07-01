@@ -36,8 +36,8 @@ def comparison_operation(measurement: DataFrame,
 
 params = get_params()
 params.update({
-    "operation comparison": "ratio",
-    # "operation comparison": "diff",
+    # "operation comparison": "ratio",
+    "operation comparison": "diff",
     "pollutant": "SR",
     "hour initial": 9,
     "hour final": 18,
@@ -52,7 +52,8 @@ filename = join(params["path data"],
                 filename)
 SIMA.read(filename)
 dates = clear_sky.get_dates()
-bar_dates = tqdm(dates)
+bar_dates = tqdm(dates,
+                 bar_format="{bar}|{postfix}")
 for date in bar_dates:
     bar_dates.set_postfix(date=date)
     SIMA_daily = SIMA.get_data_date(date)
