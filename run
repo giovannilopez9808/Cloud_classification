@@ -1,13 +1,13 @@
 #!/bin/bash
-#SBATCH --partition=GPU
-#SBATCH --job-name=SMARTS
+#SBATCH --partition=C1Mitad1
+#SBATCH --job-name=Similarity
 #SBATCH --output=results.log
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=giovanni.lopez@cimat.mx
-cd /home/est_posgrado_giovanni.lopez/Cloud_classification/Scripts/SMARTS/Scripts
+cd /home/est_posgrado_giovanni.lopez/Cloud_classification/Scripts
 source /opt/anaconda351/etc/profile.d/conda.sh
 conda activate tensorflow
 hostname
 date
-python SMARTS_DM.py
+python get_closeness.py
 date
