@@ -1,19 +1,13 @@
 from Modules.data_model import (SIMA_model,
                                 clear_sky_data,
                                 classification_data)
-from Modules.functions import get_hourly_mean
+from Modules.functions import (get_hourly_mean,
+                               get_data_between_hours)
 from Modules.params import get_params
 from pandas import DataFrame, concat
 from os.path import join
 from numpy import inf
 from tqdm import tqdm
-
-
-def get_data_between_hours(data: DataFrame,
-                           params: dict) -> DataFrame:
-    data = data[data.index.hour >= params["hour initial"]]
-    data = data[data.index.hour <= params["hour final"]]
-    return data
 
 
 def comparison_operation(measurement: DataFrame,
@@ -39,8 +33,6 @@ params.update({
     # "operation comparison": "ratio",
     "operation comparison": "diff",
     "pollutant": "SR",
-    "hour initial": 9,
-    "hour final": 18,
     "year": 2021,
 })
 results = DataFrame(columns=params["stations"])
