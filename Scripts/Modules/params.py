@@ -26,15 +26,15 @@ def get_params() -> dict:
         ],
         "classification": {
             0: {
-                "label": "Nublado",
+                "label": "Cloudly",
                 "color": "#00171f"
             },
             1: {
-                "label": "Medio nublado",
+                "label": "Partly cloudly",
                 "color": "#003459"
             },
             2: {
-                "label": "Despejado",
+                "label": "Clear sky",
                 "color": "#007ea7"
             },
         }
