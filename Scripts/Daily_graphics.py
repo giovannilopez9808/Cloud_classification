@@ -19,7 +19,7 @@ def plot(SIMA: DataFrame,
     plt.subplots(figsize=(8, 4))
     plt.title(date)
     plt.plot(Clear_sky,
-             label="GHI$_0$",
+             label=params["dataset"]["title"],
              color="#003049",
              ls="--",
              marker="o")
@@ -31,10 +31,11 @@ def plot(SIMA: DataFrame,
     plt.ylabel("Solar Irradiance (W/m$^2$)")
     plt.xticks(SIMA.index,
                SIMA.index.hour)
-    plt.yticks(range(0, 1800, 200))
+    plt.yticks(params["dataset"]["yticks"])
     plt.xlim(SIMA.index[6],
              SIMA.index[20])
-    plt.ylim(0, 1600)
+    plt.ylim(params["dataset"]["ylim"][0],
+             params["dataset"]["ylim"][1])
     plt.legend(ncol=2,
                frameon=False,
                loc="upper center")
@@ -56,9 +57,21 @@ params.update({
     "null threshold": 14,
     "pollutant": "SR",
     "year": 2021,
+    "datasets": {
+        "RS": {
+            "title": "RS model",
+            "ylim": [0, 1400],
+            "yticks": range(0, 1600, 200),
+        },
+        "GHI": {
+            "title": "GHI$_0$",
+            "ylim": [0, 1600],
+            "yticks": range(0, 1800, 200),
+        }
+    },
 })
 
-
+params["dataset"] = params["datasets"][params["clear sky model"]]
 SIMA = SIMA_model()
 filename = f"{params['year']}.csv"
 filename = join(params["path data"],
