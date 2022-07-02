@@ -32,6 +32,7 @@ params = get_params()
 params.update({
     # "operation comparison": "ratio",
     "operation comparison": "diff",
+    "clear sky model": "GHI",
     "pollutant": "SR",
     "year": 2021,
 })
@@ -70,6 +71,7 @@ for date in bar_dates:
                       results_per_day])
 filename = f"{params['operation comparison']}.csv"
 filename = join(params['path results'],
+                params["clear sky model"],
                 filename)
 results.index.name = "Date"
 results.to_csv(filename)

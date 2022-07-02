@@ -163,6 +163,7 @@ class clear_sky_data:
         """
         # Nombre con la ruta del archivo
         filename = join(self.params["path results"],
+                        self.params["clear sky model"],
                         self.params["clear sky file"])
         # Lectura del archivo
         self.data = read_csv(filename,
@@ -290,6 +291,7 @@ class comparison_data:
     def read(self, file: str) -> DataFrame:
         filename = f"{file}.csv"
         filename = join(self.params["path results"],
+                        self.params["clear sky model"],
                         filename)
         self.data = read_csv(filename,
                              index_col=0,

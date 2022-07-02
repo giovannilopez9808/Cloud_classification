@@ -51,13 +51,15 @@ def plot(SIMA: DataFrame,
 
 params = get_params()
 params.update({
-    "path graphics": "../Graphics/Daily_full",
+    "path daily graphics": "Daily_full",
     "file data": "data_full.csv",
+    "clear sky model": "GHI",
     "null threshold": 14,
     "pollutant": "SR",
     "year": 2021,
 })
 filename = join(params["path results"],
+                params["clear sky model"],
                 params["file data"])
 data = read_csv(filename,
                 index_col=0,
@@ -71,6 +73,8 @@ for station in stations_bar:
     clear_sky.get_station_data(station)
     station_data = data[station]
     params["path station graphics"] = join(params["path graphics"],
+                                           params["clear sky model"],
+                                           params["path daily graphics"],
                                            station)
     mkdir(params["path station graphics"])
     for date in dates_bar:

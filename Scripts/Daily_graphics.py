@@ -51,7 +51,8 @@ def plot(SIMA: DataFrame,
 
 params = get_params()
 params.update({
-    "path graphics": "../Graphics/Daily",
+    "path daily graphics": "Daily",
+    "clear sky model": "GHI",
     "null threshold": 14,
     "pollutant": "SR",
     "year": 2021,
@@ -74,6 +75,8 @@ for station in stations_bar:
     SIMA.get_station_data(station,
                           params["pollutant"])
     params["path station graphics"] = join(params["path graphics"],
+                                           params["clear sky model"],
+                                           params["path daily graphics"],
                                            station)
     mkdir(params["path station graphics"])
     for date in dates_bar:

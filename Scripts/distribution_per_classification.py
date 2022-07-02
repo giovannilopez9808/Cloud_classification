@@ -1,5 +1,6 @@
 from Modules.data_model import comparison_data, classification_data
-from Modules.functions import get_colors
+from Modules.functions import (get_colors,
+                               get_labels)
 from Modules.params import get_params
 import matplotlib.pyplot as plt
 from numpy import linspace
@@ -7,6 +8,7 @@ from os.path import join
 
 params = get_params()
 params.update({
+    "clear sky model": "GHI",
     # "comparison": "ratio",
     "comparison": "diff",
     "graphics params": {
@@ -28,7 +30,7 @@ params.update({
         }
     }
 })
-cloud_types = list(params["classification"].keys())
+cloud_types, _ = get_labels(params)
 classification = classification_data(params)
 comparison = comparison_data(params)
 comparison.read(params["comparison"])
@@ -67,6 +69,7 @@ for i, ax in enumerate([ax1, ax2, ax3]):
 plt.tight_layout()
 filename = f"distribution_{params['comparison']}.png"
 filename = join(params["path graphics"],
+                params["clear sky model"],
                 filename)
 plt.savefig(filename,
             dpi=400)

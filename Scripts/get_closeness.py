@@ -32,6 +32,7 @@ def cosine_similarity(vector_i: array,
 params = get_params()
 params.update({
     "file results": "similarity.csv",
+    "clear sky model": "GHI",
     "ratio threshold": 0.8,
     "operation": "ratio",
     "pollutant": "SR",
@@ -102,6 +103,7 @@ for station_date_i, station_date in enumerate(bar):
         stations_data.loc[station_date, station_date_j] = cosine
         stations_data.loc[station_date_j, station_date] = cosine
 filename = join(params["path results"],
+                params["clear sky model"],
                 params["file results"])
 print(f"Guardando archivo {filename}")
 stations_data.to_csv(filename)

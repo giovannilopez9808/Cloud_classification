@@ -8,6 +8,7 @@ from tqdm import tqdm
 
 params = get_params()
 params.update({
+    "clear sky model": "GHI",
     "pollutant": "SR",
     "year": "2021",
     "timezone": -5,
@@ -43,6 +44,7 @@ for date in bar:
     results = concat([results,
                       results_per_day])
 filename = join(params["path results"],
+                params["clear sky model"],
                 params["clear sky file"])
 results.index.name = "Date"
 results.to_csv(filename)

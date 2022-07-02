@@ -60,6 +60,7 @@ params = get_params()
 params.update({
     "similarity file": "similarity.csv",
     "file results": "data_full.csv",
+    "clear sky model": "GHI",
     "pollutant": "SR",
     "year": 2021,
     "top vectors": 20,
@@ -73,6 +74,7 @@ SIMA.read(filename)
 SIMA.data = SIMA.data.fillna(-1)
 dates = SIMA.get_dates()
 filename = join(params["path results"],
+                params["clear sky model"],
                 params["similarity file"])
 similarity = read_csv(filename,
                       index_col=0)
@@ -106,5 +108,6 @@ for station in bar_stations:
                        axis=1)
 full_data.index.name = "Date"
 filename = join(params["path results"],
+                params["clear sky model"],
                 params["file results"])
 full_data.to_csv(filename)

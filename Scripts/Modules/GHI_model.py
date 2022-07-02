@@ -6,7 +6,7 @@ from numpy import sin, cos, pi
 from datetime import datetime
 
 
-class extraterrestial_solar_model:
+class GHI_model:
     def __init__(self) -> None:
         # Solar constant (W/m2)
         self.Isc = 1367
