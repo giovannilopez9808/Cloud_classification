@@ -3,8 +3,8 @@ Modelo para dias de cielo despejado a partir de la ecuacion de irradiancia
 solar extraterrestre
 """
 from pandas import DataFrame, to_datetime
-from .functions import fill_number
 from .GHI_model import GHI_model
+from .RS_model import RS_model
 
 
 class clear_sky_model:
@@ -66,8 +66,10 @@ class clear_sky_model:
                       params: dict) -> None:
         if params["clear sky model"] == "GHI":
             self.model = GHI_model()
+            return
         if params["clear sky model"] == "RS":
-            pass
+            self.model = RS_model()
+            return
 
     def _get_time(self, minutes: int) -> str:
         """
@@ -141,6 +143,24 @@ class clear_sky_model:
         time = self._get_time(minutes)
         datetime = f"{date} {time}"
         return datetime
+
+
+def fill_number(number: int,
+                zfill: int) -> str:
+    """
+    Convierte un numero a string a n caracteres, los caracteres faltantes
+    seran 0
+
+    Inputs:
+    --------------------
+    number -> numero a convertir
+    zfill -> numero de caracteres a rellenar
+
+    Output:
+    --------------------
+    numero con tipo string
+    """
+    return str(number).zfill(zfill)
 
 
 if __name__ == "__main__":

@@ -8,7 +8,8 @@ from tqdm import tqdm
 
 params = get_params()
 params.update({
-    "clear sky model": "GHI",
+    # "clear sky model": "GHI",
+    "clear sky model": "RS",
     "pollutant": "SR",
     "year": "2021",
     "timezone": -5,
