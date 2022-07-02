@@ -13,20 +13,14 @@ from tqdm import tqdm
 
 
 def plot(SIMA: DataFrame,
-         GHI: DataFrame,
-         RS: DataFrame,
+         clear_sky: DataFrame,
          params: dict) -> None:
     date = SIMA.index[0].date()
     plt.subplots(figsize=(8, 4))
     plt.title(date)
-    plt.plot(GHI,
+    plt.plot(clear_sky,
              label="GHI$_0$",
              color="#003049",
-             ls="--",
-             marker="o")
-    plt.plot(RS,
-             label="RS",
-             color="#e85d04",
              ls="--",
              marker="o")
     plt.plot(SIMA,
@@ -58,9 +52,8 @@ def plot(SIMA: DataFrame,
 params = get_params()
 params.update({
     "path daily graphics": "Daily_full",
-    "file data": "data_full.csv",
-    "clear sky models": ["GHI",
-                         "RS"],
+    "file data": "full_data.csv",
+    "clear sky model": "RS",
     "null threshold": 14,
     "pollutant": "SR",
     "year": 2021,
@@ -71,17 +64,13 @@ filename = join(params["path results"],
 data = read_csv(filename,
                 index_col=0,
                 parse_dates=True)
-params["clear sky model"] = params["cler sky models"][0]
-GHI = clear_sky_data(params)
-params["clear sky model"] = params["cler sky models"][1]
-RS = clear_sky_data(params)
-dates = GHI.get_dates()
+clear_sky = clear_sky_data(params)
+dates = clear_sky.get_dates()
 stations_bar = tqdm(params["stations"])
 for station in stations_bar:
     dates_bar = tqdm(dates)
     stations_bar.set_postfix(station=station)
-    GHI.get_station_data(station)
-    RS.get_station_data(station)
+    clear_sky.get_station_data(station)
     station_data = data[station]
     params["path station graphics"] = join(params["path graphics"],
                                            params["clear sky model"],
@@ -94,11 +83,8 @@ for station in stations_bar:
         datetime = datetime.date()
         index = station_data.index.date == datetime
         SIMA_daily = station_data[index]
-        GHI_daily = GHI.get_date_date(date)
-        GHI_daily = get_hourly_mean(GHI_daily)
-        RS_daily = GHI.get_date_date(date)
-        RS_daily = get_hourly_mean(RS_daily)
+        clear_sky_daily = clear_sky.get_date_date(date)
+        clear_sky_daily = get_hourly_mean(clear_sky_daily)
         plot(SIMA_daily,
-             GHI_daily,
-             RS_daily,
+             clear_sky_daily,
              params)
