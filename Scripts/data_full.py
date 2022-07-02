@@ -60,7 +60,7 @@ params = get_params()
 params.update({
     "similarity file": "similarity.csv",
     "file results": "data_full.csv",
-    "clear sky model": "GHI",
+    "clear sky model": "RS",
     "pollutant": "SR",
     "year": 2021,
     "top vectors": 20,

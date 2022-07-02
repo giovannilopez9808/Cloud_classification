@@ -32,8 +32,9 @@ def cosine_similarity(vector_i: array,
 params = get_params()
 params.update({
     "file results": "similarity.csv",
-    "clear sky model": "GHI",
-    "ratio threshold": 0.8,
+    "clear sky model": "RS",
+    # "ratio threshold": 0.8,
+    "ratio threshold": 1.5,
     "operation": "ratio",
     "pollutant": "SR",
     "year": 2021,

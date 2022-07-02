@@ -30,9 +30,10 @@ def comparison_operation(measurement: DataFrame,
 
 params = get_params()
 params.update({
-    # "operation comparison": "ratio",
-    "operation comparison": "diff",
-    "clear sky model": "GHI",
+    "operation comparison": "ratio",
+    # "operation comparison": "diff",
+    "clear sky model": "RS",
+    # "clear sky model": "GHI",
     "pollutant": "SR",
     "year": 2021,
 })

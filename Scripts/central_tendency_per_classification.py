@@ -7,9 +7,10 @@ from os.path import join
 
 params = get_params()
 params.update({
+    "file results": "Central_tendency",
+    "clear sky model": "RS",
     # "comparison": "ratio",
     "comparison": "diff",
-    "file results": "Central_tendency",
 })
 cloud_types, names = get_labels(params)
 classification = classification_data(params)
@@ -37,5 +38,6 @@ results.index.name = "Central tendency"
 filename = "{}_{}.csv".format(params["file results"],
                               params["comparison"])
 filename = join(params["path results"],
+                params["clear sky model"],
                 filename)
 results.to_csv(filename)

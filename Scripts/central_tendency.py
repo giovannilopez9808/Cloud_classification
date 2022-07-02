@@ -9,6 +9,7 @@ from os.path import join
 params = get_params()
 params.update({
     "graphics file": "distribution.png",
+    "clear sky model": "RS",
     "comparison": "ratio",
 })
 comparison = comparison_data(params)

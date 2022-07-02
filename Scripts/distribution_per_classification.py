@@ -1,4 +1,5 @@
-from Modules.data_model import comparison_data, classification_data
+from Modules.data_model import (comparison_data,
+                                classification_data)
 from Modules.functions import (get_colors,
                                get_labels)
 from Modules.params import get_params
@@ -8,9 +9,10 @@ from os.path import join
 
 params = get_params()
 params.update({
-    "clear sky model": "GHI",
-    # "comparison": "ratio",
-    "comparison": "diff",
+    "clear sky model": "RS",
+    # "clear sky model": "GHI",
+    "comparison": "ratio",
+    # "comparison": "diff",
     "graphics params": {
         "ratio": {
             "x label": "Ratio",
