@@ -59,7 +59,7 @@ def fill_data(data: DataFrame,
 params = get_params()
 params.update({
     "similarity file": "similarity.csv",
-    "file results": "data_full.csv",
+    "file results": "full_data.csv",
     "clear sky model": "RS",
     "pollutant": "SR",
     "year": 2021,
