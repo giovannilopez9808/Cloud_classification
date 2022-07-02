@@ -9,5 +9,5 @@ source /opt/anaconda351/etc/profile.d/conda.sh
 conda activate tensorflow
 hostname
 date
-python get_closeness.py
+python get_clear_sky.py
 date
