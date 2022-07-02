@@ -52,7 +52,7 @@ def plot(SIMA: DataFrame,
 params = get_params()
 params.update({
     "path daily graphics": "Daily",
-    "clear sky model": "GHI",
+    "clear sky model": "RS",
     "null threshold": 14,
     "pollutant": "SR",
     "year": 2021,
