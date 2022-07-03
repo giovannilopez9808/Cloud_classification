@@ -32,10 +32,10 @@ def cosine_similarity(vector_i: array,
 params = get_params()
 params.update({
     "file results": "similarity",
-    "clear sky model": "RS",
-    # "ratio threshold": 0.8,
-    "ratio threshold": 1.5,
-    "operation": "ratio",
+    "clear sky model": "GHI",
+    # "threshold": 0.8,
+    "threshold": 10000,
+    "operation": "diff",
     "pollutant": "SR",
     "year": 2021,
 })
@@ -80,7 +80,7 @@ for station_date in bar:
                                    station,
                                    date)
     # Check atypical
-    vector_comparison = vector_comparison > params["ratio threshold"]
+    vector_comparison = vector_comparison > params["threshold"]
     # Transform to missing data
     vector_data[vector_comparison] = nan
     data[station][date] = vector_data
