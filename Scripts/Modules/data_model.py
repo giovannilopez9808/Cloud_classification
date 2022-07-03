@@ -286,6 +286,7 @@ class classification_data:
 class comparison_data:
     def __init__(self,
                  params: dict) -> None:
+        self.station_data = DataFrame()
         self.params = params
 
     def read(self, file: str) -> DataFrame:
@@ -301,9 +302,24 @@ class comparison_data:
         daily = self.data.resample("D").median()
         return daily
 
+    def get_station_data(self,
+                         station: str) -> DataFrame:
+        self.station_data = self.data[station]
+
     def get_data_per_dates(self,
                            dates: list) -> DataFrame:
         data = self.data.loc[dates]
+        return data
+
+    def get_data_date(self,
+                      date: str) -> DataFrame:
+        date = to_datetime(date)
+        if len(self.station_data) != 0:
+            index = self.station_data.index.date == date.date()
+            data = self.station_data[index]
+            return data
+        index = self.data.index.date == date.date()
+        data = self.data[index]
         return data
 
 

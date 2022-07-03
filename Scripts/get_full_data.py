@@ -58,9 +58,10 @@ def fill_data(data: DataFrame,
 
 params = get_params()
 params.update({
-    "similarity file": "similarity.csv",
-    "file results": "full_data.csv",
+    "similarity file": "similarity",
+    "file results": "full_data",
     "clear sky model": "RS",
+    "operation": "ratio",
     "pollutant": "SR",
     "year": 2021,
     "top vectors": 20,
@@ -73,9 +74,11 @@ filename = join(params["path data"],
 SIMA.read(filename)
 SIMA.data = SIMA.data.fillna(-1)
 dates = SIMA.get_dates()
+filename = "{}_{}.csv".format(params["similarity file"],
+                              params["operation"])
 filename = join(params["path results"],
                 params["clear sky model"],
-                params["similarity file"])
+                filename)
 similarity = read_csv(filename,
                       index_col=0)
 full_data = DataFrame()
@@ -107,7 +110,9 @@ for station in bar_stations:
                         results_per_station],
                        axis=1)
 full_data.index.name = "Date"
+filename = "{}_{}.csv".format(params["file results"],
+                              params["operation"])
 filename = join(params["path results"],
                 params["clear sky model"],
-                params["file results"])
+                filename)
 full_data.to_csv(filename)

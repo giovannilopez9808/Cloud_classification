@@ -40,8 +40,25 @@ def get_params() -> dict:
         },
         "hour initial": 9,
         "hour final": 18,
+        "datasets": {
+            "train": ["Sureste2",
+                      "Noroeste"],
+            "validation": ["Suroeste"],
+            "test": ["Noreste"],
+        }
     }
     return params
+
+
+def get_classification_params(params: dict) -> dict:
+    class_params = {
+        "SVM": {
+            "kernel": "linear",
+        }
+    }
+    label = "classification model"
+    dataset = params[label]
+    return class_params[dataset]
 
 
 if __name__ == "__main__":
