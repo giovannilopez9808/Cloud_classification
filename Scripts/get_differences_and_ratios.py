@@ -50,7 +50,7 @@ bar_dates = tqdm(dates,
                  bar_format="{bar}|{postfix}")
 for date in bar_dates:
     bar_dates.set_postfix(date=date)
-    SIMA_daily = SIMA.get_data_date(date)
+    SIMA_daily = SIMA.get_date_data(date)
     clear_sky_daily = clear_sky.get_date_date(date)
     results_per_day = DataFrame()
     for station in params["stations"]:

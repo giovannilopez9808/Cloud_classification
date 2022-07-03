@@ -98,7 +98,7 @@ for station in bar_stations:
         similarity_vector = get_similarity_vectors(SIMA,
                                                    similarity_dates,
                                                    params)
-        vector = SIMA.get_data_date(date)
+        vector = SIMA.get_date_data(date)
         vector = get_data_between_hours(vector,
                                         params)
         vector = fill_data(vector,

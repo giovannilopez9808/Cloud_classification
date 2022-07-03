@@ -94,8 +94,8 @@ for station in stations_bar:
     mkdir(params["path station graphics"])
     for date in dates_bar:
         dates_bar.set_postfix(date=date)
-        SIMA_daily = SIMA.get_data_date(date)
-        clear_sky_daily = clear_sky.get_date_date(date)
+        SIMA_daily = SIMA.get_date_data(date)
+        clear_sky_daily = clear_sky.get_date_data(date)
         clear_sky_daily = get_hourly_mean(clear_sky_daily)
         plot(SIMA_daily,
              clear_sky_daily,

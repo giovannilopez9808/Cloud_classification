@@ -1,4 +1,4 @@
-from Modules.data_model import (SIMA_model,
+from Modules.data_model import (full_data_model,
                                 clear_sky_data)
 from Modules.functions import (get_hourly_mean,
                                mkdir)
@@ -45,25 +45,18 @@ def plot(SIMA: DataFrame,
     filename = f"{date}.png"
     filename = join(params["path station graphics"],
                     filename)
-    plt.savefig(filename)
+    # plt.savefig(filename)
+    plt.show()
     plt.close()
 
 
 params = get_params()
 params.update({
     "path daily graphics": "Daily_full",
-    "file data": "full_data.csv",
+    "comparison operation": "diff",
     "clear sky model": "RS",
-    "null threshold": 14,
-    "pollutant": "SR",
-    "year": 2021,
 })
-filename = join(params["path results"],
-                params["clear sky model"],
-                params["file data"])
-data = read_csv(filename,
-                index_col=0,
-                parse_dates=True)
+full_data = full_data_model(params)
 clear_sky = clear_sky_data(params)
 dates = clear_sky.get_dates()
 stations_bar = tqdm(params["stations"])
@@ -71,7 +64,7 @@ for station in stations_bar:
     dates_bar = tqdm(dates)
     stations_bar.set_postfix(station=station)
     clear_sky.get_station_data(station)
-    station_data = data[station]
+    full_data.get_station_data(station)
     params["path station graphics"] = join(params["path graphics"],
                                            params["clear sky model"],
                                            params["path daily graphics"],
@@ -81,10 +74,10 @@ for station in stations_bar:
         dates_bar.set_postfix(date=date)
         datetime = to_datetime(date)
         datetime = datetime.date()
-        index = station_data.index.date == datetime
-        SIMA_daily = station_data[index]
-        clear_sky_daily = clear_sky.get_date_date(date)
+        full_data_daily = full_data.get_date_data(date)
+        full_data_daily = get_hourly_mean(full_data_daily)
+        clear_sky_daily = clear_sky.get_date_data(date)
         clear_sky_daily = get_hourly_mean(clear_sky_daily)
-        plot(SIMA_daily,
+        plot(full_data_daily,
              clear_sky_daily,
              params)
