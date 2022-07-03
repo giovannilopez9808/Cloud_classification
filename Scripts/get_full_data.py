@@ -36,7 +36,7 @@ def get_similarity_vectors(SIMA: SIMA_model,
                                      params["pollutant"],
                                      date)
         data = concat([data,
-                      station_data])
+                       station_data])
     data = get_hourly_mean(data)
     data = get_data_between_hours(data,
                                   params)
@@ -60,8 +60,8 @@ params = get_params()
 params.update({
     "similarity file": "similarity",
     "file results": "full_data",
-    "clear sky model": "RS",
-    "operation": "ratio",
+    "clear sky model": "GHI",
+    "operation": "diff",
     "pollutant": "SR",
     "year": 2021,
     "top vectors": 20,
