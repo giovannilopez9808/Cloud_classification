@@ -83,7 +83,7 @@ class SIMA_model:
         data = data[data.index.date == date.date()]
         return data
 
-    def get_data_date(self,
+    def get_date_data(self,
                       date: str) -> DataFrame:
         """
         Obtiene los datos de una fecha seleccionada, si no se han leido datos
@@ -184,7 +184,7 @@ class clear_sky_data:
         """
         self.station_data = DataFrame(self.data[station])
 
-    def get_date_date(self,
+    def get_date_data(self,
                       date: str) -> DataFrame:
         """
         Obtiene los datos de una fecha seleccionada, si no se han leido datos
@@ -254,7 +254,7 @@ class classification_data:
         """
         self.station_data = DataFrame(self.data[station])
 
-    def get_date_date(self,
+    def get_date_data(self,
                       date: str) -> DataFrame:
         """
         Obtiene los datos de una fecha seleccionada, si no se han leido datos
@@ -311,7 +311,39 @@ class comparison_data:
         data = self.data.loc[dates]
         return data
 
-    def get_data_date(self,
+    def get_date_data(self,
+                      date: str) -> DataFrame:
+        date = to_datetime(date)
+        if len(self.station_data) != 0:
+            index = self.station_data.index.date == date.date()
+            data = self.station_data[index]
+            return data
+        index = self.data.index.date == date.date()
+        data = self.data[index]
+        return data
+
+
+class full_data_model:
+    def __init__(self,
+                 params: dict) -> None:
+        self.params = params
+        self._read()
+
+    def _read(self) -> DataFrame:
+        operation = self.params["comparison operation"]
+        filename = f"full_data_{operation}.csv"
+        filename = join(self.params["path results"],
+                        self.params["clear sky model"],
+                        filename)
+        self.data = read_csv(filename,
+                             index_col=0,
+                             parse_dates=True)
+
+    def get_station_data(self,
+                         station: str) -> DataFrame:
+        self.station_data = self.data[station]
+
+    def get_date_data(self,
                       date: str) -> DataFrame:
         date = to_datetime(date)
         if len(self.station_data) != 0:
