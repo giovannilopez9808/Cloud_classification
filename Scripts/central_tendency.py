@@ -9,11 +9,10 @@ from os.path import join
 params = get_params()
 params.update({
     "graphics file": "distribution.png",
+    "comparison operation": "ratio",
     "clear sky model": "RS",
-    "comparison": "ratio",
 })
 comparison = comparison_data(params)
-comparison.read(params["comparison"])
 daily = comparison.get_daily_mean()
 plt.subplots(figsize=(10, 4))
 for station in daily.columns:

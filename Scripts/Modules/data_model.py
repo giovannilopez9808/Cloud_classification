@@ -250,9 +250,10 @@ class comparison_data(data_base_model):
     def __init__(self,
                  params: dict) -> None:
         super().__init__(params)
+        self._read()
 
-    def read(self, file: str) -> DataFrame:
-        filename = self._get_filename(file)
+    def _read(self) -> DataFrame:
+        filename = self._get_filename()
         self.data = read_csv(filename,
                              index_col=0,
                              parse_dates=True)
@@ -274,23 +275,11 @@ class comparison_data(data_base_model):
         data = self.data.loc[dates]
         return data
 
-    def get_date_data(self,
-                      date: str) -> DataFrame:
-        date = to_datetime(date)
-        if len(self.station_data) != 0:
-            index = self.station_data.index.date == date.date()
-            data = self.station_data[index]
-            return data
-        index = self.data.index.date == date.date()
-        data = self.data[index]
-        return data
 
-
-class full_data_model:
+class full_data_model(data_base_model):
     def __init__(self,
                  params: dict) -> None:
-        self.station_data = DataFrame()
-        self.params = params
+        super().__init__(params)
         self._read()
 
     def _read(self) -> DataFrame:
@@ -306,21 +295,6 @@ class full_data_model:
                         self.params["clear sky model"],
                         filename)
         return filename
-
-    def get_station_data(self,
-                         station: str) -> DataFrame:
-        self.station_data = self.data[station]
-
-    def get_date_data(self,
-                      date: str) -> DataFrame:
-        date = to_datetime(date)
-        if len(self.station_data) != 0:
-            index = self.station_data.index.date == date.date()
-            data = self.station_data[index]
-            return data
-        index = self.data.index.date == date.date()
-        data = self.data[index]
-        return data
 
 
 if __name__ == "__main__":

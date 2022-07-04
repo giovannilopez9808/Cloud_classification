@@ -1,5 +1,5 @@
-from Modules.data_model import (SIMA_model,
-                                comparison_data)
+from Modules.data_model import (comparison_data,
+                                SIMA_model)
 from Modules.functions import get_data_between_hours
 from Modules.params import get_params
 from pandas import DataFrame, concat
@@ -31,11 +31,11 @@ def cosine_similarity(vector_i: array,
 
 params = get_params()
 params.update({
+    "comparison operation": "diff",
     "file results": "similarity",
     "clear sky model": "GHI",
     # "threshold": 0.8,
     "threshold": 10000,
-    "operation": "diff",
     "pollutant": "SR",
     "year": 2021,
 })
@@ -53,7 +53,6 @@ data.columns = params["stations"]
 data = get_data_between_hours(data,
                               params)
 comparison = comparison_data(params)
-comparison.read(params["operation"])
 headers = [f"{station} {date}"
            for station in data.columns
            for date in dates]
@@ -99,7 +98,7 @@ for station_date_i, station_date in enumerate(bar):
         stations_data.loc[station_date, station_date_j] = cosine
         stations_data.loc[station_date_j, station_date] = cosine
 filename = "{}_{}.csv".format(params["file results"],
-                              params["operation"])
+                              params["comparison operation"])
 filename = join(params["path results"],
                 params["clear sky model"],
                 filename)

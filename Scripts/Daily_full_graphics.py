@@ -45,8 +45,7 @@ def plot(SIMA: DataFrame,
     filename = f"{date}.png"
     filename = join(params["path station graphics"],
                     filename)
-    # plt.savefig(filename)
-    plt.show()
+    plt.savefig(filename)
     plt.close()
 
 

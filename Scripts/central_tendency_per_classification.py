@@ -8,14 +8,12 @@ from os.path import join
 params = get_params()
 params.update({
     "file results": "Central_tendency",
+    "comparison operation": "diff",
     "clear sky model": "RS",
-    # "comparison": "ratio",
-    "comparison": "diff",
 })
 cloud_types, names = get_labels(params)
 classification = classification_data(params)
 comparison = comparison_data(params)
-comparison.read(params["comparison"])
 daily = comparison.get_daily_mean()
 data = dict()
 for cloud_type in cloud_types:
@@ -36,7 +34,7 @@ for cloud_type, name in zip(cloud_types, names):
                      axis=1)
 results.index.name = "Central tendency"
 filename = "{}_{}.csv".format(params["file results"],
-                              params["comparison"])
+                              params["comparison operation"])
 filename = join(params["path results"],
                 params["clear sky model"],
                 filename)

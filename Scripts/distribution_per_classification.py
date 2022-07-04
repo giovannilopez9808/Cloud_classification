@@ -9,10 +9,8 @@ from os.path import join
 
 params = get_params()
 params.update({
+    "comparison operation": "ratio",
     "clear sky model": "RS",
-    # "clear sky model": "GHI",
-    "comparison": "ratio",
-    # "comparison": "diff",
     "graphics params": {
         "ratio": {
             "x label": "Ratio",
@@ -32,11 +30,11 @@ params.update({
         }
     }
 })
+operation = params["comparison operation"]
 cloud_types, _ = get_labels(params)
 classification = classification_data(params)
 comparison = comparison_data(params)
-comparison.read(params["comparison"])
-dataset = params["graphics params"][params["comparison"]]
+dataset = params["graphics params"][operation]
 daily = comparison.get_daily_mean()
 data = dict()
 for cloud_type in cloud_types:
@@ -69,7 +67,7 @@ for i, ax in enumerate([ax1, ax2, ax3]):
             color="#000000",
             alpha=0.6)
 plt.tight_layout()
-filename = f"distribution_{params['comparison']}.png"
+filename = f"distribution_{operation}.png"
 filename = join(params["path graphics"],
                 params["clear sky model"],
                 filename)
