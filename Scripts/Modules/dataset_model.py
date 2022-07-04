@@ -1,6 +1,6 @@
 from .data_model import (classification_data,
                          full_comparison_data)
-from numpy import isnan, array
+from numpy import isnan, array, mean
 from pandas import DataFrame
 
 
@@ -49,7 +49,21 @@ class dataset_model:
                     daily_vector = self._get_vector(daily_vector)
                     data.append(daily_vector)
                     target += list(daily_value)
-        return data, target
+        data = array(data)
+        target = array(target)
+        return [data, target]
+
+    def apply_mean(self) -> array:
+        self.train[0] = self._mean(self.train[0])
+        self.validation[0] = self._mean(self.validation[0])
+        self.test[0] = self._mean(self.test[0])
+
+    def _mean(self,
+              data: array) -> array:
+        mean_value = mean(data,
+                          axis=1)
+        mean_value = mean_value.reshape(-1, 1)
+        return mean_value
 
     def _get_vector(self,
                     data: DataFrame) -> array:

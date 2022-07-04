@@ -54,7 +54,14 @@ def get_classification_params(params: dict) -> dict:
     class_params = {
         "SVM": {
             "kernel": "linear",
-        }
+        },
+        "KNN": {
+            "n_neighbors": 3,
+        },
+        "Random forest": {
+            "criterion": "gini",
+            "n_estimators": 1000,
+        },
     }
     label = "classification model"
     dataset = params[label]
