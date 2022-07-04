@@ -12,8 +12,10 @@ from os.path import join
 
 
 class data_base_model:
-    def __init__(self) -> None:
+    def __init__(self,
+                 params: dict) -> None:
         self.station_data = DataFrame()
+        self.params = params
 
     def _read(self) -> DataFrame:
         self.data = DataFrame()
@@ -71,8 +73,7 @@ class SIMA_model(data_base_model):
     def __init__(self,
                  params: dict) -> None:
         # Inicializacion de los datos
-        self.station_data = DataFrame()
-        self.params = params
+        super().__init__(params)
         self._read()
 
     def _read(self) -> DataFrame:
