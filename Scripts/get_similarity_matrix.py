@@ -39,12 +39,7 @@ params.update({
     "pollutant": "SR",
     "year": 2021,
 })
-SIMA = SIMA_model()
-filename = f"{params['year']}.csv"
-filename = join(params["path data"],
-                params["SIMA folder"],
-                filename)
-SIMA.read(filename)
+SIMA = SIMA_model(params)
 data = DataFrame()
 for station in params["stations"]:
     SIMA.get_station_data(station,
