@@ -1,6 +1,7 @@
-from .data_model import classification_data, comparison_data
+from .data_model import (classification_data,
+                         full_comparison_data)
+from numpy import isnan, array
 from pandas import DataFrame
-from numpy import isnan
 
 
 class dataset_model:
@@ -11,23 +12,29 @@ class dataset_model:
 
     def _read(self) -> DataFrame:
         classification = classification_data(self.params)
-        comparison = comparison_data(self.params)
-        comparison.read(self.params["comparison operation"])
+        comparison = full_comparison_data(self.params)
         dataset = self.params["datasets"]
         self.train = self._create_dataset(classification,
                                           comparison,
-                                          dataset["train"])
+                                          dataset,
+                                          "train")
         self.validation = self._create_dataset(classification,
                                                comparison,
-                                               dataset["validation"])
+                                               dataset,
+                                               "validation")
         self.test = self._create_dataset(classification,
                                          comparison,
-                                         dataset["test"])
+                                         dataset,
+                                         "test")
 
     def _create_dataset(self,
                         classification: classification_data,
-                        comparison: comparison_data,
-                        stations: list) -> DataFrame:
+                        comparison: full_comparison_data,
+                        dataset: dict,
+                        data_name: str) -> DataFrame:
+        print("-"*40)
+        print(f"Creando dataset {data_name}")
+        stations = dataset[data_name]
         data = list()
         target = list()
         dates = classification.get_dates()
@@ -35,12 +42,17 @@ class dataset_model:
             classification.get_station_data(station)
             comparison.get_station_data(station)
             for date in dates:
-                daily_value = classification.get_date_date(date)
-                daily_vector = comparison.get_data_date(date)
-                daily_vector = daily_vector.fillna(100)
-                daily_value = daily_value.to_numpy()
-                daily_vector = daily_vector.to_numpy()
+                daily_value = classification.get_date_data(date)
+                daily_value = self._get_vector(daily_value)
                 if not isnan(daily_value):
-                    data.append(list(daily_vector))
+                    daily_vector = comparison.get_date_data(date)
+                    daily_vector = self._get_vector(daily_vector)
+                    data.append(daily_vector)
                     target += list(daily_value)
         return data, target
+
+    def _get_vector(self,
+                    data: DataFrame) -> array:
+        vector = data.to_numpy()
+        vector = vector.flatten()
+        return vector

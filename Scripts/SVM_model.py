@@ -7,7 +7,7 @@ from Modules.functions import get_labels
 
 params = get_params()
 params.update({
-    "comparison operation": "diff",
+    "comparison operation": "ratio",
     "classification model": "SVM",
     "clear sky model": "RS",
 })

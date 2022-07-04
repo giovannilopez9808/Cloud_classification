@@ -18,10 +18,14 @@ class data_base_model:
         self.params = params
 
     def _read(self) -> DataFrame:
-        self.data = DataFrame()
+        filename = self._get_filename()
+        self.data = read_csv(filename,
+                             index_col=0,
+                             parse_dates=True)
 
     def _get_filename(self) -> str:
-        pass
+        filename = str()
+        return filename
 
     def get_date_data(self,
                       date: str) -> DataFrame:
@@ -185,17 +189,6 @@ class clear_sky_data(data_base_model):
         super().__init__(params)
         self._read()
 
-    def _read(self) -> DataFrame:
-        """
-        Lectura de los archivos
-        """
-        # Nombre con la ruta del archivo
-        filename = self._get_filename()
-        # Lectura del archivo
-        self.data = read_csv(filename,
-                             index_col=0,
-                             parse_dates=True)
-
     def _get_filename(self) -> str:
         filename = join(self.params["path results"],
                         self.params["clear sky model"],
@@ -219,20 +212,6 @@ class classification_data(data_base_model):
         super().__init__(params)
         self._read()
 
-    def _read(self) -> DataFrame:
-        """
-        Lectura del archivo dado su nombre
-
-        Output:
-        --------------------
-        Dataframe con los datos del SIMA, el indice esta con formato de fecha
-        """
-        filename = self._get_filename()
-        self.data = read_csv(filename,
-                             index_col=0,
-                             parse_dates=True)
-        # self.data = self.data.fillna(-1)
-
     def _get_filename(self) -> str:
         filename = join(self.params["path results"],
                         self.params["classification file"])
@@ -252,12 +231,6 @@ class comparison_data(data_base_model):
         super().__init__(params)
         self._read()
 
-    def _read(self) -> DataFrame:
-        filename = self._get_filename()
-        self.data = read_csv(filename,
-                             index_col=0,
-                             parse_dates=True)
-
     def _get_filename(self) -> str:
         operation = self.params["comparison operation"]
         filename = f"{operation}.csv"
@@ -276,17 +249,35 @@ class comparison_data(data_base_model):
         return data
 
 
-class full_data_model(data_base_model):
+class full_comparison_data(data_base_model):
     def __init__(self,
                  params: dict) -> None:
         super().__init__(params)
         self._read()
 
-    def _read(self) -> DataFrame:
-        filename = self._get_filename()
-        self.data = read_csv(filename,
-                             index_col=0,
-                             parse_dates=True)
+    def _get_filename(self) -> str:
+        operation = self.params["comparison operation"]
+        filename = f"full_{operation}.csv"
+        filename = join(self.params["path results"],
+                        self.params["clear sky model"],
+                        filename)
+        return filename
+
+    def get_daily_mean(self) -> DataFrame:
+        daily = self.data.resample("D").mean()
+        return daily
+
+    def get_data_per_dates(self,
+                           dates: list) -> DataFrame:
+        data = self.data.loc[dates]
+        return data
+
+
+class full_data_model(data_base_model):
+    def __init__(self,
+                 params: dict) -> None:
+        super().__init__(params)
+        self._read()
 
     def _get_filename(self) -> str:
         operation = self.params["comparison operation"]
