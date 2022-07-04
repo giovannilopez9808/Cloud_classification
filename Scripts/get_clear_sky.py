@@ -5,7 +5,6 @@ from pandas import concat, DataFrame
 from os.path import join
 from tqdm import tqdm
 
-
 params = get_params()
 params.update({
     # "clear sky model": "GHI",
@@ -18,13 +17,8 @@ params.update({
 })
 
 
-SIMA = SIMA_model()
+SIMA = SIMA_model(params)
 model = clear_sky_model()
-filename = f"{params['year']}.csv"
-filename = join(params["path data"],
-                params["SIMA folder"],
-                filename)
-SIMA.read(filename)
 dates = SIMA.get_dates()
 results = DataFrame(columns=params["stations"])
 bar = tqdm(dates)
@@ -42,8 +36,8 @@ for date in bar:
         results_per_day = concat([results_per_day,
                                   clear_sky],
                                  axis=1)
-    results = concat([results,
-                      results_per_day])
+results = concat([results,
+                  results_per_day])
 filename = join(params["path results"],
                 params["clear sky model"],
                 params["clear sky file"])
