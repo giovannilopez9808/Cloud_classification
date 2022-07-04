@@ -169,7 +169,7 @@ class SIMA_model(data_base_model):
         return data[station]
 
 
-class clear_sky_data:
+class clear_sky_data(data_base_model):
     def __init__(self,
                  params: dict) -> None:
         """
@@ -182,8 +182,7 @@ class clear_sky_data:
             path results -> direccion de los resultados generales
             clear sky file -> nombre del archivo que contiene los datos
         """
-        self.station_data = DataFrame()
-        self.params = params
+        super().__init__(params)
         self._read()
 
     def _read(self) -> DataFrame:
@@ -203,45 +202,8 @@ class clear_sky_data:
                         self.params["clear sky file"])
         return filename
 
-    def get_dates(self) -> list:
-        """
-        Obtiene las fechas del archivo leido
-        """
-        dates = sorted(list(set(self.data.index.date)))
-        return dates
 
-    def get_station_data(self,
-                         station: str) -> DataFrame:
-        """
-        Obtiene la informacion de una estacion
-        """
-        self.station_data = DataFrame(self.data[station])
-
-    def get_date_data(self,
-                      date: str) -> DataFrame:
-        """
-        Obtiene los datos de una fecha seleccionada, si no se han leido datos
-        de una estacion en particular se tomara toda la base de datos
-
-        Input:
-        --------------------
-        date -> string de la fecha en formato Y-M-D
-
-        Output:
-        --------------------
-        Dataframe de los datos en la fecha seleccionada
-        """
-        date = to_datetime(date)
-        if len(self.station_data) != 0:
-            select_data = self.station_data.index.date == date.date()
-            data = self.station_data[select_data]
-            return data
-        select_data = self.data.index.date == date.date()
-        data = self.data[select_data]
-        return data
-
-
-class classification_data:
+class classification_data(data_base_model):
     def __init__(self,
                  params: dict) -> None:
         """
@@ -254,8 +216,7 @@ class classification_data:
             path results -> direccion de los resultados generales
             classification file -> nombre del archivo que contiene los datos
         """
-        self.station_data = DataFrame()
-        self.params = params
+        super().__init__(params)
         self._read()
 
     def _read(self) -> DataFrame:
@@ -277,41 +238,6 @@ class classification_data:
                         self.params["classification file"])
         return filename
 
-    def get_dates(self) -> list:
-        """
-        Obtiene las fechas del archivo leido
-        """
-        dates = sorted(list(set(self.data.index.date)))
-        return dates
-
-    def get_station_data(self,
-                         station: str) -> DataFrame:
-        """
-        Obtiene la informacion de una estacion
-        """
-        self.station_data = DataFrame(self.data[station])
-
-    def get_date_data(self,
-                      date: str) -> DataFrame:
-        """
-        Obtiene los datos de una fecha seleccionada, si no se han leido datos
-        de una estacion en particular se tomara toda la base de datos
-
-        Input:
-        --------------------
-        date -> string de la fecha en formato Y-M-D
-
-        Output:
-        --------------------
-        Dataframe de los datos en la fecha seleccionada
-        """
-        date = to_datetime(date)
-        if len(self.station_data) != 0:
-            data = self.station_data.loc[date]
-            return data
-        data = self.data.loc[date]
-        return data
-
     def get_data_from_type(self,
                            data_type: int) -> DataFrame:
         if len(self.station_data) != 0:
@@ -320,11 +246,10 @@ class classification_data:
             return data
 
 
-class comparison_data:
+class comparison_data(data_base_model):
     def __init__(self,
                  params: dict) -> None:
-        self.station_data = DataFrame()
-        self.params = params
+        super().__init__(params)
 
     def read(self, file: str) -> DataFrame:
         filename = self._get_filename(file)
@@ -332,9 +257,9 @@ class comparison_data:
                              index_col=0,
                              parse_dates=True)
 
-    def _get_filename(self,
-                      file: str) -> str:
-        filename = f"{file}.csv"
+    def _get_filename(self) -> str:
+        operation = self.params["comparison operation"]
+        filename = f"{operation}.csv"
         filename = join(self.params["path results"],
                         self.params["clear sky model"],
                         filename)
@@ -343,10 +268,6 @@ class comparison_data:
     def get_daily_mean(self) -> DataFrame:
         daily = self.data.resample("D").median()
         return daily
-
-    def get_station_data(self,
-                         station: str) -> DataFrame:
-        self.station_data = self.data[station]
 
     def get_data_per_dates(self,
                            dates: list) -> DataFrame:
