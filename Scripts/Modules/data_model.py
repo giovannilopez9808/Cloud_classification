@@ -11,17 +11,71 @@ from pandas import (read_csv,
 from os.path import join
 
 
-class SIMA_model:
+class data_base_model:
+    def __init__(self) -> None:
+        self.station_data = DataFrame()
+
+    def _read(self) -> DataFrame:
+        self.data = DataFrame()
+
+    def _get_filename(self) -> str:
+        pass
+
+    def get_date_data(self,
+                      date: str) -> DataFrame:
+        """
+        Obtiene los datos de una fecha seleccionada, si no se han leido datos
+        de una estacion en particular se tomara toda la base de datos
+
+        Input:
+        --------------------
+        date -> string de la fecha en formato Y-M-D
+
+        Output:
+        --------------------
+        Dataframe de los datos en la fecha seleccionada
+        """
+        # Mismo formato que el indice
+        date = to_datetime(date)
+        # Si no hay una estacion seleccionada
+        if len(self.station_data) != 0:
+            select_data = self.station_data.index.date == date.date()
+            data = self.station_data[select_data]
+            return data
+        # Lee los datos generales
+        select_data = self.data.index.date == date.date()
+        data = self.data[select_data]
+        return data
+
+    def get_dates(self) -> list:
+        """
+        Obtiene las fechas del archivo leido
+        """
+        dates = self.data.index.date
+        dates = sorted(list(set(dates)))
+        return dates
+
+    def get_station_data(self,
+                         station: str) -> DataFrame:
+        """
+        Obtiene la informacion de una estacion
+        """
+        self.station_data = DataFrame(self.data[station])
+
+
+class SIMA_model(data_base_model):
     """
     Modelo que guarda la estructura de los datos de SIMA
     """
 
-    def __init__(self) -> None:
+    def __init__(self,
+                 params: dict) -> None:
         # Inicializacion de los datos
         self.station_data = DataFrame()
+        self.params = params
+        self._read()
 
-    def read(self,
-             filename: str) -> DataFrame:
+    def _read(self) -> DataFrame:
         """
         Lectura del archivo dado su nombre
 
@@ -34,6 +88,7 @@ class SIMA_model:
         --------------------
         Dataframe con los datos del SIMA, el indice esta con formato de fecha
         """
+        filename = self._get_filename()
         self.data = read_csv(filename,
                              header=[0, 1],
                              skiprows=[2],
@@ -42,13 +97,12 @@ class SIMA_model:
                              low_memory=False)
         self.data = self.data*1000
 
-    def get_dates(self) -> list:
-        """
-        Obtiene las fechas del archivo leido
-        """
-        dates = self.data.index.date
-        dates = sorted(list(set(dates)))
-        return dates
+    def _get_filename(self) -> str:
+        filename = f"{self.params['year']}.csv"
+        filename = join(self.params["path data"],
+                        self.params["SIMA folder"],
+                        filename)
+        return filename
 
     def get_station_data(self,
                          station: str,
@@ -81,32 +135,6 @@ class SIMA_model:
         data = self.data[(station,
                          pollutant)]
         data = data[data.index.date == date.date()]
-        return data
-
-    def get_date_data(self,
-                      date: str) -> DataFrame:
-        """
-        Obtiene los datos de una fecha seleccionada, si no se han leido datos
-        de una estacion en particular se tomara toda la base de datos
-
-        Input:
-        --------------------
-        date -> string de la fecha en formato Y-M-D
-
-        Output:
-        --------------------
-        Dataframe de los datos en la fecha seleccionada
-        """
-        # Mismo formato que el indice
-        date = to_datetime(date)
-        # Si no hay una estacion seleccionada
-        if len(self.station_data) != 0:
-            select_data = self.station_data.index.date == date.date()
-            data = self.station_data[select_data]
-            return data
-        # Lee los datos generales
-        select_data = self.data.index.date == date.date()
-        data = self.data[select_data]
         return data
 
     def get_station_info(self,
@@ -162,13 +190,17 @@ class clear_sky_data:
         Lectura de los archivos
         """
         # Nombre con la ruta del archivo
-        filename = join(self.params["path results"],
-                        self.params["clear sky model"],
-                        self.params["clear sky file"])
+        filename = self._get_filename()
         # Lectura del archivo
         self.data = read_csv(filename,
                              index_col=0,
                              parse_dates=True)
+
+    def _get_filename(self) -> str:
+        filename = join(self.params["path results"],
+                        self.params["clear sky model"],
+                        self.params["clear sky file"])
+        return filename
 
     def get_dates(self) -> list:
         """
@@ -233,12 +265,16 @@ class classification_data:
         --------------------
         Dataframe con los datos del SIMA, el indice esta con formato de fecha
         """
-        filename = join(self.params["path results"],
-                        self.params["classification file"])
+        filename = self._get_filename()
         self.data = read_csv(filename,
                              index_col=0,
                              parse_dates=True)
         # self.data = self.data.fillna(-1)
+
+    def _get_filename(self) -> str:
+        filename = join(self.params["path results"],
+                        self.params["classification file"])
+        return filename
 
     def get_dates(self) -> list:
         """
@@ -290,13 +326,18 @@ class comparison_data:
         self.params = params
 
     def read(self, file: str) -> DataFrame:
+        filename = self._get_filename(file)
+        self.data = read_csv(filename,
+                             index_col=0,
+                             parse_dates=True)
+
+    def _get_filename(self,
+                      file: str) -> str:
         filename = f"{file}.csv"
         filename = join(self.params["path results"],
                         self.params["clear sky model"],
                         filename)
-        self.data = read_csv(filename,
-                             index_col=0,
-                             parse_dates=True)
+        return filename
 
     def get_daily_mean(self) -> DataFrame:
         daily = self.data.resample("D").median()
@@ -326,18 +367,23 @@ class comparison_data:
 class full_data_model:
     def __init__(self,
                  params: dict) -> None:
+        self.station_data = DataFrame()
         self.params = params
         self._read()
 
     def _read(self) -> DataFrame:
+        filename = self._get_filename()
+        self.data = read_csv(filename,
+                             index_col=0,
+                             parse_dates=True)
+
+    def _get_filename(self) -> str:
         operation = self.params["comparison operation"]
         filename = f"full_data_{operation}.csv"
         filename = join(self.params["path results"],
                         self.params["clear sky model"],
                         filename)
-        self.data = read_csv(filename,
-                             index_col=0,
-                             parse_dates=True)
+        return filename
 
     def get_station_data(self,
                          station: str) -> DataFrame:

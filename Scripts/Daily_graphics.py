@@ -46,7 +46,8 @@ def plot(SIMA: DataFrame,
     filename = f"{date}.png"
     filename = join(params["path station graphics"],
                     filename)
-    plt.savefig(filename)
+    # plt.savefig(filename)
+    plt.show()
     plt.close()
 
 
@@ -72,12 +73,7 @@ params.update({
 })
 
 params["dataset"] = params["datasets"][params["clear sky model"]]
-SIMA = SIMA_model()
-filename = f"{params['year']}.csv"
-filename = join(params["path data"],
-                params["SIMA folder"],
-                filename)
-SIMA.read(filename)
+SIMA = SIMA_model(params)
 clear_sky = clear_sky_data(params)
 dates = clear_sky.get_dates()
 stations_bar = tqdm(params["stations"])
@@ -100,3 +96,5 @@ for station in stations_bar:
         plot(SIMA_daily,
              clear_sky_daily,
              params)
+        break
+    break
