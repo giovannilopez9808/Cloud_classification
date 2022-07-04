@@ -32,8 +32,6 @@ class dataset_model:
                         comparison: full_comparison_data,
                         dataset: dict,
                         data_name: str) -> DataFrame:
-        print("-"*40)
-        print(f"Creando dataset {data_name}")
         stations = dataset[data_name]
         data = list()
         target = list()
