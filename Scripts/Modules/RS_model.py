@@ -2,7 +2,7 @@
 Modelo de la irradiancia solar extraterrestre para una locacion y tiempo
 definido
 """
-from numpy import sin, cos, pi, exp, arccos, power
+from numpy import exp, arccos, power
 from .GHI_model import GHI_model
 from datetime import datetime
 

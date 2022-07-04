@@ -45,10 +45,10 @@ for cloud_type in cloud_types:
         dates = values.index
         values = daily[station][dates]
         data[cloud_type] += list(values)
-fig, (ax1, ax2, ax3) = plt.subplots(3, 1,
-                                    sharex=True,
-                                    sharey=True,
-                                    figsize=(12, 8))
+_, (ax1, ax2, ax3) = plt.subplots(3, 1,
+                                  sharex=True,
+                                  sharey=True,
+                                  figsize=(12, 8))
 colors = get_colors(params)
 ax1.set_xlim(dataset["x limit"][0],
              dataset["x limit"][1])

@@ -2,10 +2,8 @@ from Modules.data_model import (full_data_model,
                                 clear_sky_data)
 from Modules.functions import (get_hourly_mean,
                                mkdir)
-from pandas import (read_csv,
-                    to_datetime,
-                    DataFrame,
-                    to_timedelta)
+from pandas import (to_datetime,
+                    DataFrame)
 from Modules.params import get_params
 import matplotlib.pyplot as plt
 from os.path import join
@@ -19,7 +17,7 @@ def plot(SIMA: DataFrame,
     plt.subplots(figsize=(8, 4))
     plt.title(date)
     plt.plot(clear_sky,
-             label="GHI$_0$",
+             label="RS model",
              color="#003049",
              ls="--",
              marker="o")

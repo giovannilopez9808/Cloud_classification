@@ -2,12 +2,9 @@ from Modules.data_model import (SIMA_model,
                                 clear_sky_data)
 from Modules.functions import (get_hourly_mean,
                                mkdir)
-from pandas import (read_csv,
-                    to_datetime,
-                    DataFrame,
-                    to_timedelta)
 from Modules.params import get_params
 import matplotlib.pyplot as plt
+from pandas import DataFrame
 from os.path import join
 from tqdm import tqdm
 

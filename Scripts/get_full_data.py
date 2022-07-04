@@ -3,10 +3,8 @@ from Modules.functions import (get_data_between_hours,
 from pandas import read_csv, DataFrame, concat
 from Modules.data_model import SIMA_model
 from Modules.params import get_params
-import matplotlib.pyplot as plt
 from os.path import join
 from tqdm import tqdm
-from numpy import nan
 
 
 def sort(data: DataFrame) -> DataFrame:

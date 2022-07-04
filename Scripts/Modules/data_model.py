@@ -4,10 +4,8 @@ Conjunto de clases para la lectura y organizacion de los archivos
 
 
 from pandas import (read_csv,
-                    Timestamp,
                     DataFrame,
-                    to_datetime,
-                    to_timedelta)
+                    to_datetime)
 from os.path import join
 
 

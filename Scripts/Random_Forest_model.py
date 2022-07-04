@@ -2,7 +2,6 @@ from Modules.classification_classic_models import random_forest_model
 from Modules.params import get_params, get_classification_params
 from sklearn.metrics import classification_report
 from Modules.dataset_model import dataset_model
-from sklearn.metrics import confusion_matrix
 from Modules.functions import get_labels
 
 params = get_params()

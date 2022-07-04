@@ -1,5 +1,4 @@
-from Modules.data_model import (classification_data,
-                                clear_sky_data,
+from Modules.data_model import (clear_sky_data,
                                 SIMA_model)
 from Modules.functions import (get_hourly_mean,
                                get_data_between_hours)

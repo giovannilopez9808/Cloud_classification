@@ -1,5 +1,4 @@
-from Modules.data_model import (classification_data,
-                                full_data_model,
+from Modules.data_model import (full_data_model,
                                 clear_sky_data)
 from Modules.functions import (get_hourly_mean,
                                get_data_between_hours)
@@ -8,7 +7,6 @@ from pandas import DataFrame, concat
 from os.path import join
 from numpy import inf
 from tqdm import tqdm
-from sys import exit
 
 
 def comparison_operation(measurement: DataFrame,
@@ -32,7 +30,7 @@ def comparison_operation(measurement: DataFrame,
 params = get_params()
 params.update({
     "comparison operation": "diff",
-    "clear sky model": "RS",
+    "clear sky model": "GHI",
     "file results": "full",
 })
 results = DataFrame(columns=params["stations"])
@@ -51,7 +49,7 @@ for date in bar_dates:
         clear_sky_station = get_data_between_hours(clear_sky_station,
                                                    params)
         full_data_station = full_data_daily[station]
-        fill_data_station = get_data_between_hours(full_data_station,
+        full_data_station = get_data_between_hours(full_data_station,
                                                    params)
         comparison = comparison_operation(full_data_station,
                                           clear_sky_station,
@@ -60,8 +58,6 @@ for date in bar_dates:
         results_per_day = concat([results_per_day,
                                   comparison],
                                  axis=1)
-        print(results_per_day)
-        exit(0)
     results = concat([results,
                       results_per_day])
 filename = "{}_{}.csv".format(params["file results"],
