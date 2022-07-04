@@ -11,8 +11,8 @@ class GHI_model:
         # Solar constant (W/m2)
         self.Isc = 1367
 
-    def get_H0(self,
-               params: dict) -> float:
+    def run(self,
+            params: dict) -> float:
         """
         Obtiene el modelo de irradiancia extraterrestre para una locacion
         y tiempo definido
@@ -49,14 +49,23 @@ class GHI_model:
                                            lamb,
                                            timezone)
         # Ecuacion de irradiancia solar extraterrestre
-        g0 = cos(phi)*cos(delta)*cos(omega)
-        g0 += sin(phi)*sin(delta)
+        g0 = self._get_zenith_angle(phi,
+                                    delta,
+                                    omega)
         g0 *= (1+0.033*cos(360*day/365))
         g0 *= self.Isc
         # Si es negativo, entonces el valor es 0
         if g0 < 0:
             g0 = 0
         return g0
+
+    def _get_zenith_angle(self,
+                          phi: float,
+                          delta: float,
+                          omega: float) -> float:
+        cos_z = cos(phi)*cos(delta)*cos(omega)
+        cos_z += sin(phi)*sin(delta)
+        return cos_z
 
     def _get_declination_angle(self,
                                day: int,
@@ -250,6 +259,11 @@ class GHI_model:
                    degree: float) -> float:
         rad = pi*degree/180
         return rad
+
+    def _to_degree(self,
+                   radian: float) -> float:
+        degree = 180*radian/pi
+        return degree
 
 
 if "__main__" == __name__:

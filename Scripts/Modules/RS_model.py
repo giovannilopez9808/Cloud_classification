@@ -11,8 +11,8 @@ class RS_model(GHI_model):
     def __init__(self) -> None:
         pass
 
-    def get_H0(self,
-               params: dict) -> float:
+    def run(self,
+            params: dict) -> float:
         """
         Obtiene el modelo de irradiancia extraterrestre para una locacion
         y tiempo definido
@@ -52,13 +52,14 @@ class RS_model(GHI_model):
                                            lamb,
                                            timezone)
         # Ecuacion de irradiancia solar extraterrestre
-        cos_z = cos(phi)*cos(delta)*cos(omega)
-        cos_z += sin(phi)*sin(delta)
+        cos_z = self._get_zenith_angle(phi,
+                                       delta,
+                                       omega)
         if cos_z < 0:
             g0 = 0
             return g0
         z = arccos(cos_z)
-        z = 180*z/pi
+        z = self._to_degree(z)
         g0 = power(cos_z, b)
         g0 *= a
         g0 *= exp(-c*(90-z))

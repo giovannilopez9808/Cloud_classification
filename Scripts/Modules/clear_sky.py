@@ -55,7 +55,7 @@ class clear_sky_model:
                                           minutes)
             params["datetime"] = datetime
             # Irradiancia solar extraterrestre
-            H0 = self.model.get_H0(params)
+            H0 = self.model.run(params)
             # Guardado de los resultados
             results.loc[datetime] = H0
         # Formateo de la fecha
