@@ -62,6 +62,11 @@ def get_classification_params(params: dict) -> dict:
             "criterion": "gini",
             "n_estimators": 1000,
         },
+        "Gaussian naive": {
+        },
+        "Decision tree": {
+            "criterion": "gini",
+        },
     }
     label = "classification model"
     dataset = params[label]

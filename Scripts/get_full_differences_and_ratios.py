@@ -1,3 +1,9 @@
+"""
+python get_full_differences_and_ratios.py (operation) (model)
+
+operation -> diff | ratio
+model -> GHI | RS
+"""
 from Modules.data_model import (full_data_model,
                                 clear_sky_data)
 from Modules.functions import (get_hourly_mean,
@@ -7,6 +13,7 @@ from pandas import DataFrame, concat
 from os.path import join
 from numpy import inf
 from tqdm import tqdm
+from sys import argv
 
 
 def comparison_operation(measurement: DataFrame,
@@ -29,8 +36,8 @@ def comparison_operation(measurement: DataFrame,
 
 params = get_params()
 params.update({
-    "comparison operation": "diff",
-    "clear sky model": "GHI",
+    "comparison operation": argv[1],
+    "clear sky model": argv[2],
     "file results": "full",
 })
 results = DataFrame(columns=params["stations"])

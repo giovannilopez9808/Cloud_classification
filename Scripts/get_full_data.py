@@ -1,10 +1,24 @@
 from Modules.functions import (get_data_between_hours,
                                get_hourly_mean)
 from pandas import read_csv, DataFrame, concat
-from Modules.data_model import SIMA_model
+from Modules.data_model import (classification_data,
+                                SIMA_model)
+from numpy import isnan, array, empty, nan
 from Modules.params import get_params
 from os.path import join
 from tqdm import tqdm
+from sys import argv
+
+
+def nan_vector(vector: DataFrame) -> array:
+    header = vector.columns
+    index = vector.index
+    vector = empty(vector.size)
+    vector[:] = nan
+    vector = DataFrame(vector,
+                       index=index,
+                       columns=header)
+    return vector
 
 
 def sort(data: DataFrame) -> DataFrame:
@@ -47,7 +61,7 @@ def fill_data(data: DataFrame,
                                      similarity_data.index):
         value = data.loc[data_index]
         value = float(value)
-        if value < 0:
+        if isnan(value):
             value = similarity_data.loc[sim_index]
             value = float(value)
             data.loc[data_index] = value
@@ -57,23 +71,18 @@ def fill_data(data: DataFrame,
 params = get_params()
 params.update({
     "similarity file": "similarity",
+    "comparison operation": argv[1],
     "file results": "full_data",
-    "clear sky model": "GHI",
-    "operation": "diff",
+    "clear sky model": argv[2],
     "pollutant": "SR",
     "year": 2021,
-    "top vectors": 20,
+    "top vectors": 30,
 })
-SIMA = SIMA_model()
-filename = f"{params['year']}.csv"
-filename = join(params["path data"],
-                params["SIMA folder"],
-                filename)
-SIMA.read(filename)
-SIMA.data = SIMA.data.fillna(-1)
+classification = classification_data(params)
+SIMA = SIMA_model(params)
 dates = SIMA.get_dates()
 filename = "{}_{}.csv".format(params["similarity file"],
-                              params["operation"])
+                              params["comparison operation"])
 filename = join(params["path results"],
                 params["clear sky model"],
                 filename)
@@ -86,21 +95,28 @@ for station in bar_stations:
     results_per_station = DataFrame()
     SIMA.get_station_data(station,
                           params["pollutant"])
+    classification.get_station_data(station)
     bar_dates = tqdm(dates)
     for date in bar_dates:
         bar_dates.set_postfix(date=date)
-        similarity_dates = get_best_similarity_dates(similarity,
-                                                     params,
-                                                     station,
-                                                     date)
-        similarity_vector = get_similarity_vectors(SIMA,
-                                                   similarity_dates,
-                                                   params)
+        classification_value = classification.get_date_data(date)
+        classification_value = classification_value.to_numpy()
+        classification_value = classification_value[0][0]
         vector = SIMA.get_date_data(date)
         vector = get_data_between_hours(vector,
                                         params)
-        vector = fill_data(vector,
-                           similarity_vector)
+        if not isnan(classification_value):
+            similarity_dates = get_best_similarity_dates(similarity,
+                                                         params,
+                                                         station,
+                                                         date)
+            similarity_vector = get_similarity_vectors(SIMA,
+                                                       similarity_dates,
+                                                       params)
+            vector = fill_data(vector,
+                               similarity_vector)
+        else:
+            vector = nan_vector(vector)
         results_per_station = concat([results_per_station,
                                       vector])
     results_per_station.columns = [station]
@@ -109,7 +125,7 @@ for station in bar_stations:
                        axis=1)
 full_data.index.name = "Date"
 filename = "{}_{}.csv".format(params["file results"],
-                              params["operation"])
+                              params["comparison operation"])
 filename = join(params["path results"],
                 params["clear sky model"],
                 filename)
