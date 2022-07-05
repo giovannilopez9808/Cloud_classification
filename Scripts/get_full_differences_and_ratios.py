@@ -7,31 +7,13 @@ model -> GHI | RS
 from Modules.data_model import (full_data_model,
                                 clear_sky_data)
 from Modules.functions import (get_hourly_mean,
-                               get_data_between_hours)
+                               get_data_between_hours,
+                               comparison_operation)
 from Modules.params import get_params
 from pandas import DataFrame, concat
 from os.path import join
-from numpy import inf
 from tqdm import tqdm
 from sys import argv
-
-
-def comparison_operation(measurement: DataFrame,
-                         model: DataFrame,
-                         operation: str) -> DataFrame:
-    index = model.index
-    station = model.name
-    model = model.to_numpy()
-    measurement = measurement.to_numpy()
-    if "diff" == operation:
-        comparison = model-measurement
-    if "ratio" == operation:
-        comparison = measurement/model
-        comparison[comparison == inf] = 0
-    comparison = DataFrame(comparison,
-                           index=index,
-                           columns=[station])
-    return comparison
 
 
 params = get_params()

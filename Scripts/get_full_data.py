@@ -1,3 +1,6 @@
+"""
+python get_full_data (operation) (sky model)
+"""
 from Modules.functions import (get_data_between_hours,
                                get_hourly_mean)
 from pandas import read_csv, DataFrame, concat

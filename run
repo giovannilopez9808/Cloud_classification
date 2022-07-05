@@ -9,5 +9,8 @@ source /opt/anaconda351/etc/profile.d/conda.sh
 conda activate tensorflow
 hostname
 date
-python get_clear_sky.py
+python get_differences_and_ratios.py ratio RS
+python get_differences_and_ratios.py diff RS
+python get_differences_and_ratios.py ratio GHI
+python get_differences_and_ratios.py diff GHI
 date

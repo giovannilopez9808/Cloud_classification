@@ -1,36 +1,22 @@
+"""
+python get_differences_and_ratios.py (operation) (sky model)
+"""
 from Modules.data_model import (clear_sky_data,
                                 SIMA_model)
 from Modules.functions import (get_hourly_mean,
-                               get_data_between_hours)
+                               get_data_between_hours,
+                               comparison_operation)
 from Modules.params import get_params
 from pandas import DataFrame, concat
 from os.path import join
-from numpy import inf
 from tqdm import tqdm
-
-
-def comparison_operation(measurement: DataFrame,
-                         model: DataFrame,
-                         operation: str) -> DataFrame:
-    index = model.index
-    station = model.name
-    model = model.to_numpy()
-    measurement = measurement.to_numpy()
-    if "diff" == operation:
-        comparison = model-measurement
-    if "ratio" == operation:
-        comparison = measurement/model
-        comparison[comparison == inf] = 0
-    comparison = DataFrame(comparison,
-                           index=index,
-                           columns=[station])
-    return comparison
+from sys import argv
 
 
 params = get_params()
 params.update({
-    "comparison operation": "ratio",
-    "clear sky model": "RS",
+    "comparison operation": argv[1],
+    "clear sky model": argv[2],
     "pollutant": "SR",
     "year": 2021,
 })

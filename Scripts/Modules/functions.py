@@ -1,6 +1,7 @@
 from pandas import (Timestamp,
                     DataFrame,
                     to_datetime)
+from numpy import divide, zeros_like
 from os import listdir, makedirs
 
 
@@ -113,6 +114,26 @@ def get_colors(params: dict) -> list:
     colors = [params["classification"][key]["color"]
               for key in params["classification"]]
     return colors
+
+
+def comparison_operation(measurement: DataFrame,
+                         model: DataFrame,
+                         operation: str) -> DataFrame:
+    index = model.index
+    station = model.name
+    model = model.to_numpy()
+    measurement = measurement.to_numpy()
+    if "diff" == operation:
+        comparison = model-measurement
+    if "ratio" == operation:
+        comparison = divide(measurement,
+                            model,
+                            out=zeros_like(model),
+                            where=model != 0)
+    comparison = DataFrame(comparison,
+                           index=index,
+                           columns=[station])
+    return comparison
 
 
 if "__main__" == __name__:

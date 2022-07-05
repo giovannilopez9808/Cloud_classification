@@ -1,3 +1,6 @@
+"""
+python get_similarity_matrix (operation) (sky model)
+"""
 from Modules.data_model import (comparison_data,
                                 SIMA_model)
 from Modules.functions import get_data_between_hours
@@ -7,6 +10,7 @@ from numpy import nan, array, dot
 from numpy.linalg import norm
 from os.path import join
 from tqdm import tqdm
+from sys import argv
 
 
 def get_vector(data: DataFrame,
@@ -31,9 +35,9 @@ def cosine_similarity(vector_i: array,
 
 params = get_params()
 params.update({
-    "comparison operation": "diff",
+    "comparison operation": argv[1],
     "file results": "similarity",
-    "clear sky model": "GHI",
+    "clear sky model": argv[2],
     # "threshold": 0.8,
     "threshold": 10000,
     "pollutant": "SR",

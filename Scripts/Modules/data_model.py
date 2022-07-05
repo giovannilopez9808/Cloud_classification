@@ -2,7 +2,7 @@
 Conjunto de clases para la lectura y organizacion de los archivos
 """
 
-
+from .functions import get_data_between_hours
 from pandas import (read_csv,
                     DataFrame,
                     to_datetime)
@@ -50,6 +50,11 @@ class data_base_model:
         select_data = self.data.index.date == date.date()
         data = self.data[select_data]
         return data
+
+    def get_data_between_hours(self, hour_i: int, hour_f: int) -> DataFrame:
+        params = {"hour initial": hour_i,
+                  "hour final": hour_f}
+        self.data = get_data_between_hours(self.data, params)
 
     def get_dates(self) -> list:
         """
