@@ -28,7 +28,7 @@ class classification_model:
             self.model = Gaussian_naive_model()
             return
         if model_name == "Decision tree":
-            self.model == Decision_tree_model()
+            self.model = Decision_tree_model()
             return
 
     def run(self,

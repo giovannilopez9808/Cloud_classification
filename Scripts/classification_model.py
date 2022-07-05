@@ -28,8 +28,8 @@ params.update({
     "comparison operations": ["ratio",
                               "diff"],
     "classification model": argv[1],
-    "clear sky models": ["RS"],
-    # "GHI"],
+    "clear sky models": ["RS",
+                         "GHI"],
 })
 model = classification_model()
 model.define_model(params)
