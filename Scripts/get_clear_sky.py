@@ -12,8 +12,8 @@ params.update({
     "pollutant": "SR",
     "year": "2021",
     "timezone": -5,
-    "hour initial": 6,
-    "hour final": 21,
+    "hour initial": 0,
+    "hour final": 24,
 })
 
 

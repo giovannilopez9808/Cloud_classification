@@ -48,7 +48,7 @@ class clear_sky_model:
         hour_final *= 60
         # Minutos totales del calculo
         hours = range(hour_inital,
-                      hour_final+1)
+                      hour_final)
         for minutes in hours:
             # Fecha con hora con formato Y-M-D H:m
             datetime = self._get_datetime(params["date"],
