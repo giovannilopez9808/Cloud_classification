@@ -38,8 +38,8 @@ def get_params() -> dict:
                 "color": "#007ea7"
             },
         },
-        "hour initial": 9,
-        "hour final": 18,
+        "hour initial": 0,
+        "hour final": 24,
         "datasets": {
             "train": ["Sureste2",
                       "Noroeste"],

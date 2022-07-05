@@ -1,19 +1,20 @@
+"""
+python get_clear_sky (clear sky model) 
+"""
 from Modules.clear_sky import clear_sky_model
 from Modules.data_model import SIMA_model
 from Modules.params import get_params
 from pandas import concat, DataFrame
 from os.path import join
 from tqdm import tqdm
+from sys import argv
 
 params = get_params()
 params.update({
-    # "clear sky model": "GHI",
-    "clear sky model": "RS",
+    "clear sky model": argv[1],
     "pollutant": "SR",
     "year": "2021",
     "timezone": -5,
-    "hour initial": 0,
-    "hour final": 24,
 })
 
 
@@ -36,8 +37,8 @@ for date in bar:
         results_per_day = concat([results_per_day,
                                   clear_sky],
                                  axis=1)
-results = concat([results,
-                  results_per_day])
+    results = concat([results,
+                      results_per_day])
 filename = join(params["path results"],
                 params["clear sky model"],
                 params["clear sky file"])
