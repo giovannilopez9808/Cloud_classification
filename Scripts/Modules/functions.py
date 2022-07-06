@@ -1,11 +1,16 @@
+from sklearn.metrics.pairwise import cosine_similarity
 from pandas import (Timestamp,
                     DataFrame,
-                    to_datetime)
+                    to_datetime,
+                    concat)
 from numpy import (divide,
                    zeros_like,
+                   array,
+                   empty,
                    nan,
                    isnan)
 from os import listdir, makedirs
+from typing import Type
 
 
 def datetime_format(date: Timestamp,
@@ -18,7 +23,7 @@ def datetime_format(date: Timestamp,
     date -> fecha con formato Timestamp o datetime
     hour -> numeor entrero de la hora
 
-    Output:
+    Output:?
     --------------------
     fecha con formato Y-M-D H:m
     """
@@ -174,6 +179,93 @@ def clean_data(data: DataFrame,
     data = DataFrame(data,
                      index=index,
                      columns=header)
+    return data
+
+# Apartado de cosine similitud
+
+
+def get_cosine_similarity(data: DataFrame,
+                          SIMA_data: Type,
+                          params: dict) -> DataFrame:
+    dates = SIMA_data.get_dates()
+    stations = params["stations"]
+    header = [f"{station} {date}"
+              for station in stations
+              for date in dates]
+    all_data = DataFrame()
+    for station in params["stations"]:
+        SIMA_data.get_station_data(station,
+                                   params["pollutant"])
+        all_data = concat([all_data,
+                           SIMA_data.station_data],
+                          axis=1)
+    all_data = all_data.fillna(0)
+    all_data = all_data.to_numpy()
+    all_data = all_data.reshape(-1, 24)
+    data = data.fillna(0)
+    data = data.to_numpy()
+    data = data.reshape(1, -1)
+    cosine = cosine_similarity(data,
+                               all_data)
+    cosine = cosine.flatten()
+    cosine = DataFrame(cosine,
+                       index=header)
+    return cosine
+
+
+def nan_vector(vector: DataFrame) -> array:
+    header = vector.columns
+    index = vector.index
+    vector = empty(vector.size)
+    vector[:] = nan
+    vector = DataFrame(vector,
+                       index=index,
+                       columns=header)
+    return vector
+
+
+def sort(data: DataFrame) -> DataFrame:
+    data = data.sort_values(ascending=False)
+    return data
+
+
+def get_best_similarity_dates(similarity: DataFrame,
+                              params: dict,
+                              header: str) -> list:
+    similarity_vector = similarity[header]
+    similarity_vector = sort(similarity_vector)
+    similarity_vector = similarity_vector.iloc[1:params["top vectors"]]
+    similarity_vector = similarity_vector.index
+    return similarity_vector
+
+
+def get_similarity_vectors(clean_data: Type,
+                           similarity_dates: list,
+                           params: dict) -> DataFrame:
+    data = DataFrame()
+    for station_date in similarity_dates:
+        station, date = station_date.split()
+        station_data = clean_data.get_data(station,
+                                           date)
+        data = concat([data,
+                       station_data])
+    data = get_hourly_mean(data)
+    data = get_data_between_hours(data,
+                                  params)
+    return data
+
+
+def fill_data(data: DataFrame,
+              similarity_data: DataFrame) -> DataFrame:
+    for data_index, sim_index in zip(data.index,
+                                     similarity_data.index):
+        value = data.loc[data_index]
+        value = float(value)
+        if isnan(value):
+            value = similarity_data.loc[sim_index]
+            value = float(value)
+            data.loc[data_index] = value
+    data = DataFrame(data)
     return data
 
 
