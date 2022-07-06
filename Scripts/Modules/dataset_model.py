@@ -13,6 +13,7 @@ class dataset_model:
     def _read(self) -> DataFrame:
         classification = classification_data(self.params)
         comparison = full_comparison_data(self.params)
+        comparison.get_data_between_hours()
         dataset = self.params["datasets"]
         self.train = self._create_dataset(classification,
                                           comparison,

@@ -121,7 +121,8 @@ def get_colors(params: dict) -> list:
 
 def comparison_operation(measurement: DataFrame,
                          model: DataFrame,
-                         operation: str) -> DataFrame:
+                         operation: str,
+                         fillnan: bool = True) -> DataFrame:
     index = model.index
     station = model.name
     model = model.to_numpy()
@@ -133,7 +134,8 @@ def comparison_operation(measurement: DataFrame,
                             model,
                             out=zeros_like(model),
                             where=model != 0)
-    comparison[isnan(measurement)] = nan
+    if fillnan:
+        comparison[isnan(measurement)] = nan
     comparison = DataFrame(comparison,
                            index=index,
                            columns=[station])

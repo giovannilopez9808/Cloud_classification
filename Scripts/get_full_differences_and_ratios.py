@@ -42,8 +42,8 @@ for date in bar_dates:
                                                    params)
         comparison = comparison_operation(full_data_station,
                                           clear_sky_station,
-                                          params["comparison operation"])
-
+                                          params["comparison operation"],
+                                          fillnan=False)
         results_per_day = concat([results_per_day,
                                   comparison],
                                  axis=1)

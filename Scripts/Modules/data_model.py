@@ -51,10 +51,9 @@ class data_base_model:
         data = self.data[select_data]
         return data
 
-    def get_data_between_hours(self, hour_i: int, hour_f: int) -> DataFrame:
-        params = {"hour initial": hour_i,
-                  "hour final": hour_f}
-        self.data = get_data_between_hours(self.data, params)
+    def get_data_between_hours(self) -> DataFrame:
+        self.data = get_data_between_hours(self.data,
+                                           self.params)
 
     def get_dates(self) -> list:
         """
