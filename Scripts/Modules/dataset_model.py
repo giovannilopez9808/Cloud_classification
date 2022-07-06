@@ -46,6 +46,9 @@ class dataset_model:
                 if not isnan(daily_value):
                     daily_vector = comparison.get_date_data(date)
                     daily_vector = self._get_vector(daily_vector)
+                    if isnan(daily_vector).any():
+                        print(station, date)
+                        print(daily_vector)
                     data.append(daily_vector)
                     target += list(daily_value)
         data = array(data)

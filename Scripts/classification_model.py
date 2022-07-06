@@ -25,11 +25,9 @@ def define_index(data: DataFrame,
 
 params = get_params()
 params.update({
-    "comparison operations": ["ratio",
-                              "diff"],
+    "comparison operations": ["ratio"],
     "classification model": argv[1],
-    "clear sky models": ["RS",
-                         "GHI"],
+    "clear sky models": ["RS"],
 })
 model = classification_model()
 model.define_model(params)

@@ -129,6 +129,7 @@ def comparison_operation(measurement: DataFrame,
     measurement = measurement.to_numpy()
     if "diff" == operation:
         comparison = model-measurement
+        comparison[model < 1e-3] = 0
     if "ratio" == operation:
         comparison = divide(measurement,
                             model,

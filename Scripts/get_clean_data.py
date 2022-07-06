@@ -2,8 +2,10 @@
 python get_differences_and_ratios.py (operation) (sky model)
 """
 from Modules.data_model import (comparison_data,
-                                SIMA_model)
-from Modules.functions import get_data_between_hours
+                                SIMA_model,
+                                clear_sky_data)
+from Modules.functions import (get_data_between_hours,
+                               get_hourly_mean)
 from Modules.params import get_params
 from pandas import DataFrame, concat
 from numpy import isnan, nan
@@ -13,16 +15,15 @@ from sys import argv
 
 
 def clean_data(data: DataFrame,
-               comparison: DataFrame,
-               params: dict) -> DataFrame:
-    operation = params["comparison operation"]
+               clear_sky: DataFrame,
+               comparison: DataFrame) -> DataFrame:
     index = list(data.index)
     header = comparison.name
     data = data.to_numpy()
     comparison = comparison.to_numpy()
-    if operation == "ratio":
-        data[comparison == 0] = 0
+    # data[comparison == 0] = 0
     data[isnan(comparison)] = nan
+    data[clear_sky == 0] = 0
     data = DataFrame(data,
                      index=index,
                      columns=[header])
@@ -39,6 +40,7 @@ params.update({
 })
 results = DataFrame(columns=params["stations"])
 comparison = comparison_data(params)
+clear_sky = clear_sky_data(params)
 SIMA = SIMA_model(params)
 dates = comparison.get_dates()
 bar_dates = tqdm(dates)
@@ -46,18 +48,23 @@ for date in bar_dates:
     bar_dates.set_postfix(date=date)
     SIMA_daily = SIMA.get_date_data(date)
     comparison_daily = comparison.get_date_data(date)
+    clear_sky_daily = clear_sky.get_date_data(date)
     results_per_day = DataFrame()
     for station in params["stations"]:
         comparison_station = comparison_daily[station]
         comparison_station = get_data_between_hours(comparison_station,
                                                     params)
+        clear_sky_station = clear_sky_daily[station]
+        clear_sky_station = get_hourly_mean(clear_sky_station)
+        clear_sky_station = get_data_between_hours(clear_sky_station,
+                                                   params)
         SIMA_station = SIMA_daily[(station.upper(),
                                    params["pollutant"])]
         SIMA_station = get_data_between_hours(SIMA_station,
                                               params)
         data = clean_data(SIMA_station,
-                          comparison_station,
-                          params)
+                          clear_sky_station,
+                          comparison_station)
         results_per_day = concat([results_per_day,
                                   data],
                                  axis=1)

@@ -2,7 +2,8 @@
 Conjunto de clases para la lectura y organizacion de los archivos
 """
 
-from .functions import get_data_between_hours
+from .functions import (get_data_between_hours,
+                        get_hourly_mean)
 from pandas import (read_csv,
                     DataFrame,
                     to_datetime)
