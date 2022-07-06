@@ -11,6 +11,7 @@ from Modules.params import get_params
 import matplotlib.pyplot as plt
 from os.path import join
 from tqdm import tqdm
+from sys import argv
 
 
 def plot(SIMA: DataFrame,
@@ -33,8 +34,8 @@ def plot(SIMA: DataFrame,
     plt.xticks(SIMA.index,
                SIMA.index.hour)
     plt.yticks(range(0, 1800, 200))
-    plt.xlim(SIMA.index[0],
-             SIMA.index[-1])
+    plt.xlim(SIMA.index[6],
+             SIMA.index[20])
     plt.ylim(0, 1600)
     plt.legend(ncol=2,
                frameon=False,
@@ -53,8 +54,8 @@ def plot(SIMA: DataFrame,
 params = get_params()
 params.update({
     "path daily graphics": "Daily_full",
-    "comparison operation": "diff",
-    "clear sky model": "RS",
+    "comparison operation": argv[1],
+    "clear sky model": argv[2],
 })
 full_data = full_data_model(params)
 clear_sky = clear_sky_data(params)
