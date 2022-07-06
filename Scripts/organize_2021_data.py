@@ -3,7 +3,6 @@ from pandas import (
     to_datetime,
     concat,
     DataFrame,
-    Series,
 )
 from os import listdir as ls
 from tqdm import tqdm

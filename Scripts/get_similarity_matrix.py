@@ -4,9 +4,7 @@ python get_similarity_matrix (operation) (sky model)
 from Modules.data_model import clean_data_model
 from sklearn.metrics import pairwise_distances
 from Modules.params import get_params
-from numpy.linalg import norm
 from pandas import DataFrame
-from numpy import array, dot
 from os.path import join
 from sys import argv
 
