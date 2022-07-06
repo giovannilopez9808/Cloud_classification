@@ -14,13 +14,13 @@ from sys import argv
 
 
 def nan_vector(vector: DataFrame) -> array:
-    header = vector.columns
+    header = vector.name
     index = vector.index
     vector = empty(vector.size)
     vector[:] = nan
     vector = DataFrame(vector,
                        index=index,
-                       columns=header)
+                       columns=[header])
     return vector
 
 
@@ -67,6 +67,7 @@ def fill_data(data: DataFrame,
             value = similarity_data.loc[sim_index]
             value = float(value)
             data.loc[data_index] = value
+    data = DataFrame(data)
     return data
 
 
@@ -89,22 +90,19 @@ filename = join(params["path results"],
 similarity = read_csv(filename,
                       index_col=0)
 full_data = DataFrame()
-bar_stations = tqdm(params["stations"])
-for station in bar_stations:
-    bar_stations.set_postfix(station=station)
-    results_per_station = DataFrame()
-    clean_data.get_station_data(station)
-    classification.get_station_data(station)
-    bar_dates = tqdm(dates)
-    for date in bar_dates:
-        bar_dates.set_postfix(date=date)
-        classification_value = classification.get_date_data(date)
-        classification_value = classification_value.to_numpy()
-        classification_value = classification_value[0][0]
-        vector = clean_data.get_date_data(date)
-        vector = get_data_between_hours(vector,
-                                        params)
-        if not isnan(classification_value):
+bar_dates = tqdm(dates)
+for date in bar_dates:
+    bar_dates.set_postfix(date=date)
+    results_date = DataFrame()
+    clean_data_daily = clean_data.get_date_data(date)
+    classification_daily = classification.get_date_data(date)
+    for station in params["stations"]:
+        clean_data_station = clean_data_daily[station]
+        classification_station = classification_daily[station]
+        classification_station = classification_station[0]
+        clean_data_station = get_data_between_hours(clean_data_station,
+                                                    params)
+        if not isnan(classification_station):
             similarity_dates = get_best_similarity_dates(similarity,
                                                          params,
                                                          station,
@@ -112,16 +110,15 @@ for station in bar_stations:
             similarity_vector = get_similarity_vectors(clean_data,
                                                        similarity_dates,
                                                        params)
-            vector = fill_data(vector,
-                               similarity_vector)
+            clean_data_station = fill_data(clean_data_station,
+                                           similarity_vector)
         else:
-            vector = nan_vector(vector)
-        results_per_station = concat([results_per_station,
-                                      vector])
-    results_per_station.columns = [station]
+            clean_data_station = nan_vector(clean_data_station)
+        results_date = concat([results_date,
+                               clean_data_station],
+                              axis=1)
     full_data = concat([full_data,
-                        results_per_station],
-                       axis=1)
+                        results_date])
 full_data.index.name = "Date"
 filename = "{}_{}.csv".format(params["file results"],
                               params["comparison operation"])
