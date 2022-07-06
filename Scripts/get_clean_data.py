@@ -5,30 +5,14 @@ from Modules.data_model import (comparison_data,
                                 SIMA_model,
                                 clear_sky_data)
 from Modules.functions import (get_data_between_hours,
-                               get_hourly_mean)
+                               get_hourly_mean,
+                               clean_data)
 from Modules.params import get_params
 from pandas import DataFrame, concat
 from numpy import isnan, nan
 from os.path import join
 from tqdm import tqdm
 from sys import argv
-
-
-def clean_data(data: DataFrame,
-               clear_sky: DataFrame,
-               comparison: DataFrame) -> DataFrame:
-    index = list(data.index)
-    header = comparison.name
-    data = data.to_numpy()
-    comparison = comparison.to_numpy()
-    # data[comparison == 0] = 0
-    data[isnan(comparison)] = nan
-    data[clear_sky == 0] = 0
-    data = DataFrame(data,
-                     index=index,
-                     columns=[header])
-    return data
-
 
 params = get_params()
 params.update({

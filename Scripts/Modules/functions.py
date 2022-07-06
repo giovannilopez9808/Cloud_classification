@@ -33,6 +33,7 @@ def get_data_between_hours(data: DataFrame,
                            params: dict) -> DataFrame:
     data = data[data.index.hour >= params["hour initial"]]
     data = data[data.index.hour <= params["hour final"]]
+    data = DataFrame(data)
     return data
 
 
@@ -61,6 +62,7 @@ def get_hourly_mean(data: DataFrame) -> DataFrame:
              for hour in hours]
     # To Timestamp
     data.index = to_datetime(index)
+    data = DataFrame(data)
     return data
 
 
@@ -123,10 +125,13 @@ def comparison_operation(measurement: DataFrame,
                          model: DataFrame,
                          operation: str,
                          fillnan: bool = True) -> DataFrame:
+    model = DataFrame(model)
     index = model.index
-    station = model.name
+    station = model.columns
     model = model.to_numpy()
+    model = model.flatten()
     measurement = measurement.to_numpy()
+    measurement = measurement.flatten()
     if "diff" == operation:
         comparison = model-measurement
         comparison[model < 1e-3] = 0
@@ -139,7 +144,7 @@ def comparison_operation(measurement: DataFrame,
         comparison[isnan(measurement)] = nan
     comparison = DataFrame(comparison,
                            index=index,
-                           columns=[station])
+                           columns=station)
     return comparison
 
 
@@ -153,6 +158,23 @@ def threshold_filter(data: DataFrame,
     if operation == "diff":
         data[data < threshold] = nan
         return data
+
+
+def clean_data(data: DataFrame,
+               clear_sky: DataFrame,
+               comparison: DataFrame) -> DataFrame:
+    comparison = DataFrame(comparison)
+    index = list(data.index)
+    header = comparison.columns
+    data = data.to_numpy()
+    comparison = comparison.to_numpy()
+    comparison = comparison.flatten()
+    data[isnan(comparison)] = nan
+    data[clear_sky == 0] = 0
+    data = DataFrame(data,
+                     index=index,
+                     columns=header)
+    return data
 
 
 if "__main__" == __name__:
