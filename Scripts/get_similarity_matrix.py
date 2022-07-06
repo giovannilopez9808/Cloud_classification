@@ -38,8 +38,8 @@ params.update({
     "comparison operation": argv[1],
     "file results": "similarity",
     "clear sky model": argv[2],
-    # "threshold": 0.8,
-    "threshold": 10000,
+    "threshold": 0.8,
+    # "threshold": 10000,
     "pollutant": "SR",
     "year": 2021,
 })

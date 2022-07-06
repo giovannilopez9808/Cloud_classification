@@ -9,8 +9,9 @@ source /opt/anaconda351/etc/profile.d/conda.sh
 conda activate tensorflow
 hostname
 date
-python get_differences_and_ratios.py ratio RS
-python get_differences_and_ratios.py diff RS
-python get_differences_and_ratios.py ratio GHI
-python get_differences_and_ratios.py diff GHI
+python classification_model.py SVM
+python classification_model.py KNN
+python classification_model.py "Random forest"
+python classification_model.py "Gaussian naive"
+python classification_model.py "Decision tree"
 date
