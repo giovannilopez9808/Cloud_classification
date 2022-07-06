@@ -30,6 +30,8 @@ params.update({
     "classification model": argv[1],
     "clear sky models": ["RS",
                          "GHI"],
+    "hour initial":9,
+    "hour final":18,
 })
 model = classification_model()
 model.define_model(params)
