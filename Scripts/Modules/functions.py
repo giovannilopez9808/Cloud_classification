@@ -1,7 +1,10 @@
 from pandas import (Timestamp,
                     DataFrame,
                     to_datetime)
-from numpy import divide, zeros_like
+from numpy import (divide,
+                   zeros_like,
+                   nan,
+                   isnan)
 from os import listdir, makedirs
 
 
@@ -130,10 +133,23 @@ def comparison_operation(measurement: DataFrame,
                             model,
                             out=zeros_like(model),
                             where=model != 0)
+    comparison[isnan(measurement)] = nan
     comparison = DataFrame(comparison,
                            index=index,
                            columns=[station])
     return comparison
+
+
+def threshold_filter(data: DataFrame,
+                     params: dict) -> DataFrame:
+    operation = params["comparison operation"]
+    threshold = params["threshold"]
+    if operation == "ratio":
+        data[data > threshold] = nan
+        return data
+    if operation == "diff":
+        data[data < threshold] = nan
+        return data
 
 
 if "__main__" == __name__:

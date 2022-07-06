@@ -73,5 +73,21 @@ def get_classification_params(params: dict) -> dict:
     return class_params[dataset]
 
 
+def get_threshold(params: dict) -> dict:
+    model = params["clear sky model"]
+    operation = params["comparison operation"]
+    threshold = {
+        "RS": {
+            "ratio": 10000,
+            "diff": -1000,
+        },
+        "GHI": {
+            "ratio": 0.8,
+            "diff": 0,
+        },
+    }
+    return threshold[model][operation]
+
+
 if __name__ == "__main__":
     pass

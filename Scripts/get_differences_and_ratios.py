@@ -5,8 +5,9 @@ from Modules.data_model import (clear_sky_data,
                                 SIMA_model)
 from Modules.functions import (get_hourly_mean,
                                get_data_between_hours,
-                               comparison_operation)
-from Modules.params import get_params
+                               comparison_operation,
+                               threshold_filter)
+from Modules.params import get_params, get_threshold
 from pandas import DataFrame, concat
 from os.path import join
 from tqdm import tqdm
@@ -20,6 +21,7 @@ params.update({
     "pollutant": "SR",
     "year": 2021,
 })
+params["threshold"] = get_threshold(params)
 results = DataFrame(columns=params["stations"])
 clear_sky = clear_sky_data(params)
 SIMA = SIMA_model(params)
@@ -42,6 +44,8 @@ for date in bar_dates:
         comparison = comparison_operation(SIMA_station,
                                           clear_sky_station,
                                           params["comparison operation"])
+        comparison = threshold_filter(comparison,
+                                      params)
         results_per_day = concat([results_per_day,
                                   comparison],
                                  axis=1)

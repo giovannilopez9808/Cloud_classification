@@ -2,7 +2,7 @@
 python get_similarity_matrix (operation) (sky model)
 """
 from Modules.data_model import (comparison_data,
-                                SIMA_model)
+                                clean_data_model)
 from Modules.functions import get_data_between_hours
 from Modules.params import get_params
 from pandas import DataFrame, concat
@@ -10,7 +10,7 @@ from numpy import nan, array, dot
 from numpy.linalg import norm
 from os.path import join
 from tqdm import tqdm
-from sys import argv
+from sys import argv, exit
 
 
 def get_vector(data: DataFrame,
@@ -38,53 +38,18 @@ params.update({
     "comparison operation": argv[1],
     "file results": "similarity",
     "clear sky model": argv[2],
-    "threshold": 0.8,
-    # "threshold": 10000,
-    "pollutant": "SR",
-    "year": 2021,
 })
-SIMA = SIMA_model(params)
-data = DataFrame()
-for station in params["stations"]:
-    SIMA.get_station_data(station,
-                          params["pollutant"])
-    data = concat([data,
-                   SIMA.station_data],
-                  axis=1)
-dates = SIMA.get_dates()
-del SIMA
-data.columns = params["stations"]
-data = get_data_between_hours(data,
-                              params)
-comparison = comparison_data(params)
+clean_data = clean_data_model(params)
+dates = clean_data.get_dates()
 headers = [f"{station} {date}"
-           for station in data.columns
+           for station in params["stations"]
            for date in dates]
 stations_data = DataFrame(columns=headers,
                           index=headers)
-print("-"*30)
-print("Transformando datos")
-bar = tqdm(headers)
-# Transform data
-for station_date in bar:
-    bar.set_postfix(station_date=station_date)
-    station, date = station_date.split()
-    # Get daily data per station
-    vector_data = get_vector(data,
-                             station,
-                             date)
-    # Get daily ratio vector per station
-    vector_comparison = get_vector(comparison.data,
-                                   station,
-                                   date)
-    # Check atypical
-    vector_comparison = vector_comparison > params["threshold"]
-    # Transform to missing data
-    vector_data[vector_comparison] = nan
-    data[station][date] = vector_data
+data = clean_data.data
 data = data.fillna(0)
 print("-"*30)
-print("Calculando similaridad")
+print("Calculando similitud")
 bar = tqdm(headers)
 for station_date_i, station_date in enumerate(bar):
     bar.set_postfix(station_date=station_date)

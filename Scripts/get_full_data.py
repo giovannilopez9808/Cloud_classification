@@ -92,6 +92,7 @@ filename = join(params["path results"],
 similarity = read_csv(filename,
                       index_col=0)
 full_data = DataFrame()
+params["stations"] = ["Noreste"]
 bar_stations = tqdm(params["stations"])
 for station in bar_stations:
     bar_stations.set_postfix(station=station)
