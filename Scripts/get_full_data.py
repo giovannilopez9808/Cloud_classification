@@ -10,7 +10,7 @@ from numpy import isnan, array, empty, nan
 from Modules.params import get_params
 from os.path import join
 from tqdm import tqdm
-from sys import argv
+from sys import argv, exit
 
 
 def nan_vector(vector: DataFrame) -> array:
@@ -36,7 +36,8 @@ def get_best_similarity_dates(data: DataFrame,
     header = f"{station} {date}"
     similarity_vector = similarity[header]
     similarity_vector = sort(similarity_vector)
-    similarity_vector = similarity_vector.iloc[:params["top vectors"]]
+    similarity_vector = similarity_vector.iloc[1:params["top vectors"]]
+    print(similarity_vector)
     similarity_vector = similarity_vector.index
     return similarity_vector
 
