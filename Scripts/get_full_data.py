@@ -5,12 +5,12 @@ from Modules.functions import (get_data_between_hours,
                                get_hourly_mean)
 from pandas import read_csv, DataFrame, concat
 from Modules.data_model import (classification_data,
-                                SIMA_model)
+                                clean_data_model)
 from numpy import isnan, array, empty, nan
 from Modules.params import get_params
 from os.path import join
 from tqdm import tqdm
-from sys import argv, exit
+from sys import argv
 
 
 def nan_vector(vector: DataFrame) -> array:
@@ -37,20 +37,18 @@ def get_best_similarity_dates(data: DataFrame,
     similarity_vector = similarity[header]
     similarity_vector = sort(similarity_vector)
     similarity_vector = similarity_vector.iloc[1:params["top vectors"]]
-    print(similarity_vector)
     similarity_vector = similarity_vector.index
     return similarity_vector
 
 
-def get_similarity_vectors(SIMA: SIMA_model,
+def get_similarity_vectors(clean_data: clean_data_model,
                            similarity_dates: list,
                            params: dict) -> DataFrame:
     data = DataFrame()
     for station_date in similarity_dates:
         station, date = station_date.split()
-        station_data = SIMA.get_data(station,
-                                     params["pollutant"],
-                                     date)
+        station_data = clean_data.get_data(station,
+                                           date)
         data = concat([data,
                        station_data])
     data = get_hourly_mean(data)
@@ -78,13 +76,11 @@ params.update({
     "comparison operation": argv[1],
     "file results": "full_data",
     "clear sky model": argv[2],
-    "pollutant": "SR",
-    "year": 2021,
     "top vectors": 30,
 })
 classification = classification_data(params)
-SIMA = SIMA_model(params)
-dates = SIMA.get_dates()
+clean_data = clean_data_model(params)
+dates = clean_data.get_dates()
 filename = "{}_{}.csv".format(params["similarity file"],
                               params["comparison operation"])
 filename = join(params["path results"],
@@ -98,8 +94,7 @@ bar_stations = tqdm(params["stations"])
 for station in bar_stations:
     bar_stations.set_postfix(station=station)
     results_per_station = DataFrame()
-    SIMA.get_station_data(station,
-                          params["pollutant"])
+    clean_data.get_station_data(station)
     classification.get_station_data(station)
     bar_dates = tqdm(dates)
     for date in bar_dates:
@@ -107,7 +102,7 @@ for station in bar_stations:
         classification_value = classification.get_date_data(date)
         classification_value = classification_value.to_numpy()
         classification_value = classification_value[0][0]
-        vector = SIMA.get_date_data(date)
+        vector = clean_data.get_date_data(date)
         vector = get_data_between_hours(vector,
                                         params)
         if not isnan(classification_value):
@@ -115,7 +110,7 @@ for station in bar_stations:
                                                          params,
                                                          station,
                                                          date)
-            similarity_vector = get_similarity_vectors(SIMA,
+            similarity_vector = get_similarity_vectors(clean_data,
                                                        similarity_dates,
                                                        params)
             vector = fill_data(vector,

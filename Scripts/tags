@@ -9,37 +9,58 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
-GHI	Daily_full_graphics.py	/^GHI = clear_sky_data(params)$/;"	v
-GHI_daily	Daily_full_graphics.py	/^        GHI_daily = GHI.get_date_date(date)$/;"	v
-GHI_daily	Daily_full_graphics.py	/^        GHI_daily = get_hourly_mean(GHI_daily)$/;"	v
+Decision_tree_model	Modules/classification_classic_models.py	/^class Decision_tree_model:$/;"	c
 GHI_model	Modules/GHI_model.py	/^class GHI_model:$/;"	c
-RS	Daily_full_graphics.py	/^RS = clear_sky_data(params)$/;"	v
-RS_daily	Daily_full_graphics.py	/^        RS_daily = GHI.get_date_date(date)$/;"	v
-RS_daily	Daily_full_graphics.py	/^        RS_daily = get_hourly_mean(RS_daily)$/;"	v
+Gaussian_naive_model	Modules/classification_classic_models.py	/^class Gaussian_naive_model:$/;"	c
+KNN_model	Modules/classification_classic_models.py	/^class KNN_model:$/;"	c
 RS_model	Modules/RS_model.py	/^class RS_model(GHI_model):$/;"	c
-SIMA	Daily_graphics.py	/^SIMA = SIMA_model()$/;"	v
-SIMA	data_full.py	/^SIMA = SIMA_model()$/;"	v
-SIMA	get_clear_sky.py	/^SIMA = SIMA_model()$/;"	v
-SIMA	get_closeness.py	/^SIMA = SIMA_model()$/;"	v
-SIMA	get_differences_and_ratios.py	/^SIMA = SIMA_model()$/;"	v
-SIMA_daily	Daily_full_graphics.py	/^        SIMA_daily = station_data[index]$/;"	v
-SIMA_daily	Daily_graphics.py	/^        SIMA_daily = SIMA.get_data_date(date)$/;"	v
-SIMA_daily	get_differences_and_ratios.py	/^    SIMA_daily = SIMA.get_data_date(date)$/;"	v
-SIMA_model	Modules/data_model.py	/^class SIMA_model:$/;"	c
+Random_forest_model	Modules/classification_classic_models.py	/^class Random_forest_model:$/;"	c
+SIMA	Daily_graphics.py	/^SIMA = SIMA_model(params)$/;"	v
+SIMA	get_clean_data.py	/^SIMA = SIMA_model(params)$/;"	v
+SIMA	get_clear_sky.py	/^SIMA = SIMA_model(params)$/;"	v
+SIMA	get_differences_and_ratios.py	/^SIMA = SIMA_model(params)$/;"	v
+SIMA_daily	Daily_graphics.py	/^        SIMA_daily = SIMA.get_date_data(date)$/;"	v
+SIMA_daily	get_clean_data.py	/^    SIMA_daily = SIMA.get_date_data(date)$/;"	v
+SIMA_daily	get_differences_and_ratios.py	/^    SIMA_daily = SIMA.get_date_data(date)$/;"	v
+SIMA_model	Modules/data_model.py	/^class SIMA_model(data_base_model):$/;"	c
+SIMA_station	get_clean_data.py	/^        SIMA_station = SIMA_daily[(station.upper(),$/;"	v
+SIMA_station	get_clean_data.py	/^        SIMA_station = get_data_between_hours(SIMA_station,$/;"	v
 SIMA_station	get_differences_and_ratios.py	/^        SIMA_station = SIMA_daily[(station.upper(),$/;"	v
 SIMA_station	get_differences_and_ratios.py	/^        SIMA_station = get_data_between_hours(SIMA_station,$/;"	v
+SVM_model	Modules/classification_classic_models.py	/^class SVM_model:$/;"	c
+_	classification_model.py	/^        _, labels = get_labels(params)$/;"	v
 _	distribution_per_classification.py	/^cloud_types, _ = get_labels(params)$/;"	v
 __init__	Modules/GHI_model.py	/^    def __init__(self) -> None:$/;"	m	class:GHI_model	typeref:typename:None
 __init__	Modules/RS_model.py	/^    def __init__(self) -> None:$/;"	m	class:RS_model	typeref:typename:None
+__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:Decision_tree_model	typeref:typename:None
+__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:Gaussian_naive_model	typeref:typename:None
+__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:KNN_model	typeref:typename:None
+__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:Random_forest_model	typeref:typename:None
+__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:SVM_model	typeref:typename:None
+__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:classification_model	typeref:typename:None
 __init__	Modules/clear_sky.py	/^    def __init__(self) -> None:$/;"	m	class:clear_sky_model	typeref:typename:None
-__init__	Modules/data_model.py	/^    def __init__(self) -> None:$/;"	m	class:SIMA_model	typeref:typename:None
+__init__	Modules/data_model.py	/^    def __init__(self,$/;"	m	class:SIMA_model	typeref:typename:None
 __init__	Modules/data_model.py	/^    def __init__(self,$/;"	m	class:classification_data	typeref:typename:None
+__init__	Modules/data_model.py	/^    def __init__(self,$/;"	m	class:clean_data_model	typeref:typename:None
 __init__	Modules/data_model.py	/^    def __init__(self,$/;"	m	class:clear_sky_data	typeref:typename:None
 __init__	Modules/data_model.py	/^    def __init__(self,$/;"	m	class:comparison_data	typeref:typename:None
+__init__	Modules/data_model.py	/^    def __init__(self,$/;"	m	class:data_base_model	typeref:typename:None
+__init__	Modules/data_model.py	/^    def __init__(self,$/;"	m	class:full_comparison_data	typeref:typename:None
+__init__	Modules/data_model.py	/^    def __init__(self,$/;"	m	class:full_data_model	typeref:typename:None
+__init__	Modules/dataset_model.py	/^    def __init__(self,$/;"	m	class:dataset_model	typeref:typename:None
+_create_dataset	Modules/dataset_model.py	/^    def _create_dataset(self,$/;"	m	class:dataset_model	typeref:typename:DataFrame
 _get_datetime	Modules/clear_sky.py	/^    def _get_datetime(self,$/;"	m	class:clear_sky_model	typeref:typename:str
 _get_day_and_hour	Modules/GHI_model.py	/^    def _get_day_and_hour(self,$/;"	m	class:GHI_model	typeref:typename:tuple
 _get_declination_angle	Modules/GHI_model.py	/^    def _get_declination_angle(self,$/;"	m	class:GHI_model	typeref:typename:float
 _get_eccentricity_correction	Modules/GHI_model.py	/^    def _get_eccentricity_correction(self,$/;"	m	class:GHI_model	typeref:typename:float
+_get_filename	Modules/data_model.py	/^    def _get_filename(self) -> str:$/;"	m	class:SIMA_model	typeref:typename:str
+_get_filename	Modules/data_model.py	/^    def _get_filename(self) -> str:$/;"	m	class:classification_data	typeref:typename:str
+_get_filename	Modules/data_model.py	/^    def _get_filename(self) -> str:$/;"	m	class:clean_data_model	typeref:typename:str
+_get_filename	Modules/data_model.py	/^    def _get_filename(self) -> str:$/;"	m	class:clear_sky_data	typeref:typename:str
+_get_filename	Modules/data_model.py	/^    def _get_filename(self) -> str:$/;"	m	class:comparison_data	typeref:typename:str
+_get_filename	Modules/data_model.py	/^    def _get_filename(self) -> str:$/;"	m	class:data_base_model	typeref:typename:str
+_get_filename	Modules/data_model.py	/^    def _get_filename(self) -> str:$/;"	m	class:full_comparison_data	typeref:typename:str
+_get_filename	Modules/data_model.py	/^    def _get_filename(self) -> str:$/;"	m	class:full_data_model	typeref:typename:str
 _get_gamma	Modules/GHI_model.py	/^    def _get_gamma(self,$/;"	m	class:GHI_model	typeref:typename:float
 _get_hour	Modules/clear_sky.py	/^    def _get_hour(self, minutes: int) -> str:$/;"	m	class:clear_sky_model	typeref:typename:str
 _get_hour_from_datetime	Modules/GHI_model.py	/^    def _get_hour_from_datetime(self,$/;"	m	class:GHI_model	typeref:typename:float
@@ -48,52 +69,85 @@ _get_minute	Modules/clear_sky.py	/^    def _get_minute(self, minutes: int) -> st
 _get_solar_hour_angle	Modules/GHI_model.py	/^    def _get_solar_hour_angle(self,$/;"	m	class:GHI_model	typeref:typename:float
 _get_time	Modules/clear_sky.py	/^    def _get_time(self, minutes: int) -> str:$/;"	m	class:clear_sky_model	typeref:typename:str
 _get_time_correction_factor	Modules/GHI_model.py	/^    def _get_time_correction_factor(self,$/;"	m	class:GHI_model	typeref:typename:float
-_read	Modules/data_model.py	/^    def _read(self) -> DataFrame:$/;"	m	class:classification_data	typeref:typename:DataFrame
-_read	Modules/data_model.py	/^    def _read(self) -> DataFrame:$/;"	m	class:clear_sky_data	typeref:typename:DataFrame
+_get_vector	Modules/dataset_model.py	/^    def _get_vector(self,$/;"	m	class:dataset_model	typeref:typename:array
+_get_zenith_angle	Modules/GHI_model.py	/^    def _get_zenith_angle(self,$/;"	m	class:GHI_model	typeref:typename:float
+_mean	Modules/dataset_model.py	/^    def _mean(self,$/;"	m	class:dataset_model	typeref:typename:array
+_read	Modules/data_model.py	/^    def _read(self) -> DataFrame:$/;"	m	class:SIMA_model	typeref:typename:DataFrame
+_read	Modules/data_model.py	/^    def _read(self) -> DataFrame:$/;"	m	class:data_base_model	typeref:typename:DataFrame
+_read	Modules/dataset_model.py	/^    def _read(self) -> DataFrame:$/;"	m	class:dataset_model	typeref:typename:DataFrame
 _select_model	Modules/clear_sky.py	/^    def _select_model(self,$/;"	m	class:clear_sky_model	typeref:typename:None
+_to_degree	Modules/GHI_model.py	/^    def _to_degree(self,$/;"	m	class:GHI_model	typeref:typename:float
 _to_radian	Modules/GHI_model.py	/^    def _to_radian(self,$/;"	m	class:GHI_model	typeref:typename:float
+apply_mean	Modules/dataset_model.py	/^    def apply_mean(self) -> array:$/;"	m	class:dataset_model	typeref:typename:array
 autolabel	distribution.py	/^def autolabel(rects: BarContainer) -> None:$/;"	f	typeref:typename:None
 bar	Count_data.py	/^bar = tqdm(files)$/;"	v
 bar	distribution.py	/^bar = plt.bar(frecuency.index,$/;"	v
 bar	get_clear_sky.py	/^bar = tqdm(dates)$/;"	v
-bar	get_closeness.py	/^bar = tqdm(headers)$/;"	v
-bar_dates	data_full.py	/^    bar_dates = tqdm(dates)$/;"	v
-bar_dates	get_differences_and_ratios.py	/^bar_dates = tqdm(dates,$/;"	v
-bar_stations	data_full.py	/^bar_stations = tqdm(params["stations"])$/;"	v
+bar_dates	get_clean_data.py	/^bar_dates = tqdm(dates)$/;"	v
+bar_dates	get_differences_and_ratios.py	/^bar_dates = tqdm(dates)$/;"	v
+bar_dates	get_full_data.py	/^    bar_dates = tqdm(dates)$/;"	v
+bar_dates	get_full_differences_and_ratios.py	/^bar_dates = tqdm(dates)$/;"	v
+bar_stations	get_full_data.py	/^bar_stations = tqdm(params["stations"])$/;"	v
 classification	central_tendency_per_classification.py	/^classification = classification_data(params)$/;"	v
 classification	distribution.py	/^classification = read_csv(filename,$/;"	v
 classification	distribution_per_classification.py	/^classification = classification_data(params)$/;"	v
-classification_data	Modules/data_model.py	/^class classification_data:$/;"	c
+classification	full_central_tendency_per_classification.py	/^classification = classification_data(params)$/;"	v
+classification	get_full_data.py	/^classification = classification_data(params)$/;"	v
+classification_data	Modules/data_model.py	/^class classification_data(data_base_model):$/;"	c
+classification_model	Modules/classification_classic_models.py	/^class classification_model:$/;"	c
+classification_value	get_full_data.py	/^        classification_value = classification.get_date_data(date)$/;"	v
+classification_value	get_full_data.py	/^        classification_value = classification_value.to_numpy()$/;"	v
+classification_value	get_full_data.py	/^        classification_value = classification_value[0][0]$/;"	v
+clean_data	get_clean_data.py	/^def clean_data(data: DataFrame,$/;"	f	typeref:typename:DataFrame
+clean_data	get_full_data.py	/^clean_data = clean_data_model(params)$/;"	v
+clean_data	get_similarity_matrix.py	/^clean_data = clean_data_model(params)$/;"	v
+clean_data_model	Modules/data_model.py	/^class clean_data_model(data_base_model):$/;"	c
+clear_sky	Daily_full_graphics.py	/^clear_sky = clear_sky_data(params)$/;"	v
 clear_sky	Daily_graphics.py	/^clear_sky = clear_sky_data(params)$/;"	v
 clear_sky	get_clear_sky.py	/^        clear_sky = model.run(params)$/;"	v
 clear_sky	get_differences_and_ratios.py	/^clear_sky = clear_sky_data(params)$/;"	v
-clear_sky_daily	Daily_graphics.py	/^        clear_sky_daily = clear_sky.get_date_date(date)$/;"	v
+clear_sky	get_full_differences_and_ratios.py	/^clear_sky = clear_sky_data(params)$/;"	v
+clear_sky_daily	Daily_full_graphics.py	/^        clear_sky_daily = clear_sky.get_date_data(date)$/;"	v
+clear_sky_daily	Daily_full_graphics.py	/^        clear_sky_daily = get_hourly_mean(clear_sky_daily)$/;"	v
+clear_sky_daily	Daily_graphics.py	/^        clear_sky_daily = clear_sky.get_date_data(date)$/;"	v
 clear_sky_daily	Daily_graphics.py	/^        clear_sky_daily = get_hourly_mean(clear_sky_daily)$/;"	v
-clear_sky_daily	get_differences_and_ratios.py	/^    clear_sky_daily = clear_sky.get_date_date(date)$/;"	v
-clear_sky_data	Modules/data_model.py	/^class clear_sky_data:$/;"	c
+clear_sky_daily	get_differences_and_ratios.py	/^    clear_sky_daily = clear_sky.get_date_data(date)$/;"	v
+clear_sky_daily	get_full_differences_and_ratios.py	/^    clear_sky_daily = clear_sky.get_date_data(date)$/;"	v
+clear_sky_data	Modules/data_model.py	/^class clear_sky_data(data_base_model):$/;"	c
 clear_sky_model	Modules/clear_sky.py	/^class clear_sky_model:$/;"	c
 clear_sky_station	get_differences_and_ratios.py	/^        clear_sky_station = clear_sky_daily[station]$/;"	v
 clear_sky_station	get_differences_and_ratios.py	/^        clear_sky_station = get_data_between_hours(clear_sky_station,$/;"	v
 clear_sky_station	get_differences_and_ratios.py	/^        clear_sky_station = get_hourly_mean(clear_sky_station)$/;"	v
+clear_sky_station	get_full_differences_and_ratios.py	/^        clear_sky_station = clear_sky_daily[station]$/;"	v
+clear_sky_station	get_full_differences_and_ratios.py	/^        clear_sky_station = get_data_between_hours(clear_sky_station,$/;"	v
+clear_sky_station	get_full_differences_and_ratios.py	/^        clear_sky_station = get_hourly_mean(clear_sky_station)$/;"	v
 cloud_types	central_tendency_per_classification.py	/^cloud_types, names = get_labels(params)$/;"	v
 cloud_types	distribution_per_classification.py	/^cloud_types, _ = get_labels(params)$/;"	v
+cloud_types	full_central_tendency_per_classification.py	/^cloud_types, names = get_labels(params)$/;"	v
 colors	distribution.py	/^colors = get_colors(params)$/;"	v
 colors	distribution_per_classification.py	/^colors = get_colors(params)$/;"	v
 columns	Count_data.py	/^    columns = [(station, value)$/;"	v
 columns	Count_data.py	/^    columns = data.columns$/;"	v
 columns	organize_2021_data.py	/^    columns = list(results.columns)$/;"	v
-comparison	central_tendency.py	/^comparison = comparison_data(params)$/;"	v
+comparison	central_tendency.py	/^comparison = full_comparison_data(params)$/;"	v
 comparison	central_tendency_per_classification.py	/^comparison = comparison_data(params)$/;"	v
 comparison	distribution_per_classification.py	/^comparison = comparison_data(params)$/;"	v
-comparison	get_closeness.py	/^comparison = comparison_data(params)$/;"	v
+comparison	full_central_tendency_per_classification.py	/^comparison = full_comparison_data(params)$/;"	v
+comparison	get_clean_data.py	/^comparison = comparison_data(params)$/;"	v
 comparison	get_differences_and_ratios.py	/^        comparison = comparison_operation(SIMA_station,$/;"	v
-comparison_data	Modules/data_model.py	/^class comparison_data:$/;"	c
-comparison_operation	get_differences_and_ratios.py	/^def comparison_operation(measurement: DataFrame,$/;"	f	typeref:typename:DataFrame
-cosine	get_closeness.py	/^        cosine = cosine_similarity(vector_i,$/;"	v
-cosine_similarity	get_closeness.py	/^def cosine_similarity(vector_i: array,$/;"	f	typeref:typename:float
+comparison	get_differences_and_ratios.py	/^        comparison = threshold_filter(comparison,$/;"	v
+comparison	get_full_differences_and_ratios.py	/^        comparison = comparison_operation(full_data_station,$/;"	v
+comparison_daily	get_clean_data.py	/^    comparison_daily = comparison.get_date_data(date)$/;"	v
+comparison_data	Modules/data_model.py	/^class comparison_data(data_base_model):$/;"	c
+comparison_operation	Modules/functions.py	/^def comparison_operation(measurement: DataFrame,$/;"	f	typeref:typename:DataFrame
+comparison_station	get_clean_data.py	/^        comparison_station = comparison_daily[station]$/;"	v
+comparison_station	get_clean_data.py	/^        comparison_station = get_data_between_hours(comparison_station,$/;"	v
+cosine	get_similarity_matrix.py	/^cosine = 1-pairwise_distances(vectors,$/;"	v
+cosine	get_similarity_matrix.py	/^cosine = DataFrame(cosine,$/;"	v
 daily	central_tendency.py	/^daily = comparison.get_daily_mean()$/;"	v
 daily	central_tendency_per_classification.py	/^daily = comparison.get_daily_mean()$/;"	v
 daily	distribution_per_classification.py	/^daily = comparison.get_daily_mean()$/;"	v
+daily	full_central_tendency_per_classification.py	/^daily = comparison.get_daily_mean()$/;"	v
 data	Count_data.py	/^    data = data >= params["Minimum data per day"]$/;"	v
 data	Count_data.py	/^    data = data >= params["Minimum data per month"]$/;"	v
 data	Count_data.py	/^    data = data.resample("D").count()$/;"	v
@@ -103,109 +157,124 @@ data	Count_data.py	/^    data = data[columns]$/;"	v
 data	Count_data.py	/^    data = data[data.index.hour <= 19]$/;"	v
 data	Count_data.py	/^    data = data[data.index.hour >= 8]$/;"	v
 data	Count_data.py	/^    data = read_csv(filename,$/;"	v
-data	Daily_full_graphics.py	/^data = read_csv(filename,$/;"	v
 data	central_tendency_per_classification.py	/^data = dict()$/;"	v
 data	distribution_per_classification.py	/^data = dict()$/;"	v
-data	get_closeness.py	/^    data = concat([data,$/;"	v
-data	get_closeness.py	/^data = DataFrame()$/;"	v
-data	get_closeness.py	/^data = data.fillna(0)$/;"	v
-data	get_closeness.py	/^data = get_data_between_hours(data,$/;"	v
+data	full_central_tendency_per_classification.py	/^data = dict()$/;"	v
+data	get_clean_data.py	/^        data = clean_data(SIMA_station,$/;"	v
+data	get_similarity_matrix.py	/^data = clean_data.data$/;"	v
+data	get_similarity_matrix.py	/^data = data.fillna(0)$/;"	v
 data	organize_2021_data.py	/^        data = data_format(data)$/;"	v
 data	organize_2021_data.py	/^        data = read_csv(file)$/;"	v
+data_base_model	Modules/data_model.py	/^class data_base_model:$/;"	c
 data_format	organize_2021_data.py	/^def data_format(data: DataFrame) -> DataFrame:$/;"	f	typeref:typename:DataFrame
-dataset	distribution_per_classification.py	/^dataset = params["graphics params"][params["comparison"]]$/;"	v
+dataset	classification_model.py	/^        dataset = dataset_model(params)$/;"	v
+dataset	distribution_per_classification.py	/^dataset = params["graphics params"][operation]$/;"	v
 dataset	get_clear_sky.py	/^        dataset = SIMA.get_station_info(params,$/;"	v
-date	get_closeness.py	/^    station, date = station_date.split()$/;"	v
+dataset_model	Modules/dataset_model.py	/^class dataset_model:$/;"	c
 date_format	organize_2021_data.py	/^def date_format(date: str) -> str:$/;"	f	typeref:typename:str
-date_i	get_closeness.py	/^    station_i, date_i = station_date.split()$/;"	v
-date_j	get_closeness.py	/^        station_j, date_j = station_date_j.split()$/;"	v
-dates	Daily_full_graphics.py	/^dates = GHI.get_dates()$/;"	v
+dates	Daily_full_graphics.py	/^dates = clear_sky.get_dates()$/;"	v
 dates	Daily_graphics.py	/^dates = clear_sky.get_dates()$/;"	v
 dates	central_tendency_per_classification.py	/^        dates = values.index$/;"	v
-dates	data_full.py	/^dates = SIMA.get_dates()$/;"	v
 dates	distribution_per_classification.py	/^        dates = values.index$/;"	v
+dates	full_central_tendency_per_classification.py	/^        dates = values.index$/;"	v
+dates	get_clean_data.py	/^dates = comparison.get_dates()$/;"	v
 dates	get_clear_sky.py	/^dates = SIMA.get_dates()$/;"	v
-dates	get_closeness.py	/^dates = SIMA.get_dates()$/;"	v
 dates	get_differences_and_ratios.py	/^dates = clear_sky.get_dates()$/;"	v
+dates	get_full_data.py	/^dates = clean_data.get_dates()$/;"	v
+dates	get_full_differences_and_ratios.py	/^dates = clear_sky.get_dates()$/;"	v
+dates	get_similarity_matrix.py	/^dates = clean_data.get_dates()$/;"	v
 dates	make_template_classification.py	/^dates = [file.split(".")[0]$/;"	v
 dates_bar	Daily_full_graphics.py	/^    dates_bar = tqdm(dates)$/;"	v
 dates_bar	Daily_graphics.py	/^    dates_bar = tqdm(dates)$/;"	v
 datetime	Daily_full_graphics.py	/^        datetime = datetime.date()$/;"	v
 datetime	Daily_full_graphics.py	/^        datetime = to_datetime(date)$/;"	v
 datetime_format	Modules/functions.py	/^def datetime_format(date: Timestamp,$/;"	f	typeref:typename:str
+define_index	classification_model.py	/^def define_index(data: DataFrame,$/;"	f	typeref:typename:DataFrame
+define_model	Modules/classification_classic_models.py	/^    def define_model(self,$/;"	m	class:classification_model	typeref:typename:None
 filename	Count_data.py	/^    filename = join(params["path data"],$/;"	v
 filename	Count_data.py	/^filename = join(params["path results"],$/;"	v
-filename	Daily_full_graphics.py	/^filename = join(params["path results"],$/;"	v
-filename	Daily_graphics.py	/^filename = f"{params['year']}.csv"$/;"	v
-filename	Daily_graphics.py	/^filename = join(params["path data"],$/;"	v
 filename	central_tendency_per_classification.py	/^filename = "{}_{}.csv".format(params["file results"],$/;"	v
 filename	central_tendency_per_classification.py	/^filename = join(params["path results"],$/;"	v
-filename	data_full.py	/^filename = f"{params['year']}.csv"$/;"	v
-filename	data_full.py	/^filename = join(params["path data"],$/;"	v
-filename	data_full.py	/^filename = join(params["path results"],$/;"	v
+filename	classification_model.py	/^filename = f"{params['classification model']}_results.csv"$/;"	v
+filename	classification_model.py	/^filename = join(params["path results"],$/;"	v
 filename	distribution.py	/^filename = join(params["path graphics"],$/;"	v
 filename	distribution.py	/^filename = join(params["path results"],$/;"	v
-filename	distribution_per_classification.py	/^filename = f"distribution_{params['comparison']}.png"$/;"	v
+filename	distribution_per_classification.py	/^filename = f"distribution_{operation}.png"$/;"	v
 filename	distribution_per_classification.py	/^filename = join(params["path graphics"],$/;"	v
-filename	get_clear_sky.py	/^filename = f"{params['year']}.csv"$/;"	v
-filename	get_clear_sky.py	/^filename = join(params["path data"],$/;"	v
+filename	full_central_tendency_per_classification.py	/^filename = "{}_{}.csv".format(params["file results"],$/;"	v
+filename	full_central_tendency_per_classification.py	/^filename = join(params["path results"],$/;"	v
+filename	get_clean_data.py	/^filename = "{}_{}.csv".format(params["file results"],$/;"	v
+filename	get_clean_data.py	/^filename = join(params['path results'],$/;"	v
 filename	get_clear_sky.py	/^filename = join(params["path results"],$/;"	v
-filename	get_closeness.py	/^filename = f"{params['year']}.csv"$/;"	v
-filename	get_closeness.py	/^filename = join(params["path data"],$/;"	v
-filename	get_closeness.py	/^filename = join(params["path results"],$/;"	v
-filename	get_differences_and_ratios.py	/^filename = f"{params['operation comparison']}.csv"$/;"	v
-filename	get_differences_and_ratios.py	/^filename = f"{params['year']}.csv"$/;"	v
-filename	get_differences_and_ratios.py	/^filename = join(params["path data"],$/;"	v
+filename	get_differences_and_ratios.py	/^filename = f"{params['comparison operation']}.csv"$/;"	v
 filename	get_differences_and_ratios.py	/^filename = join(params['path results'],$/;"	v
+filename	get_full_data.py	/^filename = "{}_{}.csv".format(params["file results"],$/;"	v
+filename	get_full_data.py	/^filename = "{}_{}.csv".format(params["similarity file"],$/;"	v
+filename	get_full_data.py	/^filename = join(params["path results"],$/;"	v
+filename	get_full_differences_and_ratios.py	/^filename = "{}_{}.csv".format(params["file results"],$/;"	v
+filename	get_full_differences_and_ratios.py	/^filename = join(params['path results'],$/;"	v
+filename	get_similarity_matrix.py	/^filename = "{}_{}.csv".format(params["file results"],$/;"	v
+filename	get_similarity_matrix.py	/^filename = join(params["path results"],$/;"	v
 filename	make_template_classification.py	/^filename = join(params["path results"],$/;"	v
 files	Count_data.py	/^files = sorted(ls(params["path data"]))$/;"	v
 files	make_template_classification.py	/^files = ls(path)$/;"	v
 files	organize_2021_data.py	/^    files = [file$/;"	v
 files	organize_2021_data.py	/^    files = sorted(ls())$/;"	v
-fill_data	data_full.py	/^def fill_data(data: DataFrame,$/;"	f	typeref:typename:DataFrame
+fill_data	get_full_data.py	/^def fill_data(data: DataFrame,$/;"	f	typeref:typename:DataFrame
 fill_number	Modules/clear_sky.py	/^def fill_number(number: int,$/;"	f	typeref:typename:str
 fill_number	Modules/functions.py	/^def fill_number(number: int,$/;"	f	typeref:typename:str
 frecuency	distribution.py	/^frecuency = 100*frecuency \/ frecuency.sum()$/;"	v
 frecuency	distribution.py	/^frecuency = get_frecuency(classification)$/;"	v
-full_data	data_full.py	/^    full_data = concat([full_data,$/;"	v
-full_data	data_full.py	/^full_data = DataFrame()$/;"	v
-get_H0	Modules/GHI_model.py	/^    def get_H0(self,$/;"	m	class:GHI_model	typeref:typename:float
-get_H0	Modules/RS_model.py	/^    def get_H0(self,$/;"	m	class:RS_model	typeref:typename:float
-get_best_similarity_dates	data_full.py	/^def get_best_similarity_dates(data: DataFrame,$/;"	f	typeref:typename:list
+full_comparison_data	Modules/data_model.py	/^class full_comparison_data(data_base_model):$/;"	c
+full_data	Daily_full_graphics.py	/^full_data = full_data_model(params)$/;"	v
+full_data	get_full_data.py	/^    full_data = concat([full_data,$/;"	v
+full_data	get_full_data.py	/^full_data = DataFrame()$/;"	v
+full_data	get_full_differences_and_ratios.py	/^full_data = full_data_model(params)$/;"	v
+full_data_daily	Daily_full_graphics.py	/^        full_data_daily = full_data.get_date_data(date)$/;"	v
+full_data_daily	Daily_full_graphics.py	/^        full_data_daily = get_hourly_mean(full_data_daily)$/;"	v
+full_data_daily	get_full_differences_and_ratios.py	/^    full_data_daily = full_data.get_date_data(date)$/;"	v
+full_data_model	Modules/data_model.py	/^class full_data_model(data_base_model):$/;"	c
+full_data_station	get_full_differences_and_ratios.py	/^        full_data_station = full_data_daily[station]$/;"	v
+full_data_station	get_full_differences_and_ratios.py	/^        full_data_station = get_data_between_hours(full_data_station,$/;"	v
+get_best_similarity_dates	get_full_data.py	/^def get_best_similarity_dates(data: DataFrame,$/;"	f	typeref:typename:list
+get_classification_params	Modules/params.py	/^def get_classification_params(params: dict) -> dict:$/;"	f	typeref:typename:dict
 get_colors	Modules/functions.py	/^def get_colors(params: dict) -> list:$/;"	f	typeref:typename:list
 get_daily_mean	Modules/data_model.py	/^    def get_daily_mean(self) -> DataFrame:$/;"	m	class:comparison_data	typeref:typename:DataFrame
+get_daily_mean	Modules/data_model.py	/^    def get_daily_mean(self) -> DataFrame:$/;"	m	class:full_comparison_data	typeref:typename:DataFrame
 get_data	Modules/data_model.py	/^    def get_data(self,$/;"	m	class:SIMA_model	typeref:typename:DataFrame
+get_data_between_hours	Modules/data_model.py	/^    def get_data_between_hours(self, hour_i: int, hour_f: int) -> DataFrame:$/;"	m	class:data_base_model	typeref:typename:DataFrame
 get_data_between_hours	Modules/functions.py	/^def get_data_between_hours(data: DataFrame,$/;"	f	typeref:typename:DataFrame
-get_data_date	Modules/data_model.py	/^    def get_data_date(self,$/;"	m	class:SIMA_model	typeref:typename:DataFrame
 get_data_from_type	Modules/data_model.py	/^    def get_data_from_type(self,$/;"	m	class:classification_data	typeref:typename:DataFrame
 get_data_per_dates	Modules/data_model.py	/^    def get_data_per_dates(self,$/;"	m	class:comparison_data	typeref:typename:DataFrame
-get_date_date	Modules/data_model.py	/^    def get_date_date(self,$/;"	m	class:classification_data	typeref:typename:DataFrame
-get_date_date	Modules/data_model.py	/^    def get_date_date(self,$/;"	m	class:clear_sky_data	typeref:typename:DataFrame
-get_dates	Modules/data_model.py	/^    def get_dates(self) -> list:$/;"	m	class:SIMA_model	typeref:typename:list
-get_dates	Modules/data_model.py	/^    def get_dates(self) -> list:$/;"	m	class:classification_data	typeref:typename:list
-get_dates	Modules/data_model.py	/^    def get_dates(self) -> list:$/;"	m	class:clear_sky_data	typeref:typename:list
+get_data_per_dates	Modules/data_model.py	/^    def get_data_per_dates(self,$/;"	m	class:full_comparison_data	typeref:typename:DataFrame
+get_date_data	Modules/data_model.py	/^    def get_date_data(self,$/;"	m	class:data_base_model	typeref:typename:DataFrame
+get_dates	Modules/data_model.py	/^    def get_dates(self) -> list:$/;"	m	class:data_base_model	typeref:typename:list
 get_frecuency	distribution.py	/^def get_frecuency(data: DataFrame) -> DataFrame:$/;"	f	typeref:typename:DataFrame
 get_hourly_mean	Modules/functions.py	/^def get_hourly_mean(data: DataFrame) -> DataFrame:$/;"	f	typeref:typename:DataFrame
 get_labels	Modules/functions.py	/^def get_labels(params: dict) -> tuple:$/;"	f	typeref:typename:tuple
 get_parameter_name	organize_2021_data.py	/^def get_parameter_name(file: str) -> str:$/;"	f	typeref:typename:str
 get_params	Modules/params.py	/^def get_params() -> dict:$/;"	f	typeref:typename:dict
-get_similarity_vectors	data_full.py	/^def get_similarity_vectors(SIMA: SIMA_model,$/;"	f	typeref:typename:DataFrame
+get_similarity_vectors	get_full_data.py	/^def get_similarity_vectors(clean_data: clean_data_model,$/;"	f	typeref:typename:DataFrame
 get_station_data	Modules/data_model.py	/^    def get_station_data(self,$/;"	m	class:SIMA_model	typeref:typename:DataFrame
-get_station_data	Modules/data_model.py	/^    def get_station_data(self,$/;"	m	class:classification_data	typeref:typename:DataFrame
-get_station_data	Modules/data_model.py	/^    def get_station_data(self,$/;"	m	class:clear_sky_data	typeref:typename:DataFrame
+get_station_data	Modules/data_model.py	/^    def get_station_data(self,$/;"	m	class:data_base_model	typeref:typename:DataFrame
 get_station_info	Modules/data_model.py	/^    def get_station_info(self,$/;"	m	class:SIMA_model	typeref:typename:dict
-get_vector	get_closeness.py	/^def get_vector(data: DataFrame,$/;"	f	typeref:typename:array
-headers	get_closeness.py	/^headers = [f"{station} {date}"$/;"	v
-index	Daily_full_graphics.py	/^        index = station_data.index.date == datetime$/;"	v
+get_threshold	Modules/params.py	/^def get_threshold(params: dict) -> dict:$/;"	f	typeref:typename:dict
+headers	get_similarity_matrix.py	/^headers = [f"{station} {date}"$/;"	v
 keys	distribution.py	/^keys, label = get_labels(params)$/;"	v
 label	distribution.py	/^keys, label = get_labels(params)$/;"	v
+labels	classification_model.py	/^        _, labels = get_labels(params)$/;"	v
+last_index	classification_model.py	/^        last_index = partial_results.index[-1]$/;"	v
 ls	Count_data.py	/^from os import listdir as ls$/;"	x	nameref:unknown:listdir
 ls	Modules/functions.py	/^def ls(path: str) -> list:$/;"	f	typeref:typename:list
 ls	organize_2021_data.py	/^from os import listdir as ls$/;"	x	nameref:unknown:listdir
 mkdir	Modules/functions.py	/^def mkdir(path: str) -> None:$/;"	f	typeref:typename:None
+model	classification_model.py	/^model = classification_model()$/;"	v
 model	get_clear_sky.py	/^model = clear_sky_model()$/;"	v
 montly	Count_data.py	/^        montly = data.loc[(station, value)]$/;"	v
 names	central_tendency_per_classification.py	/^cloud_types, names = get_labels(params)$/;"	v
+names	full_central_tendency_per_classification.py	/^cloud_types, names = get_labels(params)$/;"	v
+nan_vector	get_full_data.py	/^def nan_vector(vector: DataFrame) -> array:$/;"	f	typeref:typename:array
+operation	distribution_per_classification.py	/^operation = params["comparison operation"]$/;"	v
 parameter	organize_2021_data.py	/^        parameter = get_parameter_name(file)$/;"	v
 parameters	organize_2021_data.py	/^    parameters = DataFrame(parameters,$/;"	v
 parameters	organize_2021_data.py	/^    parameters = [[column[1]$/;"	v
@@ -214,72 +283,102 @@ params	Daily_full_graphics.py	/^params = get_params()$/;"	v
 params	Daily_graphics.py	/^params = get_params()$/;"	v
 params	central_tendency.py	/^params = get_params()$/;"	v
 params	central_tendency_per_classification.py	/^params = get_params()$/;"	v
-params	data_full.py	/^params = get_params()$/;"	v
+params	classification_model.py	/^params = get_params()$/;"	v
 params	distribution.py	/^params = get_params()$/;"	v
 params	distribution_per_classification.py	/^params = get_params()$/;"	v
+params	full_central_tendency_per_classification.py	/^params = get_params()$/;"	v
+params	get_clean_data.py	/^params = get_params()$/;"	v
 params	get_clear_sky.py	/^params = get_params()$/;"	v
-params	get_closeness.py	/^params = get_params()$/;"	v
 params	get_differences_and_ratios.py	/^params = get_params()$/;"	v
+params	get_full_data.py	/^params = get_params()$/;"	v
+params	get_full_differences_and_ratios.py	/^params = get_params()$/;"	v
+params	get_similarity_matrix.py	/^params = get_params()$/;"	v
 params	make_template_classification.py	/^params = get_params()$/;"	v
+params	test.py	/^params = get_params()$/;"	v
+partial_results	classification_model.py	/^        partial_results = DataFrame(partial_results)$/;"	v
+partial_results	classification_model.py	/^        partial_results = classification_report(dataset.test[1],$/;"	v
+partial_results	classification_model.py	/^        partial_results = define_index(partial_results,$/;"	v
+partial_results	classification_model.py	/^        partial_results = partial_results.drop(last_index)$/;"	v
 path	make_template_classification.py	/^path = join(params["path graphics"],$/;"	v
 plot	Daily_full_graphics.py	/^def plot(SIMA: DataFrame,$/;"	f	typeref:typename:None
 plot	Daily_graphics.py	/^def plot(SIMA: DataFrame,$/;"	f	typeref:typename:None
 plt	Daily_full_graphics.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	Daily_graphics.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	central_tendency.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
-plt	data_full.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	distribution.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	distribution_per_classification.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
-read	Modules/data_model.py	/^    def read(self, file: str) -> DataFrame:$/;"	m	class:comparison_data	typeref:typename:DataFrame
-read	Modules/data_model.py	/^    def read(self,$/;"	m	class:SIMA_model	typeref:typename:DataFrame
+predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:Decision_tree_model	typeref:typename:list
+predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:Gaussian_naive_model	typeref:typename:list
+predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:KNN_model	typeref:typename:list
+predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:Random_forest_model	typeref:typename:list
+predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:SVM_model	typeref:typename:list
+predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:classification_model	typeref:typename:None
+result	classification_model.py	/^        result = model.predict(dataset.test)$/;"	v
 results	Count_data.py	/^results = DataFrame(results)$/;"	v
 results	Count_data.py	/^results = dict()$/;"	v
 results	Count_data.py	/^results = results.T$/;"	v
 results	central_tendency_per_classification.py	/^    results = concat([results,$/;"	v
 results	central_tendency_per_classification.py	/^results = DataFrame()$/;"	v
+results	classification_model.py	/^        results = concat([results,$/;"	v
+results	classification_model.py	/^results = DataFrame()$/;"	v
+results	full_central_tendency_per_classification.py	/^    results = concat([results,$/;"	v
+results	full_central_tendency_per_classification.py	/^results = DataFrame()$/;"	v
+results	get_clean_data.py	/^    results = concat([results,$/;"	v
+results	get_clean_data.py	/^results = DataFrame(columns=params["stations"])$/;"	v
 results	get_clear_sky.py	/^    results = concat([results,$/;"	v
 results	get_clear_sky.py	/^results = DataFrame(columns=params["stations"])$/;"	v
 results	get_differences_and_ratios.py	/^    results = concat([results,$/;"	v
 results	get_differences_and_ratios.py	/^results = DataFrame(columns=params["stations"])$/;"	v
+results	get_full_differences_and_ratios.py	/^    results = concat([results,$/;"	v
+results	get_full_differences_and_ratios.py	/^results = DataFrame(columns=params["stations"])$/;"	v
 results	organize_2021_data.py	/^        results = concat($/;"	v
 results	organize_2021_data.py	/^    results = DataFrame()$/;"	v
 results	organize_2021_data.py	/^    results = concat([parameters,$/;"	v
 results	organize_2021_data.py	/^    results = concat([stations,$/;"	v
 results	organize_2021_data.py	/^    results = results[columns]$/;"	v
+results_per_day	get_clean_data.py	/^        results_per_day = concat([results_per_day,$/;"	v
+results_per_day	get_clean_data.py	/^    results_per_day = DataFrame()$/;"	v
 results_per_day	get_clear_sky.py	/^        results_per_day = concat([results_per_day,$/;"	v
 results_per_day	get_clear_sky.py	/^    results_per_day = DataFrame()$/;"	v
 results_per_day	get_differences_and_ratios.py	/^        results_per_day = concat([results_per_day,$/;"	v
 results_per_day	get_differences_and_ratios.py	/^    results_per_day = DataFrame()$/;"	v
-results_per_station	data_full.py	/^        results_per_station = concat([results_per_station,$/;"	v
-results_per_station	data_full.py	/^    results_per_station = DataFrame()$/;"	v
+results_per_day	get_full_differences_and_ratios.py	/^        results_per_day = concat([results_per_day,$/;"	v
+results_per_day	get_full_differences_and_ratios.py	/^    results_per_day = DataFrame()$/;"	v
+results_per_station	get_full_data.py	/^        results_per_station = concat([results_per_station,$/;"	v
+results_per_station	get_full_data.py	/^    results_per_station = DataFrame()$/;"	v
+run	Modules/GHI_model.py	/^    def run(self,$/;"	m	class:GHI_model	typeref:typename:float
+run	Modules/RS_model.py	/^    def run(self,$/;"	m	class:RS_model	typeref:typename:float
+run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:Decision_tree_model	typeref:typename:None
+run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:Gaussian_naive_model	typeref:typename:None
+run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:KNN_model	typeref:typename:None
+run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:Random_forest_model	typeref:typename:None
+run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:SVM_model	typeref:typename:None
+run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:classification_model	typeref:typename:None
 run	Modules/clear_sky.py	/^    def run(self, params: dict) -> DataFrame:$/;"	m	class:clear_sky_model	typeref:typename:DataFrame
-similarity	data_full.py	/^similarity = read_csv(filename,$/;"	v
-similarity_dates	data_full.py	/^        similarity_dates = get_best_similarity_dates(similarity,$/;"	v
-similarity_vector	data_full.py	/^        similarity_vector = get_similarity_vectors(SIMA,$/;"	v
-sort	data_full.py	/^def sort(data: DataFrame) -> DataFrame:$/;"	f	typeref:typename:DataFrame
-station	get_closeness.py	/^    station, date = station_date.split()$/;"	v
-station_data	Daily_full_graphics.py	/^    station_data = data[station]$/;"	v
-station_i	get_closeness.py	/^    station_i, date_i = station_date.split()$/;"	v
-station_j	get_closeness.py	/^        station_j, date_j = station_date_j.split()$/;"	v
+similarity	get_full_data.py	/^similarity = read_csv(filename,$/;"	v
+similarity_dates	get_full_data.py	/^            similarity_dates = get_best_similarity_dates(similarity,$/;"	v
+similarity_vector	get_full_data.py	/^            similarity_vector = get_similarity_vectors(clean_data,$/;"	v
+sort	get_full_data.py	/^def sort(data: DataFrame) -> DataFrame:$/;"	f	typeref:typename:DataFrame
 stations	organize_2021_data.py	/^    stations = DataFrame(stations,$/;"	v
 stations	organize_2021_data.py	/^    stations = [[column[0]$/;"	v
 stations	organize_2021_data.py	/^stations = {$/;"	v
 stations_bar	Daily_full_graphics.py	/^stations_bar = tqdm(params["stations"])$/;"	v
 stations_bar	Daily_graphics.py	/^stations_bar = tqdm(params["stations"])$/;"	v
-stations_data	get_closeness.py	/^stations_data = DataFrame(columns=headers,$/;"	v
 template	make_template_classification.py	/^template = DataFrame(index=dates,$/;"	v
 tendency	central_tendency_per_classification.py	/^    tendency = data[cloud_type].describe()$/;"	v
+tendency	full_central_tendency_per_classification.py	/^    tendency = data[cloud_type].describe()$/;"	v
+threshold_filter	Modules/functions.py	/^def threshold_filter(data: DataFrame,$/;"	f	typeref:typename:DataFrame
 title	distribution_per_classification.py	/^    title = params["classification"][i]["label"]$/;"	v
 values	central_tendency_per_classification.py	/^        values = classification.get_data_from_type(cloud_type)$/;"	v
 values	central_tendency_per_classification.py	/^        values = daily[station][dates]$/;"	v
 values	distribution_per_classification.py	/^        values = classification.get_data_from_type(cloud_type)$/;"	v
 values	distribution_per_classification.py	/^        values = daily[station][dates]$/;"	v
-vector	data_full.py	/^        vector = SIMA.get_data_date(date)$/;"	v
-vector	data_full.py	/^        vector = fill_data(vector,$/;"	v
-vector	data_full.py	/^        vector = get_data_between_hours(vector,$/;"	v
-vector_comparison	get_closeness.py	/^    vector_comparison = get_vector(comparison.data,$/;"	v
-vector_comparison	get_closeness.py	/^    vector_comparison = vector_comparison > params["ratio threshold"]$/;"	v
-vector_data	get_closeness.py	/^    vector_data = get_vector(data,$/;"	v
-vector_i	get_closeness.py	/^    vector_i = get_vector(data,$/;"	v
-vector_j	get_closeness.py	/^        vector_j = get_vector(data,$/;"	v
+values	full_central_tendency_per_classification.py	/^        values = classification.get_data_from_type(cloud_type)$/;"	v
+values	full_central_tendency_per_classification.py	/^        values = daily[station][dates]$/;"	v
+vector	get_full_data.py	/^            vector = fill_data(vector,$/;"	v
+vector	get_full_data.py	/^        vector = clean_data.get_date_data(date)$/;"	v
+vector	get_full_data.py	/^        vector = get_data_between_hours(vector,$/;"	v
+vectors	get_similarity_matrix.py	/^vectors = clean_data.data.to_numpy()$/;"	v
+vectors	get_similarity_matrix.py	/^vectors = vectors.T$/;"	v
+vectors	get_similarity_matrix.py	/^vectors = vectors.reshape(-1, 24)$/;"	v
 year	Count_data.py	/^    year = file.split(".")[0]$/;"	v

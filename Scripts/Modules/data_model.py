@@ -71,6 +71,14 @@ class data_base_model:
         """
         self.station_data = DataFrame(self.data[station])
 
+    def get_data(self,
+                 station: str,
+                 date: str) -> DataFrame:
+        date = to_datetime(date)
+        data = self.data[station]
+        data = data[data.index.date == date.date()]
+        return data
+
 
 class SIMA_model(data_base_model):
     """
