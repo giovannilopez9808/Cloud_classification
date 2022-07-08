@@ -1,14 +1,18 @@
 #!/bin/bash
-#SBATCH --partition=GPU
-#SBATCH --job-name=Percep
+#SBATCH --partition=C1Mitad1
+#SBATCH --job-name=Class
 #SBATCH --output=run.log
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=giovanni.lopez@cimat.mx
 cd /home/est_posgrado_giovanni.lopez/Cloud_classification/Scripts
 source /opt/anaconda3_titan/bin/activate
-export TF_ENABLE_ONEDNN_OPTS=0
+#export TF_ENABLE_ONEDNN_OPTS=0
 conda activate tensorflow
 hostname
 date
-python neural_models.py
+python classification_mdoel.py SVM
+python classification_mdoel.py KNN
+python classification_mdoel.py "Random forest"
+python classification_mdoel.py "Gaussian naive"
+python classification_mdoel.py "Decision tree"
 date
