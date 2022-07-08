@@ -28,7 +28,7 @@ train_files = ls(train_images)
 test_files = ls(test_images)
 
 for i, file in enumerate(train_files):
-    ilename = join(train_images,
+    filename = join(train_images,
                    file)
     x = loadtxt(filename)
     x_train.append(x)
