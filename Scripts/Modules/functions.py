@@ -169,7 +169,7 @@ def clean_data(data: DataFrame,
                clear_sky: DataFrame,
                comparison: DataFrame) -> DataFrame:
     comparison = DataFrame(comparison)
-    index = list(data.index)
+    index = data.index
     header = comparison.columns
     data = data.to_numpy()
     comparison = comparison.to_numpy()

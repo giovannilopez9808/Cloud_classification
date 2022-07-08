@@ -5,23 +5,24 @@ from Modules.data_model import (comparison_data,
                                 SIMA_model,
                                 clear_sky_data)
 from Modules.functions import (get_data_between_hours,
+                               threshold_filter,
                                get_hourly_mean,
                                clean_data)
-from Modules.params import get_params
+from Modules.params import (get_threshold,
+                            get_params)
 from pandas import DataFrame, concat
-from numpy import isnan, nan
 from os.path import join
 from tqdm import tqdm
-from sys import argv
 
 params = get_params()
 params.update({
-    "comparison operation": argv[1],
+    "comparison operation": "ratio",
     "file results": "clean_data",
-    "clear sky model": argv[2],
+    "clear sky model": "GHI",
     "pollutant": "SR",
     "year": 2021,
 })
+params["threshold"] = get_threshold(params)
 results = DataFrame(columns=params["stations"])
 comparison = comparison_data(params)
 clear_sky = clear_sky_data(params)
@@ -54,10 +55,8 @@ for date in bar_dates:
                                  axis=1)
     results = concat([results,
                       results_per_day])
-filename = "{}_{}.csv".format(params["file results"],
-                              params["comparison operation"])
+filename = "{}.csv".format(params["file results"])
 filename = join(params['path results'],
-                params["clear sky model"],
                 filename)
 results.index.name = "Date"
 results.to_csv(filename)

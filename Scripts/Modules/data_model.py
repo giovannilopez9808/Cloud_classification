@@ -242,10 +242,8 @@ class comparison_data(data_base_model):
         self._read()
 
     def _get_filename(self) -> str:
-        operation = self.params["comparison operation"]
-        filename = f"{operation}.csv"
+        filename = "comparison.csv"
         filename = join(self.params["path results"],
-                        self.params["clear sky model"],
                         filename)
         return filename
 
@@ -290,10 +288,8 @@ class clean_data_model(data_base_model):
         self._read()
 
     def _get_filename(self) -> str:
-        operation = self.params["comparison operation"]
-        filename = f"clean_data_{operation}.csv"
+        filename = "clean_data.csv"
         filename = join(self.params["path results"],
-                        self.params["clear sky model"],
                         filename)
         return filename
 
@@ -305,10 +301,8 @@ class full_data_model(data_base_model):
         self._read()
 
     def _get_filename(self) -> str:
-        operation = self.params["comparison operation"]
-        filename = f"full_data_{operation}.csv"
+        filename = "full_data.csv"
         filename = join(self.params["path results"],
-                        self.params["clear sky model"],
                         filename)
         return filename
 

@@ -42,8 +42,9 @@ def get_params() -> dict:
         "hour final": 24,
         "datasets": {
             "train": ["Sureste2",
+                      "Suroeste",
                       "Noroeste"],
-            "validation": ["Suroeste"],
+            "validation": ["Noroeste"],
             "test": ["Noreste"],
         }
     }
@@ -78,7 +79,7 @@ def get_threshold(params: dict) -> dict:
     operation = params["comparison operation"]
     threshold = {
         "RS": {
-            "ratio": 10000,
+            "ratio": 10,
             "diff": -1000,
         },
         "GHI": {

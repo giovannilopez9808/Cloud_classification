@@ -4,34 +4,27 @@ python get_full_data (operation) (sky model)
 from Modules.functions import (get_best_similarity_dates,
                                get_similarity_vectors,
                                get_data_between_hours,
-                               get_hourly_mean,
                                nan_vector,
-                               fill_data,
-                               sort,)
+                               fill_data)
 from pandas import read_csv, DataFrame, concat
 from Modules.data_model import (classification_data,
                                 clean_data_model)
-from numpy import isnan, array, empty, nan
 from Modules.params import get_params
 from os.path import join
+from numpy import isnan
 from tqdm import tqdm
-from sys import argv, exit
 
 params = get_params()
 params.update({
     "similarity file": "similarity",
-    "comparison operation": argv[1],
     "file results": "full_data",
-    "clear sky model": argv[2],
     "top vectors": 30,
 })
 classification = classification_data(params)
 clean_data = clean_data_model(params)
 dates = clean_data.get_dates()
-filename = "{}_{}.csv".format(params["similarity file"],
-                              params["comparison operation"])
+filename = f"{params['similarity file']}.csv"
 filename = join(params["path results"],
-                params["clear sky model"],
                 filename)
 similarity = read_csv(filename,
                       index_col=0)
@@ -67,9 +60,7 @@ for date in bar_dates:
     full_data = concat([full_data,
                         results_date])
 full_data.index.name = "Date"
-filename = "{}_{}.csv".format(params["file results"],
-                              params["comparison operation"])
+filename = "{}.csv".format(params["file results"])
 filename = join(params["path results"],
-                params["clear sky model"],
                 filename)
 full_data.to_csv(filename)

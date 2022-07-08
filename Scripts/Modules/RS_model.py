@@ -4,7 +4,6 @@ definido
 """
 from numpy import exp, arccos, power
 from .GHI_model import GHI_model
-from datetime import datetime
 
 
 class RS_model(GHI_model):
