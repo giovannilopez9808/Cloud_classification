@@ -13,8 +13,8 @@ params.update({
     "latitude": 25.75,
     "timezone": -5,
     "top vectors": 30,
-    "station": "Suroeste2",
-    "date": "2021-05-11",
+    "station": "Sureste2",
+    "date": "2021-07-22",
     "pollutant": "SR",
     "year": 2021,
 })

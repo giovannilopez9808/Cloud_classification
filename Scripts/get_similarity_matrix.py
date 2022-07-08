@@ -19,8 +19,6 @@ dates = clean_data.get_dates()
 headers = [f"{station} {date}"
            for station in params["stations"]
            for date in dates]
-data = clean_data.data
-data = data.fillna(0)
 print("-"*30)
 print("Calculando similitud")
 clean_data.data = clean_data.data.fillna(0)

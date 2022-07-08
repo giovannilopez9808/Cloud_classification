@@ -185,20 +185,14 @@ def clean_data(data: DataFrame,
 
 
 def get_cosine_similarity(data: DataFrame,
-                          SIMA_data: Type,
+                          clean_data: Type,
                           params: dict) -> DataFrame:
-    dates = SIMA_data.get_dates()
-    stations = params["stations"]
+    dates = clean_data.get_dates()
+    station = params["station"]
     header = [f"{station} {date}"
-              for station in stations
               for date in dates]
-    all_data = DataFrame()
-    for station in params["stations"]:
-        SIMA_data.get_station_data(station,
-                                   params["pollutant"])
-        all_data = concat([all_data,
-                           SIMA_data.station_data],
-                          axis=1)
+    clean_data.get_station_data(station)
+    all_data = clean_data.station_data
     all_data = all_data.fillna(0)
     all_data = all_data.to_numpy()
     all_data = all_data.reshape(-1, 24)

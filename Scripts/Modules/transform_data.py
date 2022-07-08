@@ -61,7 +61,7 @@ class transform_data_model:
     def _run_cosine_similarity(self,
                                data: DataFrame):
         cosine = get_cosine_similarity(data,
-                                       self.SIMA_data,
+                                       self.clean_data,
                                        self.params)
         similarity_dates = get_best_similarity_dates(cosine,
                                                      self.params,
