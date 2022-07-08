@@ -1,7 +1,8 @@
-from tensorflow.keras.layers import Flatten, Dense
+# from tensorflow import keras
 from sklearn.metrics import classification_report
-from tensorflow.keras.models import Sequential
 from .dataset_model import dataset_model
+from keras.layers import Flatten, Dense
+from keras.models import Sequential
 from numpy import argmax
 from typing import Type
 
