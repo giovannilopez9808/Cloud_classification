@@ -10,14 +10,13 @@ params = get_params()
 params.update({
     "comparison operation": argv[1],
     "clear sky model": argv[2],
-    "hour initial": 8,
-    "hour final": 20,
+    # "hour initial": 8,
+    # "hour final": 20,
 })
 dataset = dataset_model(params)
-validation = [(data, label)
-              for data, label in zip(dataset.validation[0],
-                                     dataset.validation[1])]
 input_dim = params["hour final"]-params["hour initial"]+1
+if params["hour initial"]==0 and params["hour final"]==24:
+    input_dim=24
 model = Sequential([
     Flatten(input_shape=(input_dim, 1)),
     # dense layer 1
@@ -32,9 +31,9 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 model.fit(dataset.train[0],
           dataset.train[1],
-          epochs=100,
+          epochs=50,
           batch_size=50,
-          validation_data=validation)
+          validation_data=dataset.validation)
 results = model.predict(dataset.test[0])
 results = argmax(results,
                  axis=1)
