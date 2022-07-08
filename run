@@ -10,13 +10,5 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-<<<<<<< HEAD
-python classification_model.py SVM
-python classification_model.py KNN
-python classification_model.py "Random forest"
-python classification_model.py "Gaussian naive"
-python classification_model.py "Decision tree"
-=======
-python neural_models.py ratio RS perceptron
->>>>>>> neural_models
+python neural_models.py diff RS perceptron
 date

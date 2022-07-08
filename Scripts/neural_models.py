@@ -7,8 +7,8 @@ params.update({
     "comparison operation": argv[1],
     "clear sky model": argv[2],
     "neural model": argv[3],
-    # "hour initial": 8,
-    # "hour final": 20,
+    "hour initial": 9,
+    "hour final": 18,
 })
 
 model = neural_model()
