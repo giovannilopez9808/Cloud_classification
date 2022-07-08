@@ -225,8 +225,12 @@ def sort(data: DataFrame) -> DataFrame:
 
 def get_best_similarity_dates(similarity: DataFrame,
                               params: dict,
-                              header: str) -> list:
+                              header: str,
+                              station: str = None) -> list:
     similarity_vector = similarity[header]
+    if station:
+        index = similarity_vector.index.str.contains(station)
+        similarity_vector = similarity_vector[index]
     similarity_vector = sort(similarity_vector)
     similarity_vector = similarity_vector.iloc[1:params["top vectors"]]
     similarity_vector = similarity_vector.index

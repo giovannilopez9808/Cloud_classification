@@ -15,7 +15,7 @@ from numpy import isnan, array, empty, nan
 from Modules.params import get_params
 from os.path import join
 from tqdm import tqdm
-from sys import argv
+from sys import argv, exit
 
 params = get_params()
 params.update({
@@ -52,7 +52,8 @@ for date in bar_dates:
             header = f"{station} {date}"
             similarity_dates = get_best_similarity_dates(similarity,
                                                          params,
-                                                         header)
+                                                         header,
+                                                         station)
             similarity_vector = get_similarity_vectors(clean_data,
                                                        similarity_dates,
                                                        params)
