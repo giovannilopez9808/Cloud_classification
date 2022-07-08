@@ -17,7 +17,7 @@ class neural_model:
         if hour_i == 0 and hour_f == 24:
             input_dim = 24
         else:
-            input_dim = hour_f-hour_i
+            input_dim = hour_f-hour_i+1
         return input_dim
 
     def _get_dataset(self,
