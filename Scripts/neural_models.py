@@ -3,8 +3,8 @@ from tensorflow.keras.layers import Activation
 from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Dense
 from numpy import stack, loadtxt, array
-from os import listdir
 from os.path import join
+from os import listdir
 
 
 def ls(path: str) -> list:
@@ -33,14 +33,14 @@ test_files = ls(test_images)
 # x=x.astype('float32')
 # x /=gray_scale
 # x_train.append(x)
-for i, file in enumerate(test_files):
+for file in test_files:
     filename = join(test_images,
                     file)
     x = loadtxt(filename)
-    x = x.astype('float32')
-    x /= gray_scale
     x_test.append(x)
 x_test = array(x_test)
+x_test = x_test.astype('float32')
+x_test /= gray_scale
 print(x_test.shape)
 # model = Sequential([
 # # reshape 28 row * 28 column data to 28*28 rows
