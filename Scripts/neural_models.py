@@ -13,3 +13,4 @@ params.update({
 
 model = neural_model()
 model.build(params)
+model.run()
