@@ -1,18 +1,42 @@
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Activation
 from tensorflow.keras.layers import Flatten
-from tensorflow.keras.datasets import mnist
 from tensorflow.keras.layers import Dense
+from numpy import stack,loadtxt,array
+from os import listdir
+from os.path import join
 
+def ls(path:str)->list:
+    return sorted(listdir(path))
+train_path="datasets/train"
+test_path = "datasets/test"
+train_images = join(train_path,
+                    "images")
+test_images = join(test_path,
+                    "images")
+y_train = loadtxt(join(train_path,
+                       "labels.txt"))
+y_test = loadtxt(join(test_path,
+                       "labels.txt"))
+x_train = []
+x_test=[]
 gray_scale = 255
-train, test = mnist.load_data()
-x_train, y_train = train
-x_test, y_test = test
-# Cast the records into float values
-x_train = x_train.astype('float32')
-x_test = x_test.astype('float32')
-x_train /= gray_scale
-x_test /= gray_scale
+train_files = ls(train_images)
+test_files = ls(test_images)
+for i,file in enumerate(train_files):
+    filename = join(train_images,
+                    file)
+    x = loadtxt(filename)
+    x=x.astype('float32')
+    x /=gray_scale
+    x_train.append(x)
+for i,file in enumerate(test_files):
+    filename = join(test_images,
+                    file)
+    x = loadtxt(filename)
+    x = x.astype('float32')
+    x /=gray_scale
+    x_test.append(x)
 model = Sequential([
     # reshape 28 row * 28 column data to 28*28 rows
     Flatten(input_shape=(28, 28)),
