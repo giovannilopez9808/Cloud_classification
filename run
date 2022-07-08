@@ -10,5 +10,16 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
+echo "--------------------------------------------"
+echo "Diff RS"
 python neural_models.py diff RS perceptron
+echo "--------------------------------------------"
+echo "Diff GHI"
+python neural_models.py diff GHI perceptron
+echo "--------------------------------------------"
+echo "ratio RS"
+python neural_models.py ratio RS perceptron
+echo "--------------------------------------------"
+echo "ratio GHI"
+python neural_models.py ratio GHI perceptron
 date

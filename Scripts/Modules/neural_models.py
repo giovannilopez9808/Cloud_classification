@@ -34,8 +34,8 @@ class neural_model:
 
     def run(self) -> list:
         params = {
-            "epochs": 50,
-            "batch_size": 50,
+            "epochs": 200,
+            "batch_size": 100,
         }
         self.model.run(self.dataset,
                        params)
@@ -77,7 +77,8 @@ class Perceptron_model:
                        dataset.train[1],
                        epochs=params["epochs"],
                        batch_size=params["batch_size"],
-                       validation_data=dataset.validation)
+                       validation_data=dataset.validation,
+                       verbose=0)
 
     def predict(self,
                 dataset: Type) -> list:
