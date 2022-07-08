@@ -10,9 +10,9 @@ source /opt/anaconda3_titan/bin/activate
 conda activate tensorflow
 hostname
 date
-python classification_mdoel.py SVM
-python classification_mdoel.py KNN
-python classification_mdoel.py "Random forest"
-python classification_mdoel.py "Gaussian naive"
-python classification_mdoel.py "Decision tree"
+python classification_model.py SVM
+python classification_model.py KNN
+python classification_model.py "Random forest"
+python classification_model.py "Gaussian naive"
+python classification_model.py "Decision tree"
 date
