@@ -79,7 +79,7 @@ def get_neural_params(params: dict) -> dict:
     neural_params = {
         "perceptron": {
             "batch_size": 10,
-            "epochs": 500,
+            "epochs": 1000,
         },
         "LSTM": {
             "batch_size": 10,
