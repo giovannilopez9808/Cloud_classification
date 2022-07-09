@@ -84,7 +84,7 @@ class Perceptron_model:
                        epochs=params["epochs"],
                        batch_size=params["batch_size"],
                        validation_data=dataset.validation,
-                       verbose=0)
+                       verbose=1)
 
     def predict(self,
                 dataset: Type) -> list:

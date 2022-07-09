@@ -10,5 +10,5 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-python neural_models.py ratio RS RNN
+python neural_models.py ratio RS perceptron
 date
