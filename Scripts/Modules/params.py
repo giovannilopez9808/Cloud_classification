@@ -81,10 +81,14 @@ def get_neural_params(params: dict) -> dict:
             "batch_size": 200,
             "epochs": 100,
         },
-        "RNN": {
+        "LSTM": {
             "batch_size": 10,
             "epochs": 500,
-        }
+        },
+        "RNN": {
+            "batch_size": 10,
+            "epochs": 100,
+        },
     }
     dataset = params[label]
     return neural_params[dataset]

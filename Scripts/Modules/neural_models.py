@@ -1,4 +1,8 @@
-from keras.layers import Flatten, Dense, Dropout, LSTM
+from keras.layers import (SimpleRNN,
+                          Dropout,
+                          Flatten,
+                          Dense,
+                          LSTM)
 from sklearn.metrics import classification_report
 from Modules.params import get_neural_params
 from .dataset_model import dataset_model
@@ -88,7 +92,7 @@ class Perceptron_model:
         return results
 
 
-class RNN_model:
+class LSTM_model:
     def __init__(self,
                  input_dim: int) -> None:
         self._build(input_dim)
@@ -126,7 +130,47 @@ class RNN_model:
                        epochs=params["epochs"],
                        batch_size=params["batch_size"],
                        validation_data=dataset.validation,
-                       verbose=1)
+                       verbose=0)
+
+    def predict(self,
+                dataset: Type) -> list:
+        results = self.model.predict(dataset.test[0])
+        results = argmax(results,
+                         axis=1)
+        return results
+
+
+class RNN_model:
+    def __init__(self,
+                 input_dim: int) -> None:
+        self._build(input_dim)
+        self._compile()
+
+    def _build(self,
+               input_dim: int) -> None:
+        input_shape = (input_dim, 1)
+        self.model = Sequential([
+            SimpleRNN(128,
+                      input_shape=input_shape,
+                      activation="linear"),
+            Dense(3,
+                  activation='softmax')
+        ])
+
+    def _compile(self) -> None:
+        self.model.compile(optimizer='adam',
+                           loss='sparse_categorical_crossentropy',
+                           metrics=['accuracy'])
+
+    def run(self,
+            dataset: Type,
+            params: dict) -> None:
+        self.model.fit(dataset.train[0],
+                       dataset.train[1],
+                       epochs=params["epochs"],
+                       batch_size=params["batch_size"],
+                       validation_data=dataset.validation,
+                       verbose=0)
 
     def predict(self,
                 dataset: Type) -> list:
