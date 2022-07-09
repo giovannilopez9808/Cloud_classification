@@ -74,6 +74,22 @@ def get_classification_params(params: dict) -> dict:
     return class_params[dataset]
 
 
+def get_neural_params(params: dict) -> dict:
+    label = "neural model"
+    neural_params = {
+        "perceptron": {
+            "batch_size": 200,
+            "epochs": 100,
+        },
+        "RNN": {
+            "batch_size": 50,
+            "epochs": 50,
+        }
+    }
+    dataset = params[label]
+    return neural_params[dataset]
+
+
 def get_threshold(params: dict) -> dict:
     model = params["clear sky model"]
     operation = params["comparison operation"]
