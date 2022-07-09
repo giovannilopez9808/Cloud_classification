@@ -1,4 +1,3 @@
-# from tensorflow import keras
 from sklearn.metrics import classification_report
 from .dataset_model import dataset_model
 from keras.layers import Flatten, Dense
