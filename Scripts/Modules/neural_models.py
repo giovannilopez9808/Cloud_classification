@@ -97,7 +97,7 @@ class RNN_model:
     def _build(self,
                input_dim: int) -> None:
         input_shape = (input_dim, 1)
-        self.model = Sequential(
+        self.model = Sequential([
             LSTM(128,
                  input_shape=input_shape,
                  activation='relu',
@@ -111,7 +111,7 @@ class RNN_model:
             Dropout(0.2),
             Dense(3,
                   activation='softmax')
-        )
+        ])
 
     def _compile(self) -> None:
         self.model.compile(optimizer='adam',
@@ -126,7 +126,7 @@ class RNN_model:
                        epochs=params["epochs"],
                        batch_size=params["batch_size"],
                        validation_data=dataset.validation,
-                       verbose=0)
+                       verbose=1)
 
     def predict(self,
                 dataset: Type) -> list:

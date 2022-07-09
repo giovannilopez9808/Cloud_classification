@@ -82,8 +82,8 @@ def get_neural_params(params: dict) -> dict:
             "epochs": 100,
         },
         "RNN": {
-            "batch_size": 50,
-            "epochs": 50,
+            "batch_size": 10,
+            "epochs": 500,
         }
     }
     dataset = params[label]
