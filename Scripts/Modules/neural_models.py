@@ -38,6 +38,8 @@ class neural_model:
             self.model = Perceptron_model(input_dim)
         if params["neural model"] == "RNN":
             self.model = RNN_model(input_dim)
+        if params["neural model"]=="LSTM":
+            self.model=LSTM_model(input_dim)
 
     def run(self) -> list:
         neural_params = get_neural_params(self.params)
