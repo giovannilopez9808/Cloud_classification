@@ -6,6 +6,7 @@ from keras.layers import (SimpleRNN,
 from sklearn.metrics import classification_report
 from Modules.params import get_neural_params
 from .dataset_model import dataset_model
+from keras.utils import to_categorical
 from keras.models import Sequential
 from numpy import argmax
 from typing import Type
@@ -28,6 +29,9 @@ class neural_model:
     def _get_dataset(self,
                      params: dict) -> Type:
         self.dataset = dataset_model(params)
+        self.dataset.train[1] = to_categorical(self.dataset.train[1])
+        self.dataset.validation[1] = to_categorical(self.dataset.validation[1])
+        self.dataset.test[1] = to_categorical(self.dataset.test[1])
 
     def build(self,
               params: dict) -> None:
@@ -38,8 +42,8 @@ class neural_model:
             self.model = Perceptron_model(input_dim)
         if params["neural model"] == "RNN":
             self.model = RNN_model(input_dim)
-        if params["neural model"]=="LSTM":
-            self.model=LSTM_model(input_dim)
+        if params["neural model"] == "LSTM":
+            self.model = LSTM_model(input_dim)
 
     def run(self) -> list:
         neural_params = get_neural_params(self.params)
@@ -49,7 +53,9 @@ class neural_model:
         self._get_report()
 
     def _get_report(self) -> None:
-        print(classification_report(self.dataset.test[1],
+        labels = argmax(self.dataset.test[1],
+                        axis=1)
+        print(classification_report(labels,
                                     self.predict))
 
 
@@ -73,7 +79,7 @@ class Perceptron_model:
 
     def _compile(self) -> None:
         self.model.compile(optimizer='adam',
-                           loss='sparse_categorical_crossentropy',
+                           loss='categorical_crossentropy',
                            metrics=['accuracy'])
 
     def run(self,
@@ -121,7 +127,7 @@ class LSTM_model:
 
     def _compile(self) -> None:
         self.model.compile(optimizer='adam',
-                           loss='sparse_categorical_crossentropy',
+                           loss='categorical_crossentropy',
                            metrics=['accuracy'])
 
     def run(self,
@@ -132,7 +138,7 @@ class LSTM_model:
                        epochs=params["epochs"],
                        batch_size=params["batch_size"],
                        validation_data=dataset.validation,
-                       verbose=0)
+                       verbose=1)
 
     def predict(self,
                 dataset: Type) -> list:
@@ -161,7 +167,7 @@ class RNN_model:
 
     def _compile(self) -> None:
         self.model.compile(optimizer='adam',
-                           loss='sparse_categorical_crossentropy',
+                           loss='categorical_crossentropy',
                            metrics=['accuracy'])
 
     def run(self,
@@ -172,7 +178,7 @@ class RNN_model:
                        epochs=params["epochs"],
                        batch_size=params["batch_size"],
                        validation_data=dataset.validation,
-                       verbose=0)
+                       verbose=1)
 
     def predict(self,
                 dataset: Type) -> list:
