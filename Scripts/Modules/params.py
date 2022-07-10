@@ -44,7 +44,7 @@ def get_params() -> dict:
             "train": ["Sureste2",
                       "Suroeste",
                       "Noroeste"],
-            "validation": ["Noroeste"],
+            "validation": [],
             "test": ["Noreste"],
         }
     }
@@ -78,20 +78,35 @@ def get_neural_params(params: dict) -> dict:
     label = "neural model"
     neural_params = {
         "perceptron": {
+            "validation_split":0.2,
             "batch_size": 10,
             "epochs": 1000,
+            "verbose":1,
         },
         "LSTM": {
+            "validation_split":0.2,
             "batch_size": 10,
             "epochs": 500,
+            "verbose":1,
         },
         "RNN": {
+            "validation_split":0.2,
             "batch_size": 10,
             "epochs": 500,
+            "verbose":1,
         },
     }
-    dataset = params[label]
-    return neural_params[dataset]
+    model = params[label]
+    dataset=dict()
+    dataset["run"] = neural_params[model]
+    dataset.update({
+        "compile":{
+            "optimizer": "adam",
+            "loss": "categorical_crossentropy",
+            "metrics": ["accuracy"],
+        },
+    })
+    return dataset
 
 
 def get_threshold(params: dict) -> dict:

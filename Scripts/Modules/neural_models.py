@@ -30,7 +30,7 @@ class neural_model:
                      params: dict) -> Type:
         self.dataset = dataset_model(params)
         self.dataset.train[1] = to_categorical(self.dataset.train[1])
-        self.dataset.validation[1] = to_categorical(self.dataset.validation[1])
+        # self.dataset.validation[1] = to_categorical(self.dataset.validation[1])
         self.dataset.test[1] = to_categorical(self.dataset.test[1])
 
     def build(self,
@@ -63,7 +63,6 @@ class Perceptron_model:
     def __init__(self,
                  input_dim: int) -> None:
         self._build(input_dim)
-        self._compile()
 
     def _build(self,
                input_dim: int) -> None:
@@ -77,20 +76,17 @@ class Perceptron_model:
             Dense(3, activation="sigmoid"),
         ])
 
-    def _compile(self) -> None:
-        self.model.compile(optimizer='adam',
-                           loss='categorical_crossentropy',
-                           metrics=['accuracy'])
+    def _compile(self,
+                 params:dict) -> None:
+        self.model.compile(**params["compile"])
 
     def run(self,
             dataset: Type,
             params: dict) -> None:
+        self._compile(params)
         self.model.fit(dataset.train[0],
                        dataset.train[1],
-                       epochs=params["epochs"],
-                       batch_size=params["batch_size"],
-                       validation_data=dataset.validation,
-                       verbose=1)
+                       **params["run"])
 
     def predict(self,
                 dataset: Type) -> list:
@@ -104,7 +100,6 @@ class LSTM_model:
     def __init__(self,
                  input_dim: int) -> None:
         self._build(input_dim)
-        self._compile()
 
     def _build(self,
                input_dim: int) -> None:
@@ -125,20 +120,17 @@ class LSTM_model:
                   activation='softmax')
         ])
 
-    def _compile(self) -> None:
-        self.model.compile(optimizer='adam',
-                           loss='categorical_crossentropy',
-                           metrics=['accuracy'])
+    def _compile(self,
+                 params:dict) -> None:
+        self.model.compile(**params["compile"])
 
     def run(self,
             dataset: Type,
             params: dict) -> None:
+        self._compile(**params)
         self.model.fit(dataset.train[0],
                        dataset.train[1],
-                       epochs=params["epochs"],
-                       batch_size=params["batch_size"],
-                       validation_data=dataset.validation,
-                       verbose=1)
+                       **params["run"])
 
     def predict(self,
                 dataset: Type) -> list:
@@ -152,7 +144,6 @@ class RNN_model:
     def __init__(self,
                  input_dim: int) -> None:
         self._build(input_dim)
-        self._compile()
 
     def _build(self,
                input_dim: int) -> None:
@@ -165,20 +156,17 @@ class RNN_model:
                   activation='softmax')
         ])
 
-    def _compile(self) -> None:
-        self.model.compile(optimizer='adam',
-                           loss='categorical_crossentropy',
-                           metrics=['accuracy'])
+    def _compile(self,
+                 params:dict) -> None:
+        self.model.compile(**params["compile"])
 
     def run(self,
             dataset: Type,
             params: dict) -> None:
+        self._compile(params)
         self.model.fit(dataset.train[0],
                        dataset.train[1],
-                       epochs=params["epochs"],
-                       batch_size=params["batch_size"],
-                       validation_data=dataset.validation,
-                       verbose=1)
+                       **params["run"])
 
     def predict(self,
                 dataset: Type) -> list:
