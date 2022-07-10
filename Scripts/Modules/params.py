@@ -17,6 +17,10 @@ def get_params() -> dict:
         "clear sky file": "Clear_sky.csv",
         # Archivo con las clasificaciones
         "classification file": "Classification.csv",
+        # Classical models results
+        "Classical model path": "Classical_model",
+        # Neural models results
+        "Neural model path": "Neural_model",
         # Estaciones a utilizar
         "stations": [
             "Sureste2",
@@ -78,29 +82,29 @@ def get_neural_params(params: dict) -> dict:
     label = "neural model"
     neural_params = {
         "perceptron": {
-            "validation_split":0.2,
+            "validation_split": 0.2,
             "batch_size": 10,
             "epochs": 1000,
-            "verbose":1,
+            "verbose": 1,
         },
         "LSTM": {
-            "validation_split":0.2,
+            "validation_split": 0.2,
             "batch_size": 10,
             "epochs": 500,
-            "verbose":1,
+            "verbose": 1,
         },
         "RNN": {
-            "validation_split":0.2,
+            "validation_split": 0.2,
             "batch_size": 10,
             "epochs": 500,
-            "verbose":1,
+            "verbose": 1,
         },
     }
     model = params[label]
-    dataset=dict()
+    dataset = dict()
     dataset["run"] = neural_params[model]
     dataset.update({
-        "compile":{
+        "compile": {
             "optimizer": "adam",
             "loss": "sparse_categorical_crossentropy",
             "metrics": ["accuracy"],
