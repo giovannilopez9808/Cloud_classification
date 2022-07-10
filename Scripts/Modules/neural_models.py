@@ -6,7 +6,6 @@ from keras.layers import (SimpleRNN,
 from sklearn.metrics import classification_report
 from Modules.params import get_neural_params
 from .dataset_model import dataset_model
-from keras.utils import to_categorical
 from keras.models import Sequential
 from numpy import argmax
 from typing import Type
@@ -29,9 +28,6 @@ class neural_model:
     def _get_dataset(self,
                      params: dict) -> Type:
         self.dataset = dataset_model(params)
-        self.dataset.train[1] = to_categorical(self.dataset.train[1])
-        # self.dataset.validation[1] = to_categorical(self.dataset.validation[1])
-        self.dataset.test[1] = to_categorical(self.dataset.test[1])
 
     def build(self,
               params: dict) -> None:
@@ -53,31 +49,20 @@ class neural_model:
         self._get_report()
 
     def _get_report(self) -> None:
-        labels = argmax(self.dataset.test[1],
-                        axis=1)
+        labels = self.dataset.test[1]
         print(classification_report(labels,
                                     self.predict))
 
 
-class Perceptron_model:
-    def __init__(self,
-                 input_dim: int) -> None:
-        self._build(input_dim)
+class base_model:
+    def __init__(self) -> None:
+        self._build()
 
-    def _build(self,
-               input_dim: int) -> None:
-        self.model = Sequential([
-            Flatten(input_shape=(input_dim, 1)),
-            # dense layer 1
-            Dense(256, activation='sigmoid'),
-            # dense layer 2
-            Dense(128, activation='sigmoid'),
-            # output layer
-            Dense(3, activation="sigmoid"),
-        ])
+    def _build(self) -> None:
+        self.model = Sequential()
 
     def _compile(self,
-                 params:dict) -> None:
+                 params: dict) -> None:
         self.model.compile(**params["compile"])
 
     def run(self,
@@ -94,6 +79,25 @@ class Perceptron_model:
         results = argmax(results,
                          axis=1)
         return results
+
+
+class Perceptron_model(base_model):
+    def __init__(self,
+                 input_dim: int) -> None:
+        super().__init__()
+        self._build(input_dim)
+
+    def _build(self,
+               input_dim: int) -> None:
+        self.model = Sequential([
+            Flatten(input_shape=(input_dim, 1)),
+            # dense layer 1
+            Dense(256, activation='sigmoid'),
+            # dense layer 2
+            Dense(128, activation='sigmoid'),
+            # output layer
+            Dense(3, activation="sigmoid"),
+        ])
 
 
 class LSTM_model:
@@ -121,7 +125,7 @@ class LSTM_model:
         ])
 
     def _compile(self,
-                 params:dict) -> None:
+                 params: dict) -> None:
         self.model.compile(**params["compile"])
 
     def run(self,
@@ -157,7 +161,7 @@ class RNN_model:
         ])
 
     def _compile(self,
-                 params:dict) -> None:
+                 params: dict) -> None:
         self.model.compile(**params["compile"])
 
     def run(self,
