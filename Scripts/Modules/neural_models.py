@@ -46,22 +46,22 @@ class neural_model:
 
     def run(self) -> list:
         neural_params = get_neural_params(self.params)
-        self.model.run(self.dataset,
+        history=self.model.run(self.dataset,
                        neural_params)
         self.predict = self.model.predict(self.dataset)
         self._get_report()
-        self._save_history()
+        self._save_history(history)
 
     def _get_report(self) -> None:
         labels = self.dataset.test[1]
         print(classification_report(labels,
                                     self.predict))
 
-    def _save_history(self) -> None:
-        history = self.model.get_history()
+    def _save_history(self,
+                      history:DataFrame) -> None:
         model = self.params["neural model"]
         folder = join(self.params["path results"],
-                      self.params["neural model path"],
+                      self.params["Neural model path"],
                       model)
         mkdir(folder)
         operation = self.params["comparison operation"]
@@ -69,14 +69,17 @@ class neural_model:
         filename = f"{operation}_{clear_sky}.csv"
         filename = join(folder,
                         filename)
-        history.to_csv(filename)
+        history.to_csv(filename,
+                       index=False)
 
 
 class base_model:
-    def __init__(self) -> None:
-        self._build()
+    def __init__(self,
+                 input_dim:int) -> None:
+        self._build(input_dim)
 
-    def _build(self) -> None:
+    def _build(self,
+               input_dim:int) -> None:
         self.model = Sequential()
 
     def _compile(self,
@@ -85,11 +88,14 @@ class base_model:
 
     def run(self,
             dataset: Type,
-            params: dict) -> None:
+            params: dict) -> DataFrame:
         self._compile(params)
-        self.model.fit(dataset.train[0],
+        history = self.model.fit(dataset.train[0],
                        dataset.train[1],
                        **params["run"])
+        history = history.history
+        history = DataFrame(history)
+        return history
 
     def predict(self,
                 dataset: Type) -> list:
@@ -98,15 +104,11 @@ class base_model:
                          axis=1)
         return results
 
-    def get_history(self) -> DataFrame:
-        history = self.model.history.history
-        return history
-
 
 class Perceptron_model(base_model):
     def __init__(self,
                  input_dim: int) -> None:
-        super().__init__()
+        super().__init__(input_dim)
         self._build(input_dim)
 
     def _build(self,
@@ -124,7 +126,7 @@ class Perceptron_model(base_model):
 class LSTM_model(base_model):
     def __init__(self,
                  input_dim: int) -> None:
-        super().__init__()
+        super().__init__(input_dim)
         self._build(input_dim)
 
     def _build(self,
@@ -133,24 +135,24 @@ class LSTM_model(base_model):
         self.model = Sequential([
             LSTM(128,
                  input_shape=input_shape,
-                 activation='relu',
+                 activation='sigmoid',
                  return_sequences=True),
             Dropout(0.2),
             LSTM(128,
-                 activation='relu'),
+                 activation='sigmoid'),
             Dropout(0.1),
             Dense(32,
-                  activation='relu'),
+                  activation='sigmoid'),
             Dropout(0.2),
             Dense(3,
-                  activation='softmax')
+                  activation='sigmoid')
         ])
 
 
 class RNN_model(base_model):
     def __init__(self,
                  input_dim: int) -> None:
-        super().__init__()
+        super().__init__(input_dim)
         self._build(input_dim)
 
     def _build(self,
@@ -161,5 +163,5 @@ class RNN_model(base_model):
                       input_shape=input_shape,
                       activation="tanh"),
             Dense(3,
-                  activation='softmax')
+                  activation='sigmoid')
         ])
