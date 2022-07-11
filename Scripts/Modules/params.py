@@ -82,7 +82,7 @@ def get_neural_params(params: dict) -> dict:
     label = "neural model"
     neural_params = {
         "perceptron": {
-            "validation_split": 0.2,
+            "validation_split": 0.1,
             "batch_size": 10,
             "epochs": 1000,
             "verbose": 1,
@@ -96,13 +96,13 @@ def get_neural_params(params: dict) -> dict:
         "LSTM": {
             "validation_split": 0.1,
             "batch_size": 10,
-            "epochs": 500,
+            "epochs": 1000,
             "verbose": 0,
         },
         "RNN": {
             "validation_split": 0.1,
             "batch_size": 10,
-            "epochs": 350,
+            "epochs": 1000,
             "verbose": 0,
         },
     }

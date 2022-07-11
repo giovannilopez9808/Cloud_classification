@@ -30,8 +30,8 @@ params.update({
     "classification model": argv[1],
     "clear sky models": ["RS",
                          "GHI"],
-    "hour initial": 9,
-    "hour final": 18,
+    "hour initial": 6,
+    "hour final": 20,
 })
 model = classification_model()
 model.define_model(params)
@@ -60,6 +60,8 @@ for sky_model in params["clear sky models"]:
         results = concat([results,
                           partial_results])
 filename = f"{params['classification model']}_results.csv"
+filename = filename.replace(" ",
+                            "_")
 filename = join(params["path results"],
                 filename)
 results.to_csv(filename)
