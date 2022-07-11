@@ -118,8 +118,8 @@ class base_model:
                 filepath=filename,
                 monitor='val_accuracy',
                 save_best_only=True),
-            EarlyStopping(monitor='val_loss',
-                                  patience=20)
+            # EarlyStopping(monitor='val_loss',
+            # patience=20)
         ]
         return callbacks_list
 
