@@ -11,4 +11,7 @@ export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
 python neural_models.py ratio RS RNN
+python neural_models.py diff RS RNN
+python neural_models.py ratio GHI RNN
+python neural_models.py diff GHI RNN
 date

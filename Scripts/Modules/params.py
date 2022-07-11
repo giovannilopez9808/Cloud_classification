@@ -96,8 +96,8 @@ def get_neural_params(params: dict) -> dict:
         "RNN": {
             "validation_split": 0.1,
             "batch_size": 10,
-            "epochs": 500,
-            "verbose": 1,
+            "epochs": 350,
+            "verbose": 0,
         },
     }
     model = params[label]
