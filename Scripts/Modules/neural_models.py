@@ -1,6 +1,7 @@
 from keras.layers import (SimpleRNN,
                           Dropout,
                           Flatten,
+                          Conv1D,
                           Dense,
                           LSTM)
 from sklearn.metrics import classification_report
@@ -39,6 +40,8 @@ class neural_model:
         self._get_dataset(params)
         if params["neural model"] == "perceptron":
             self.model = Perceptron_model(input_dim)
+        if params["neural model"] == "CNN":
+            self.model = CNN_model(input_dim)
         if params["neural model"] == "RNN":
             self.model = RNN_model(input_dim)
         if params["neural model"] == "LSTM":
@@ -46,8 +49,8 @@ class neural_model:
 
     def run(self) -> list:
         neural_params = get_neural_params(self.params)
-        history=self.model.run(self.dataset,
-                       neural_params)
+        history = self.model.run(self.dataset,
+                                 neural_params)
         self.predict = self.model.predict(self.dataset)
         self._get_report()
         self._save_history(history)
@@ -58,7 +61,7 @@ class neural_model:
                                     self.predict))
 
     def _save_history(self,
-                      history:DataFrame) -> None:
+                      history: DataFrame) -> None:
         model = self.params["neural model"]
         folder = join(self.params["path results"],
                       self.params["Neural model path"],
@@ -75,11 +78,11 @@ class neural_model:
 
 class base_model:
     def __init__(self,
-                 input_dim:int) -> None:
+                 input_dim: int) -> None:
         self._build(input_dim)
 
     def _build(self,
-               input_dim:int) -> None:
+               input_dim: int) -> None:
         self.model = Sequential()
 
     def _compile(self,
@@ -91,8 +94,8 @@ class base_model:
             params: dict) -> DataFrame:
         self._compile(params)
         history = self.model.fit(dataset.train[0],
-                       dataset.train[1],
-                       **params["run"])
+                                 dataset.train[1],
+                                 **params["run"])
         history = history.history
         history = DataFrame(history)
         return history
@@ -120,6 +123,24 @@ class Perceptron_model(base_model):
             Dense(128, activation='sigmoid'),
             Dropout(0.1),
             Dense(3, activation="sigmoid"),
+        ])
+
+
+class CNN_model(base_model):
+    def __init__(self,
+                 input_dim: int) -> None:
+        super().__init__(input_dim)
+        self._build(input_dim)
+
+    def _build(self,
+               input_dim: int) -> None:
+        self.model = Sequential([
+            Conv1D(100,
+                   activation="sigmoid",
+                   input_shape=(input_dim, 1)),
+            Dropout(0.2),
+            Dense(3,
+                  activation="softmax"),
         ])
 
 
