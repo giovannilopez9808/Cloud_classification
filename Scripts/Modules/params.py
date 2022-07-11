@@ -88,10 +88,10 @@ def get_neural_params(params: dict) -> dict:
             "verbose": 1,
         },
         "LSTM": {
-            "validation_split": 0.2,
+            "validation_split": 0.1,
             "batch_size": 10,
             "epochs": 500,
-            "verbose": 1,
+            "verbose": 0,
         },
         "RNN": {
             "validation_split": 0.1,
