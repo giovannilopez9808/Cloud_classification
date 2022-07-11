@@ -135,14 +135,14 @@ class LSTM_model(base_model):
         self.model = Sequential([
             LSTM(128,
                  input_shape=input_shape,
-                 activation='sigmoid',
+                 activation='tanh',
                  return_sequences=True),
             Dropout(0.2),
             LSTM(128,
-                 activation='sigmoid'),
+                 activation='tanh'),
             Dropout(0.1),
             Dense(32,
-                  activation='sigmoid'),
+                  activation='tanh'),
             Dropout(0.2),
             Dense(3,
                   activation='sigmoid')
