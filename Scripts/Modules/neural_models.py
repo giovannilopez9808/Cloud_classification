@@ -160,9 +160,7 @@ class Perceptron_model(base_model):
         self.model = Sequential([
             Flatten(input_shape=(input_dim, 1)),
             Dense(256, activation='sigmoid'),
-            Dropout(0.2),
             Dense(128, activation='sigmoid'),
-            Dropout(0.1),
             Dense(3, activation="sigmoid"),
         ])
 

@@ -19,4 +19,4 @@ filename = join(params["path results"],
 data = read_csv(filename)
 plt.plot(data["accuracy"])
 plt.plot(data["val_accuracy"])
-plt.show()
+plt.savefig("test.png")
