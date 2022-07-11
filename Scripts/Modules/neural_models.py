@@ -1,13 +1,18 @@
-from keras.layers import (SimpleRNN,
+from keras.layers import (GlobalAveragePooling1D,
+                          MaxPooling1D,
+                          SimpleRNN,
                           Dropout,
                           Flatten,
                           Conv1D,
                           Dense,
                           LSTM)
+from keras.callbacks import (ModelCheckpoint,
+                             EarlyStopping)
 from sklearn.metrics import classification_report
 from Modules.params import get_neural_params
 from .dataset_model import dataset_model
-from Modules.functions import mkdir
+from Modules.functions import (get_labels,
+                               mkdir)
 from keras.models import Sequential
 from pandas import DataFrame
 from numpy import argmax
@@ -48,17 +53,31 @@ class neural_model:
             self.model = LSTM_model(input_dim)
 
     def run(self) -> list:
-        neural_params = get_neural_params(self.params)
+        self.params["neural params"] = get_neural_params(self.params)
         history = self.model.run(self.dataset,
-                                 neural_params)
+                                 self.params)
         self.predict = self.model.predict(self.dataset)
         self._get_report()
         self._save_history(history)
 
     def _get_report(self) -> None:
         labels = self.dataset.test[1]
-        print(classification_report(labels,
-                                    self.predict))
+        _,class_label = get_labels(self.params)
+        report=classification_report(labels,
+                                    self.predict,
+                                     target_names=class_label,
+                                    output_dict=True)
+        report = DataFrame(report)
+        operation = self.params["comparison operation"]
+        model = self.params["clear sky model"]
+        filename = "Report_{}_{}.csv".format(operation,
+                                               model)
+        folder = join(self.params["path results"],
+                      self.params["Neural model path"],
+                      self.params["neural model"])
+        filename = join(folder,
+                        filename)
+        report.to_csv(filename)
 
     def _save_history(self,
                       history: DataFrame) -> None:
@@ -85,6 +104,25 @@ class base_model:
                input_dim: int) -> None:
         self.model = Sequential()
 
+    def _get_callbacks(self,
+                       params:dict)->list:
+        filename = "best_model_{}_{}.h5".format(params["comparison operation"],
+                                                params["clear sky model"])
+        folder = join(params["path results"],
+                      params["Neural model path"],
+                      params["neural model"])
+        filename = join(folder,
+                        filename)
+        callbacks_list=[
+            ModelCheckpoint(
+                filepath=filename,
+                        monitor='val_accuracy', 
+                        save_best_only=True),
+            EarlyStopping(monitor='val_loss',
+                                  patience=20)
+        ]
+        return callbacks_list
+
     def _compile(self,
                  params: dict) -> None:
         self.model.compile(**params["compile"])
@@ -92,10 +130,13 @@ class base_model:
     def run(self,
             dataset: Type,
             params: dict) -> DataFrame:
-        self._compile(params)
+        neural_params = params["neural params"]
+        self._compile(neural_params)
+        callbacks = self._get_callbacks(params)
         history = self.model.fit(dataset.train[0],
                                  dataset.train[1],
-                                 **params["run"])
+                                 callbacks = callbacks,
+                                 **neural_params["run"])
         history = history.history
         history = DataFrame(history)
         return history
@@ -136,11 +177,19 @@ class CNN_model(base_model):
                input_dim: int) -> None:
         self.model = Sequential([
             Conv1D(100,
-                   activation="sigmoid",
-                   input_shape=(input_dim, 1)),
-            Dropout(0.2),
+                   3,
+                   activation="relu",
+                   input_shape=(input_dim,1)),
+            Conv1D(200,
+                   3,
+                   activation="relu"),
+            Conv1D(200,
+                   3,
+                   activation='relu'),
+            GlobalAveragePooling1D(),
+            Dropout(0.5),
             Dense(3,
-                  activation="softmax"),
+                  activation="sigmoid"),
         ])
 
 

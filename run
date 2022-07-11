@@ -10,8 +10,8 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-python neural_models.py ratio RS LSTM
-#python neural_models.py diff RS LSTM
-#python neural_models.py ratio GHI LSTM
-#python neural_models.py diff GHI LSTM
+python neural_models.py ratio RS CNN
+python neural_models.py ratio GHI CNN
+python neural_models.py diff RS CNN
+python neural_models.py diff GHI CNN
 date
