@@ -11,17 +11,17 @@ export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
 python neural_models.py ratio RS perceptron
-python neural_models.py ratio GHI perceptron
-python neural_models.py diff RS perceptron
-python neural_models.py diff GHI perceptron
-python neural_models.py ratio RS RNN
-python neural_models.py ratio GHI RNN
-python neural_models.py diff RS RNN
-python neural_models.py diff GHI RNN
-python neural_models.py ratio RS LSTM
-python neural_models.py ratio GHI LSTM
-python neural_models.py diff RS LSTM
-python neural_models.py diff GHI LSTM
+#python neural_models.py ratio GHI perceptron
+#python neural_models.py diff RS perceptron
+#python neural_models.py diff GHI perceptron
+#python neural_models.py ratio RS RNN
+#python neural_models.py ratio GHI RNN
+#python neural_models.py diff RS RNN
+#python neural_models.py diff GHI RNN
+#python neural_models.py ratio RS LSTM
+#python neural_models.py ratio GHI LSTM
+#python neural_models.py diff RS LSTM
+#python neural_models.py diff GHI LSTM
 #python classification_model.py SVM
 #python classification_model.py KNN
 #python classification_model.py "Random forest"

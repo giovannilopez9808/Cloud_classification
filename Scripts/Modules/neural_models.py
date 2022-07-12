@@ -39,6 +39,7 @@ class neural_model:
     def _get_dataset(self,
                      params: dict) -> Type:
         self.dataset = dataset_model(params)
+        self.dataset.split_data()
 
     def build(self,
               params: dict) -> None:
@@ -65,17 +66,23 @@ class neural_model:
     def _get_report(self) -> None:
         operation = self.params["comparison operation"]
         sky_model = self.params["clear sky model"]
+        _, class_label = get_labels(self.params)
         labels = self.dataset.test[1]
         report = get_report(labels,
                             self.predict,
                             sky_model,
-                            operation)
-        _, class_label = get_labels(self.params)
-        report = classification_report(labels,
-                                       self.predict,
-                                       target_names=class_label,
-                                       output_dict=True)
-        print(report)
+                            operation,
+                            class_label)
+        filename = f"{operation}_{sky_model}_report.csv"
+        filename = join(self.params["path results"],
+                        self.params["Neural model path"],
+                        self.params["neural model"],
+                        self.params["station"],
+                        filename)
+        file=open(filename,
+                  "w")
+        file.write(report)
+        file.close()
 
     def _save_history(self,
                       history: DataFrame) -> None:

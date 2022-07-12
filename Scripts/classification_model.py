@@ -53,7 +53,8 @@ for sky_model in params["clear sky models"]:
         report = get_report(dataset.test[1],
                             result,
                             sky_model,
-                            operation)
+                            operation,
+                            labels)
         reports += report
         matrix = get_confusion_matrix(dataset.test[1],
                                       result,
