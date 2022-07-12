@@ -1,5 +1,5 @@
 """
-python classification_model.py (classification_model)
+python classification_model.py (classification_model) (station)
 """
 from Modules.classification_classic_models import classification_model
 from Modules.dataset_model import dataset_model
@@ -16,6 +16,7 @@ params = get_params()
 params.update({
     # Define classical model
     "classification model": argv[1],
+    "station":argv[2],
     "hour initial": 5,
     "hour final": 19,
 })

@@ -49,9 +49,9 @@ def get_params() -> dict:
         # Estaciones a utilizar
         "stations": [
             "Sureste2",
-            # "Noreste",
-            # "Noroeste",
-            # "Suroeste",
+            "Noreste",
+            "Noroeste",
+            "Suroeste",
         ],
         "classification": {
             0: {
@@ -69,17 +69,6 @@ def get_params() -> dict:
         },
         "hour initial": 0,
         "hour final": 24,
-        "datasets": {
-            "train": [
-                # "Sureste2",
-                # "Suroeste",
-                "Noroeste",
-            ],
-            "validation": [],
-            "test": [
-                # "Sureste2"
-            ],
-        }
     }
     return params
 

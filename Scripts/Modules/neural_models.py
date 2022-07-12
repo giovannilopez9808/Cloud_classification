@@ -74,10 +74,12 @@ class neural_model:
                             operation,
                             class_label)
         filename = f"{operation}_{sky_model}_report.csv"
-        filename = join(self.params["path results"],
+        folder = join(self.params["path results"],
                         self.params["Neural model path"],
                         self.params["neural model"],
-                        self.params["station"],
+                        self.params["station"])
+        mkdir(folder)
+        filename = join(folder,
                         filename)
         file=open(filename,
                   "w")
@@ -86,10 +88,10 @@ class neural_model:
 
     def _save_history(self,
                       history: DataFrame) -> None:
-        model = self.params["neural model"]
         folder = join(self.params["path results"],
                       self.params["Neural model path"],
-                      model)
+                      self.params["neural model"],
+                      self.params["station"])
         mkdir(folder)
         operation = self.params["comparison operation"]
         clear_sky = self.params["clear sky model"]
@@ -98,6 +100,14 @@ class neural_model:
                         filename)
         history.to_csv(filename,
                        index=False)
+
+    def _save_confusion_matrix(self,)->None:
+        _, class_label = get_labels(self.params)
+        labels = self.dataset.test[1]
+        matrix  = get_confusion_matrix(labels,
+                                       self.predict,
+                                       class_label)
+        print(matrix)
 
 
 class base_model:
@@ -115,7 +125,8 @@ class base_model:
                                                 params["clear sky model"])
         folder = join(params["path results"],
                       params["Neural model path"],
-                      params["neural model"])
+                      params["neural model"],
+                      params["station"])
         filename = join(folder,
                         filename)
         callbacks_list = [

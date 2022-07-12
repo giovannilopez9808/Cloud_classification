@@ -10,7 +10,8 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-python neural_models.py ratio RS perceptron
+#python classification_model.py SVM Noroeste
+python neural_models.py ratio RS perceptron Noroeste
 #python neural_models.py ratio GHI perceptron
 #python neural_models.py diff RS perceptron
 #python neural_models.py diff GHI perceptron
