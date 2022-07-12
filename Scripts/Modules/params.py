@@ -21,6 +21,31 @@ def get_params() -> dict:
         "Classical model path": "Classical_model",
         # Neural models results
         "Neural model path": "Neural_model",
+        # Clear sky models
+        "clear sky models": [
+            "RS",
+            "GHI",
+        ],
+        # Comparison operations
+        "comparison operations": [
+            "ratio",
+            "diff",
+        ],
+        # Classical models
+        "classical models": [
+            "SVM",
+            "KNN",
+            "Random forest",
+            "Gaussian naive",
+            "Decicion tree",
+        ],
+        # Neural models
+        "neural models": [
+            "perceptron",
+            "CNN",
+            "LSTM",
+            "RNN",
+        ],
         # Estaciones a utilizar
         "stations": [
             "Sureste2",
@@ -45,9 +70,11 @@ def get_params() -> dict:
         "hour initial": 0,
         "hour final": 24,
         "datasets": {
-            "train": ["Sureste2",
-                      "Suroeste",
-                      "Noroeste"],
+            "train": [
+                "Sureste2",
+                "Suroeste",
+                "Noroeste",
+            ],
             "validation": [],
             "test": ["Noreste"],
         }
