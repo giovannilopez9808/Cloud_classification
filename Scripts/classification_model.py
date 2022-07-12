@@ -72,6 +72,7 @@ for sky_model in params["clear sky models"]:
         _, labels = get_labels(params)
         # Get dataset
         dataset = dataset_model(params)
+        dataset.split_data()
         # Run classical model
         model.run(dataset.train)
         # Prediction
@@ -84,14 +85,16 @@ for sky_model in params["clear sky models"]:
         matrix = get_confusion_matrix(dataset.test[1],
                                       result,
                                       labels)
-        filename = "{}_{}_matrix.csv".format(operation,
-                                             sky_model)
-        filename = join(folder,
-                        filename)
-        matrix.to_csv(filename)
-filename = "report.csv"
-filename = join(folder,
-                filename)
-file = open(filename, "w")
-file.write(reports)
-file.close()
+        # filename = "{}_{}_matrix.csv".format(operation,
+        # sky_model)
+        # filename = join(folder,
+        # filename)
+        # matrix.to_csv(filename)
+        print(matrix)
+print(reports)
+# filename = "report.csv"
+# filename = join(folder,
+# filename)
+# file = open(filename, "w")
+# file.write(reports)
+# file.close()

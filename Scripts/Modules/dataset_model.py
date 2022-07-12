@@ -1,3 +1,4 @@
+from sklearn.model_selection import train_test_split
 from .data_model import (classification_data,
                          full_comparison_data)
 from numpy import isnan, array, mean
@@ -72,3 +73,13 @@ class dataset_model:
         vector = data.to_numpy()
         vector = vector.flatten()
         return vector
+
+    def split_data(self) -> tuple:
+        x_train, x_test, y_train, y_test = train_test_split(self.train[0],
+                                                            self.train[1],
+                                                            test_size=0.3,
+                                                            random_state=42)
+        self.train[0] = x_train
+        self.train[1] = y_train
+        self.test[0] = x_test
+        self.test[1] = y_test

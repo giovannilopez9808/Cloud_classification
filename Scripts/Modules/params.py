@@ -71,12 +71,14 @@ def get_params() -> dict:
         "hour final": 24,
         "datasets": {
             "train": [
-                "Sureste2",
-                "Suroeste",
+                # "Sureste2",
+                # "Suroeste",
                 "Noroeste",
             ],
             "validation": [],
-            "test": ["Noreste"],
+            "test": [
+                # "Sureste2"
+            ],
         }
     }
     return params
