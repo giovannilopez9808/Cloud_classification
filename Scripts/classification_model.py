@@ -2,41 +2,14 @@
 python classification_model.py (classification_model)
 """
 from Modules.classification_classic_models import classification_model
-from sklearn.metrics import (classification_report,
-                             confusion_matrix)
 from Modules.dataset_model import dataset_model
-from Modules.functions import (get_labels,
+from Modules.functions import (get_confusion_matrix,
+                               get_labels,
+                               get_report,
                                mkdir)
 from Modules.params import get_params
-from pandas import DataFrame
 from os.path import join
 from sys import argv
-
-
-def get_report(target: list,
-               predict: list,
-               sky_model: str,
-               operation: str) -> str:
-    header = "-"*60
-    results = header
-    results += f"\n\t\tSky model: {sky_model}\tOperation: {operation}\n"
-    results += header+"\n"
-    report = classification_report(target,
-                                   predict,
-                                   target_names=labels)
-    results += report
-    return results
-
-
-def get_confusion_matrix(target: list,
-                         predict: list,
-                         labels: list) -> DataFrame:
-    matrix = confusion_matrix(target,
-                              predict)
-    matrix = DataFrame(matrix,
-                       index=labels,
-                       columns=labels)
-    return matrix
 
 
 params = get_params()

@@ -113,8 +113,8 @@ def get_neural_params(params: dict) -> dict:
         "perceptron": {
             "validation_split": 0.1,
             "batch_size": 10,
-            "epochs": 1000,
-            "verbose": 1,
+            "epochs": 200,
+            "verbose": 0,
         },
         "CNN": {
             "validation_split": 0.1,

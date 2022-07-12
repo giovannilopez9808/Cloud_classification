@@ -11,7 +11,9 @@ from keras.callbacks import (ModelCheckpoint,
 from sklearn.metrics import classification_report
 from Modules.params import get_neural_params
 from .dataset_model import dataset_model
-from Modules.functions import (get_labels,
+from Modules.functions import (get_confusion_matrix,
+                               get_report,
+                               get_labels,
                                mkdir)
 from keras.models import Sequential
 from pandas import DataFrame
@@ -61,23 +63,19 @@ class neural_model:
         self._save_history(history)
 
     def _get_report(self) -> None:
+        operation = self.params["comparison operation"]
+        sky_model = self.params["clear sky model"]
         labels = self.dataset.test[1]
+        report = get_report(labels,
+                            self.predict,
+                            sky_model,
+                            operation)
         _, class_label = get_labels(self.params)
         report = classification_report(labels,
                                        self.predict,
                                        target_names=class_label,
                                        output_dict=True)
-        report = DataFrame(report)
-        operation = self.params["comparison operation"]
-        model = self.params["clear sky model"]
-        filename = "Report_{}_{}.csv".format(operation,
-                                             model)
-        folder = join(self.params["path results"],
-                      self.params["Neural model path"],
-                      self.params["neural model"])
-        filename = join(folder,
-                        filename)
-        report.to_csv(filename)
+        print(report)
 
     def _save_history(self,
                       history: DataFrame) -> None:

@@ -1,4 +1,6 @@
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics import (classification_report,
+                             confusion_matrix)
 from pandas import (Timestamp,
                     DataFrame,
                     to_datetime,
@@ -265,6 +267,32 @@ def fill_data(data: DataFrame,
             data.loc[data_index] = value
     data = DataFrame(data)
     return data
+
+
+def get_report(target: list,
+               predict: list,
+               sky_model: str,
+               operation: str) -> str:
+    header = "-"*60
+    results = header
+    results += f"\n\t\tSky model: {sky_model}\tOperation: {operation}\n"
+    results += header+"\n"
+    report = classification_report(target,
+                                   predict,
+                                   target_names=labels)
+    results += report
+    return results
+
+
+def get_confusion_matrix(target: list,
+                         predict: list,
+                         labels: list) -> DataFrame:
+    matrix = confusion_matrix(target,
+                              predict)
+    matrix = DataFrame(matrix,
+                       index=labels,
+                       columns=labels)
+    return matrix
 
 
 if "__main__" == __name__:
