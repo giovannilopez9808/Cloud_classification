@@ -125,12 +125,6 @@ class GHI_model:
         e0 = 9.87*sin(2*gamma)
         e0 -= 7.53*cos(gamma)
         e0 -= 1.5*sin(gamma)
-        # e0 = 0.000075
-        # e0 += 0.001868*cos(gamma)
-        # e0 -= 0.032077*sin(gamma)
-        # e0 -= 0.014615*cos(2*gamma)
-        # e0 -= 0.040849*sin(2*gamma)
-        # e0 *= 229.18
         return e0
 
     def _get_solar_hour_angle(self,

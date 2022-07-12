@@ -49,9 +49,9 @@ def get_params() -> dict:
         # Estaciones a utilizar
         "stations": [
             "Sureste2",
-            "Noreste",
-            "Noroeste",
-            "Suroeste",
+            # "Noreste",
+            # "Noroeste",
+            # "Suroeste",
         ],
         "classification": {
             0: {

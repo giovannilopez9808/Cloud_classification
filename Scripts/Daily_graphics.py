@@ -12,7 +12,7 @@ from tqdm import tqdm
 def plot(SIMA: DataFrame,
          Clear_sky: DataFrame,
          params: dict) -> None:
-    date = SIMA.index[0].date()
+    date = Clear_sky.index[0].date()
     plt.subplots(figsize=(8, 4))
     plt.title(date)
     plt.plot(Clear_sky,
@@ -26,11 +26,11 @@ def plot(SIMA: DataFrame,
              marker="o")
     plt.xlabel("Local time (h)")
     plt.ylabel("Solar Irradiance (W/m$^2$)")
-    plt.xticks(SIMA.index,
-               SIMA.index.hour)
+    plt.xticks(Clear_sky.index,
+               Clear_sky.index.hour)
     plt.yticks(params["dataset"]["yticks"])
-    plt.xlim(SIMA.index[6],
-             SIMA.index[20])
+    plt.xlim(Clear_sky.index[6],
+             Clear_sky.index[20])
     plt.ylim(params["dataset"]["ylim"][0],
              params["dataset"]["ylim"][1])
     plt.legend(ncol=2,
@@ -43,18 +43,18 @@ def plot(SIMA: DataFrame,
     filename = f"{date}.png"
     filename = join(params["path station graphics"],
                     filename)
-    # plt.savefig(filename)
-    plt.show()
-    plt.close()
+    plt.savefig(filename)
+    # plt.show()
+    plt.clf()
+    plt.close("all")
 
 
 params = get_params()
 params.update({
     "path daily graphics": "Daily",
     "clear sky model": "RS",
-    "null threshold": 14,
     "pollutant": "SR",
-    "year": 2021,
+    "year": 2020,
     "datasets": {
         "RS": {
             "title": "RS model",
@@ -93,5 +93,3 @@ for station in stations_bar:
         plot(SIMA_daily,
              clear_sky_daily,
              params)
-        break
-    break
