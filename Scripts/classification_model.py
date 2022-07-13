@@ -9,6 +9,7 @@ from Modules.functions import (get_confusion_matrix,
                                mkdir)
 from Modules.params import get_params
 from os.path import join
+from tqdm import tqdm
 from sys import argv
 
 
@@ -16,7 +17,7 @@ params = get_params()
 params.update({
     # Define classical model
     "classification model": argv[1],
-    "station":argv[2],
+    "station": argv[2],
     "hour initial": 5,
     "hour final": 19,
 })
@@ -25,23 +26,21 @@ model_name = model_name.replace(" ",
                                 "_")
 folder = join(params["path results"],
               params["Classical model path"],
-              model_name)
+              model_name,
+              params["station"])
 mkdir(folder)
 # Select classical model
 model = classification_model()
 model.define_model(params)
 # Initialize results
-# results = DataFrame
 reports = ""
-for sky_model in params["clear sky models"]:
+bar = tqdm(params["clear sky models"])
+for sky_model in bar:
     # Select clear sky model
     params["clear sky model"] = sky_model
     for operation in params["comparison operations"]:
         # Select comparison operation
         params["comparison operation"] = operation
-        print("-"*40)
-        print("Sky model: {}\tOperation: {}".format(sky_model,
-                                                    operation))
         # Get labels per classification
         _, labels = get_labels(params)
         # Get dataset
@@ -60,16 +59,14 @@ for sky_model in params["clear sky models"]:
         matrix = get_confusion_matrix(dataset.test[1],
                                       result,
                                       labels)
-        # filename = "{}_{}_matrix.csv".format(operation,
-        # sky_model)
-        # filename = join(folder,
-        # filename)
-        # matrix.to_csv(filename)
-        print(matrix)
-print(reports)
-# filename = "report.csv"
-# filename = join(folder,
-# filename)
-# file = open(filename, "w")
-# file.write(reports)
-# file.close()
+        filename = "{}_{}_matrix.csv".format(operation,
+                                             sky_model)
+        filename = join(folder,
+                        filename)
+        matrix.to_csv(filename)
+filename = "report.csv"
+filename = join(folder,
+                filename)
+file = open(filename, "w")
+file.write(reports)
+file.close()

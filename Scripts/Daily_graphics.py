@@ -54,7 +54,7 @@ params.update({
     "path daily graphics": "Daily",
     "clear sky model": "RS",
     "pollutant": "SR",
-    "year": 2020,
+    "year": 2021,
     "datasets": {
         "RS": {
             "title": "RS model",
@@ -85,10 +85,11 @@ for station in stations_bar:
                                            station)
     mkdir(params["path station graphics"])
     for date in dates_bar:
-        dates_bar.set_postfix(date=date)
-        SIMA_daily = SIMA.get_date_data(date)
-        clear_sky_daily = clear_sky.get_date_data(date)
-        clear_sky_daily = get_hourly_mean(clear_sky_daily)
-        plot(SIMA_daily,
-             clear_sky_daily,
-             params)
+        if date.year == 2021:
+            dates_bar.set_postfix(date=date)
+            SIMA_daily = SIMA.get_date_data(date)
+            clear_sky_daily = clear_sky.get_date_data(date)
+            clear_sky_daily = get_hourly_mean(clear_sky_daily)
+            plot(SIMA_daily,
+                 clear_sky_daily,
+                 params)

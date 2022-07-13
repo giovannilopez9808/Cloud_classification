@@ -69,6 +69,11 @@ def get_params() -> dict:
         },
         "hour initial": 0,
         "hour final": 24,
+        "years": [
+            "2019",
+            "2020",
+            "2021",
+        ],
     }
     return params
 
