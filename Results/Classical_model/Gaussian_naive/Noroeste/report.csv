@@ -1,0 +1,48 @@
+------------------------------------------------------------
+		Sky model: RS	Operation: ratio
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+       Cloudly       0.92      0.58      0.71       137
+Partly cloudly       0.56      0.68      0.62       111
+     Clear sky       0.62      0.86      0.72        71
+
+      accuracy                           0.68       319
+     macro avg       0.70      0.71      0.68       319
+  weighted avg       0.73      0.68      0.68       319
+------------------------------------------------------------
+		Sky model: RS	Operation: diff
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+       Cloudly       0.78      0.75      0.77       137
+Partly cloudly       0.65      0.59      0.62       111
+     Clear sky       0.63      0.76      0.69        71
+
+      accuracy                           0.70       319
+     macro avg       0.69      0.70      0.69       319
+  weighted avg       0.70      0.70      0.70       319
+------------------------------------------------------------
+		Sky model: GHI	Operation: ratio
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+       Cloudly       0.90      0.60      0.72       137
+Partly cloudly       0.56      0.69      0.62       111
+     Clear sky       0.64      0.82      0.72        71
+
+      accuracy                           0.68       319
+     macro avg       0.70      0.70      0.69       319
+  weighted avg       0.72      0.68      0.68       319
+------------------------------------------------------------
+		Sky model: GHI	Operation: diff
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+       Cloudly       0.70      0.72      0.71       137
+Partly cloudly       0.67      0.52      0.59       111
+     Clear sky       0.62      0.79      0.69        71
+
+      accuracy                           0.67       319
+     macro avg       0.66      0.68      0.66       319
+  weighted avg       0.67      0.67      0.66       319
