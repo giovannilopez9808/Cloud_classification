@@ -10,3 +10,4 @@ datasets/
 *.synctex.gz
 *.log
 *.out
+similarity.csv
