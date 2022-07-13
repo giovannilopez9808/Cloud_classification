@@ -4,11 +4,9 @@ from pandas import DataFrame
 from os.path import join
 
 params = get_params()
-params.update({
-    "template file": "Classification.csv",
-    "path graphics": "../Graphics/Daily",
-})
 path = join(params["path graphics"],
+            "RS",
+            "Daily",
             params["stations"][0])
 files = ls(path)
 dates = [file.split(".")[0]
@@ -16,6 +14,6 @@ dates = [file.split(".")[0]
 template = DataFrame(index=dates,
                      columns=params["stations"])
 filename = join(params["path results"],
-                params["template file"])
+                params["classification file"])
 template.index.name = "Date"
 template.to_csv(filename)
