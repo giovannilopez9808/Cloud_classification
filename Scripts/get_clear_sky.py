@@ -13,7 +13,9 @@ params = get_params()
 params.update({
     "clear sky model": argv[1],
     "pollutant": "SR",
-    "years": ["2019"],
+    "years": ["2019",
+              "2020",
+              "2021"],
     "timezone": -5,
 })
 
