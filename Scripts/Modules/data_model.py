@@ -139,7 +139,6 @@ class SIMA_model(data_base_model):
         station = station.upper()
         self.station_data = DataFrame(self.data[(station,
                                                  pollutant)])
-        self.station_data = self.station_data
 
     def get_data(self,
                  station: str,

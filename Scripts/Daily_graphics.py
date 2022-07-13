@@ -68,7 +68,6 @@ params.update({
         }
     },
 })
-
 params["dataset"] = params["datasets"][params["clear sky model"]]
 SIMA = SIMA_model(params)
 clear_sky = clear_sky_data(params)
