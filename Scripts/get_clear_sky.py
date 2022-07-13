@@ -13,8 +13,7 @@ params = get_params()
 params.update({
     "clear sky model": argv[1],
     "pollutant": "SR",
-    "years": ["2020",
-              "2021"],
+    "years": ["2019"],
     "timezone": -5,
 })
 
@@ -29,7 +28,7 @@ for year in params["years"]:
     for date in bar:
         bar.set_postfix(date=date)
         params["date"] = date
-        results_per_day = DataFram        results_per_day = DataFrame()
+        results_per_day = DataFrame()
         for station in params["stations"]:
             dataset = SIMA.get_station_info(params,
                                             station)
