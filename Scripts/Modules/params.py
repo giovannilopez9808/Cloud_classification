@@ -105,28 +105,108 @@ def get_neural_params(params: dict) -> dict:
     label = "neural model"
     neural_params = {
         "perceptron": {
-            "validation_split": 0.1,
-            "batch_size": 5,
-            "epochs": 200,
-            "verbose": 1,
+            "Noreste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Noroeste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Sureste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Suroeste2": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
         },
         "CNN": {
-            "validation_split": 0.1,
-            "batch_size": 10,
-            "epochs": 1000,
-            "verbose": 1,
+            "Noreste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Noroeste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Sureste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Suroeste2": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
         },
         "LSTM": {
-            "validation_split": 0.1,
-            "batch_size": 10,
-            "epochs": 1000,
-            "verbose": 0,
+            "Noreste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Noroeste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Sureste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Suroeste2": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
         },
         "RNN": {
-            "validation_split": 0.1,
-            "batch_size": 10,
-            "epochs": 1000,
-            "verbose": 0,
+            "Noreste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Noroeste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Sureste": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Suroeste2": {
+                "validation_split": 0.1,
+                "batch_size": 5,
+                "epochs": 200,
+                "verbose": 1,
+            },
         },
     }
     model = params[label]
