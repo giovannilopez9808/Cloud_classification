@@ -1,0 +1,12 @@
+------------------------------------------------------------
+		Sky model: RS	Operation: ratio
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+       Cloudly       0.88      0.90      0.89       137
+Partly cloudly       0.82      0.77      0.80       111
+     Clear sky       0.82      0.86      0.84        71
+
+      accuracy                           0.85       319
+     macro avg       0.84      0.84      0.84       319
+  weighted avg       0.85      0.85      0.85       319
