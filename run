@@ -10,9 +10,6 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-python Train_neural_models.py ratio RS LSTM Noroeste
-python Train_neural_models.py ratio RS LSTM Sureste2
-python Train_neural_models.py ratio RS LSTM Suroeste
 python Train_neural_models.py ratio GHI CNN Noreste
 python Train_neural_models.py ratio GHI CNN Noroeste
 python Train_neural_models.py ratio GHI CNN Sureste2
