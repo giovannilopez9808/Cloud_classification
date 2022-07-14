@@ -60,9 +60,21 @@ class neural_model:
         self._save_history(history)
         self._predict()
 
+    def test(self) -> None:
+        self._predict()
+        self._save_confusion_matrix()
+
     def _predict(self) -> None:
         self.predict = self.model.predict(self.dataset)
         self._get_report()
+
+    def _get_folder_save(self) -> str:
+        folder = join(self.params["path results"],
+                      self.params["Neural model path"],
+                      self.params["neural model"],
+                      self.params["station"])
+        mkdir(folder)
+        return folder
 
     def _get_report(self) -> None:
         operation = self.params["comparison operation"]
@@ -75,11 +87,7 @@ class neural_model:
                             operation,
                             class_label)
         filename = f"{operation}_{sky_model}_report.csv"
-        folder = join(self.params["path results"],
-                      self.params["Neural model path"],
-                      self.params["neural model"],
-                      self.params["station"])
-        mkdir(folder)
+        folder = self._get_folder_save()
         filename = join(folder,
                         filename)
         file = open(filename,
@@ -89,14 +97,10 @@ class neural_model:
 
     def _save_history(self,
                       history: DataFrame) -> None:
-        folder = join(self.params["path results"],
-                      self.params["Neural model path"],
-                      self.params["neural model"],
-                      self.params["station"])
-        mkdir(folder)
+        folder = self._get_folder_save()
         operation = self.params["comparison operation"]
         clear_sky = self.params["clear sky model"]
-        filename = f"{operation}_{clear_sky}.csv"
+        filename = f"{operation}_{clear_sky}_history.csv"
         filename = join(folder,
                         filename)
         history.to_csv(filename,
@@ -108,7 +112,14 @@ class neural_model:
         matrix = get_confusion_matrix(labels,
                                       self.predict,
                                       class_label)
-        print(matrix)
+        folder = self._get_folder_save()
+        operation = self.params["comparison operation"]
+        clear_sky = self.params["clear sky model"]
+        filename = f"{operation}_{clear_sky}_matrix.csv"
+        filename = join(folder,
+                        filename)
+        matrix.to_csv(filename)
+
 
 class base_model:
     def __init__(self,
@@ -119,8 +130,8 @@ class base_model:
                input_dim: int) -> None:
         self.model = Sequential()
 
-    def _get_callbacks(self,
-                       params: dict) -> list:
+    def _get_filename_best_model(self,
+                                 params: dict) -> str:
         filename = "best_model_{}_{}.h5".format(params["comparison operation"],
                                                 params["clear sky model"])
         folder = join(params["path results"],
@@ -129,6 +140,9 @@ class base_model:
                       params["station"])
         self.filename = join(folder,
                              filename)
+
+    def _get_callbacks(self,
+                       params: dict) -> list:
         callbacks_list = [
             ModelCheckpoint(
                 filepath=self.filename,
@@ -143,6 +157,7 @@ class base_model:
     def _compile(self,
                  params: dict) -> None:
         self.model.compile(**params["compile"])
+        self._get_filename_best_model(params)
 
     def run(self,
             dataset: Type,
@@ -248,7 +263,7 @@ class LSTM_model(base_model):
             LSTM(256,
                  activation='tanh'),
             # Dense(64,
-                  # activation='sigmoid'),
+            # activation='sigmoid'),
             Dense(3,
                   activation='sigmoid')
         ])

@@ -273,7 +273,7 @@ def get_report(target: list,
                predict: list,
                sky_model: str,
                operation: str,
-               labels:list) -> str:
+               labels: list) -> str:
     header = "-"*60
     results = header
     results += f"\n\t\tSky model: {sky_model}\tOperation: {operation}\n"
