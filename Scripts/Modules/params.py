@@ -159,8 +159,8 @@ def get_neural_params(params: dict) -> dict:
         "LSTM": {
             "Noreste": {
                 "validation_split": 0.1,
-                "batch_size":6,
-                "epochs": 500,
+                "batch_size":5,
+                "epochs": 200,
                 "verbose": 1,
             },
             "Noroeste": {

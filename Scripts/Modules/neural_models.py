@@ -240,15 +240,15 @@ class LSTM_model(base_model):
                input_dim: int) -> None:
         input_shape = (input_dim, 1)
         self.model = Sequential([
-            LSTM(64,
+            LSTM(256,
                  input_shape=input_shape,
                  activation='tanh',
                  return_sequences=True),
-            Dropout(0.2),
-            LSTM(64,
+            Dropout(0.1),
+            LSTM(256,
                  activation='tanh'),
-            Dense(32,
-                  activation='relu'),
+            # Dense(64,
+                  # activation='sigmoid'),
             Dense(3,
                   activation='sigmoid')
         ])
