@@ -10,20 +10,20 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-#python neural_models.py ratio RS perceptron Noreste
+python neural_models.py ratio RS CNN Noreste
 #python neural_models.py ratio RS perceptron Noroeste
 #python neural_models.py ratio RS perceptron Sureste2
 #python neural_models.py ratio RS perceptron Suroeste
-python neural_models.py ratio GHI perceptron Noreste
-python neural_models.py ratio GHI perceptron Noroeste
-python neural_models.py ratio GHI perceptron Sureste2
-python neural_models.py ratio GHI perceptron Suroeste
-python neural_models.py diff RS perceptron Noreste
-python neural_models.py diff RS perceptron Noroeste
-python neural_models.py diff RS perceptron Sureste2
-python neural_models.py diff RS perceptron Suroeste
-python neural_models.py diff GHI perceptron Noreste
-python neural_models.py diff GHI perceptron Noroeste
-python neural_models.py diff GHI perceptron Sureste2
-python neural_models.py diff GHI perceptron Suroeste
+#python neural_models.py ratio GHI perceptron Noreste
+#python neural_models.py ratio GHI perceptron Noroeste
+#python neural_models.py ratio GHI perceptron Sureste2
+#python neural_models.py ratio GHI perceptron Suroeste
+#python neural_models.py diff RS perceptron Noreste
+#python neural_models.py diff RS perceptron Noroeste
+#python neural_models.py diff RS perceptron Sureste2
+#python neural_models.py diff RS perceptron Suroeste
+#python neural_models.py diff GHI perceptron Noreste
+#python neural_models.py diff GHI perceptron Noroeste
+#python neural_models.py diff GHI perceptron Sureste2
+#python neural_models.py diff GHI perceptron Suroeste
 date
