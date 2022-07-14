@@ -133,8 +133,8 @@ def get_neural_params(params: dict) -> dict:
         "CNN": {
             "Noreste": {
                 "validation_split": 0.1,
-                "batch_size": 6,
-                "epochs": 150,
+                "batch_size": 7,
+                "epochs": 400,
                 "verbose": 1,
             },
             "Noroeste": {
