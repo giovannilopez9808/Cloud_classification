@@ -3,10 +3,10 @@
 ------------------------------------------------------------
                 precision    recall  f1-score   support
 
-       Cloudly       0.79      0.90      0.84       125
-Partly cloudly       0.77      0.49      0.60        84
-     Clear sky       0.72      0.91      0.81        57
+       Cloudly       0.79      0.87      0.83       125
+Partly cloudly       0.69      0.52      0.59        84
+     Clear sky       0.75      0.84      0.79        57
 
-      accuracy                           0.77       266
-     macro avg       0.76      0.77      0.75       266
-  weighted avg       0.77      0.77      0.76       266
+      accuracy                           0.76       266
+     macro avg       0.74      0.75      0.74       266
+  weighted avg       0.75      0.76      0.75       266
