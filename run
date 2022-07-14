@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=C1Mitad1
+#SBATCH --partition=GPU
 #SBATCH --job-name=Class
 #SBATCH --output=run.log
 #SBATCH --mail-type=END,FAIL
@@ -10,27 +10,7 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-python classification_model.py SVM Noroeste
-python classification_model.py SVM Sureste2
-python classification_model.py SVM Noreste
-python classification_model.py SVM Suroeste
-python classification_model.py KNN Noroeste
-python classification_model.py KNN Sureste2
-python classification_model.py KNN Noreste
-python classification_model.py KNN Suroeste
-python classification_model.py "Random forest" Noroeste
-python classification_model.py "Random forest" Sureste2
-python classification_model.py "Random forest" Noreste
-python classification_model.py "Random forest" Suroeste
-python classification_model.py "Gaussian naive" Noroeste
-python classification_model.py "Gaussian naive" Sureste2
-python classification_model.py "Gaussian naive" Noreste
-python classification_model.py "Gaussian naive" Suroeste
-python classification_model.py "Decision tree" Noroeste
-python classification_model.py "Decision tree" Sureste2
-python classification_model.py "Decision tree" Noreste
-python classification_model.py "Decision tree" Suroeste
-#python neural_models.py ratio RS perceptron Noroeste
+python neural_models.py ratio RS perceptron Noreste
 #python neural_models.py ratio GHI perceptron
 #python neural_models.py diff RS perceptron
 #python neural_models.py diff GHI perceptron
