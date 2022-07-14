@@ -58,14 +58,15 @@ class neural_model:
         history = self.model.run(self.dataset,
                                  self.params)
         self._save_history(history)
-        self._predict()
+        self._predict(self.params)
 
     def test(self) -> None:
         self._predict()
         self._save_confusion_matrix()
 
     def _predict(self) -> None:
-        self.predict = self.model.predict(self.dataset)
+        self.predict = self.model.predict(self.dataset,
+                                          self.params)
         self._get_report()
 
     def _get_folder_save(self) -> str:
@@ -174,14 +175,17 @@ class base_model:
         return history
 
     def predict(self,
-                dataset: Type) -> list:
-        self._load_model()
+                dataset: Type,
+                params:dict) -> list:
+        self._load_model(params)
         results = self.model.predict(dataset.test[0])
         results = argmax(results,
                          axis=1)
         return results
 
-    def _load_model(self) -> None:
+    def _load_model(self,
+                    params:dict) -> None:
+        self._get_filename_best_model(params)
         self.model = load_model(self.filename)
 
 
