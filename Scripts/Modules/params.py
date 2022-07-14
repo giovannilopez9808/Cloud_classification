@@ -177,7 +177,7 @@ def get_neural_params(params: dict) -> dict:
             },
             "Suroeste": {
                 "validation_split": 0.1,
-                "batch_size": 5,
+                "batch_size": 3,
                 "epochs": 200,
                 "verbose": 1,
             },
