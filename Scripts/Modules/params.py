@@ -113,17 +113,17 @@ def get_neural_params(params: dict) -> dict:
             },
             "Noroeste": {
                 "validation_split": 0.1,
-                "batch_size": 5,
-                "epochs": 200,
+                "batch_size": 10,
+                "epochs": 100,
                 "verbose": 1,
             },
-            "Sureste": {
+            "Sureste2": {
                 "validation_split": 0.1,
                 "batch_size": 5,
                 "epochs": 200,
                 "verbose": 1,
             },
-            "Suroeste2": {
+            "Suroeste": {
                 "validation_split": 0.1,
                 "batch_size": 5,
                 "epochs": 200,
@@ -143,13 +143,13 @@ def get_neural_params(params: dict) -> dict:
                 "epochs": 200,
                 "verbose": 1,
             },
-            "Sureste": {
+            "Sureste2": {
                 "validation_split": 0.1,
                 "batch_size": 5,
                 "epochs": 200,
                 "verbose": 1,
             },
-            "Suroeste2": {
+            "Suroeste": {
                 "validation_split": 0.1,
                 "batch_size": 5,
                 "epochs": 200,
@@ -169,13 +169,13 @@ def get_neural_params(params: dict) -> dict:
                 "epochs": 200,
                 "verbose": 1,
             },
-            "Sureste": {
+            "Sureste2": {
                 "validation_split": 0.1,
                 "batch_size": 5,
                 "epochs": 200,
                 "verbose": 1,
             },
-            "Suroeste2": {
+            "Suroeste": {
                 "validation_split": 0.1,
                 "batch_size": 5,
                 "epochs": 200,
@@ -195,13 +195,13 @@ def get_neural_params(params: dict) -> dict:
                 "epochs": 200,
                 "verbose": 1,
             },
-            "Sureste": {
+            "Sureste2": {
                 "validation_split": 0.1,
                 "batch_size": 5,
                 "epochs": 200,
                 "verbose": 1,
             },
-            "Suroeste2": {
+            "Suroeste": {
                 "validation_split": 0.1,
                 "batch_size": 5,
                 "epochs": 200,
@@ -210,8 +210,9 @@ def get_neural_params(params: dict) -> dict:
         },
     }
     model = params[label]
+    station = params["station"]
     dataset = dict()
-    dataset["run"] = neural_params[model]
+    dataset["run"] = neural_params[model][station]
     dataset.update({
         "compile": {
             "optimizer": "adam",
