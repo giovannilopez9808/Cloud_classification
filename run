@@ -10,9 +10,9 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-#python neural_models.py ratio RS RNN Noreste
+python neural_models.py ratio RS LSTM Noreste
 #python neural_models.py ratio RS RNN Noroeste
-python neural_models.py ratio RS RNN Sureste2
+#python neural_models.py ratio RS RNN Sureste2
 #python neural_models.py ratio RS RNN Suroeste
 #python neural_models.py ratio GHI perceptron Noreste
 #python neural_models.py ratio GHI perceptron Noroeste

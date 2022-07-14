@@ -110,7 +110,6 @@ class neural_model:
                                       class_label)
         print(matrix)
 
-
 class base_model:
     def __init__(self,
                  input_dim: int) -> None:
@@ -241,17 +240,15 @@ class LSTM_model(base_model):
                input_dim: int) -> None:
         input_shape = (input_dim, 1)
         self.model = Sequential([
-            LSTM(128,
+            LSTM(64,
                  input_shape=input_shape,
-                 activation='relu',
+                 activation='tanh',
                  return_sequences=True),
             Dropout(0.2),
-            LSTM(128,
-                 activation='relu'),
-            Dropout(0.1),
+            LSTM(64,
+                 activation='tanh'),
             Dense(32,
                   activation='relu'),
-            Dropout(0.2),
             Dense(3,
                   activation='sigmoid')
         ])
