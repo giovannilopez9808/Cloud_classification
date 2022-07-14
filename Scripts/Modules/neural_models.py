@@ -157,14 +157,15 @@ class base_model:
 
     def _compile(self,
                  params: dict) -> None:
-        self.model.compile(**params["compile"])
+        neural_params = params["neural params"]
+        self.model.compile(**neural_params["compile"])
         self._get_filename_best_model(params)
 
     def run(self,
             dataset: Type,
             params: dict) -> DataFrame:
         neural_params = params["neural params"]
-        self._compile(neural_params)
+        self._compile(params)
         callbacks = self._get_callbacks(params)
         history = self.model.fit(dataset.train[0],
                                  dataset.train[1],
