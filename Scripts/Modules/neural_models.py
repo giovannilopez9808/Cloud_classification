@@ -1,21 +1,19 @@
 from keras.layers import (GlobalAveragePooling1D,
-                          MaxPooling1D,
                           SimpleRNN,
                           Dropout,
                           Flatten,
                           Conv1D,
                           Dense,
                           LSTM)
-from keras.callbacks import (ModelCheckpoint,
-                             EarlyStopping)
-from sklearn.metrics import classification_report
 from Modules.params import get_neural_params
+from keras.callbacks import ModelCheckpoint
 from .dataset_model import dataset_model
 from Modules.functions import (get_confusion_matrix,
                                get_report,
                                get_labels,
                                mkdir)
-from keras.models import Sequential
+from keras.models import (Sequential,
+                          load_model)
 from pandas import DataFrame
 from numpy import argmax
 from os.path import join
@@ -59,9 +57,12 @@ class neural_model:
         self.params["neural params"] = get_neural_params(self.params)
         history = self.model.run(self.dataset,
                                  self.params)
+        self._save_history(history)
+        self._predict()
+
+    def _predict(self) -> None:
         self.predict = self.model.predict(self.dataset)
         self._get_report()
-        self._save_history(history)
 
     def _get_report(self) -> None:
         operation = self.params["comparison operation"]
@@ -75,14 +76,14 @@ class neural_model:
                             class_label)
         filename = f"{operation}_{sky_model}_report.csv"
         folder = join(self.params["path results"],
-                        self.params["Neural model path"],
-                        self.params["neural model"],
-                        self.params["station"])
+                      self.params["Neural model path"],
+                      self.params["neural model"],
+                      self.params["station"])
         mkdir(folder)
         filename = join(folder,
                         filename)
-        file=open(filename,
-                  "w")
+        file = open(filename,
+                    "w")
         file.write(report)
         file.close()
 
@@ -101,12 +102,12 @@ class neural_model:
         history.to_csv(filename,
                        index=False)
 
-    def _save_confusion_matrix(self,)->None:
+    def _save_confusion_matrix(self,) -> None:
         _, class_label = get_labels(self.params)
         labels = self.dataset.test[1]
-        matrix  = get_confusion_matrix(labels,
-                                       self.predict,
-                                       class_label)
+        matrix = get_confusion_matrix(labels,
+                                      self.predict,
+                                      class_label)
         print(matrix)
 
 
@@ -127,13 +128,14 @@ class base_model:
                       params["Neural model path"],
                       params["neural model"],
                       params["station"])
-        filename = join(folder,
-                        filename)
+        self.filename = join(folder,
+                             filename)
         callbacks_list = [
             ModelCheckpoint(
-                filepath=filename,
+                filepath=self.filename,
                 monitor='val_accuracy',
-                save_best_only=True),
+                save_best_only=True,
+                verbose=1),
             # EarlyStopping(monitor='val_loss',
             # patience=20)
         ]
@@ -159,10 +161,14 @@ class base_model:
 
     def predict(self,
                 dataset: Type) -> list:
+        self._load_model()
         results = self.model.predict(dataset.test[0])
         results = argmax(results,
                          axis=1)
         return results
+
+    def _load_model(self) -> None:
+        self.model = load_model(self.filename)
 
 
 class Perceptron_model(base_model):
