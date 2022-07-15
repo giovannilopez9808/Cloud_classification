@@ -53,7 +53,7 @@ class neural_model:
             self.model = RNN_model(input_dim)
         if params["neural model"] == "LSTM":
             self.model = LSTM_model(input_dim)
-        if params["neural model"] == "Bidirectional_LSTM":
+        if params["neural model"] == "Bidirectional LSTM":
             self.model = LSTM_Bidirectional_model(input_dim)
 
     def run(self) -> list:
@@ -61,7 +61,7 @@ class neural_model:
         history = self.model.run(self.dataset,
                                  self.params)
         self._save_history(history)
-        self._predict(self.params)
+        self._predict()
 
     def test(self) -> None:
         self._predict()
@@ -73,9 +73,12 @@ class neural_model:
         self._get_report()
 
     def _get_folder_save(self) -> str:
+        model = self.params["neural model"]
+        model = model.replace(" ",
+                              "_")
         folder = join(self.params["path results"],
                       self.params["Neural model path"],
-                      self.params["neural model"],
+                      model,
                       self.params["station"])
         mkdir(folder)
         return folder
@@ -136,11 +139,14 @@ class base_model:
 
     def _get_filename_best_model(self,
                                  params: dict) -> str:
+        model = params["neural model"]
+        model = model.replace(" ",
+                              "_")
         filename = "best_model_{}_{}.h5".format(params["comparison operation"],
                                                 params["clear sky model"])
         folder = join(params["path results"],
                       params["Neural model path"],
-                      params["neural model"],
+                      model,
                       params["station"])
         self.filename = join(folder,
                              filename)
@@ -288,14 +294,22 @@ class LSTM_Bidirectional_model(base_model):
         input_shape = (input_dim, 1)
         self.model = Sequential([
             Bidirectional(LSTM(256,
-                               input_shape=input_shape,
-                               activation='tanh',
-                               return_sequences=True)),
-            Dropout(0.1),
-            Bidirectional(LSTM(256,
-                               activation='tanh')),
-            # Dense(64,
-            # activation='sigmoid'),
+                               # activation="tanh",
+                               return_sequences=True), 
+                          input_shape=input_shape),
+            Bidirectional(LSTM(256,)),
+                               # activation="tanh")),
             Dense(3,
-                  activation='sigmoid')
-        ])
+                activation="sigmoid")])
+        # self.model = Sequential([
+            # Bidirectional(LSTM(64,
+                               # # activation='tanh',
+                               # return_sequences=True),
+                          # input_shape=input_shape),
+            # # Bidirectional(LSTM(20,
+                               # # activation='tanh')),
+            # # Dense(64,
+            # # activation='sigmoid'),
+            # Dense(3,
+                  # activation='sigmoid')
+        # ])

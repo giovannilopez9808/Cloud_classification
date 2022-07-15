@@ -45,6 +45,7 @@ def get_params() -> dict:
             "CNN",
             "LSTM",
             "RNN",
+            "Bidirectional LSTM",
         ],
         # Estaciones a utilizar
         "stations": [
@@ -204,6 +205,32 @@ def get_neural_params(params: dict) -> dict:
             "Suroeste": {
                 "validation_split": 0.1,
                 "batch_size": 7,
+                "epochs": 200,
+                "verbose": 1,
+            },
+        },
+        "Bidirectional LSTM": {
+            "Noreste": {
+                "validation_split": 0.1,
+                "batch_size": 64,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Noroeste": {
+                "validation_split": 0.1,
+                "batch_size": 4,
+                "epochs": 100,
+                "verbose": 1,
+            },
+            "Sureste2": {
+                "validation_split": 0.1,
+                "batch_size": 4,
+                "epochs": 200,
+                "verbose": 1,
+            },
+            "Suroeste": {
+                "validation_split": 0.1,
+                "batch_size": 3,
                 "epochs": 200,
                 "verbose": 1,
             },
