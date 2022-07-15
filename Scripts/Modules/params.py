@@ -212,8 +212,8 @@ def get_neural_params(params: dict) -> dict:
         "Bidirectional LSTM": {
             "Noreste": {
                 "validation_split": 0.1,
-                "batch_size": 64,
-                "epochs": 200,
+                "batch_size": 3,
+                "epochs": 100,
                 "verbose": 1,
             },
             "Noroeste": {
