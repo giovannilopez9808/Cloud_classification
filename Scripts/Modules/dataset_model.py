@@ -17,7 +17,8 @@ class dataset_model:
         comparison.get_data_between_hours()
         self.train = self._create_dataset(classification,
                                           comparison)
-        self.test =[1,1]
+        self.test = [1, 1]
+
     def _create_dataset(self,
                         classification: classification_data,
                         comparison: full_comparison_data) -> DataFrame:
