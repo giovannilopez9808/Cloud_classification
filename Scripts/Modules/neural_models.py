@@ -1,4 +1,5 @@
 from keras.layers import (GlobalAveragePooling1D,
+                          Bidirectional,
                           SimpleRNN,
                           Dropout,
                           Flatten,
@@ -52,6 +53,8 @@ class neural_model:
             self.model = RNN_model(input_dim)
         if params["neural model"] == "LSTM":
             self.model = LSTM_model(input_dim)
+        if params["neural model"] == "Bidirectional_LSTM":
+            self.model = LSTM_Bidirectional_model(input_dim)
 
     def run(self) -> list:
         self.params["neural params"] = get_neural_params(self.params)
@@ -177,7 +180,7 @@ class base_model:
 
     def predict(self,
                 dataset: Type,
-                params:dict) -> list:
+                params: dict) -> list:
         self._load_model(params)
         results = self.model.predict(dataset.test[0])
         results = argmax(results,
@@ -185,7 +188,7 @@ class base_model:
         return results
 
     def _load_model(self,
-                    params:dict) -> None:
+                    params: dict) -> None:
         self._get_filename_best_model(params)
         self.model = load_model(self.filename)
 
@@ -267,6 +270,30 @@ class LSTM_model(base_model):
             Dropout(0.1),
             LSTM(256,
                  activation='tanh'),
+            # Dense(64,
+            # activation='sigmoid'),
+            Dense(3,
+                  activation='sigmoid')
+        ])
+
+
+class LSTM_Bidirectional_model(base_model):
+    def __init__(self,
+                 input_dim: int) -> None:
+        super().__init__(input_dim)
+        self._build(input_dim)
+
+    def _build(self,
+               input_dim: int) -> None:
+        input_shape = (input_dim, 1)
+        self.model = Sequential([
+            Bidirectional(LSTM(256,
+                               input_shape=input_shape,
+                               activation='tanh',
+                               return_sequences=True)),
+            Dropout(0.1),
+            Bidirectional(LSTM(256,
+                               activation='tanh')),
             # Dense(64,
             # activation='sigmoid'),
             Dense(3,
