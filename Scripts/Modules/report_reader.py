@@ -30,9 +30,11 @@ class Report_reader:
         if model_type == "Classical model":
             folder = self.params["Classical model path"]
             filename = "report.csv"
+        model = self.params["model name"].replace(" ",
+                                                  "_")
         folder = join(self.params["path results"],
                       folder,
-                      self.params["model name"],
+                      model,
                       self.params["station"])
         filename = join(folder,
                         filename)
@@ -73,6 +75,10 @@ class Report_reader:
             results = concat([results,
                               subreport],
                              axis=1)
+        operation = self.params["comparison operation"]
+        sky_model = self.params["clear sky model"]
+        header = f"{operation} {sky_model}"
+        results = DataFrame(results[header])
         return results
 
     def _get_header_report(self,

@@ -115,6 +115,13 @@ def fill_number(number: int,
     return str(number).zfill(zfill)
 
 
+def get_group_model(model: str,
+                    params: dict) -> str:
+    if model in params["classical models"]:
+        return "Classical model"
+    return "Neural model"
+
+
 def get_labels(params: dict) -> tuple:
     keys = list(params["classification"].keys())
     label = [params["classification"][key]["label"]

@@ -37,7 +37,7 @@ def get_params() -> dict:
             "KNN",
             "Random forest",
             "Gaussian naive",
-            "Decicion tree",
+            "Decision tree",
         ],
         # Neural models
         "neural models": [
