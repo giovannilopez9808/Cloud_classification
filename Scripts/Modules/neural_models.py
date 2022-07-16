@@ -1,14 +1,13 @@
 from keras.layers import (GlobalAveragePooling1D,
                           Bidirectional,
-                          SimpleRNN,
                           Attention,
+                          SimpleRNN,
                           Dropout,
                           Flatten,
                           Conv1D,
-                          Input,
+                          Layer,
                           Dense,
                           LSTM)
-from Modules.neural_layers import SelfAttention
 from Modules.params import get_neural_params
 from keras.callbacks import ModelCheckpoint
 from .dataset_model import dataset_model
@@ -18,8 +17,8 @@ from Modules.functions import (get_confusion_matrix,
                                mkdir)
 from keras.models import (Sequential,
                           load_model)
-from tensorflow.keras import Model
 from pandas import DataFrame
+import keras.backend as K
 from numpy import argmax
 from os.path import join
 from typing import Type
@@ -322,15 +321,11 @@ class Attention_LSTM_model(base_model):
     def _build(self,
                input_dim: int) -> None:
         input_shape = (input_dim, 1)
-        input_model = Input(shape=input_shape)
-        encoder = LSTM(128,
-                       return_sequences=True)(input_model)
-        out = SelfAttention(size=50,
-                            num_hops=6,
-                            use_penalization=True,
-                            penalty_coefficient=0.1)(embedded)
-        decoder, attention_weights = out
-        output = Dense(3,
-                       activation="sigmoid")(decoder)
-        self.model = Model(inputs=input_model,
-                           outputs=output)
+        self.model = Sequential([
+            Bidirectional(LSTM(256,
+                               return_sequences=True),
+                          input_shape=input_shape),
+            Attention(),
+            Bidirectional(LSTM(256,)),
+            Dense(3,
+                  activation="sigmoid")])
