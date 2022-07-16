@@ -8,6 +8,7 @@ from keras.layers import (GlobalAveragePooling1D,
                           Input,
                           Dense,
                           LSTM)
+from Modules.neural_layers import SelfAttention
 from Modules.params import get_neural_params
 from keras.callbacks import ModelCheckpoint
 from .dataset_model import dataset_model
@@ -324,9 +325,10 @@ class Attention_LSTM_model(base_model):
         input_model = Input(shape=input_shape)
         encoder = LSTM(128,
                        return_sequences=True)(input_model)
-        out = Attention(context="many-to-one",
-                        alignment_type="global",
-                        model_api='functional')(encoder)
+        out = SelfAttention(size=50,
+                            num_hops=6,
+                            use_penalization=True,
+                            penalty_coefficient=0.1)(embedded)
         decoder, attention_weights = out
         output = Dense(3,
                        activation="sigmoid")(decoder)
