@@ -1,10 +1,11 @@
 from keras.layers import (GlobalAveragePooling1D,
                           Bidirectional,
                           SimpleRNN,
+                          Attention,
                           Dropout,
                           Flatten,
                           Conv1D,
-                          Layer,
+                          Input,
                           Dense,
                           LSTM)
 from Modules.params import get_neural_params
@@ -16,8 +17,8 @@ from Modules.functions import (get_confusion_matrix,
                                mkdir)
 from keras.models import (Sequential,
                           load_model)
+from tensorflow.keras import Model
 from pandas import DataFrame
-import keras.backend as K
 from numpy import argmax
 from os.path import join
 from typing import Type
@@ -320,39 +321,14 @@ class Attention_LSTM_model(base_model):
     def _build(self,
                input_dim: int) -> None:
         input_shape = (input_dim, 1)
-        self.model = Sequential([
-            Bidirectional(LSTM(256,
-                               return_sequences=True),
-                          input_shape=input_shape),
-            _attention(),
-            Bidirectional(LSTM(256,)),
-            Dense(3,
-                  activation="sigmoid")])
-
-
-class _attention(Layer):
-    def __init__(self,
-                 return_sequences=True):
-        self.return_sequences = return_sequences
-        super(_attention, self).__init__()
-
-    def build(self, input_shape):
-        self.W = self.add_weight(name="att_weight",
-                                 shape=(input_shape[-1], 1),
-                                 initializer="normal")
-        self.b = self.add_weight(name="att_bias",
-                                 shape=(input_shape[1], 1),
-                                 initializer="normal")
-        self.b = self.add_weight(name="att_bias",
-                                 shape=(input_shape[1], 1))
-        self.b = self.add_weight(name="att_bias",
-                                 shape=(input_shape[1], 1))
-        super(_attention, self).build(input_shape)
-
-    def call(self, x):
-        e = K.tanh(K.dot(x, self.W)+self.b)
-        a = K.softmax(e, axis=1)
-        output = x*a
-        if self.return_sequences:
-            return output
-        return K.sum(output, axis=1)
+        input_model = Input(shape=input_shape)
+        encoder = LSTM(128,
+                       return_sequences=True)(input_model)
+        out = Attention(context="many-to-one",
+                        alignment_type="global",
+                        model_api='functional')(encoder)
+        decoder, attention_weights = out
+        output = Dense(3,
+                       activation="sigmoid")(decoder)
+        self.model = Model(inputs=input_model,
+                           outputs=output)
