@@ -10,20 +10,11 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-python Train_neural_models.py ratio GHI "Bidirectional LSTM" Noroeste
-python Train_neural_models.py ratio GHI "Bidirectional LSTM" Noreste
-python Train_neural_models.py ratio GHI "Bidirectional LSTM" Sureste2
-python Train_neural_models.py ratio GHI "Bidirectional LSTM" Suroeste
+python Test_neural_models.py ratio RS CNN Noreste
+python Test_neural_models.py ratio RS CNN Noroeste
+python Test_neural_models.py ratio RS CNN Sureste2
+python Test_neural_models.py ratio RS CNN Suroeste
 
-python Train_neural_models.py diff GHI "Bidirectional LSTM" Noroeste
-python Train_neural_models.py diff GHI "Bidirectional LSTM" Noreste
-python Train_neural_models.py diff GHI "Bidirectional LSTM" Sureste2
-python Train_neural_models.py diff GHI "Bidirectional LSTM" Suroeste
-
-python Train_neural_models.py diff RS "Bidirectional LSTM" Noroeste
-python Train_neural_models.py diff RS "Bidirectional LSTM" Noreste
-python Train_neural_models.py diff RS "Bidirectional LSTM" Sureste2
-python Train_neural_models.py diff RS "Bidirectional LSTM" Suroeste
 #python Test_neural_models.py ratio GHI CNN Noreste
 #python Test_neural_models.py ratio GHI CNN Noroeste
 #python Test_neural_models.py ratio GHI CNN Sureste2
