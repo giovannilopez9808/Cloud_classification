@@ -294,22 +294,8 @@ class LSTM_Bidirectional_model(base_model):
         input_shape = (input_dim, 1)
         self.model = Sequential([
             Bidirectional(LSTM(256,
-                               # activation="tanh",
                                return_sequences=True), 
                           input_shape=input_shape),
             Bidirectional(LSTM(256,)),
-                               # activation="tanh")),
             Dense(3,
                 activation="sigmoid")])
-        # self.model = Sequential([
-            # Bidirectional(LSTM(64,
-                               # # activation='tanh',
-                               # return_sequences=True),
-                          # input_shape=input_shape),
-            # # Bidirectional(LSTM(20,
-                               # # activation='tanh')),
-            # # Dense(64,
-            # # activation='sigmoid'),
-            # Dense(3,
-                  # activation='sigmoid')
-        # ])
