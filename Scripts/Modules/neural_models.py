@@ -331,34 +331,28 @@ class Attention_LSTM_model(base_model):
 
 
 class _attention(Layer):
-    def __init__(self, **kwargs):
-        super(_attention, self).__init__(**kwargs)
+    def __init__(self,
+                 return_sequences=True):
+        self.return_sequences = return_sequences
+        super(_attention, self).__init__()
 
     def build(self, input_shape):
-        self.W = self.add_weight(name='attention_weight',
+        self.W = self.add_weight(name="att_weight",
                                  shape=(input_shape[-1], 1),
-                                 initializer='random_normal',
-                                 trainable=True)
-        self.b = self.add_weight(name='attention_bias',
+                                 initializer="normal")
+        self.b = self.add_weight(name="att_bias",
                                  shape=(input_shape[1], 1),
-                                 initializer='zeros',
-                                 trainable=True)
+                                 initializer="normal")
+        self.b = self.add_weight(name="att_bias",
+                                 shape=(input_shape[1], 1))
+        self.b = self.add_weight(name="att_bias",
+                                 shape=(input_shape[1], 1))
         super(_attention, self).build(input_shape)
 
     def call(self, x):
-        # Alignment scores. Pass them through tanh function
-        e = K.tanh(K.dot(x,
-                         self.W)+self.b)
-        # Remove dimension of size 1
-        e = K.squeeze(e,
-                      axis=-1)
-        # Compute the weights
-        alpha = K.softmax(e)
-        # Reshape to tensorFlow format
-        alpha = K.expand_dims(alpha,
-                              axis=-1)
-        # Compute the context vector
-        context = x * alpha
-        context = K.sum(context,
-                        axis=1)
-        return context
+        e = K.tanh(K.dot(x, self.W)+self.b)
+        a = K.softmax(e, axis=1)
+        output = x*a
+        if self.return_sequences:
+            return output
+        return K.sum(output, axis=1)
