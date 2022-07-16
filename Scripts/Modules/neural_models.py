@@ -17,6 +17,7 @@ from Modules.functions import (get_confusion_matrix,
 from keras.models import (Sequential,
                           load_model)
 from pandas import DataFrame
+import keras.backend as K
 from numpy import argmax
 from os.path import join
 from typing import Type
