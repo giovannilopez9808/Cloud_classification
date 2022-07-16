@@ -4,6 +4,7 @@ from keras.layers import (GlobalAveragePooling1D,
                           Dropout,
                           Flatten,
                           Conv1D,
+                          Layer,
                           Dense,
                           LSTM)
 from Modules.params import get_neural_params
@@ -47,14 +48,22 @@ class neural_model:
         self._get_dataset(params)
         if params["neural model"] == "perceptron":
             self.model = Perceptron_model(input_dim)
+            return
         if params["neural model"] == "CNN":
             self.model = CNN_model(input_dim)
+            return
         if params["neural model"] == "RNN":
             self.model = RNN_model(input_dim)
+            return
         if params["neural model"] == "LSTM":
             self.model = LSTM_model(input_dim)
-        if params["neural model"] == "Bidirectional LSTM":
-            self.model = LSTM_Bidirectional_model(input_dim)
+            return
+        if params["neural model"] == "Bi LSTM":
+            self.model = Bidirectional_LSTM_model(input_dim)
+            return
+        if params["neural model"] == "Attention LSTM":
+            self.model = Attention_LSTM_model(input_dim)
+            return
 
     def run(self) -> list:
         self.params["neural params"] = get_neural_params(self.params)
@@ -283,7 +292,7 @@ class LSTM_model(base_model):
         ])
 
 
-class LSTM_Bidirectional_model(base_model):
+class Bidirectional_LSTM_model(base_model):
     def __init__(self,
                  input_dim: int) -> None:
         super().__init__(input_dim)
@@ -294,8 +303,61 @@ class LSTM_Bidirectional_model(base_model):
         input_shape = (input_dim, 1)
         self.model = Sequential([
             Bidirectional(LSTM(256,
-                               return_sequences=True), 
+                               return_sequences=True),
                           input_shape=input_shape),
             Bidirectional(LSTM(256,)),
             Dense(3,
-                activation="sigmoid")])
+                  activation="sigmoid")])
+
+
+class Attention_LSTM_model(base_model):
+    def __init__(self,
+                 input_dim: int) -> None:
+        super().__init__(input_dim)
+        self._build(input_dim)
+
+    def _build(self,
+               input_dim: int) -> None:
+        input_shape = (input_dim, 1)
+        self.model = Sequential([
+            Bidirectional(LSTM(256,
+                               return_sequences=True),
+                          input_shape=input_shape),
+            _attention(),
+            Bidirectional(LSTM(256,)),
+            Dense(3,
+                  activation="sigmoid")])
+
+
+class _attention(Layer):
+    def __init__(self, **kwargs):
+        super(_attention, self).__init__(**kwargs)
+
+    def build(self, input_shape):
+        self.W = self.add_weight(name='attention_weight',
+                                 shape=(input_shape[-1], 1),
+                                 initializer='random_normal',
+                                 trainable=True)
+        self.b = self.add_weight(name='attention_bias',
+                                 shape=(input_shape[1], 1),
+                                 initializer='zeros',
+                                 trainable=True)
+        super(_attention, self).build(input_shape)
+
+    def call(self, x):
+        # Alignment scores. Pass them through tanh function
+        e = K.tanh(K.dot(x,
+                         self.W)+self.b)
+        # Remove dimension of size 1
+        e = K.squeeze(e,
+                      axis=-1)
+        # Compute the weights
+        alpha = K.softmax(e)
+        # Reshape to tensorFlow format
+        alpha = K.expand_dims(alpha,
+                              axis=-1)
+        # Compute the context vector
+        context = x * alpha
+        context = K.sum(context,
+                        axis=1)
+        return context

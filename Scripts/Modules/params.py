@@ -45,7 +45,8 @@ def get_params() -> dict:
             "CNN",
             "LSTM",
             "RNN",
-            "Bidirectional LSTM",
+            "Bi LSTM",
+            "Attention LSTM"
         ],
         # Estaciones a utilizar
         "stations": [
@@ -209,7 +210,7 @@ def get_neural_params(params: dict) -> dict:
                 "verbose": 1,
             },
         },
-        "Bidirectional LSTM": {
+        "Bi LSTM": {
             "Noreste": {
                 "validation_split": 0.1,
                 "batch_size": 3,
@@ -235,6 +236,33 @@ def get_neural_params(params: dict) -> dict:
                 "verbose": 1,
             },
         },
+        "Attention LSTM": {
+            "Noreste": {
+                "validation_split": 0.1,
+                "batch_size": 3,
+                "epochs": 100,
+                "verbose": 1,
+            },
+            "Noroeste": {
+                "validation_split": 0.1,
+                "batch_size": 4,
+                "epochs": 100,
+                "verbose": 1,
+            },
+            "Sureste2": {
+                "validation_split": 0.1,
+                "batch_size": 6,
+                "epochs": 100,
+                "verbose": 1,
+            },
+            "Suroeste": {
+                "validation_split": 0.1,
+                "batch_size": 7,
+                "epochs": 100,
+                "verbose": 1,
+            },
+        },
+
     }
     model = params[label]
     station = params["station"]
