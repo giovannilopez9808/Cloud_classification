@@ -63,4 +63,6 @@ reports_neural = get_reports("neural",
                              params)
 reports = concat([reports_classical,
                  reports_neural])
+reports.index = [index.replace("_", " ")
+                 for index in reports.index]
 print(reports)
