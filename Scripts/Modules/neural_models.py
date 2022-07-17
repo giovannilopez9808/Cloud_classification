@@ -64,8 +64,8 @@ class neural_model:
         if params["neural model"] == "Bi LSTM":
             self.model = Bidirectional_LSTM_model(input_dim)
             return
-        if params["neural model"] == "Attention LSTM":
-            self.model = Attention_LSTM_model(input_dim)
+        if params["neural model"] == "Attention CNN":
+            self.model = Attention_CNN_model(input_dim)
             return
 
     def run(self) -> list:
@@ -171,8 +171,6 @@ class base_model:
                 monitor='val_accuracy',
                 save_best_only=True,
                 verbose=1),
-            # EarlyStopping(monitor='val_loss',
-            # patience=20)
         ]
         return callbacks_list
 
@@ -199,7 +197,7 @@ class base_model:
     def predict(self,
                 dataset: Type,
                 params: dict) -> list:
-        # self._load_model(params)
+        self._load_model(params)
         results = self.model.predict(dataset.test[0])
         results = argmax(results,
                          axis=1)
@@ -208,7 +206,6 @@ class base_model:
     def _load_model(self,
                     params: dict) -> None:
         self._get_filename_best_model(params)
-        print(self.filename)
         self.model = load_model(self.filename)
 
 
@@ -314,7 +311,7 @@ class Bidirectional_LSTM_model(base_model):
                   activation="sigmoid")])
 
 
-class Attention_LSTM_model(base_model):
+class Attention_CNN_model(base_model):
     def __init__(self,
                  input_dim: int) -> None:
         super().__init__(input_dim)
@@ -324,29 +321,25 @@ class Attention_LSTM_model(base_model):
                input_dim: int) -> None:
         input_shape = (input_dim, 1)
         self.model = Sequential([
-            Conv1D(200, 
-                   3,
+            Conv1D(100, 
+                   5,
                    activation="relu",
                    input_shape=input_shape),
-            Dropout(0.2),
-            Attention(),
+            Conv1D(200,
+                   3,
+                   activation="relu",
+                   ),
+            Conv1D(200,
+                   3,
+                   activation="relu",
+                   ),
+            Attention(32),
             Dense(3, 
                   activation='sigmoid')
         ])
-        # model_input = Input(shape=input_shape)
-        # x = LSTM(256,
-                 # input_shape=input_shape,
-                 # activation='tanh',
-                 # return_sequences=True)
-            # Dropout(0.1),
-            # LSTM(256,
-                 # activation='tanh'),
 
-        # x = Conv1D(200,
-                   # 3,
-                   # activation="relu")(model_input)
-        # x = Attention(10)(x)
-        # x = Dense(3,
-                  # activation="sigmoid")(x)
-        # self.model = Model(inputs=model_input,
-                           # outputs=x)
+    def _load_model(self,
+                    params: dict) -> None:
+        self._get_filename_best_model(params)
+        self.model = load_model(self.filename,
+                                custom_objects={"Attention":Attention})
