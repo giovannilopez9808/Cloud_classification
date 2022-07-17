@@ -1,6 +1,5 @@
 from keras.layers import (GlobalAveragePooling1D,
                           Bidirectional,
-                          Attention,
                           SimpleRNN,
                           Dropout,
                           Flatten,
@@ -16,11 +15,13 @@ from Modules.functions import (get_confusion_matrix,
                                get_labels,
                                mkdir)
 from keras.models import (Sequential,
-                          load_model)
+                          load_model,
+                          Model)
+from attention import Attention
 from pandas import DataFrame
-import keras.backend as K
 from numpy import argmax
 from os.path import join
+from keras import Input
 from typing import Type
 
 
@@ -198,7 +199,7 @@ class base_model:
     def predict(self,
                 dataset: Type,
                 params: dict) -> list:
-        self._load_model(params)
+        # self._load_model(params)
         results = self.model.predict(dataset.test[0])
         results = argmax(results,
                          axis=1)
@@ -207,6 +208,7 @@ class base_model:
     def _load_model(self,
                     params: dict) -> None:
         self._get_filename_best_model(params)
+        print(self.filename)
         self.model = load_model(self.filename)
 
 
@@ -280,14 +282,14 @@ class LSTM_model(base_model):
                input_dim: int) -> None:
         input_shape = (input_dim, 1)
         self.model = Sequential([
-            LSTM(256,
+             LSTM(256,
                  input_shape=input_shape,
                  activation='tanh',
                  return_sequences=True),
             Dropout(0.1),
             LSTM(256,
                  activation='tanh'),
-            # Dense(64,
+           # Dense(64,
             # activation='sigmoid'),
             Dense(3,
                   activation='sigmoid')
@@ -322,10 +324,29 @@ class Attention_LSTM_model(base_model):
                input_dim: int) -> None:
         input_shape = (input_dim, 1)
         self.model = Sequential([
-            Bidirectional(LSTM(256,
-                               return_sequences=True),
-                          input_shape=input_shape),
+            Conv1D(200, 
+                   3,
+                   activation="relu",
+                   input_shape=input_shape),
+            Dropout(0.2),
             Attention(),
-            Bidirectional(LSTM(256,)),
-            Dense(3,
-                  activation="sigmoid")])
+            Dense(3, 
+                  activation='sigmoid')
+        ])
+        # model_input = Input(shape=input_shape)
+        # x = LSTM(256,
+                 # input_shape=input_shape,
+                 # activation='tanh',
+                 # return_sequences=True)
+            # Dropout(0.1),
+            # LSTM(256,
+                 # activation='tanh'),
+
+        # x = Conv1D(200,
+                   # 3,
+                   # activation="relu")(model_input)
+        # x = Attention(10)(x)
+        # x = Dense(3,
+                  # activation="sigmoid")(x)
+        # self.model = Model(inputs=model_input,
+                           # outputs=x)

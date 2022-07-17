@@ -239,13 +239,13 @@ def get_neural_params(params: dict) -> dict:
         "Attention LSTM": {
             "Noreste": {
                 "validation_split": 0.1,
-                "batch_size": 3,
-                "epochs": 100,
+               "batch_size": 4,
+                "epochs": 200,
                 "verbose": 1,
             },
             "Noroeste": {
                 "validation_split": 0.1,
-                "batch_size": 4,
+                "batch_size": 5,
                 "epochs": 100,
                 "verbose": 1,
             },
