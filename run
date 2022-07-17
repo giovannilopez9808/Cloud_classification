@@ -10,7 +10,7 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-python Train_neural_models.py ratio RS "Attention CNN" Sureste2
+python Train_neural_models.py ratio RS "Attention CNN" Suroeste
 #python Test_neural_models.py ratio RS RNN Noroeste
 #python Test_neural_models.py ratio RS RNN Sureste2
 #python Test_neural_models.py ratio RS RNN Suroeste
