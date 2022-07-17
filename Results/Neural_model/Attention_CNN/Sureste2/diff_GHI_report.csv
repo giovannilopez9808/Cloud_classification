@@ -1,0 +1,12 @@
+------------------------------------------------------------
+		Sky model: GHI	Operation: diff
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+       Cloudly       0.47      1.00      0.64       125
+Partly cloudly       0.00      0.00      0.00        84
+     Clear sky       0.00      0.00      0.00        57
+
+      accuracy                           0.47       266
+     macro avg       0.16      0.33      0.21       266
+  weighted avg       0.22      0.47      0.30       266

@@ -10,57 +10,16 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-python Train_neural_models.py ratio RS "Attention CNN" Suroeste
-#python Test_neural_models.py ratio RS RNN Noroeste
-#python Test_neural_models.py ratio RS RNN Sureste2
-#python Test_neural_models.py ratio RS RNN Suroeste
-
-#python Test_neural_models.py ratio GHI CNN Noreste
-#python Test_neural_models.py ratio GHI CNN Noroeste
-#python Test_neural_models.py ratio GHI CNN Sureste2
-#python Test_neural_models.py ratio GHI CNN Suroeste
-#python Test_neural_models.py diff RS CNN Noreste
-#python Test_neural_models.py diff RS CNN Noroeste
-#python Test_neural_models.py diff RS CNN Sureste2
-#python Test_neural_models.py diff RS CNN Suroeste
-#python Test_neural_models.py diff GHI CNN Noreste
-#python Test_neural_models.py diff GHI CNN Noroeste
-#python Test_neural_models.py diff GHI CNN Sureste2
-#python Test_neural_models.py diff GHI CNN Suroeste
-#python Test_neural_models.py ratio GHI LSTM Noreste
-#python Test_neural_models.py ratio GHI LSTM Noroeste
-#python Test_neural_models.py ratio GHI LSTM Sureste2
-#python Test_neural_models.py ratio GHI LSTM Suroeste
-#python Test_neural_models.py diff RS LSTM Noreste
-#python Test_neural_models.py diff RS LSTM Noroeste
-#python Test_neural_models.py diff RS LSTM Sureste2
-#python Test_neural_models.py diff RS LSTM Suroeste
-#python Test_neural_models.py diff GHI LSTM Noreste
-#python Test_neural_models.py diff GHI LSTM Noroeste
-#python Test_neural_models.py diff GHI LSTM Sureste2
-#python Test_neural_models.py diff GHI LSTM Suroeste
-#python Test_neural_models.py ratio GHI RNN Noreste
-#python Test_neural_models.py ratio GHI RNN Noroeste
-#python Test_neural_models.py ratio GHI RNN Sureste2
-#python Test_neural_models.py ratio GHI RNN Suroeste
-#python Test_neural_models.py diff RS RNN Noreste
-#python Test_neural_models.py diff RS RNN Noroeste
-#python Test_neural_models.py diff RS RNN Sureste2
-#python Test_neural_models.py diff RS RNN Suroeste
-#python Test_neural_models.py diff GHI RNN Noreste
-#python Test_neural_models.py diff GHI RNN Noroeste
-#python Test_neural_models.py diff GHI RNN Sureste2
-#python Test_neural_models.py diff GHI RNN Suroeste
-#python Test_neural_models.py ratio GHI perceptron Noreste
-#python Test_neural_models.py ratio GHI perceptron Noroeste
-#python Test_neural_models.py ratio GHI perceptron Sureste2
-#python Test_neural_models.py ratio GHI perceptron Suroeste
-#python Test_neural_models.py diff RS perceptron Noreste
-#python Test_neural_models.py diff RS perceptron Noroeste
-#python Test_neural_models.py diff RS perceptron Sureste2
-#python Test_neural_models.py diff RS perceptron Suroeste
-#python Test_neural_models.py diff GHI perceptron Noreste
-#python Test_neural_models.py diff GHI perceptron Noroeste
-#python Test_neural_models.py diff GHI perceptron Sureste2
-#python Test_neural_models.py diff GHI perceptron Suroeste
+python Train_neural_models.py ratio GHI "Attention CNN" Noreste
+python Train_neural_models.py ratio GHI "Attention CNN" Noroeste
+python Train_neural_models.py ratio GHI "Attention CNN" Sureste2
+python Train_neural_models.py ratio GHI "Attention CNN" Suroeste
+python Train_neural_models.py diff RS "Attention CNN" Noreste
+python Train_neural_models.py diff RS "Attention CNN" Noroeste
+python Train_neural_models.py diff RS "Attention CNN" Sureste2
+python Train_neural_models.py diff RS "Attention CNN" Suroeste
+python Train_neural_models.py diff GHI "Attention CNN" Noreste
+python Train_neural_models.py diff GHI "Attention CNN" Noroeste
+python Train_neural_models.py diff GHI "Attention CNN" Sureste2
+python Train_neural_models.py diff GHI "Attention CNN" Suroeste
 date
