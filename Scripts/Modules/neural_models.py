@@ -15,8 +15,8 @@ from Modules.functions import (get_confusion_matrix,
                                mkdir)
 from keras.models import (Sequential,
                           load_model)
+from numpy import argmax, mean, array
 from attention import Attention
-from numpy import argmax, sum
 from pandas import DataFrame
 from os.path import join
 from typing import Type
@@ -80,7 +80,6 @@ class neural_model:
                 save_report: bool = True) -> None:
         self.predicts = self.model.predict(self.dataset,
                                            self.params)
-        self.predicts = self.predicts/sum(self.predicts)
         if save_report:
             self._get_report()
 
@@ -364,7 +363,11 @@ class Voting_model(neural_model):
             params["neural model"] = model_name
             model = neural_model()
             model.build(params)
-            model.predict()
+            model.predict(save_report=False)
+            predicts = model.predicts
+            predicts = array(predicts,
+                             dtype=float)
             self.predicts += [model.predicts]
-        self.predicts = sum(self.predicts,
-                            axis=0)
+        self.predicts = mean(self.predicts,
+                             axis=1)
+        self.predicts = round(predicts)
