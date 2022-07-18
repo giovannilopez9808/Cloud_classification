@@ -4,7 +4,6 @@ from keras.layers import (GlobalAveragePooling1D,
                           Dropout,
                           Flatten,
                           Conv1D,
-                          Layer,
                           Dense,
                           LSTM)
 from Modules.params import get_neural_params
@@ -15,13 +14,11 @@ from Modules.functions import (get_confusion_matrix,
                                get_labels,
                                mkdir)
 from keras.models import (Sequential,
-                          load_model,
-                          Model)
+                          load_model)
 from attention import Attention
+from numpy import argmax, sum
 from pandas import DataFrame
-from numpy import argmax
 from os.path import join
-from keras import Input
 from typing import Type
 
 
@@ -73,16 +70,19 @@ class neural_model:
         history = self.model.run(self.dataset,
                                  self.params)
         self._save_history(history)
-        self._predict()
+        self.predict()
 
     def test(self) -> None:
-        self._predict()
+        self.predict()
         self._save_confusion_matrix()
 
-    def _predict(self) -> None:
-        self.predict = self.model.predict(self.dataset,
-                                          self.params)
-        self._get_report()
+    def predict(self,
+                save_report: bool = True) -> None:
+        self.predicts = self.model.predict(self.dataset,
+                                           self.params)
+        self.predicts = self.predicts/sum(self.predicts)
+        if save_report:
+            self._get_report()
 
     def _get_folder_save(self) -> str:
         model = self.params["neural model"]
@@ -101,7 +101,7 @@ class neural_model:
         _, class_label = get_labels(self.params)
         labels = self.dataset.test[1]
         report = get_report(labels,
-                            self.predict,
+                            self.predicts,
                             sky_model,
                             operation,
                             class_label)
@@ -279,14 +279,14 @@ class LSTM_model(base_model):
                input_dim: int) -> None:
         input_shape = (input_dim, 1)
         self.model = Sequential([
-             LSTM(256,
+            LSTM(256,
                  input_shape=input_shape,
                  activation='tanh',
                  return_sequences=True),
             Dropout(0.1),
             LSTM(256,
                  activation='tanh'),
-           # Dense(64,
+            # Dense(64,
             # activation='sigmoid'),
             Dense(3,
                   activation='sigmoid')
@@ -321,7 +321,7 @@ class Attention_CNN_model(base_model):
                input_dim: int) -> None:
         input_shape = (input_dim, 1)
         self.model = Sequential([
-            Conv1D(100, 
+            Conv1D(100,
                    5,
                    activation="relu",
                    input_shape=input_shape),
@@ -334,7 +334,7 @@ class Attention_CNN_model(base_model):
                    activation="relu",
                    ),
             Attention(32),
-            Dense(3, 
+            Dense(3,
                   activation='sigmoid')
         ])
 
@@ -342,4 +342,29 @@ class Attention_CNN_model(base_model):
                     params: dict) -> None:
         self._get_filename_best_model(params)
         self.model = load_model(self.filename,
-                                custom_objects={"Attention":Attention})
+                                custom_objects={"Attention": Attention})
+
+
+class Voting_model(neural_model):
+    def __init__(self) -> None:
+        pass
+
+    def run(self,
+            params: dict) -> None:
+        self._get_dataset(params)
+        self.predict(params)
+        params["neural model"] = "Voting"
+        self._get_report()
+        self._save_confusion_matrix()
+
+    def predict(self,
+                params: dict) -> None:
+        for model_name in params["voting models"]:
+            self.predicts = []
+            params["neural model"] = model_name
+            model = neural_model()
+            model.build(params)
+            model.predict()
+            self.predicts += [model.predicts]
+        self.predicts = sum(self.predicts,
+                            axis=0)

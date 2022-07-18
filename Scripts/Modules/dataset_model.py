@@ -1,7 +1,7 @@
 from sklearn.model_selection import train_test_split
 from .data_model import (classification_data,
                          full_comparison_data)
-from numpy import isnan, array, mean
+from numpy import isnan, array
 from pandas import DataFrame
 
 
