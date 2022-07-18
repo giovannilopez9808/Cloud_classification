@@ -180,15 +180,16 @@ def clean_data(data: DataFrame,
     comparison = DataFrame(comparison)
     index = data.index
     header = comparison.columns
-    data = data.to_numpy()
+    clear_data = data.copy()
+    clear_data = clear_data.to_numpy()
     comparison = comparison.to_numpy()
     comparison = comparison.flatten()
-    data[isnan(comparison)] = nan
-    data[clear_sky == 0] = 0
-    data = DataFrame(data,
-                     index=index,
-                     columns=header)
-    return data
+    clear_data[isnan(comparison)] = nan
+    clear_data[clear_sky == 0] = 0
+    clear_data = DataFrame(clear_data,
+                           index=index,
+                           columns=header)
+    return clear_data
 
 # Apartado de cosine similitud
 
@@ -264,16 +265,17 @@ def get_similarity_vectors(clean_data: Type,
 
 def fill_data(data: DataFrame,
               similarity_data: DataFrame) -> DataFrame:
+    full_data = data.copy()
     for data_index, sim_index in zip(data.index,
                                      similarity_data.index):
-        value = data.loc[data_index]
+        value = full_data.loc[data_index]
         value = float(value)
         if isnan(value):
             value = similarity_data.loc[sim_index]
             value = float(value)
-            data.loc[data_index] = value
-    data = DataFrame(data)
-    return data
+            full_data.loc[data_index] = value
+    full_data = DataFrame(full_data)
+    return full_data
 
 
 def get_report(target: list,

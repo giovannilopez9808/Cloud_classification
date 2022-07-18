@@ -21,20 +21,25 @@ class transform_data_model:
 
     def run(self,
             data: DataFrame) -> DataFrame:
-        self._run_clear_sky()
+        self._run_clear_sky(full_comparison=False)
         comparison = self._run_comparison(data,
-                                          True)
-        data = self._run_clean_data(data,
-                                    comparison)
-        self._run_cosine_similarity(data)
-        data = self._run_full_data(data)
-        comparison = self._run_comparison(data,
-                                          False)
+                                          use_threshold=True)
+        self.clear_data = self._run_clean_data(data,
+                                               comparison)
+        self._run_cosine_similarity(self.clear_data)
+        self.full_data = self._run_full_data(self.clear_data)
+        self._run_clear_sky(full_comparison=True)
+        comparison = self._run_comparison(self.full_data,
+                                          use_threshold=False)
         return comparison
 
-    def _run_clear_sky(self):
+    def _run_clear_sky(self,
+                       full_comparison: bool):
+        params = self.params.copy()
         clear_sky = clear_sky_model()
-        clear_sky = clear_sky.run(self.params)
+        if not full_comparison:
+            params["clear sky mode"] = "GHI"
+        clear_sky = clear_sky.run(params)
         self.clear_sky = get_hourly_mean(clear_sky)
 
     def _run_comparison(self,
@@ -53,10 +58,10 @@ class transform_data_model:
     def _run_clean_data(self,
                         data: DataFrame,
                         comparison: DataFrame):
-        data = clean_data(data,
-                          self.clear_sky,
-                          comparison)
-        return data
+        clear_data = clean_data(data,
+                                self.clear_sky,
+                                comparison)
+        return clear_data
 
     def _run_cosine_similarity(self,
                                data: DataFrame):
