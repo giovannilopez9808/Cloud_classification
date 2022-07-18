@@ -239,19 +239,19 @@ def get_neural_params(params: dict) -> dict:
         "Attention CNN": {
             "Noreste": {
                 "validation_split": 0.1,
-               "batch_size": 4,
+                "batch_size": 4,
                 "epochs": 100,
                 "verbose": 1,
             },
             "Noroeste": {
                 "validation_split": 0.1,
                 "batch_size": 3,
-                "epochs":100,
+                "epochs": 100,
                 "verbose": 1,
             },
             "Sureste2": {
                 "validation_split": 0.1,
-                "batch_size":4,
+                "batch_size": 4,
                 "epochs": 200,
                 "verbose": 1,
             },
@@ -276,6 +276,120 @@ def get_neural_params(params: dict) -> dict:
         },
     })
     return dataset
+
+
+def get_voting_models(params: dict) -> list:
+    voting_models = {
+        "Noroeste": {
+            "ratio": {
+                "RS": [
+                    "Bi LSTM",
+                    "Attention CNN",
+                    "CNN",
+                ],
+                "GHI": [
+                    "CNN",
+                    "Bi LSTM",
+                    "Attention CNN",
+                ],
+            },
+            "diff": {
+                "RS": [
+                    "CNN",
+                    "Bi LSTM",
+                    "LSTM",
+                ],
+                "GHI": [
+                    "CNN",
+                    "RNN",
+                    "Bi LSTM"
+                ]
+            },
+        },
+        "Noreste": {
+            "ratio": {
+                "RS": [
+                    "perceptron",
+                    "CNN",
+                    "Bi LSTM",
+                ],
+                "GHI": [
+                    "Bi LSTM",
+                    "CNN",
+                    "RNN",
+                ],
+            },
+            "diff": {
+                "RS": [
+                    "LSTM",
+                    "CNN",
+                    "Bi LSTM",
+                ],
+                "GHI": [
+                    "CNN",
+                    "LSTM",
+                    "Bi LSTM"
+                ]
+            },
+        },
+        "Sureste2": {
+            "ratio": {
+                "RS": [
+                    "CNN",
+                    "Bi LSTM",
+                    "LSTM",
+                ],
+                "GHI": [
+                    "CNN",
+                    "Attention CNN",
+                    "Bi LSTM",
+                ],
+            },
+            "diff": {
+                "RS": [
+                    "CNN",
+                    "Bi LSTM",
+                    "LSTM",
+                ],
+                "GHI": [
+                    "CNN",
+                    "RNN",
+                    "Bi LSTM"
+                ]
+            },
+        },
+        "Suroeste": {
+            "ratio": {
+                "RS": [
+                    "RNN",
+                    "Bi LSTM",
+                    "CNN",
+                ],
+                "GHI": [
+                    "CNN",
+                    "RNN",
+                    "Attention CNN",
+                ],
+            },
+            "diff": {
+                "RS": [
+                    "CNN",
+                    "Bi LSTM",
+                    "LSTM",
+                ],
+                "GHI": [
+                    "CNN",
+                    "LSTM",
+                    "RNN"
+                ]
+            },
+        },
+    }
+    operation = params["comparison operation"]
+    sky_model = params["clear sky model"]
+    station = params["station"]
+    models = voting_models[station][operation][sky_model]
+    return models
 
 
 def get_threshold(params: dict) -> dict:
