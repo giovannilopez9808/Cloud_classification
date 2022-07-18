@@ -1,12 +1,111 @@
 g-0-3
-Sun 17 Jul 2022 09:20:01 PM CDT
-2022-07-17 21:20:20.635476: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+Sun 17 Jul 2022 09:54:36 PM CDT
+2022-07-17 21:54:52.662862: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-07-17 21:20:21.632691: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
-2022-07-17 21:20:21.633411: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
-2022-07-17 21:20:23.175073: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
-2022-07-17 21:20:23.822126: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2022-07-17 21:54:53.692874: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 21:54:53.693582: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 21:54:58.893196: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+1/8 [==>...........................] - ETA: 16s8/8 [==============================] - 2s 6ms/step
+2022-07-17 21:55:05.453396: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+1/8 [==>...........................] - ETA: 5s8/8 [==============================] - 1s 5ms/step
+1/8 [==>...........................] - ETA: 0s8/8 [==============================] - 0s 5ms/step
+2022-07-17 21:55:30.877789: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 21:55:31.869790: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 21:55:31.870472: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 21:55:33.493027: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+2022-07-17 21:55:34.135914: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
  1/10 [==>...........................] - ETA: 14s10/10 [==============================] - 2s 4ms/step
- 1/10 [==>...........................] - ETA: 0s10/10 [==============================] - 0s 903us/step
+ 1/10 [==>...........................] - ETA: 12s10/10 [==============================] - ETA: 0s 10/10 [==============================] - 1s 6ms/step
+ 1/10 [==>...........................] - ETA: 1s10/10 [==============================] - 0s 5ms/step
+2022-07-17 21:56:11.144988: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 21:56:12.147238: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 21:56:12.147976: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 21:56:13.829438: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+2022-07-17 21:56:14.469085: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+1/9 [==>...........................] - ETA: 13s9/9 [==============================] - ETA: 0s 9/9 [==============================] - 2s 9ms/step
+1/9 [==>...........................] - ETA: 0s9/9 [==============================] - 0s 5ms/step
+1/9 [==>...........................] - ETA: 9s9/9 [==============================] - 1s 6ms/step
+2022-07-17 21:56:51.037300: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 21:56:52.032773: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 21:56:52.033479: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 21:56:53.620270: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+2022-07-17 21:56:54.265566: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+ 1/11 [=>............................] - ETA: 16s11/11 [==============================] - 2s 3ms/step
+ 1/11 [=>............................] - ETA: 1s10/11 [==========================>...] - ETA: 0s11/11 [==============================] - 0s 6ms/step
+ 1/11 [=>............................] - ETA: 1s11/11 [==============================] - 0s 5ms/step
+2022-07-17 21:57:26.269860: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 21:57:27.270237: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 21:57:27.270961: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 21:57:30.391990: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+1/8 [==>...........................] - ETA: 11s8/8 [==============================] - 2s 4ms/step
+2022-07-17 21:57:36.884829: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+1/8 [==>...........................] - ETA: 5s8/8 [==============================] - 1s 5ms/step
+1/8 [==>...........................] - ETA: 7s8/8 [==============================] - 1s 6ms/step
+2022-07-17 21:58:05.936907: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 21:58:06.937843: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 21:58:06.938540: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 21:58:08.552384: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+2022-07-17 21:58:09.198156: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+ 1/10 [==>...........................] - ETA: 14s10/10 [==============================] - 2s 4ms/step
+ 1/10 [==>...........................] - ETA: 12s10/10 [==============================] - 1s 6ms/step
+ 1/10 [==>...........................] - ETA: 4s10/10 [==============================] - 1s 4ms/step
+2022-07-17 21:58:47.352021: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 21:58:48.391178: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 21:58:48.391947: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 21:58:50.095318: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+2022-07-17 21:58:50.736571: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+1/9 [==>...........................] - ETA: 13s9/9 [==============================] - ETA: 0s 9/9 [==============================] - 2s 12ms/step
+1/9 [==>...........................] - ETA: 11s9/9 [==============================] - 1s 6ms/step
+1/9 [==>...........................] - ETA: 4s9/9 [==============================] - 1s 4ms/step
+2022-07-17 21:59:28.877876: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 21:59:29.876708: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 21:59:29.877448: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 21:59:31.495995: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+2022-07-17 21:59:32.144471: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+ 1/11 [=>............................] - ETA: 16s11/11 [==============================] - 2s 4ms/step
+ 1/11 [=>............................] - ETA: 14s10/11 [==========================>...] - ETA: 0s 11/11 [==============================] - 2s 6ms/step
+ 1/11 [=>............................] - ETA: 5s11/11 [==============================] - 1s 4ms/step
+2022-07-17 22:00:09.369239: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 22:00:10.364850: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 22:00:10.365553: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 22:00:12.045254: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+2022-07-17 22:00:12.692349: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+1/8 [==>...........................] - ETA: 12s8/8 [==============================] - 2s 5ms/step
+1/8 [==>...........................] - ETA: 5s8/8 [==============================] - 1s 4ms/step
+1/8 [==>...........................] - ETA: 7s8/8 [==============================] - 1s 6ms/step
+2022-07-17 22:00:49.088575: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 22:00:50.121358: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 22:00:50.122099: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 22:00:51.934305: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+2022-07-17 22:00:52.589963: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+ 1/10 [==>...........................] - ETA: 15s10/10 [==============================] - 2s 4ms/step
+ 1/10 [==>...........................] - ETA: 0s10/10 [==============================] - ETA: 0s10/10 [==============================] - 0s 6ms/step
  1/10 [==>...........................] - ETA: 11s10/10 [==============================] - ETA: 0s 10/10 [==============================] - 1s 6ms/step
-Sun 17 Jul 2022 09:20:44 PM CDT
+2022-07-17 22:01:29.323483: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 22:01:30.326861: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 22:01:30.327567: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 22:01:31.942408: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+2022-07-17 22:01:32.577208: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+1/9 [==>...........................] - ETA: 13s9/9 [==============================] - ETA: 0s 9/9 [==============================] - 2s 12ms/step
+1/9 [==>...........................] - ETA: 0s9/9 [==============================] - 0s 5ms/step
+1/9 [==>...........................] - ETA: 10s9/9 [==============================] - ETA: 0s 9/9 [==============================] - 1s 6ms/step
+2022-07-17 22:02:08.934119: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-17 22:02:09.935604: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22844 MB memory:  -> device: 0, name: NVIDIA TITAN RTX, pci bus id: 0000:5e:00.0, compute capability: 7.5
+2022-07-17 22:02:09.936344: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22844 MB memory:  -> device: 1, name: NVIDIA TITAN RTX, pci bus id: 0000:86:00.0, compute capability: 7.5
+2022-07-17 22:02:11.529546: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8302
+2022-07-17 22:02:12.170018: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+ 1/11 [=>............................] - ETA: 16s11/11 [==============================] - 2s 4ms/step
+ 1/11 [=>............................] - ETA: 7s11/11 [==============================] - 1s 4ms/step
+ 1/11 [=>............................] - ETA: 1s11/11 [==============================] - 0s 4ms/step
+Sun 17 Jul 2022 10:02:30 PM CDT

@@ -10,17 +10,16 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
-python Test_voting_model.py ratio RS Noroeste
-#python Train_neural_models.py ratio GHI "Attention CNN" Noreste
-#python Train_neural_models.py ratio GHI "Attention CNN" Noroeste
-#python Train_neural_models.py ratio GHI "Attention CNN" Sureste2
-#python Train_neural_models.py ratio GHI "Attention CNN" Suroeste
-#python Train_neural_models.py diff RS "Attention CNN" Noreste
-#python Train_neural_models.py diff RS "Attention CNN" Noroeste
-#python Train_neural_models.py diff RS "Attention CNN" Sureste2
-#python Train_neural_models.py diff RS "Attention CNN" Suroeste
-#python Train_neural_models.py diff GHI "Attention CNN" Noreste
-#python Train_neural_models.py diff GHI "Attention CNN" Noroeste
-#python Train_neural_models.py diff GHI "Attention CNN" Sureste2
-#python Train_neural_models.py diff GHI "Attention CNN" Suroeste
+python Test_voting_model.py ratio GHI Noreste
+python Test_voting_model.py ratio GHI Noroeste
+python Test_voting_model.py ratio GHI Sureste2
+python Test_voting_model.py ratio GHI Suroeste
+python Test_voting_model.py diff RS Noreste
+python Test_voting_model.py diff RS Noroeste
+python Test_voting_model.py diff RS Sureste2
+python Test_voting_model.py diff RS Suroeste
+python Test_voting_model.py diff GHI Noreste
+python Test_voting_model.py diff GHI Noroeste
+python Test_voting_model.py diff GHI Sureste2
+python Test_voting_model.py diff GHI Suroeste
 date
