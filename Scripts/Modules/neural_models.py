@@ -15,7 +15,10 @@ from Modules.functions import (get_confusion_matrix,
                                mkdir)
 from keras.models import (Sequential,
                           load_model)
-from numpy import argmax, mean, array
+from numpy import (argmax, 
+                   array,
+                   round,
+                   mean)
 from attention import Attention
 from pandas import DataFrame
 from os.path import join
@@ -128,7 +131,7 @@ class neural_model:
         _, class_label = get_labels(self.params)
         labels = self.dataset.test[1]
         matrix = get_confusion_matrix(labels,
-                                      self.predict,
+                                      self.predicts,
                                       class_label)
         folder = self._get_folder_save()
         operation = self.params["comparison operation"]
@@ -353,6 +356,7 @@ class Voting_model(neural_model):
         self._get_dataset(params)
         self.predict(params)
         params["neural model"] = "Voting"
+        self.params=params
         self._get_report()
         self._save_confusion_matrix()
 
