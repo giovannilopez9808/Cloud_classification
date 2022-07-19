@@ -3,9 +3,13 @@ from Modules.functions import get_data_between_hours
 from Modules.clear_sky import clear_sky_model
 from Modules.params import (get_params,
                             get_threshold)
+from pandas import (to_timedelta,
+                    to_datetime,
+                    DataFrame)
 from Modules.data_model import SIMA_model
 import matplotlib.pyplot as plt
-from pandas import DataFrame
+from os.path import join
+from numpy import isnan
 
 
 def get_subparams(station: str,
@@ -35,8 +39,27 @@ def get_station_location(SIMA: SIMA_model,
     return subparams
 
 
+def get_index(clear_data: DataFrame,
+              full_data: DataFrame) -> DataFrame:
+    data = DataFrame(index=clear_data.index,
+                     columns=["data"])
+    index = clear_data[isnan(clear_data["H0"])]
+    index = index.index
+    new_index = set()
+    for hour in index:
+        date = to_datetime(hour)
+        for update in range(-1, 2):
+            hour_u = date + to_timedelta(update,
+                                         unit="H")
+            new_index.add(hour_u)
+    new_index = sorted(list(new_index))
+    data.loc[new_index] = full_data.loc[new_index]
+    return data
+
+
 params = get_params()
 params.update({
+    "file graphics": "Reconstruction.png",
     "comparison operation": "ratio",
     "clear sky model": "RS",
     "top vectors": 30,
@@ -61,7 +84,7 @@ params["threshold"] = get_threshold(params)
 fig, axs = plt.subplots(2, 2,
                         # sharex=True,
                         sharey=True,
-                        figsize=(12, 8))
+                        figsize=(12, 6))
 axs = axs.flatten()
 for station, ax in zip(params["datasets"],
                        axs):
@@ -79,6 +102,8 @@ for station, ax in zip(params["datasets"],
                                   subparams)
     transform_data = transform_data_model(subparams)
     comparison = transform_data.run(data)
+    reconstruction = get_index(transform_data.clear_data,
+                               transform_data.full_data)
     GHI_params = subparams.copy()
     GHI_params["clear sky model"] = "GHI"
     GHI = clear_sky_model()
@@ -87,14 +112,17 @@ for station, ax in zip(params["datasets"],
         RS = clear_sky_model()
         RS = RS.run(subparams)
     ax.plot(GHI,
-            color="#80b918")
+            label="GHI$_0$ model",
+            color="#6a040f")
     ax.plot(RS,
-            color="#bf0603")
+            label="RS model",
+            color="#007f5f")
     ax.plot(transform_data.clear_data,
-            color="#f72585",
-            marker=".")
-    ax.plot(transform_data.full_data,
-            color="#480ca8",
+            label="SIMA",
+            color="#b5179e")
+    ax.plot(reconstruction,
+            color="#6a994e",
+            label="Reconstruction",
             ls="--")
     date = subparams["date"]
     fig.text(0.005, 0.37,
@@ -114,6 +142,14 @@ for station, ax in zip(params["datasets"],
             color="#000000",
             alpha=0.6)
 ax.set_ylim(0, 1400)
-plt.tight_layout(pad=2.1)
-plt.savefig("test.png",
+handles, labels = ax.get_legend_handles_labels()
+fig.legend(handles,
+           labels,
+           ncol=4,
+           frameon=False,
+           loc='upper center')
+plt.tight_layout(pad=2.2)
+filename = join(params["path graphics"],
+                params["file graphics"])
+plt.savefig(filename,
             dpi=400)
