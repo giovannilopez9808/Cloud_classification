@@ -86,7 +86,7 @@ for station in params["test"]:
         model.build(subparams)
         model.predict_one(comparison)
         result = model.predicts
-        results_per_station += [result[0]]
+        results_per_station += [result]
     header = f"{station} {subparams['date']}"
     results[header] = results_per_station
 filename = join(params["path results"],
