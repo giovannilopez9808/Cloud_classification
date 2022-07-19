@@ -47,7 +47,7 @@ def get_params() -> dict:
             "RNN",
             "Bi LSTM",
             "Attention CNN",
-            "Voting",
+            # "Voting",
         ],
         # Estaciones a utilizar
         "stations": [
