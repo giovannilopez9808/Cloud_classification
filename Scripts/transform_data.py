@@ -1,5 +1,6 @@
 from Modules.transform_data import transform_data_model
 from Modules.functions import get_data_between_hours
+from Modules.clear_sky import clear_sky_model
 from Modules.params import (get_params,
                             get_threshold)
 from Modules.data_model import SIMA_model
@@ -40,19 +41,19 @@ params.update({
     "clear sky model": "RS",
     "top vectors": 30,
     "pollutant": "SR",
-    "timezone": -5,
+    "timezone": -6.25,
     "datasets": {
         "Sureste2": {
-            "date": "2021-07-22",
+            "date": "2015-02-01",
         },
         "Noreste": {
-            "date": "2019-01-20",
+            "date": "2012-08-10",
         },
         "Noroeste": {
-            "date": "2021-04-09",
+            "date": "2016-03-19",
         },
         "Suroeste": {
-            "date": "2019-11-22",
+            "date": "2017-10-08",
         },
     },
 })
@@ -78,12 +79,32 @@ for station, ax in zip(params["datasets"],
                                   subparams)
     transform_data = transform_data_model(subparams)
     comparison = transform_data.run(data)
+    GHI_params = subparams.copy()
+    GHI_params["clear sky model"] = "GHI"
+    GHI = clear_sky_model()
+    GHI = GHI.run(GHI_params)
+    if subparams["clear sky model"] == "RS":
+        RS = clear_sky_model()
+        RS = RS.run(subparams)
+    ax.plot(GHI,
+            color="#80b918")
+    ax.plot(RS,
+            color="#bf0603")
     ax.plot(transform_data.clear_data,
-            color="#f72585")
+            color="#f72585",
+            marker=".")
     ax.plot(transform_data.full_data,
             color="#480ca8",
             ls="--")
     date = subparams["date"]
+    fig.text(0.005, 0.37,
+             "Solar irradiance (W/m$^2$)",
+             horizontalalignment='left',
+             rotation='vertical',
+             fontsize=13)
+    fig.text(0.46, 0.01,
+             "Local time (h)",
+             fontsize=13)
     ax.set_title(f"{station} {date}")
     ax.set_xticks(data.index)
     ax.set_xticklabels(data.index.hour)
@@ -92,7 +113,7 @@ for station, ax in zip(params["datasets"],
     ax.grid(ls="--",
             color="#000000",
             alpha=0.6)
-ax.set_ylim(0, 900)
-plt.tight_layout()
+ax.set_ylim(0, 1400)
+plt.tight_layout(pad=2.1)
 plt.savefig("test.png",
             dpi=400)
