@@ -1,7 +1,7 @@
 """
 python classification_model.py (classification_model) (station)
 """
-from Modules.classification_classic_models import classification_model
+from Modules.classic_models import classification_model
 from Modules.dataset_model import dataset_model
 from Modules.functions import (get_confusion_matrix,
                                get_labels,
