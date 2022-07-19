@@ -70,6 +70,7 @@ def get_params() -> dict:
                 "color": "#007ea7"
             },
         },
+        "pollutant": "SR",
         "hour initial": 0,
         "hour final": 24,
         "years": [

@@ -63,7 +63,6 @@ params.update({
     "comparison operation": "ratio",
     "clear sky model": "RS",
     "top vectors": 30,
-    "pollutant": "SR",
     "timezone": -6.25,
     "datasets": {
         "Sureste2": {

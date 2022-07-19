@@ -6,7 +6,7 @@ from os.path import join
 
 params = get_params()
 params.update({
-    "file results": "similarity",
+    "file results": "similarity.csv",
 })
 clean_data = clean_data_model(params)
 dates = clean_data.get_dates()
@@ -24,7 +24,6 @@ cosine = 1-pairwise_distances(vectors,
 cosine = DataFrame(cosine,
                    index=headers,
                    columns=headers)
-filename = "{}.csv".format(params["file results"])
 filename = join(params["path results"],
-                filename)
+                params["file results"])
 cosine.to_csv(filename)

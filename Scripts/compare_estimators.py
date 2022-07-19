@@ -53,16 +53,17 @@ def get_reports(models: str,
     return reports
 
 
-params = get_params()
-params.update({
-    "station": argv[1],
-})
-reports_classical = get_reports("classical",
-                                params)
-reports_neural = get_reports("neural",
-                             params)
-reports = concat([reports_classical,
-                 reports_neural])
-reports.index = [index.replace("_", " ")
-                 for index in reports.index]
-print(reports)
+if __name__ == "__main__":
+    params = get_params()
+    params.update({
+        "station": argv[1],
+    })
+    reports_classical = get_reports("classical",
+                                    params)
+    reports_neural = get_reports("neural",
+                                 params)
+    reports = concat([reports_classical,
+                     reports_neural])
+    reports.index = [index.replace("_", " ")
+                     for index in reports.index]
+    print(reports)

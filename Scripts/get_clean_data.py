@@ -19,7 +19,6 @@ params.update({
     "comparison operation": "ratio",
     "file results": "clean_data",
     "clear sky model": "GHI",
-    "pollutant": "SR",
 })
 params["threshold"] = get_threshold(params)
 results = DataFrame(columns=params["stations"])
