@@ -14,12 +14,12 @@ from numpy import isnan
 
 def get_subparams(station: str,
                   params: dict) -> dict:
-    year = params["datasets"][station]["date"]
+    year = params["test"][station]["date"]
     year = year.split("-")[0]
     subparams = params.copy()
-    subparams.pop("datasets")
+    subparams.pop("test")
     subparams.update({
-        "date": params["datasets"][station]["date"],
+        "date": params["test"][station]["date"],
         "timezone": params["timezone"],
         "station": station,
         "year": year,
@@ -64,20 +64,6 @@ params.update({
     "clear sky model": "RS",
     "top vectors": 30,
     "timezone": -6.25,
-    "datasets": {
-        "Sureste2": {
-            "date": "2015-02-01",
-        },
-        "Noreste": {
-            "date": "2012-08-10",
-        },
-        "Noroeste": {
-            "date": "2016-03-19",
-        },
-        "Suroeste": {
-            "date": "2017-10-08",
-        },
-    },
 })
 params["threshold"] = get_threshold(params)
 fig, axs = plt.subplots(2, 2,
@@ -85,7 +71,7 @@ fig, axs = plt.subplots(2, 2,
                         sharey=True,
                         figsize=(12, 6))
 axs = axs.flatten()
-for station, ax in zip(params["datasets"],
+for station, ax in zip(params["test"],
                        axs):
     subparams = get_subparams(station,
                               params)

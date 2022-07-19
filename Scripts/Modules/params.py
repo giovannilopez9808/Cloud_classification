@@ -56,6 +56,20 @@ def get_params() -> dict:
             "Noroeste",
             "Suroeste",
         ],
+        "test": {
+            "Sureste2": {
+                "date": "2015-02-01",
+            },
+            "Noreste": {
+                "date": "2012-08-10",
+            },
+            "Noroeste": {
+                "date": "2016-03-19",
+            },
+            "Suroeste": {
+                "date": "2017-10-08",
+            },
+        },
         "classification": {
             0: {
                 "label": "Cloudly",
@@ -78,6 +92,7 @@ def get_params() -> dict:
             "2020",
             "2021",
         ],
+
     }
     return params
 
