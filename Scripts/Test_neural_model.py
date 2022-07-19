@@ -1,7 +1,7 @@
 from Modules.transform_data import transform_data_model
-from Modules.classic_models import classification_model
 from Modules.functions import get_data_between_hours
 from Modules.dataset_model import dataset_model
+from Modules.neural_models import neural_model
 from Modules.params import (get_params,
                             get_threshold)
 from Modules.data_model import SIMA_model
@@ -56,8 +56,8 @@ params.update({
 })
 params["threshold"] = get_threshold(params)
 headers = get_test_header(params)
-model = classification_model()
-results = DataFrame(index=params["classical models"],
+model = neural_model()
+results = DataFrame(index=params["neural models"],
                     columns=headers)
 for station in params["test"]:
     print("-"*40)
@@ -78,20 +78,18 @@ for station in params["test"]:
                                   subparams)
     transform_data = transform_data_model(subparams)
     comparison = transform_data.run(data)
-    comparison = comparison.to_numpy()
-    comparison = comparison.flatten()
     results_per_station = list()
-    bar = tqdm(params["classical models"])
+    bar = tqdm(params["neural models"])
     for model_name in bar:
         bar.set_postfix(model=model_name)
-        subparams["classification model"] = model_name
-        model.define_model(subparams)
-        model.run(dataset.train)
-        result = model.predict([[comparison], 0])
+        subparams["neural model"] = model_name
+        model.build(subparams)
+        model.predict_one(comparison)
+        result = model.predicts
         results_per_station += [result[0]]
     header = f"{station} {subparams['date']}"
     results[header] = results_per_station
 filename = join(params["path results"],
-                params["Classical model path"],
+                params["Neural model path"],
                 params["file results"])
 results.to_csv(filename)

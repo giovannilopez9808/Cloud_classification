@@ -15,7 +15,8 @@ from Modules.functions import (get_confusion_matrix,
                                mkdir)
 from keras.models import (Sequential,
                           load_model)
-from numpy import (argmax, 
+from numpy import (expand_dims,
+                   argmax,
                    array,
                    round,
                    mean)
@@ -85,6 +86,11 @@ class neural_model:
                                            self.params)
         if save_report:
             self._get_report()
+
+    def predict_one(self,
+                    data: DataFrame) -> int:
+        self.predicts = self.model.predict_one(data,
+                                               self.params)
 
     def _get_folder_save(self) -> str:
         model = self.params["neural model"]
@@ -203,6 +209,17 @@ class base_model:
         results = self.model.predict(dataset.test[0])
         results = argmax(results,
                          axis=1)
+        return results
+
+    def predict_one(self,
+                    data: DataFrame,
+                    params: dict) -> int:
+        self._load_model(params)
+        vector = data.to_numpy()
+        vector = expand_dims(vector,
+                             axis=0)
+        results = self.model.predict(vector)
+        results = argmax(results)
         return results
 
     def _load_model(self,
@@ -356,7 +373,7 @@ class Voting_model(neural_model):
         self._get_dataset(params)
         self.predict(params)
         params["neural model"] = "Voting"
-        self.params=params
+        self.params = params
         self._get_report()
         self._save_confusion_matrix()
 
