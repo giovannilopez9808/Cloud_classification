@@ -12,45 +12,47 @@
 Attention_CNN_model	Modules/neural_models.py	/^class Attention_CNN_model(base_model):$/;"	c
 Bidirectional_LSTM_model	Modules/neural_models.py	/^class Bidirectional_LSTM_model(base_model):$/;"	c
 CNN_model	Modules/neural_models.py	/^class CNN_model(base_model):$/;"	c
-Decision_tree_model	Modules/classification_classic_models.py	/^class Decision_tree_model:$/;"	c
+Decision_tree_model	Modules/classic_models.py	/^class Decision_tree_model:$/;"	c
 GHI	Reconstructio_graphics.py	/^    GHI = GHI.run(GHI_params)$/;"	v
 GHI	Reconstructio_graphics.py	/^    GHI = clear_sky_model()$/;"	v
 GHI_model	Modules/GHI_model.py	/^class GHI_model:$/;"	c
 GHI_params	Reconstructio_graphics.py	/^    GHI_params = subparams.copy()$/;"	v
-Gaussian_naive_model	Modules/classification_classic_models.py	/^class Gaussian_naive_model:$/;"	c
-KNN_model	Modules/classification_classic_models.py	/^class KNN_model:$/;"	c
+Gaussian_naive_model	Modules/classic_models.py	/^class Gaussian_naive_model:$/;"	c
+KNN_model	Modules/classic_models.py	/^class KNN_model:$/;"	c
 LSTM_model	Modules/neural_models.py	/^class LSTM_model(base_model):$/;"	c
 Perceptron_model	Modules/neural_models.py	/^class Perceptron_model(base_model):$/;"	c
 RNN_model	Modules/neural_models.py	/^class RNN_model(base_model):$/;"	c
 RS	Reconstructio_graphics.py	/^        RS = RS.run(subparams)$/;"	v
 RS	Reconstructio_graphics.py	/^        RS = clear_sky_model()$/;"	v
 RS_model	Modules/RS_model.py	/^class RS_model(GHI_model):$/;"	c
-Random_forest_model	Modules/classification_classic_models.py	/^class Random_forest_model:$/;"	c
+Random_forest_model	Modules/classic_models.py	/^class Random_forest_model:$/;"	c
 Report_reader	Modules/report_reader.py	/^class Report_reader:$/;"	c
 SIMA	Daily_graphics.py	/^SIMA = SIMA_model(params)$/;"	v
-SIMA	comparison_data.py	/^        SIMA = SIMA_model(params)$/;"	v
+SIMA	comparison_data.py	/^            SIMA = SIMA_model(params)$/;"	v
 SIMA	get_clean_data.py	/^        SIMA = SIMA_model(params)$/;"	v
 SIMA	get_clear_sky.py	/^    SIMA = SIMA_model(params)$/;"	v
 SIMA_daily	Daily_graphics.py	/^            SIMA_daily = SIMA.get_date_data(date)$/;"	v
-SIMA_daily	comparison_data.py	/^    SIMA_daily = SIMA.get_date_data(date)$/;"	v
+SIMA_daily	comparison_data.py	/^        SIMA_daily = SIMA.get_date_data(date)$/;"	v
 SIMA_daily	get_clean_data.py	/^    SIMA_daily = SIMA.get_date_data(date)$/;"	v
 SIMA_data	Reconstructio_graphics.py	/^    SIMA_data = SIMA_model(subparams)$/;"	v
+SIMA_data	Test_classification_model.py	/^    SIMA_data = SIMA_model(subparams)$/;"	v
+SIMA_data	Test_neural_model.py	/^    SIMA_data = SIMA_model(subparams)$/;"	v
 SIMA_model	Modules/data_model.py	/^class SIMA_model(data_base_model):$/;"	c
-SIMA_station	comparison_data.py	/^        SIMA_station = SIMA_daily[(station.upper(),$/;"	v
-SIMA_station	comparison_data.py	/^        SIMA_station = get_data_between_hours(SIMA_station,$/;"	v
+SIMA_station	comparison_data.py	/^            SIMA_station = SIMA_daily[(station.upper(),$/;"	v
+SIMA_station	comparison_data.py	/^            SIMA_station = get_data_between_hours(SIMA_station,$/;"	v
 SIMA_station	get_clean_data.py	/^        SIMA_station = SIMA_daily[(station.upper(),$/;"	v
 SIMA_station	get_clean_data.py	/^        SIMA_station = get_data_between_hours(SIMA_station,$/;"	v
-SVM_model	Modules/classification_classic_models.py	/^class SVM_model:$/;"	c
+SVM_model	Modules/classic_models.py	/^class SVM_model:$/;"	c
 Voting_model	Modules/neural_models.py	/^class Voting_model(neural_model):$/;"	c
-_	Test_classification_model.py	/^        _, labels = get_labels(params)$/;"	v
+_	Run_classification_model.py	/^        _, labels = get_labels(params)$/;"	v
 __init__	Modules/GHI_model.py	/^    def __init__(self) -> None:$/;"	m	class:GHI_model	typeref:typename:None
 __init__	Modules/RS_model.py	/^    def __init__(self) -> None:$/;"	m	class:RS_model	typeref:typename:None
-__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:Decision_tree_model	typeref:typename:None
-__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:Gaussian_naive_model	typeref:typename:None
-__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:KNN_model	typeref:typename:None
-__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:Random_forest_model	typeref:typename:None
-__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:SVM_model	typeref:typename:None
-__init__	Modules/classification_classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:classification_model	typeref:typename:None
+__init__	Modules/classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:Decision_tree_model	typeref:typename:None
+__init__	Modules/classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:Gaussian_naive_model	typeref:typename:None
+__init__	Modules/classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:KNN_model	typeref:typename:None
+__init__	Modules/classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:Random_forest_model	typeref:typename:None
+__init__	Modules/classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:SVM_model	typeref:typename:None
+__init__	Modules/classic_models.py	/^    def __init__(self) -> None:$/;"	m	class:classification_model	typeref:typename:None
 __init__	Modules/clear_sky.py	/^    def __init__(self) -> None:$/;"	m	class:clear_sky_model	typeref:typename:None
 __init__	Modules/data_model.py	/^    def __init__(self,$/;"	m	class:SIMA_model	typeref:typename:None
 __init__	Modules/data_model.py	/^    def __init__(self,$/;"	m	class:classification_data	typeref:typename:None
@@ -134,13 +136,16 @@ _to_table	Modules/report_reader.py	/^    def _to_table(self,$/;"	m	class:Report_
 all_axs	distribution_per_classification.py	/^all_axs = all_axs.T$/;"	v
 all_axs	distribution_per_classification.py	/^fig, all_axs = plt.subplots(3, 4,$/;"	v
 autolabel	distribution.py	/^def autolabel(rects: BarContainer) -> None:$/;"	f	typeref:typename:None
+ax	Join_test_models.py	/^fig, ax = plt.subplots()$/;"	v
 axs	Reconstructio_graphics.py	/^axs = axs.flatten()$/;"	v
 axs	Reconstructio_graphics.py	/^fig, axs = plt.subplots(2, 2,$/;"	v
 bar	Count_data.py	/^bar = tqdm(files)$/;"	v
-bar	Test_classification_model.py	/^bar = tqdm(params["clear sky models"])$/;"	v
+bar	Run_classification_model.py	/^bar = tqdm(params["clear sky models"])$/;"	v
+bar	Test_classification_model.py	/^    bar = tqdm(params["classical models"])$/;"	v
+bar	Test_neural_model.py	/^    bar = tqdm(params["neural models"])$/;"	v
 bar	distribution.py	/^bar = plt.bar(frecuency.index,$/;"	v
 bar	get_clear_sky.py	/^    bar = tqdm(dates)$/;"	v
-bar_dates	comparison_data.py	/^bar_dates = tqdm(dates)$/;"	v
+bar_dates	comparison_data.py	/^    bar_dates = tqdm(dates)$/;"	v
 bar_dates	full_comparison.py	/^bar_dates = tqdm(dates)$/;"	v
 bar_dates	get_clean_data.py	/^bar_dates = tqdm(dates)$/;"	v
 bar_dates	get_full_data.py	/^bar_dates = tqdm(dates)$/;"	v
@@ -153,7 +158,7 @@ classification	full_central_tendency_per_classification.py	/^classification = cl
 classification	get_full_data.py	/^classification = classification_data(params)$/;"	v
 classification_daily	get_full_data.py	/^    classification_daily = classification.get_date_data(date)$/;"	v
 classification_data	Modules/data_model.py	/^class classification_data(data_base_model):$/;"	c
-classification_model	Modules/classification_classic_models.py	/^class classification_model:$/;"	c
+classification_model	Modules/classic_models.py	/^class classification_model:$/;"	c
 classification_station	get_full_data.py	/^        classification_station = classification_daily[station]$/;"	v
 classification_station	get_full_data.py	/^        classification_station = classification_station[0]$/;"	v
 clean_data	Modules/functions.py	/^def clean_data(data: DataFrame,$/;"	f	typeref:typename:DataFrame
@@ -166,7 +171,7 @@ clean_data_station	get_full_data.py	/^        clean_data_station = clean_data_da
 clean_data_station	get_full_data.py	/^        clean_data_station = get_data_between_hours(clean_data_station,$/;"	v
 clear_sky	Daily_full_graphics.py	/^clear_sky = clear_sky_data(params)$/;"	v
 clear_sky	Daily_graphics.py	/^clear_sky = clear_sky_data(params)$/;"	v
-clear_sky	comparison_data.py	/^clear_sky = clear_sky_data(params)$/;"	v
+clear_sky	comparison_data.py	/^    clear_sky = clear_sky_data(params)$/;"	v
 clear_sky	comparison_missing_data_graphics.py	/^clear_sky = clear_sky.get_data(params["station"],$/;"	v
 clear_sky	comparison_missing_data_graphics.py	/^clear_sky = clear_sky_data(params)$/;"	v
 clear_sky	comparison_missing_data_graphics.py	/^clear_sky = get_hourly_mean(clear_sky)$/;"	v
@@ -178,14 +183,14 @@ clear_sky_daily	Daily_full_graphics.py	/^        clear_sky_daily = clear_sky.get
 clear_sky_daily	Daily_full_graphics.py	/^        clear_sky_daily = get_hourly_mean(clear_sky_daily)$/;"	v
 clear_sky_daily	Daily_graphics.py	/^            clear_sky_daily = clear_sky.get_date_data(date)$/;"	v
 clear_sky_daily	Daily_graphics.py	/^            clear_sky_daily = get_hourly_mean(clear_sky_daily)$/;"	v
-clear_sky_daily	comparison_data.py	/^    clear_sky_daily = clear_sky.get_date_data(date)$/;"	v
+clear_sky_daily	comparison_data.py	/^        clear_sky_daily = clear_sky.get_date_data(date)$/;"	v
 clear_sky_daily	full_comparison.py	/^    clear_sky_daily = clear_sky.get_date_data(date)$/;"	v
 clear_sky_daily	get_clean_data.py	/^    clear_sky_daily = clear_sky.get_date_data(date)$/;"	v
 clear_sky_data	Modules/data_model.py	/^class clear_sky_data(data_base_model):$/;"	c
 clear_sky_model	Modules/clear_sky.py	/^class clear_sky_model:$/;"	c
-clear_sky_station	comparison_data.py	/^        clear_sky_station = clear_sky_daily[station]$/;"	v
-clear_sky_station	comparison_data.py	/^        clear_sky_station = get_data_between_hours(clear_sky_station,$/;"	v
-clear_sky_station	comparison_data.py	/^        clear_sky_station = get_hourly_mean(clear_sky_station)$/;"	v
+clear_sky_station	comparison_data.py	/^            clear_sky_station = clear_sky_daily[station]$/;"	v
+clear_sky_station	comparison_data.py	/^            clear_sky_station = get_data_between_hours(clear_sky_station,$/;"	v
+clear_sky_station	comparison_data.py	/^            clear_sky_station = get_hourly_mean(clear_sky_station)$/;"	v
 clear_sky_station	full_comparison.py	/^        clear_sky_station = clear_sky_daily[station]$/;"	v
 clear_sky_station	full_comparison.py	/^        clear_sky_station = get_data_between_hours(clear_sky_station,$/;"	v
 clear_sky_station	full_comparison.py	/^        clear_sky_station = get_hourly_mean(clear_sky_station)$/;"	v
@@ -194,16 +199,22 @@ clear_sky_station	get_clean_data.py	/^        clear_sky_station = get_data_betwe
 clear_sky_station	get_clean_data.py	/^        clear_sky_station = get_hourly_mean(clear_sky_station)$/;"	v
 cloud_types	central_tendency_per_classification.py	/^cloud_types, names = get_labels(params)$/;"	v
 cloud_types	full_central_tendency_per_classification.py	/^cloud_types, names = get_labels(params)$/;"	v
+cmap	Join_test_models.py	/^cmap = LinearSegmentedColormap.from_list("custom",$/;"	v
 color	distribution_per_classification.py	/^        color = params["classification"][index]["color"]$/;"	v
+colors	Join_test_models.py	/^colors = [params["colors"][label]$/;"	v
 colors	distribution.py	/^colors = get_colors(params)$/;"	v
 columns	Count_data.py	/^    columns = [(station, value)$/;"	v
 columns	Count_data.py	/^    columns = data.columns$/;"	v
 columns	organize_2021_data.py	/^    columns = list(results.columns)$/;"	v
 comparison	Reconstructio_graphics.py	/^    comparison = transform_data.run(data)$/;"	v
+comparison	Test_classification_model.py	/^    comparison = comparison.flatten()$/;"	v
+comparison	Test_classification_model.py	/^    comparison = comparison.to_numpy()$/;"	v
+comparison	Test_classification_model.py	/^    comparison = transform_data.run(data)$/;"	v
+comparison	Test_neural_model.py	/^    comparison = transform_data.run(data)$/;"	v
 comparison	central_tendency.py	/^comparison = full_comparison_data(params)$/;"	v
 comparison	central_tendency_per_classification.py	/^comparison = comparison_data(params)$/;"	v
-comparison	comparison_data.py	/^        comparison = comparison_operation(SIMA_station,$/;"	v
-comparison	comparison_data.py	/^        comparison = threshold_filter(comparison,$/;"	v
+comparison	comparison_data.py	/^            comparison = comparison_operation(SIMA_station,$/;"	v
+comparison	comparison_data.py	/^            comparison = threshold_filter(comparison,$/;"	v
 comparison	full_central_tendency_per_classification.py	/^comparison = full_comparison_data(params)$/;"	v
 comparison	full_comparison.py	/^        comparison = comparison_operation(full_data_station,$/;"	v
 comparison	get_clean_data.py	/^comparison = comparison_data(params)$/;"	v
@@ -226,9 +237,16 @@ data	Count_data.py	/^    data = data[columns]$/;"	v
 data	Count_data.py	/^    data = data[data.index.hour <= 19]$/;"	v
 data	Count_data.py	/^    data = data[data.index.hour >= 8]$/;"	v
 data	Count_data.py	/^    data = read_csv(filename,$/;"	v
+data	Join_test_models.py	/^    data = read_csv(filename,$/;"	v
 data	Reconstructio_graphics.py	/^    data = DataFrame(data)$/;"	v
 data	Reconstructio_graphics.py	/^    data = SIMA_data.get_data(subparams["station"],$/;"	v
 data	Reconstructio_graphics.py	/^    data = get_data_between_hours(data,$/;"	v
+data	Test_classification_model.py	/^    data = DataFrame(data)$/;"	v
+data	Test_classification_model.py	/^    data = SIMA_data.get_data(subparams["station"],$/;"	v
+data	Test_classification_model.py	/^    data = get_data_between_hours(data,$/;"	v
+data	Test_neural_model.py	/^    data = DataFrame(data)$/;"	v
+data	Test_neural_model.py	/^    data = SIMA_data.get_data(subparams["station"],$/;"	v
+data	Test_neural_model.py	/^    data = get_data_between_hours(data,$/;"	v
 data	central_tendency_per_classification.py	/^data = dict()$/;"	v
 data	comparison_missing_data_graphics.py	/^data = SIMA_model(params)$/;"	v
 data	comparison_missing_data_graphics.py	/^data = data.get_data(params["station"],$/;"	v
@@ -241,7 +259,9 @@ data	organize_2021_data.py	/^        data = data_format(data)$/;"	v
 data	organize_2021_data.py	/^        data = read_csv(file)$/;"	v
 data_base_model	Modules/data_model.py	/^class data_base_model:$/;"	c
 data_format	organize_2021_data.py	/^def data_format(data: DataFrame) -> DataFrame:$/;"	f	typeref:typename:DataFrame
-dataset	Test_classification_model.py	/^        dataset = dataset_model(params)$/;"	v
+dataset	Run_classification_model.py	/^        dataset = dataset_model(params)$/;"	v
+dataset	Test_classification_model.py	/^    dataset = dataset_model(subparams)$/;"	v
+dataset	Test_neural_model.py	/^    dataset = dataset_model(subparams)$/;"	v
 dataset	distribution_per_classification.py	/^    dataset = dataset_model(params)$/;"	v
 dataset	get_clear_sky.py	/^            dataset = SIMA.get_station_info(params,$/;"	v
 dataset_model	Modules/dataset_model.py	/^class dataset_model:$/;"	c
@@ -250,7 +270,7 @@ date_format	organize_2021_data.py	/^def date_format(date: str) -> str:$/;"	f	typ
 dates	Daily_full_graphics.py	/^dates = clear_sky.get_dates()$/;"	v
 dates	Daily_graphics.py	/^dates = clear_sky.get_dates()$/;"	v
 dates	central_tendency_per_classification.py	/^        dates = values.index$/;"	v
-dates	comparison_data.py	/^dates = clear_sky.get_dates()$/;"	v
+dates	comparison_data.py	/^    dates = clear_sky.get_dates()$/;"	v
 dates	full_central_tendency_per_classification.py	/^        dates = values.index$/;"	v
 dates	full_comparison.py	/^dates = clear_sky.get_dates()$/;"	v
 dates	get_clean_data.py	/^dates = comparison.get_dates()$/;"	v
@@ -263,21 +283,26 @@ dates_bar	Daily_graphics.py	/^    dates_bar = tqdm(dates)$/;"	v
 datetime	Daily_full_graphics.py	/^        datetime = datetime.date()$/;"	v
 datetime	Daily_full_graphics.py	/^        datetime = to_datetime(date)$/;"	v
 datetime_format	Modules/functions.py	/^def datetime_format(date: Timestamp,$/;"	f	typeref:typename:str
-define_model	Modules/classification_classic_models.py	/^    def define_model(self,$/;"	m	class:classification_model	typeref:typename:None
+define_model	Modules/classic_models.py	/^    def define_model(self,$/;"	m	class:classification_model	typeref:typename:None
+fig	Join_test_models.py	/^fig, ax = plt.subplots()$/;"	v
 fig	Reconstructio_graphics.py	/^fig, axs = plt.subplots(2, 2,$/;"	v
 fig	distribution_per_classification.py	/^fig, all_axs = plt.subplots(3, 4,$/;"	v
-file	Test_classification_model.py	/^file = open(filename, "w")$/;"	v
+file	Run_classification_model.py	/^file = open(filename, "w")$/;"	v
 filename	Count_data.py	/^    filename = join(params["path data"],$/;"	v
 filename	Count_data.py	/^filename = join(params["path results"],$/;"	v
+filename	Join_test_models.py	/^    filename = join(params["path results"],$/;"	v
+filename	Join_test_models.py	/^filename = join(params["path graphics"],$/;"	v
 filename	Reconstructio_graphics.py	/^filename = join(params["path graphics"],$/;"	v
-filename	Test_classification_model.py	/^        filename = "{}_{}_matrix.csv".format(operation,$/;"	v
-filename	Test_classification_model.py	/^        filename = join(folder,$/;"	v
-filename	Test_classification_model.py	/^filename = "report.csv"$/;"	v
-filename	Test_classification_model.py	/^filename = join(folder,$/;"	v
+filename	Run_classification_model.py	/^        filename = "{}_{}_matrix.csv".format(operation,$/;"	v
+filename	Run_classification_model.py	/^        filename = join(folder,$/;"	v
+filename	Run_classification_model.py	/^filename = "report.csv"$/;"	v
+filename	Run_classification_model.py	/^filename = join(folder,$/;"	v
+filename	Test_classification_model.py	/^filename = join(params["path results"],$/;"	v
+filename	Test_neural_model.py	/^filename = join(params["path results"],$/;"	v
 filename	central_tendency_per_classification.py	/^filename = "{}_{}.csv".format(params["file results"],$/;"	v
 filename	central_tendency_per_classification.py	/^filename = join(params["path results"],$/;"	v
-filename	comparison_data.py	/^filename = f"{params['file results']}.csv"$/;"	v
-filename	comparison_data.py	/^filename = join(params['path results'],$/;"	v
+filename	comparison_data.py	/^    filename = f"{params['file results']}.csv"$/;"	v
+filename	comparison_data.py	/^    filename = join(params['path results'],$/;"	v
 filename	distribution.py	/^filename = join(params["path graphics"],$/;"	v
 filename	distribution.py	/^filename = join(params["path results"],$/;"	v
 filename	full_central_tendency_per_classification.py	/^filename = "{}_{}.csv".format(params["file results"],$/;"	v
@@ -292,7 +317,6 @@ filename	get_full_data.py	/^filename = f"{params['similarity file']}.csv"$/;"	v
 filename	get_full_data.py	/^filename = join(params["path results"],$/;"	v
 filename	get_resume_estimators.py	/^filename = "{}_{}_resume.csv".format(params["comparison operation"],$/;"	v
 filename	get_resume_estimators.py	/^filename = join(folder,$/;"	v
-filename	get_similarity_matrix.py	/^filename = "{}.csv".format(params["file results"])$/;"	v
 filename	get_similarity_matrix.py	/^filename = join(params["path results"],$/;"	v
 filename	history_plot.py	/^filename = "{}_{}.csv".format(params["comparison operation"],$/;"	v
 filename	history_plot.py	/^filename = join(params["path results"],$/;"	v
@@ -304,7 +328,7 @@ files	organize_2021_data.py	/^    files = sorted(ls())$/;"	v
 fill_data	Modules/functions.py	/^def fill_data(data: DataFrame,$/;"	f	typeref:typename:DataFrame
 fill_number	Modules/clear_sky.py	/^def fill_number(number: int,$/;"	f	typeref:typename:str
 fill_number	Modules/functions.py	/^def fill_number(number: int,$/;"	f	typeref:typename:str
-folder	Test_classification_model.py	/^folder = join(params["path results"],$/;"	v
+folder	Run_classification_model.py	/^folder = join(params["path results"],$/;"	v
 folder	get_resume_estimators.py	/^folder = join(params["path results"],$/;"	v
 folder	get_resume_estimators.py	/^folder = params["model type"].replace(" ",$/;"	v
 frecuency	distribution.py	/^frecuency = 100*frecuency \/ frecuency.sum()$/;"	v
@@ -354,32 +378,47 @@ get_station_data	Modules/data_model.py	/^    def get_station_data(self,$/;"	m	cl
 get_station_data	Modules/data_model.py	/^    def get_station_data(self,$/;"	m	class:data_base_model	typeref:typename:DataFrame
 get_station_info	Modules/data_model.py	/^    def get_station_info(self,$/;"	m	class:SIMA_model	typeref:typename:dict
 get_station_location	Reconstructio_graphics.py	/^def get_station_location(SIMA: SIMA_model,$/;"	f	typeref:typename:dict
+get_station_location	Test_classification_model.py	/^def get_station_location(SIMA: SIMA_model,$/;"	f	typeref:typename:dict
+get_station_location	Test_neural_model.py	/^def get_station_location(SIMA: SIMA_model,$/;"	f	typeref:typename:dict
 get_subparams	Reconstructio_graphics.py	/^def get_subparams(station: str,$/;"	f	typeref:typename:dict
+get_subparams	Test_classification_model.py	/^def get_subparams(params: dict) -> dict:$/;"	f	typeref:typename:dict
+get_subparams	Test_neural_model.py	/^def get_subparams(params: dict) -> dict:$/;"	f	typeref:typename:dict
+get_test_header	Test_classification_model.py	/^def get_test_header(params: dict) -> list:$/;"	f	typeref:typename:list
+get_test_header	Test_neural_model.py	/^def get_test_header(params: dict) -> list:$/;"	f	typeref:typename:list
 get_threshold	Modules/params.py	/^def get_threshold(params: dict) -> dict:$/;"	f	typeref:typename:dict
 get_voting_models	Modules/params.py	/^def get_voting_models(params: dict) -> list:$/;"	f	typeref:typename:list
 ghi	comparison_models_graphics.py	/^ghi = clear_sky.run(params)$/;"	v
 ghi	comparison_models_graphics.py	/^ghi = get_hourly_mean(ghi)$/;"	v
 handles	Reconstructio_graphics.py	/^handles, labels = ax.get_legend_handles_labels()$/;"	v
+header	Test_classification_model.py	/^    header = f"{station} {subparams['date']}"$/;"	v
+header	Test_neural_model.py	/^    header = f"{station} {subparams['date']}"$/;"	v
 header	get_full_data.py	/^            header = f"{station} {date}"$/;"	v
+headers	Join_test_models.py	/^headers = [station.replace(" ",$/;"	v
+headers	Join_test_models.py	/^headers = table.columns$/;"	v
+headers	Test_classification_model.py	/^headers = get_test_header(params)$/;"	v
+headers	Test_neural_model.py	/^headers = get_test_header(params)$/;"	v
 headers	get_similarity_matrix.py	/^headers = [f"{station} {date}"$/;"	v
 index_vector	distribution_per_classification.py	/^        index_vector = dataset.train[1] == index$/;"	v
+iscorrect	Join_test_models.py	/^def iscorrect(value: int,$/;"	f	typeref:typename:int
 keys	distribution.py	/^keys, label = get_labels(params)$/;"	v
 label	distribution.py	/^keys, label = get_labels(params)$/;"	v
 labels	Reconstructio_graphics.py	/^handles, labels = ax.get_legend_handles_labels()$/;"	v
-labels	Test_classification_model.py	/^        _, labels = get_labels(params)$/;"	v
+labels	Run_classification_model.py	/^        _, labels = get_labels(params)$/;"	v
 ls	Count_data.py	/^from os import listdir as ls$/;"	x	nameref:unknown:listdir
 ls	Modules/functions.py	/^def ls(path: str) -> list:$/;"	f	typeref:typename:list
 ls	organize_2021_data.py	/^from os import listdir as ls$/;"	x	nameref:unknown:listdir
-matrix	Test_classification_model.py	/^        matrix = get_confusion_matrix(dataset.test[1],$/;"	v
+matrix	Run_classification_model.py	/^        matrix = get_confusion_matrix(dataset.test[1],$/;"	v
 mkdir	Modules/functions.py	/^def mkdir(path: str) -> None:$/;"	f	typeref:typename:None
+model	Run_classification_model.py	/^model = classification_model()$/;"	v
+model	Run_neural_model.py	/^model = neural_model()$/;"	v
+model	Run_voting_model.py	/^model = Voting_model()$/;"	v
 model	Test_classification_model.py	/^model = classification_model()$/;"	v
 model	Test_neural_model.py	/^model = neural_model()$/;"	v
-model	Test_voting_model.py	/^model = Voting_model()$/;"	v
 model	Train_neural_models.py	/^model = neural_model()$/;"	v
 model	get_clear_sky.py	/^    model = clear_sky_model()$/;"	v
 model	get_resume_estimators.py	/^model = params["model name"].replace(" ",$/;"	v
-model_name	Test_classification_model.py	/^model_name = model_name.replace(" ",$/;"	v
-model_name	Test_classification_model.py	/^model_name = params["classification model"]$/;"	v
+model_name	Run_classification_model.py	/^model_name = model_name.replace(" ",$/;"	v
+model_name	Run_classification_model.py	/^model_name = params["classification model"]$/;"	v
 montly	Count_data.py	/^        montly = data.loc[(station, value)]$/;"	v
 names	central_tendency_per_classification.py	/^cloud_types, names = get_labels(params)$/;"	v
 names	full_central_tendency_per_classification.py	/^cloud_types, names = get_labels(params)$/;"	v
@@ -391,15 +430,18 @@ parameters	organize_2021_data.py	/^    parameters = [[column[1]$/;"	v
 params	Count_data.py	/^params = {$/;"	v
 params	Daily_full_graphics.py	/^params = get_params()$/;"	v
 params	Daily_graphics.py	/^params = get_params()$/;"	v
+params	Join_test_models.py	/^params = get_params()$/;"	v
 params	Reconstructio_graphics.py	/^params = get_params()$/;"	v
+params	Run_classification_model.py	/^params = get_params()$/;"	v
+params	Run_neural_model.py	/^params = get_params()$/;"	v
+params	Run_voting_model.py	/^params = get_params()$/;"	v
 params	Test_classification_model.py	/^params = get_params()$/;"	v
 params	Test_neural_model.py	/^params = get_params()$/;"	v
-params	Test_voting_model.py	/^params = get_params()$/;"	v
 params	Train_neural_models.py	/^params = get_params()$/;"	v
 params	central_tendency.py	/^params = get_params()$/;"	v
 params	central_tendency_per_classification.py	/^params = get_params()$/;"	v
-params	compare_estimators.py	/^params = get_params()$/;"	v
-params	comparison_data.py	/^params = get_params()$/;"	v
+params	compare_estimators.py	/^    params = get_params()$/;"	v
+params	comparison_data.py	/^    params = get_params()$/;"	v
 params	comparison_missing_data_graphics.py	/^params = get_params()$/;"	v
 params	comparison_models_graphics.py	/^params = get_params()$/;"	v
 params	distribution.py	/^params = get_params()$/;"	v
@@ -418,6 +460,7 @@ plot	Daily_full_graphics.py	/^def plot(SIMA: DataFrame,$/;"	f	typeref:typename:N
 plot	Daily_graphics.py	/^def plot(SIMA: DataFrame,$/;"	f	typeref:typename:None
 plt	Daily_full_graphics.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	Daily_graphics.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
+plt	Join_test_models.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	Reconstructio_graphics.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	central_tendency.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	comparison_missing_data_graphics.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
@@ -425,31 +468,39 @@ plt	comparison_models_graphics.py	/^import matplotlib.pyplot as plt$/;"	I	namere
 plt	distribution.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	distribution_per_classification.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
 plt	history_plot.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
-predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:Decision_tree_model	typeref:typename:list
-predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:Gaussian_naive_model	typeref:typename:list
-predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:KNN_model	typeref:typename:list
-predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:Random_forest_model	typeref:typename:list
-predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:SVM_model	typeref:typename:list
-predict	Modules/classification_classic_models.py	/^    def predict(self,$/;"	m	class:classification_model	typeref:typename:None
+predict	Modules/classic_models.py	/^    def predict(self,$/;"	m	class:Decision_tree_model	typeref:typename:list
+predict	Modules/classic_models.py	/^    def predict(self,$/;"	m	class:Gaussian_naive_model	typeref:typename:list
+predict	Modules/classic_models.py	/^    def predict(self,$/;"	m	class:KNN_model	typeref:typename:list
+predict	Modules/classic_models.py	/^    def predict(self,$/;"	m	class:Random_forest_model	typeref:typename:list
+predict	Modules/classic_models.py	/^    def predict(self,$/;"	m	class:SVM_model	typeref:typename:list
+predict	Modules/classic_models.py	/^    def predict(self,$/;"	m	class:classification_model	typeref:typename:None
 predict	Modules/neural_models.py	/^    def predict(self,$/;"	m	class:Voting_model	typeref:typename:None
 predict	Modules/neural_models.py	/^    def predict(self,$/;"	m	class:base_model	typeref:typename:list
 predict	Modules/neural_models.py	/^    def predict(self,$/;"	m	class:neural_model	typeref:typename:None
+predict_one	Modules/neural_models.py	/^    def predict_one(self,$/;"	m	class:base_model	typeref:typename:int
+predict_one	Modules/neural_models.py	/^    def predict_one(self,$/;"	m	class:neural_model	typeref:typename:int
 reconstruction	Reconstructio_graphics.py	/^    reconstruction = get_index(transform_data.clear_data,$/;"	v
-report	Test_classification_model.py	/^        report = get_report(dataset.test[1],$/;"	v
+report	Run_classification_model.py	/^        report = get_report(dataset.test[1],$/;"	v
 report	get_resume_estimators.py	/^    report = report_model.run(params["model type"])$/;"	v
 report_model	get_resume_estimators.py	/^    report_model = Report_reader(params)$/;"	v
-reports	Test_classification_model.py	/^reports = ""$/;"	v
-reports	compare_estimators.py	/^reports = concat([reports_classical,$/;"	v
-reports_classical	compare_estimators.py	/^reports_classical = get_reports("classical",$/;"	v
-reports_neural	compare_estimators.py	/^reports_neural = get_reports("neural",$/;"	v
-result	Test_classification_model.py	/^        result = model.predict(dataset.test)$/;"	v
+reports	Run_classification_model.py	/^reports = ""$/;"	v
+reports	compare_estimators.py	/^    reports = concat([reports_classical,$/;"	v
+reports_classical	compare_estimators.py	/^    reports_classical = get_reports("classical",$/;"	v
+reports_neural	compare_estimators.py	/^    reports_neural = get_reports("neural",$/;"	v
+result	Run_classification_model.py	/^        result = model.predict(dataset.test)$/;"	v
+result	Test_classification_model.py	/^        result = model.predict([[comparison], 0])$/;"	v
+result	Test_neural_model.py	/^        result = model.predicts$/;"	v
 results	Count_data.py	/^results = DataFrame(results)$/;"	v
 results	Count_data.py	/^results = dict()$/;"	v
 results	Count_data.py	/^results = results.T$/;"	v
+results	Join_test_models.py	/^    results = concat([results,$/;"	v
+results	Join_test_models.py	/^results = DataFrame()$/;"	v
+results	Test_classification_model.py	/^results = DataFrame(index=params["classical models"],$/;"	v
+results	Test_neural_model.py	/^results = DataFrame(index=params["neural models"],$/;"	v
 results	central_tendency_per_classification.py	/^    results = concat([results,$/;"	v
 results	central_tendency_per_classification.py	/^results = DataFrame()$/;"	v
-results	comparison_data.py	/^    results = concat([results,$/;"	v
-results	comparison_data.py	/^results = DataFrame(columns=params["stations"])$/;"	v
+results	comparison_data.py	/^        results = concat([results,$/;"	v
+results	comparison_data.py	/^    results = DataFrame(columns=params["stations"])$/;"	v
 results	full_central_tendency_per_classification.py	/^    results = concat([results,$/;"	v
 results	full_central_tendency_per_classification.py	/^results = DataFrame()$/;"	v
 results	full_comparison.py	/^    results = concat([results,$/;"	v
@@ -465,26 +516,28 @@ results	organize_2021_data.py	/^    results = concat([stations,$/;"	v
 results	organize_2021_data.py	/^    results = results[columns]$/;"	v
 results_date	get_full_data.py	/^        results_date = concat([results_date,$/;"	v
 results_date	get_full_data.py	/^    results_date = DataFrame()$/;"	v
-results_per_day	comparison_data.py	/^        results_per_day = concat([results_per_day,$/;"	v
-results_per_day	comparison_data.py	/^    results_per_day = DataFrame()$/;"	v
+results_per_day	comparison_data.py	/^            results_per_day = concat([results_per_day,$/;"	v
+results_per_day	comparison_data.py	/^        results_per_day = DataFrame()$/;"	v
 results_per_day	full_comparison.py	/^        results_per_day = concat([results_per_day,$/;"	v
 results_per_day	full_comparison.py	/^    results_per_day = DataFrame()$/;"	v
 results_per_day	get_clean_data.py	/^        results_per_day = concat([results_per_day,$/;"	v
 results_per_day	get_clean_data.py	/^    results_per_day = DataFrame()$/;"	v
 results_per_day	get_clear_sky.py	/^            results_per_day = concat([results_per_day,$/;"	v
 results_per_day	get_clear_sky.py	/^        results_per_day = DataFrame()$/;"	v
+results_per_station	Test_classification_model.py	/^    results_per_station = list()$/;"	v
+results_per_station	Test_neural_model.py	/^    results_per_station = list()$/;"	v
 resume	get_resume_estimators.py	/^    resume = concat([resume,$/;"	v
 resume	get_resume_estimators.py	/^resume = DataFrame()$/;"	v
 rs	comparison_models_graphics.py	/^rs = clear_sky.run(params)$/;"	v
 rs	comparison_models_graphics.py	/^rs = get_hourly_mean(rs)$/;"	v
 run	Modules/GHI_model.py	/^    def run(self,$/;"	m	class:GHI_model	typeref:typename:float
 run	Modules/RS_model.py	/^    def run(self,$/;"	m	class:RS_model	typeref:typename:float
-run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:Decision_tree_model	typeref:typename:None
-run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:Gaussian_naive_model	typeref:typename:None
-run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:KNN_model	typeref:typename:None
-run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:Random_forest_model	typeref:typename:None
-run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:SVM_model	typeref:typename:None
-run	Modules/classification_classic_models.py	/^    def run(self,$/;"	m	class:classification_model	typeref:typename:None
+run	Modules/classic_models.py	/^    def run(self,$/;"	m	class:Decision_tree_model	typeref:typename:None
+run	Modules/classic_models.py	/^    def run(self,$/;"	m	class:Gaussian_naive_model	typeref:typename:None
+run	Modules/classic_models.py	/^    def run(self,$/;"	m	class:KNN_model	typeref:typename:None
+run	Modules/classic_models.py	/^    def run(self,$/;"	m	class:Random_forest_model	typeref:typename:None
+run	Modules/classic_models.py	/^    def run(self,$/;"	m	class:SVM_model	typeref:typename:None
+run	Modules/classic_models.py	/^    def run(self,$/;"	m	class:classification_model	typeref:typename:None
 run	Modules/clear_sky.py	/^    def run(self, params: dict) -> DataFrame:$/;"	m	class:clear_sky_model	typeref:typename:DataFrame
 run	Modules/neural_models.py	/^    def run(self) -> list:$/;"	m	class:neural_model	typeref:typename:list
 run	Modules/neural_models.py	/^    def run(self,$/;"	m	class:Voting_model	typeref:typename:None
@@ -503,12 +556,19 @@ stations_bar	Daily_full_graphics.py	/^stations_bar = tqdm(params["stations"])$/;
 stations_bar	Daily_graphics.py	/^stations_bar = tqdm(params["stations"])$/;"	v
 subparams	Reconstructio_graphics.py	/^    subparams = get_station_location(SIMA_data,$/;"	v
 subparams	Reconstructio_graphics.py	/^    subparams = get_subparams(station,$/;"	v
+subparams	Test_classification_model.py	/^    subparams = get_station_location(SIMA_data,$/;"	v
+subparams	Test_classification_model.py	/^    subparams = get_subparams(params)$/;"	v
+subparams	Test_neural_model.py	/^    subparams = get_station_location(SIMA_data,$/;"	v
+subparams	Test_neural_model.py	/^    subparams = get_subparams(params)$/;"	v
+table	Join_test_models.py	/^table = DataFrame(results,$/;"	v
 template	make_template_classification.py	/^template = DataFrame(index=dates,$/;"	v
 tendency	central_tendency_per_classification.py	/^    tendency = data[cloud_type].describe()$/;"	v
 tendency	full_central_tendency_per_classification.py	/^    tendency = data[cloud_type].describe()$/;"	v
 test	Modules/neural_models.py	/^    def test(self) -> None:$/;"	m	class:neural_model	typeref:typename:None
 threshold_filter	Modules/functions.py	/^def threshold_filter(data: DataFrame,$/;"	f	typeref:typename:DataFrame
 transform_data	Reconstructio_graphics.py	/^    transform_data = transform_data_model(subparams)$/;"	v
+transform_data	Test_classification_model.py	/^    transform_data = transform_data_model(subparams)$/;"	v
+transform_data	Test_neural_model.py	/^    transform_data = transform_data_model(subparams)$/;"	v
 transform_data_model	Modules/transform_data.py	/^class transform_data_model:$/;"	c
 values	central_tendency_per_classification.py	/^        values = classification.get_data_from_type(cloud_type)$/;"	v
 values	central_tendency_per_classification.py	/^        values = daily[station][dates]$/;"	v
@@ -523,7 +583,7 @@ vectors	get_similarity_matrix.py	/^vectors = vectors.T$/;"	v
 vectors	get_similarity_matrix.py	/^vectors = vectors.reshape(-1, 24)$/;"	v
 weights	distribution_per_classification.py	/^        weights = ones_like(vector)*100 \/ len(vector)$/;"	v
 year	Count_data.py	/^    year = file.split(".")[0]$/;"	v
-year	comparison_data.py	/^        year = date.year$/;"	v
-year	comparison_data.py	/^year = 0$/;"	v
+year	comparison_data.py	/^            year = date.year$/;"	v
+year	comparison_data.py	/^    year = 0$/;"	v
 year	get_clean_data.py	/^        year = date.year$/;"	v
 year	get_clean_data.py	/^year = 0$/;"	v

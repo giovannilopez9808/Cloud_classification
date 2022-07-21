@@ -13,6 +13,7 @@ from numpy import (divide,
                    isnan)
 from os import listdir, makedirs
 from typing import Type
+from sys import exit
 
 
 def datetime_format(date: Timestamp,
@@ -237,11 +238,27 @@ def get_best_similarity_dates(similarity: DataFrame,
                               params: dict,
                               header: str,
                               station: str = None) -> list:
-    similarity_vector = similarity[header]
+    similarity_vectors = similarity[header]
+    date = to_datetime(params["date"])
+    month = date.month
+    similarity_vector = DataFrame()
+    for i in range(-1, 2):
+        month_i = month+i
+        if month_i == 0:
+            month_i = 12
+        if month_i == 13:
+            month_i = 1
+        month_i = str(month_i).zfill(2)
+        month_i = f"-{month_i}-"
+        index = similarity_vectors.index.str.contains(month_i)
+        month_vector = similarity_vectors.loc[index]
+        similarity_vector = concat([similarity_vector,
+                                    month_vector])
     if station:
         index = similarity_vector.index.str.contains(station)
         similarity_vector = similarity_vector[index]
-    similarity_vector = sort(similarity_vector)
+    header = similarity_vector.columns[0]
+    similarity_vector = similarity_vector.sort_values(by=header)
     similarity_vector = similarity_vector.iloc[1:params["top vectors"]]
     similarity_vector = similarity_vector.index
     return similarity_vector
