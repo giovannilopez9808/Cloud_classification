@@ -1,96 +1,44 @@
-python Run_neural_model.py ratio RS 'perceptron' Sureste2
-python Run_neural_model.py ratio RS 'perceptron' Noreste
-python Run_neural_model.py ratio RS 'perceptron' Noroeste
-python Run_neural_model.py ratio RS 'perceptron' Suroeste
-python Run_neural_model.py diff RS 'perceptron' Sureste2
-python Run_neural_model.py diff RS 'perceptron' Noreste
-python Run_neural_model.py diff RS 'perceptron' Noroeste
-python Run_neural_model.py diff RS 'perceptron' Suroeste
-python Run_neural_model.py ratio GHI 'perceptron' Sureste2
-python Run_neural_model.py ratio GHI 'perceptron' Noreste
-python Run_neural_model.py ratio GHI 'perceptron' Noroeste
-python Run_neural_model.py ratio GHI 'perceptron' Suroeste
-python Run_neural_model.py diff GHI 'perceptron' Sureste2
-python Run_neural_model.py diff GHI 'perceptron' Noreste
-python Run_neural_model.py diff GHI 'perceptron' Noroeste
-python Run_neural_model.py diff GHI 'perceptron' Suroeste
-python Run_neural_model.py ratio RS 'CNN' Sureste2
-python Run_neural_model.py ratio RS 'CNN' Noreste
-python Run_neural_model.py ratio RS 'CNN' Noroeste
-python Run_neural_model.py ratio RS 'CNN' Suroeste
-python Run_neural_model.py diff RS 'CNN' Sureste2
-python Run_neural_model.py diff RS 'CNN' Noreste
-python Run_neural_model.py diff RS 'CNN' Noroeste
-python Run_neural_model.py diff RS 'CNN' Suroeste
-python Run_neural_model.py ratio GHI 'CNN' Sureste2
-python Run_neural_model.py ratio GHI 'CNN' Noreste
-python Run_neural_model.py ratio GHI 'CNN' Noroeste
-python Run_neural_model.py ratio GHI 'CNN' Suroeste
-python Run_neural_model.py diff GHI 'CNN' Sureste2
-python Run_neural_model.py diff GHI 'CNN' Noreste
-python Run_neural_model.py diff GHI 'CNN' Noroeste
-python Run_neural_model.py diff GHI 'CNN' Suroeste
-python Run_neural_model.py ratio RS 'LSTM' Sureste2
-python Run_neural_model.py ratio RS 'LSTM' Noreste
-python Run_neural_model.py ratio RS 'LSTM' Noroeste
-python Run_neural_model.py ratio RS 'LSTM' Suroeste
-python Run_neural_model.py diff RS 'LSTM' Sureste2
-python Run_neural_model.py diff RS 'LSTM' Noreste
-python Run_neural_model.py diff RS 'LSTM' Noroeste
-python Run_neural_model.py diff RS 'LSTM' Suroeste
-python Run_neural_model.py ratio GHI 'LSTM' Sureste2
-python Run_neural_model.py ratio GHI 'LSTM' Noreste
-python Run_neural_model.py ratio GHI 'LSTM' Noroeste
-python Run_neural_model.py ratio GHI 'LSTM' Suroeste
-python Run_neural_model.py diff GHI 'LSTM' Sureste2
-python Run_neural_model.py diff GHI 'LSTM' Noreste
-python Run_neural_model.py diff GHI 'LSTM' Noroeste
-python Run_neural_model.py diff GHI 'LSTM' Suroeste
-python Run_neural_model.py ratio RS 'RNN' Sureste2
-python Run_neural_model.py ratio RS 'RNN' Noreste
-python Run_neural_model.py ratio RS 'RNN' Noroeste
-python Run_neural_model.py ratio RS 'RNN' Suroeste
-python Run_neural_model.py diff RS 'RNN' Sureste2
-python Run_neural_model.py diff RS 'RNN' Noreste
-python Run_neural_model.py diff RS 'RNN' Noroeste
-python Run_neural_model.py diff RS 'RNN' Suroeste
-python Run_neural_model.py ratio GHI 'RNN' Sureste2
-python Run_neural_model.py ratio GHI 'RNN' Noreste
-python Run_neural_model.py ratio GHI 'RNN' Noroeste
-python Run_neural_model.py ratio GHI 'RNN' Suroeste
-python Run_neural_model.py diff GHI 'RNN' Sureste2
-python Run_neural_model.py diff GHI 'RNN' Noreste
-python Run_neural_model.py diff GHI 'RNN' Noroeste
-python Run_neural_model.py diff GHI 'RNN' Suroeste
-python Run_neural_model.py ratio RS 'Bi LSTM' Sureste2
-python Run_neural_model.py ratio RS 'Bi LSTM' Noreste
-python Run_neural_model.py ratio RS 'Bi LSTM' Noroeste
-python Run_neural_model.py ratio RS 'Bi LSTM' Suroeste
-python Run_neural_model.py diff RS 'Bi LSTM' Sureste2
-python Run_neural_model.py diff RS 'Bi LSTM' Noreste
-python Run_neural_model.py diff RS 'Bi LSTM' Noroeste
-python Run_neural_model.py diff RS 'Bi LSTM' Suroeste
-python Run_neural_model.py ratio GHI 'Bi LSTM' Sureste2
-python Run_neural_model.py ratio GHI 'Bi LSTM' Noreste
-python Run_neural_model.py ratio GHI 'Bi LSTM' Noroeste
-python Run_neural_model.py ratio GHI 'Bi LSTM' Suroeste
-python Run_neural_model.py diff GHI 'Bi LSTM' Sureste2
-python Run_neural_model.py diff GHI 'Bi LSTM' Noreste
-python Run_neural_model.py diff GHI 'Bi LSTM' Noroeste
-python Run_neural_model.py diff GHI 'Bi LSTM' Suroeste
-python Run_neural_model.py ratio RS 'Attention CNN' Sureste2
-python Run_neural_model.py ratio RS 'Attention CNN' Noreste
-python Run_neural_model.py ratio RS 'Attention CNN' Noroeste
-python Run_neural_model.py ratio RS 'Attention CNN' Suroeste
-python Run_neural_model.py diff RS 'Attention CNN' Sureste2
-python Run_neural_model.py diff RS 'Attention CNN' Noreste
-python Run_neural_model.py diff RS 'Attention CNN' Noroeste
-python Run_neural_model.py diff RS 'Attention CNN' Suroeste
-python Run_neural_model.py ratio GHI 'Attention CNN' Sureste2
-python Run_neural_model.py ratio GHI 'Attention CNN' Noreste
-python Run_neural_model.py ratio GHI 'Attention CNN' Noroeste
-python Run_neural_model.py ratio GHI 'Attention CNN' Suroeste
-python Run_neural_model.py diff GHI 'Attention CNN' Sureste2
-python Run_neural_model.py diff GHI 'Attention CNN' Noreste
-python Run_neural_model.py diff GHI 'Attention CNN' Noroeste
-python Run_neural_model.py diff GHI 'Attention CNN' Suroeste
+python get_resume_estimators.py ratio RS 'perceptron'
+python get_resume_estimators.py ratio RS 'CNN'
+python get_resume_estimators.py ratio RS 'LSTM'
+python get_resume_estimators.py ratio RS 'RNN'
+python get_resume_estimators.py ratio RS 'Bi LSTM'
+python get_resume_estimators.py ratio RS 'Attention CNN'
+python get_resume_estimators.py ratio RS 'SVM'
+python get_resume_estimators.py ratio RS 'KNN'
+python get_resume_estimators.py ratio RS 'Random forest'
+python get_resume_estimators.py ratio RS 'Gaussian naive'
+python get_resume_estimators.py ratio RS 'Decision tree'
+python get_resume_estimators.py ratio GHI 'perceptron'
+python get_resume_estimators.py ratio GHI 'CNN'
+python get_resume_estimators.py ratio GHI 'LSTM'
+python get_resume_estimators.py ratio GHI 'RNN'
+python get_resume_estimators.py ratio GHI 'Bi LSTM'
+python get_resume_estimators.py ratio GHI 'Attention CNN'
+python get_resume_estimators.py ratio GHI 'SVM'
+python get_resume_estimators.py ratio GHI 'KNN'
+python get_resume_estimators.py ratio GHI 'Random forest'
+python get_resume_estimators.py ratio GHI 'Gaussian naive'
+python get_resume_estimators.py ratio GHI 'Decision tree'
+python get_resume_estimators.py diff RS 'perceptron'
+python get_resume_estimators.py diff RS 'CNN'
+python get_resume_estimators.py diff RS 'LSTM'
+python get_resume_estimators.py diff RS 'RNN'
+python get_resume_estimators.py diff RS 'Bi LSTM'
+python get_resume_estimators.py diff RS 'Attention CNN'
+python get_resume_estimators.py diff RS 'SVM'
+python get_resume_estimators.py diff RS 'KNN'
+python get_resume_estimators.py diff RS 'Random forest'
+python get_resume_estimators.py diff RS 'Gaussian naive'
+python get_resume_estimators.py diff RS 'Decision tree'
+python get_resume_estimators.py diff GHI 'perceptron'
+python get_resume_estimators.py diff GHI 'CNN'
+python get_resume_estimators.py diff GHI 'LSTM'
+python get_resume_estimators.py diff GHI 'RNN'
+python get_resume_estimators.py diff GHI 'Bi LSTM'
+python get_resume_estimators.py diff GHI 'Attention CNN'
+python get_resume_estimators.py diff GHI 'SVM'
+python get_resume_estimators.py diff GHI 'KNN'
+python get_resume_estimators.py diff GHI 'Random forest'
+python get_resume_estimators.py diff GHI 'Gaussian naive'
+python get_resume_estimators.py diff GHI 'Decision tree'

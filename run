@@ -157,22 +157,67 @@ date
 #python Run_neural_model.py diff GHI 'Attention CNN' Noroeste
 #python Run_neural_model.py diff GHI 'Attention CNN' Suroeste
 
-echo "------------------------------------------------------------------"
-echo "Run voting"
-python Run_voting_model.py ratio RS Noreste
-python Run_voting_model.py ratio RS Noroeste
-python Run_voting_model.py ratio RS Sureste2
-python Run_voting_model.py ratio RS Suroeste
-python Run_voting_model.py ratio GHI Noreste
-python Run_voting_model.py ratio GHI Noroeste
-python Run_voting_model.py ratio GHI Sureste2
-python Run_voting_model.py ratio GHI Suroeste
-python Run_voting_model.py diff RS Noreste
-python Run_voting_model.py diff RS Noroeste
-python Run_voting_model.py diff RS Sureste2
-python Run_voting_model.py diff RS Suroeste
-python Run_voting_model.py diff GHI Noreste
-python Run_voting_model.py diff GHI Noroeste
-python Run_voting_model.py diff GHI Sureste2
-python Run_voting_model.py diff GHI Suroeste
+#echo "------------------------------------------------------------------"
+#echo "Run voting"
+#python Run_voting_model.py ratio RS Noreste
+#python Run_voting_model.py ratio RS Noroeste
+#python Run_voting_model.py ratio RS Sureste2
+#python Run_voting_model.py ratio RS Suroeste
+#python Run_voting_model.py ratio GHI Noreste
+#python Run_voting_model.py ratio GHI Noroeste
+#python Run_voting_model.py ratio GHI Sureste2
+#python Run_voting_model.py ratio GHI Suroeste
+#python Run_voting_model.py diff RS Noreste
+#python Run_voting_model.py diff RS Noroeste
+#python Run_voting_model.py diff RS Sureste2
+#python Run_voting_model.py diff RS Suroeste
+#python Run_voting_model.py diff GHI Noreste
+#python Run_voting_model.py diff GHI Noroeste
+#python Run_voting_model.py diff GHI Sureste2
+#python Run_voting_model.py diff GHI Suroeste
+
+python get_resume_estimators.py ratio RS 'perceptron'
+python get_resume_estimators.py ratio RS 'CNN'
+python get_resume_estimators.py ratio RS 'LSTM'
+python get_resume_estimators.py ratio RS 'RNN'
+python get_resume_estimators.py ratio RS 'Bi LSTM'
+python get_resume_estimators.py ratio RS 'Attention CNN'
+python get_resume_estimators.py ratio RS 'SVM'
+python get_resume_estimators.py ratio RS 'KNN'
+python get_resume_estimators.py ratio RS 'Random forest'
+python get_resume_estimators.py ratio RS 'Gaussian naive'
+python get_resume_estimators.py ratio RS 'Decision tree'
+python get_resume_estimators.py ratio GHI 'perceptron'
+python get_resume_estimators.py ratio GHI 'CNN'
+python get_resume_estimators.py ratio GHI 'LSTM'
+python get_resume_estimators.py ratio GHI 'RNN'
+python get_resume_estimators.py ratio GHI 'Bi LSTM'
+python get_resume_estimators.py ratio GHI 'Attention CNN'
+python get_resume_estimators.py ratio GHI 'SVM'
+python get_resume_estimators.py ratio GHI 'KNN'
+python get_resume_estimators.py ratio GHI 'Random forest'
+python get_resume_estimators.py ratio GHI 'Gaussian naive'
+python get_resume_estimators.py ratio GHI 'Decision tree'
+python get_resume_estimators.py diff RS 'perceptron'
+python get_resume_estimators.py diff RS 'CNN'
+python get_resume_estimators.py diff RS 'LSTM'
+python get_resume_estimators.py diff RS 'RNN'
+python get_resume_estimators.py diff RS 'Bi LSTM'
+python get_resume_estimators.py diff RS 'Attention CNN'
+python get_resume_estimators.py diff RS 'SVM'
+python get_resume_estimators.py diff RS 'KNN'
+python get_resume_estimators.py diff RS 'Random forest'
+python get_resume_estimators.py diff RS 'Gaussian naive'
+python get_resume_estimators.py diff RS 'Decision tree'
+python get_resume_estimators.py diff GHI 'perceptron'
+python get_resume_estimators.py diff GHI 'CNN'
+python get_resume_estimators.py diff GHI 'LSTM'
+python get_resume_estimators.py diff GHI 'RNN'
+python get_resume_estimators.py diff GHI 'Bi LSTM'
+python get_resume_estimators.py diff GHI 'Attention CNN'
+python get_resume_estimators.py diff GHI 'SVM'
+python get_resume_estimators.py diff GHI 'KNN'
+python get_resume_estimators.py diff GHI 'Random forest'
+python get_resume_estimators.py diff GHI 'Gaussian naive'
+python get_resume_estimators.py diff GHI 'Decision tree'
 date
