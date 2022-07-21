@@ -3,46 +3,46 @@
 ------------------------------------------------------------
                 precision    recall  f1-score   support
 
-       Cloudly       0.84      0.86      0.85       125
-Partly cloudly       0.73      0.63      0.68        84
-     Clear sky       0.77      0.88      0.82        57
+       Cloudly       0.82      0.84      0.83       125
+Partly cloudly       0.71      0.64      0.67        84
+     Clear sky       0.81      0.88      0.84        57
 
       accuracy                           0.79       266
      macro avg       0.78      0.79      0.78       266
-  weighted avg       0.79      0.79      0.79       266
+  weighted avg       0.78      0.79      0.78       266
 ------------------------------------------------------------
 		Sky model: RS	Operation: diff
 ------------------------------------------------------------
                 precision    recall  f1-score   support
 
-       Cloudly       0.82      0.83      0.83       125
+       Cloudly       0.82      0.82      0.82       125
 Partly cloudly       0.68      0.64      0.66        84
-     Clear sky       0.80      0.82      0.81        57
+     Clear sky       0.82      0.89      0.86        57
 
-      accuracy                           0.77       266
-     macro avg       0.76      0.77      0.76       266
-  weighted avg       0.77      0.77      0.77       266
+      accuracy                           0.78       266
+     macro avg       0.78      0.79      0.78       266
+  weighted avg       0.78      0.78      0.78       266
 ------------------------------------------------------------
 		Sky model: GHI	Operation: ratio
 ------------------------------------------------------------
                 precision    recall  f1-score   support
 
-       Cloudly       0.79      0.83      0.81       125
-Partly cloudly       0.67      0.57      0.62        84
-     Clear sky       0.76      0.84      0.80        57
+       Cloudly       0.80      0.83      0.82       125
+Partly cloudly       0.68      0.58      0.63        84
+     Clear sky       0.75      0.84      0.79        57
 
-      accuracy                           0.75       266
-     macro avg       0.74      0.75      0.74       266
-  weighted avg       0.75      0.75      0.75       266
+      accuracy                           0.76       266
+     macro avg       0.74      0.75      0.75       266
+  weighted avg       0.75      0.76      0.75       266
 ------------------------------------------------------------
 		Sky model: GHI	Operation: diff
 ------------------------------------------------------------
                 precision    recall  f1-score   support
 
-       Cloudly       0.82      0.80      0.81       125
-Partly cloudly       0.58      0.54      0.56        84
-     Clear sky       0.68      0.79      0.73        57
+       Cloudly       0.81      0.82      0.81       125
+Partly cloudly       0.57      0.52      0.55        84
+     Clear sky       0.68      0.75      0.72        57
 
       accuracy                           0.71       266
-     macro avg       0.69      0.71      0.70       266
+     macro avg       0.69      0.70      0.69       266
   weighted avg       0.71      0.71      0.71       266
