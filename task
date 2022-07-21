@@ -1,40 +1,3 @@
-#!/bin/bash
-#SBATCH --partition=GPU
-#SBATCH --job-name=All_models
-#SBATCH --output=run.log
-#SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=giovanni.lopez@cimat.mx
-cd /home/est_posgrado_giovanni.lopez/Cloud_classification/Scripts
-source /opt/anaconda3_titan/bin/activate
-conda activate tensorflow
-export TF_ENABLE_ONEDNN_OPTS=0
-hostname
-date
-python Run_classification_model.py SVM Noreste
-python Run_classification_model.py KNN Noreste
-python Run_classification_model.py "Random forest" Noreste
-python Run_classification_model.py "Gaussian naive" Noreste
-python Run_classification_model.py "Decision tree" Noreste
-
-python Run_classification_model.py SVM Noroeste
-python Run_classification_model.py KNN Noroeste
-python Run_classification_model.py "Random forest" Noroeste
-python Run_classification_model.py "Gaussian naive" Noroeste
-python Run_classification_model.py "Decision tree" Noroeste
-
-python Run_classification_model.py SVM Sureste2
-python Run_classification_model.py KNN Sureste2
-python Run_classification_model.py "Random forest" Sureste2
-python Run_classification_model.py "Gaussian naive" Sureste2
-python Run_classification_model.py "Decision tree" Sureste2
-
-python Run_classification_model.py SVM Suroeste
-python Run_classification_model.py KNN Suroeste
-python Run_classification_model.py "Random forest" Suroeste
-python Run_classification_model.py "Gaussian naive" Suroeste
-python Run_classification_model.py "Decision tree" Suroeste
-
-
 python Run_neural_model.py ratio RS 'perceptron' Sureste2
 python Run_neural_model.py ratio RS 'perceptron' Noreste
 python Run_neural_model.py ratio RS 'perceptron' Noroeste
@@ -51,7 +14,6 @@ python Run_neural_model.py diff GHI 'perceptron' Sureste2
 python Run_neural_model.py diff GHI 'perceptron' Noreste
 python Run_neural_model.py diff GHI 'perceptron' Noroeste
 python Run_neural_model.py diff GHI 'perceptron' Suroeste
-
 python Run_neural_model.py ratio RS 'CNN' Sureste2
 python Run_neural_model.py ratio RS 'CNN' Noreste
 python Run_neural_model.py ratio RS 'CNN' Noroeste
@@ -68,7 +30,6 @@ python Run_neural_model.py diff GHI 'CNN' Sureste2
 python Run_neural_model.py diff GHI 'CNN' Noreste
 python Run_neural_model.py diff GHI 'CNN' Noroeste
 python Run_neural_model.py diff GHI 'CNN' Suroeste
-
 python Run_neural_model.py ratio RS 'LSTM' Sureste2
 python Run_neural_model.py ratio RS 'LSTM' Noreste
 python Run_neural_model.py ratio RS 'LSTM' Noroeste
@@ -85,7 +46,6 @@ python Run_neural_model.py diff GHI 'LSTM' Sureste2
 python Run_neural_model.py diff GHI 'LSTM' Noreste
 python Run_neural_model.py diff GHI 'LSTM' Noroeste
 python Run_neural_model.py diff GHI 'LSTM' Suroeste
-
 python Run_neural_model.py ratio RS 'RNN' Sureste2
 python Run_neural_model.py ratio RS 'RNN' Noreste
 python Run_neural_model.py ratio RS 'RNN' Noroeste
@@ -102,7 +62,6 @@ python Run_neural_model.py diff GHI 'RNN' Sureste2
 python Run_neural_model.py diff GHI 'RNN' Noreste
 python Run_neural_model.py diff GHI 'RNN' Noroeste
 python Run_neural_model.py diff GHI 'RNN' Suroeste
-
 python Run_neural_model.py ratio RS 'Bi LSTM' Sureste2
 python Run_neural_model.py ratio RS 'Bi LSTM' Noreste
 python Run_neural_model.py ratio RS 'Bi LSTM' Noroeste
@@ -119,7 +78,6 @@ python Run_neural_model.py diff GHI 'Bi LSTM' Sureste2
 python Run_neural_model.py diff GHI 'Bi LSTM' Noreste
 python Run_neural_model.py diff GHI 'Bi LSTM' Noroeste
 python Run_neural_model.py diff GHI 'Bi LSTM' Suroeste
-
 python Run_neural_model.py ratio RS 'Attention CNN' Sureste2
 python Run_neural_model.py ratio RS 'Attention CNN' Noreste
 python Run_neural_model.py ratio RS 'Attention CNN' Noroeste
@@ -136,17 +94,3 @@ python Run_neural_model.py diff GHI 'Attention CNN' Sureste2
 python Run_neural_model.py diff GHI 'Attention CNN' Noreste
 python Run_neural_model.py diff GHI 'Attention CNN' Noroeste
 python Run_neural_model.py diff GHI 'Attention CNN' Suroeste
-
-#python Test_voting_model.py ratio GHI Noreste
-#python Test_voting_model.py ratio GHI Noroeste
-#python Test_voting_model.py ratio GHI Sureste2
-#python Test_voting_model.py ratio GHI Suroeste
-#python Test_voting_model.py diff RS Noreste
-#python Test_voting_model.py diff RS Noroeste
-#python Test_voting_model.py diff RS Sureste2
-#python Test_voting_model.py diff RS Suroeste
-#python Test_voting_model.py diff GHI Noreste
-#python Test_voting_model.py diff GHI Noroeste
-#python Test_voting_model.py diff GHI Sureste2
-#python Test_voting_model.py diff GHI Suroeste
-date

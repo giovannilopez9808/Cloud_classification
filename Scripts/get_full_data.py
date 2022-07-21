@@ -31,6 +31,7 @@ similarity = read_csv(filename,
 full_data = DataFrame()
 bar_dates = tqdm(dates)
 for date in bar_dates:
+    params["date"] = date
     bar_dates.set_postfix(date=date)
     results_date = DataFrame()
     clean_data_daily = clean_data.get_date_data(date)
