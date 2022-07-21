@@ -62,7 +62,7 @@ params.update({
     "file graphics": "Reconstruction.png",
     "comparison operation": "ratio",
     "clear sky model": "RS",
-    "top vectors": 30,
+    "top vectors": 10,
     "timezone": -6.25,
 })
 params["threshold"] = get_threshold(params)

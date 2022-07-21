@@ -18,7 +18,7 @@ params = get_params()
 params.update({
     "similarity file": "similarity",
     "file results": "full_data",
-    "top vectors": 30,
+    "top vectors": 10,
 })
 classification = classification_data(params)
 clean_data = clean_data_model(params)
