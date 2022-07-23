@@ -18,8 +18,8 @@ params.update({
     # Define classical model
     "classification model": argv[1],
     "station": argv[2],
-    "hour initial": 0,
-    "hour final": 24,
+    "hour initial": 7,
+    "hour final": 20,
 })
 model_name = params["classification model"]
 model_name = model_name.replace(" ",
