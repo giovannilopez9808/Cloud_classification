@@ -64,7 +64,7 @@ def get_params() -> dict:
                 "date": "2012-08-10",
             },
             "Noroeste": {
-                "date": "2016-03-19",
+                "date": "2021-10-26",
             },
             "Suroeste": {
                 "date": "2017-10-08",
@@ -418,7 +418,7 @@ def get_threshold(params: dict) -> dict:
             "diff": -1000,
         },
         "GHI": {
-            "ratio": 0.8,
+            "ratio": 0.9,
             "diff": 0,
         },
     }

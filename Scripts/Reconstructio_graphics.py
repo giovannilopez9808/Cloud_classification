@@ -1,12 +1,11 @@
 from Modules.transform_data import transform_data_model
 from Modules.functions import get_data_between_hours
 from Modules.clear_sky import clear_sky_model
-from Modules.params import (get_params,
-                            get_threshold)
 from pandas import (to_timedelta,
                     to_datetime,
                     DataFrame)
 from Modules.data_model import SIMA_model
+from Modules.params import get_params
 import matplotlib.pyplot as plt
 from os.path import join
 from numpy import isnan
@@ -65,7 +64,6 @@ params.update({
     "top vectors": 10,
     "timezone": -6.25,
 })
-params["threshold"] = get_threshold(params)
 fig, axs = plt.subplots(2, 2,
                         # sharex=True,
                         sharey=True,
@@ -97,26 +95,26 @@ for station, ax in zip(params["test"],
         RS = clear_sky_model()
         RS = RS.run(subparams)
     ax.plot(GHI,
-            label="GHI$_0$ model",
+            label="modelo GHI$_0$",
             color="#6a040f")
     ax.plot(RS,
-            label="RS model",
+            label="modelo RS",
             color="#007f5f")
     ax.plot(transform_data.clear_data,
             label="SIMA",
             color="#b5179e")
     ax.plot(reconstruction,
             color="#6a994e",
-            label="Reconstruction",
+            label="Reconstrucción",
             ls="--")
     date = subparams["date"]
     fig.text(0.005, 0.37,
-             "Solar irradiance (W/m$^2$)",
+             "Irradiancia solar (W/m$^2$)",
              horizontalalignment='left',
              rotation='vertical',
              fontsize=13)
     fig.text(0.46, 0.01,
-             "Local time (h)",
+             "Hora local",
              fontsize=13)
     ax.set_title(f"{station} {date}")
     ax.set_xticks(data.index)

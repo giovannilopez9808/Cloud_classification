@@ -147,6 +147,7 @@ def comparison_operation(measurement: DataFrame,
     model = model.flatten()
     measurement = measurement.to_numpy()
     measurement = measurement.flatten()
+    measurement[model == 0] = 0
     if "diff" == operation:
         comparison = model-measurement
         comparison[model < 1e-3] = 0
@@ -239,6 +240,7 @@ def get_best_similarity_dates(similarity: DataFrame,
                               header: str,
                               station: str = None) -> list:
     similarity_vectors = similarity[header]
+    similarity_vectors = DataFrame(similarity_vectors)
     date = to_datetime(params["date"])
     month = date.month
     similarity_vector = DataFrame()
@@ -258,7 +260,8 @@ def get_best_similarity_dates(similarity: DataFrame,
         index = similarity_vector.index.str.contains(station)
         similarity_vector = similarity_vector[index]
     header = similarity_vector.columns[0]
-    similarity_vector = similarity_vector.sort_values(by=header)
+    similarity_vector = similarity_vector.sort_values(by=header,
+                                                      ascending=False)
     similarity_vector = similarity_vector.iloc[1:params["top vectors"]]
     similarity_vector = similarity_vector.index
     return similarity_vector

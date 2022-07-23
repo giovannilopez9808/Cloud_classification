@@ -9,6 +9,7 @@ from Modules.functions import (get_best_similarity_dates,
 from Modules.data_model import (clean_data_model,
                                 SIMA_model)
 from Modules.clear_sky import clear_sky_model
+from Modules.params import get_threshold
 from pandas import DataFrame
 
 
@@ -51,8 +52,12 @@ class transform_data_model:
                                           operation,
                                           use_threshold)
         if use_threshold:
+            params = self.params.copy()
+            params["clear sky model"] = "GHI"
+            params["comparison operation"] = "ratio"
+            params["threshold"] = get_threshold(params)
             comparison = threshold_filter(comparison,
-                                          self.params)
+                                          params)
         return comparison
 
     def _run_clean_data(self,
