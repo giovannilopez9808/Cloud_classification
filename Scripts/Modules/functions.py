@@ -187,7 +187,7 @@ def clean_data(data: DataFrame,
     comparison = comparison.to_numpy()
     comparison = comparison.flatten()
     clear_data[isnan(comparison)] = nan
-    clear_data[clear_sky == 0] = 0
+    clear_data[clear_sky <= 10] = 0
     clear_data = DataFrame(clear_data,
                            index=index,
                            columns=header)

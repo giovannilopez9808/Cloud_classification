@@ -61,7 +61,7 @@ params.update({
     "file graphics": "Reconstruction.png",
     "comparison operation": "ratio",
     "clear sky model": "RS",
-    "top vectors": 10,
+    "top vectors": 20,
     "timezone": -6.25,
 })
 fig, axs = plt.subplots(2, 2,
