@@ -13,23 +13,25 @@
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{subfiles}
+\usepackage{titlesec}
 \usepackage{verbatim}
 \usepackage{hyperref}
 \usepackage{vmargin}
 \usepackage{dcolumn}
+\usepackage{sectsty}
 \usepackage{lipsum}
 \usepackage{float}
 \usepackage{bm}
 \usepackage{cite}
 \parindent=0mm
-\addtolength{\textwidth}{2cm}
-\renewcommand{\baselinestretch}{0.9}
+\addtolength{\textwidth}{1.5cm}
+\renewcommand{\baselinestretch}{0.7}
 \newtheorem{defi}{Definición}
 \newtheorem{teor}{Teorema}
 \newtheorem{tesis}{Tesis}
 \pagestyle{empty}
-%\renewcommand{\baselinestretch}{1.5}
-\renewcommand{\arraystretch}{1.3}
+\renewcommand{\baselinestretch}{1.1}
+%\renewcommand{\arraystretch}{0.3}
 % Colors for the hyperref package
 \definecolor{urlcolor}{rgb}{0,.145,.698}
 \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
@@ -37,19 +39,25 @@
 \definecolor{def}{rgb}{0.00,0.27,0.87}
 \definecolor{title}{RGB}{2, 62, 138}
 \hypersetup{
-    breaklinks=true,
-    colorlinks=true,
-    urlcolor=urlcolor,
-    linkcolor=linkcolor,
-    citecolor=citecolor,
+	breaklinks=true,
+	colorlinks=true,
+	urlcolor=urlcolor,
+	linkcolor=linkcolor,
+	citecolor=citecolor,
 }
 \spanishdecimal{.}
 \usepackage{titling}
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
 \renewcommand\maketitlehookd{\vfill\null}
-\setlength{\parskip}{0.5em}
+\setlength{\parskip}{0.1em}
 \newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
 \SetCommentSty{mycommfont}
 \SetKwInput{KwInput}{Input}
 \SetKwInput{KwOutput}{Output}
-\setlength{\parskip}{0.5em}
+%\setlength{\parskip}{0.5em}
+\sectionfont{\fontsize{12}{15}\selectfont}
+\subsectionfont{\fontsize{11}{15}\selectfont}
+\subsubsectionfont{\fontsize{10}{15}\selectfont}
+\titlespacing{\section}{0pt}{\parskip}{-\parskip}
+\titlespacing{\subsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
