@@ -11,3 +11,5 @@ datasets/
 *.log
 *.out
 similarity.csv
+*.toc
+*eps-converted-to.pdf

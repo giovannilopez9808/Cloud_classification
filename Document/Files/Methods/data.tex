@@ -1,32 +1,68 @@
 \section{Sistema de Monitoreo Ambiental}
 
-\begin{table}[H]
+El Área Metropolitana de Monterrey (AMM) se ubica en una región montañosa donde se realizan extracciones de material para la construcción (pedreras) a la par de actividades industriales y alto flujo vehicular. El Sistema de Monitoreo Ambiental (SIMA) tiene como objetivo evaluar la calidad del aire, monitoreando las concentraciones de contaminantes atmosféricos a las que se encuentra expuesta la población del AMM y, bajo condiciones adversas, advertir sobre los periodos de altos índices de contaminación atmosféria. El SIMA se compone de 13 estaciones de monitoreo repartidas a lo largo del AMM (figura \ref{fig:stations}).
+
+\begin{figure}[H]
 	\centering
-	\begin{tabular}{llrrrr} \hline
-		\textbf{Ciudad}          & \textbf{Nombre} & \textbf{Elevación} & \textbf{Latitud} & \textbf{Longitud} \\ \hline
-		Guadalupe                & Sureste         & 492                & 25.6680          & -100.2490         \\
-		Monterrey                & Centro          & 560                & 25.6700          & -100.3380         \\
-		Monterrey                & Noroeste        & 571                & 25.7570          & -100.3660         \\
-		San Nicolas de los Garza & Noreste         & 476                & 25.7500          & -100.2550         \\
-		Santa Catarina           & Suroeste        & 694                & 25.6760          & -100.4640         \\
-		Garcia                   & Noroeste2       & 716                & 25.7830          & -100.5860         \\
-		Escobedo                 & Norte           & 528                & 25.8000          & -100.3440         \\
-		Apodaca                  & Noreste2        & 432                & 25.7770          & -100.1880         \\
-		Juarez                   & Sureste2        & 387                & 25.6460          & -100.0960         \\
-		San Pedro Garza Garcia   & Suroeste2       & 636                & 25.6650          & -100.4130         \\
-		Cadereyta de Jimenez     & Sureste         & 340                & 25.3600          & -99.9955          \\
-		Monterrey                & Sur             & 630                & 25.5749          & -100.2489         \\
-		San Nicolas de los Garza & Norte2          & 520                & 25.7295          & -100.3099         \\ \hline
+	\includegraphics[width=14cm]{Graphics/map_nolabels.eps}
+	\caption{Ubicación geográfica de las estaciones meteorológicas del SIMA en el AMM.}
+	\label{fig:stations}
+\end{figure}
+
+En la tabla \ref{table:stations_information} se muestra la información geográfica de las estaciones meteorológicas del SIMA en el AMM.
+
+\begin{table}[H]
+	\footnotesize
+	\centering
+	\begin{tabular}{llcrrr} \hline
+		\textbf{Ciudad}          & \textbf{Nombre} & \begin{tabular}{cc}			                                             \textbf{Elevación} \\\textbf{(m s. n. m.)}\end{tabular} & \textbf{Latitud (°N)} & \textbf{Longitud (°O)} \\ \hline
+		Guadalupe                & Sureste         & 492                                                                                                                        & 25.6680               & -100.2490              \\
+		Monterrey                & Centro          & 560                                                                                                                        & 25.6700               & -100.3380              \\
+		Monterrey                & Noroeste        & 571                                                                                                                        & 25.7570               & -100.3660              \\
+		San Nicolas de los Garza & Noreste         & 476                                                                                                                        & 25.7500               & -100.2550              \\
+		Santa Catarina           & Suroeste        & 694                                                                                                                        & 25.6760               & -100.4640              \\
+		Garcia                   & Noroeste2       & 716                                                                                                                        & 25.7830               & -100.5860              \\
+		Escobedo                 & Norte           & 528                                                                                                                        & 25.8000               & -100.3440              \\
+		Apodaca                  & Noreste2        & 432                                                                                                                        & 25.7770               & -100.1880              \\
+		Juarez                   & Sureste2        & 387                                                                                                                        & 25.6460               & -100.0960              \\
+		San Pedro Garza Garcia   & Suroeste2       & 636                                                                                                                        & 25.6650               & -100.4130              \\
+		Cadereyta de Jimenez     & Sureste3        & 340                                                                                                                        & 25.5833               & -99.9872               \\
+		Monterrey                & Sur             & 630                                                                                                                        & 25.5749               & -100.2489              \\
+		San Nicolas de los Garza & Norte2          & 520                                                                                                                        & 25.7295               & -100.3099              \\ \hline
 	\end{tabular}
-	\caption{}
+	\caption{Información de la localización geográfica de las estaciones meteorológicas del SIMA en el AMM.}
 	\label{table:stations_information}
 \end{table}
 
+Se conto con una base de datos que contiene mediciones de irradiancia solar por hora en las estaciones del SIMA. Se realizo un conteo de los meses que cumplen las siguientes condiciones:
+
+\begin{itemize}
+	\item Un día valido es aquel que contiene al menos 10 mediciones en el periodo de las 8 a las 19 horas.
+	\item Un mes valido es aquel que contiene al menos 21 días validos.
+\end{itemize}
+
+En la figura \ref{fig:distribution_data} se muestra la distribución de los meses validos en las estaciones del SIMA bajo las condiciones anteriores.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{Graphics/Distribution_stations.png}
+	\caption{Distribución de los meses validos para las estaciones meteorológicas del SIMA en el periodo 1993-2021.}
+	\label{fig:distribution_data}
+\end{figure}
+
+\section{Creación de la base de datos}
+
+En base a la localización geográfica (figura \ref{fig:stations}) y la distrubución de meses validos (figura \ref{fig:distribution_data}) se seleccionaron las estaciones noroeste, noreste, sureste2 y suroeste dentro del periodo 2019-2021. Con las mediciones diarias de cada estación se clasificó visualmenrte la condición de cielo. Las condiciones de cielo contempladas son despejado, parcialmente nublado y nublado.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15cm]{Graphics/example_sky_conditions.png}
+	\caption{}
+	\label{fig:example_sky_conditions}
+\end{figure}
 
 \subsection{Limpieza de datos}
 \subsection{Reconstrucción}
-\section{Creación de la base de datos}
-\subsection{Condiciones de cielo despejado}
 
 A partir de las graficas diarias de la medición con los modelos, se centraron algunas mediciones con respecto al máximo solar, esto debido a que en algunas estaciones ocurria este error de forma esporpádica. Existian mediciones en los datos los cuales son imposibles físicamente, para ello se realizo una limpieza automatica de los datos. Esta limpieza consistia en eliminar aquellos valores que tuvieran una diferencia negativa con respecto al modelo GHI$_0$ o tuvieran una valor de k$_t$ (GHI/GHI$_0$) mayor a 0.8. Cuando el valor del modelo GHI$_0$ es 0 para una hora, este valor sera remplazado independientemente del criterio anterior. Esto debido a que representa un valor con ruido. Al termino de la limpieza, el tratamiento de los datos se enfoco en realizar una restauración de los mismos. Para ello se hizo uso de la similitud coseno (ecuación \ref{eq:cosine}).
 
