@@ -8,10 +8,22 @@ params.update({
     "file graphics": "example_sky_conditions.png",
     "year": "2019",
     "datasets": {
-        "Noroeste": "2019-06-05",
-        "Noreste": "2019-06-16",
-        "Suroeste": "2019-08-10",
-        "Sureste2": "2019-07-22",
+        "Noroeste": {
+            "date": "2019-06-05",
+            "title": "Parcialmente nublado",
+        },
+        "Noreste": {
+            "date": "2019-06-16",
+            "title": "Nublado",
+        },
+        "Suroeste": {
+            "date": "2019-08-10",
+            "title": "Despejado",
+        },
+        "Sureste2": {
+            "date": "2019-07-22",
+            "title": "Nublado",
+        },
     }
 })
 SIMA = SIMA_model(params)
@@ -22,7 +34,9 @@ fig, axs = plt.subplots(2, 2,
 axs = axs.flatten()
 for station, ax in zip(params["datasets"],
                        axs):
-    date = params["datasets"][station]
+    datasets = params["datasets"][station]
+    date = datasets["date"]
+    title = datasets["title"]
     SIMA.get_station_data(station,
                           params["pollutant"])
     data = SIMA.get_date_data(date)
@@ -31,7 +45,7 @@ for station, ax in zip(params["datasets"],
             ls="--",
             marker="o",
             color="#52b69a")
-    ax.set_title(f"{station} {date}")
+    ax.set_title(f"{station} {date}\n{title}")
     # ax.set_xticks(data.index,
     # data.index.hour)
     ax.set_xlim(data.index.hour[6],

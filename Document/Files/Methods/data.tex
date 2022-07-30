@@ -34,7 +34,7 @@ En la tabla \ref{table:stations_information} se muestra la información geográf
 	\label{table:stations_information}
 \end{table}
 
-Se conto con una base de datos que contiene mediciones de irradiancia solar por hora en las estaciones del SIMA. Se realizo un conteo de los meses que cumplen las siguientes condiciones:
+Se conto con una base de datos que contiene mediciones de irradiancia solar por hora en las estaciones del SIMA en el periodo 1993-2021. Se realizo un conteo de los meses que cumplen las siguientes condiciones:
 
 \begin{itemize}
 	\item Un día valido es aquel que contiene al menos 10 mediciones en el periodo de las 8 a las 19 horas.
@@ -52,16 +52,57 @@ En la figura \ref{fig:distribution_data} se muestra la distribución de los mese
 
 \section{Creación de la base de datos}
 
-En base a la localización geográfica (figura \ref{fig:stations}) y la distrubución de meses validos (figura \ref{fig:distribution_data}) se seleccionaron las estaciones noroeste, noreste, sureste2 y suroeste dentro del periodo 2019-2021. Con las mediciones diarias de cada estación se clasificó visualmenrte la condición de cielo. Las condiciones de cielo contempladas son despejado, parcialmente nublado y nublado.
+Se seleccionaron las estaciones noroeste, noreste, sureste2 y suroeste en el periodo 2019-2021. Estas estaciones fueron elegidas debido a que la geografía alredeor es muy diferente y porque presentan un gran número de mediciones dentro del periodo seleccionado. En base a las mediciones diarias de cada estación se clasificó visualmente la condición de cielo para cada día. Las condiciones de cielo contempladas son despejado, parcialmente nublado y nublado.
+
+\subsection{Criterios para las condiciones de cielo despejado}
+
+Los criterios para la clasificación de cielo despjado de manera visual de las mediciones diarias son las siguientes:
+
+\begin{itemize}
+	\item Cielo despejado
+	      \begin{itemize}
+		      \item Un día de cielo despejado se caracteriza por tener un comportamiento gaussiano a lo largo del día, teniendo como máximo el mediodía solar. Para el AMM, el mediodía solar debe encontrarse alrededor de las 12:30-14:30 horas. Las mediciones deben registrar un valor diferente a cero entre las 6 a las 20 horas.
+	      \end{itemize}
+	\item Cielo parcialmente nublado
+	      \begin{itemize}
+		      \item Un día de cielo parcialmente nublado se caracteriza por presentar el comportamiento de un día con cielo despejado pero en ciertos intervalos de tiempo. Esto puede ocurrir en solo una hora, o en varias. Si el día contiene entre uno y cinco mediciones que caracterizan a un día despejado, entonces el día será clasificado como parcialmente nublado.
+	      \end{itemize}
+	\item Cielo nublado
+	      \begin{itemize}
+		      \item Un día nublado se caracteriza por presentar un comportamiento caótico o un comportamiento gaussiano pero con valores más bajos en comparación a un día de cielo despeajdo.
+	      \end{itemize}
+\end{itemize}
+
+En la figura \ref{fig:example_sky_conditions} se presentan diferentes mediciones para visualizar las diferentes clasificaciones de las condiciones de cielo.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=15cm]{Graphics/example_sky_conditions.png}
-	\caption{}
+	\caption{Ejemplos de las clasificaciones de las condiciones de cielo a partir de mediciones diarias de cada una de las estaciones del SIMA.}
 	\label{fig:example_sky_conditions}
 \end{figure}
 
-\subsection{Limpieza de datos}
+\subsection{Datos atípicos}
+
+Los datos de las estaciones del SIMA pueden contener ruido o mediciones que fisicamente no son posibles, a estos datos los denominamos como atípicos. Se implemento una limpieza de datos automática la cual consiste en realizar una operación de comparación para cada medición (ecuación \ref{eq:clean_comparison}) con respecto al modelo GHI, si esta operación para alguna hora es mayor a 0.9, entonces este valor corresponde a una medición atípco y se eliminará de la base de datos. Si el $k_t$ es igual a 0, entonces se sobreescribe la medición con el valor 0, esto con el propósito de eliminar el ruido que puede tener el radiometro de la estación analizada.
+
+\begin{equation}
+	k_t =\begin{cases}
+		\frac{\text{Medición}}{\text{GHI}_0} & \text{si GHI}_0\neq 0 \\
+		0                                    & \text{si GHI}_0 = 0
+	\end{cases}
+	\label{eq:clean_comparison}
+\end{equation}
+
+En la figura \ref{fig:example_clean_data} se visualiza en dos días diferentes el proceso de la limpieza de datos atípicos. Los valores atípicos ocurren con frecuencia al inicio o al final del día solar.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15cm]{Graphics/example_clean_data.png}
+	\caption{}
+	\label{fig:example_clean_data}
+\end{figure}
+
 \subsection{Reconstrucción}
 
 A partir de las graficas diarias de la medición con los modelos, se centraron algunas mediciones con respecto al máximo solar, esto debido a que en algunas estaciones ocurria este error de forma esporpádica. Existian mediciones en los datos los cuales son imposibles físicamente, para ello se realizo una limpieza automatica de los datos. Esta limpieza consistia en eliminar aquellos valores que tuvieran una diferencia negativa con respecto al modelo GHI$_0$ o tuvieran una valor de k$_t$ (GHI/GHI$_0$) mayor a 0.8. Cuando el valor del modelo GHI$_0$ es 0 para una hora, este valor sera remplazado independientemente del criterio anterior. Esto debido a que representa un valor con ruido. Al termino de la limpieza, el tratamiento de los datos se enfoco en realizar una restauración de los mismos. Para ello se hizo uso de la similitud coseno (ecuación \ref{eq:cosine}).
