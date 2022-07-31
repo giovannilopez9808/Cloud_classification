@@ -23,7 +23,7 @@ params.update({
     },
 })
 fig, axs = plt.subplots(2, 2,
-                        figsize=(14, 8),
+                        figsize=(16, 8),
                         sharex=True,
                         sharey=True)
 for index, ax in zip(params["dataset"],

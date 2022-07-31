@@ -24,15 +24,25 @@ data = data.fillna(0)
 data = data.T
 fig, ax = plt.subplots(figsize=(12, 10))
 cmap = cm.get_cmap("inferno",
-                   12)
-colormap = ax.matshow(data,
-                      cmap=cmap,
-                      aspect="auto")
+                   13)
+colormap = ax.imshow(data,
+                     cmap=cmap,
+                     vmin=-0.5,
+                     vmax=12.5,
+                     aspect="auto")
 bar = fig.colorbar(colormap,
                    ticks=range(13))
+bar.ax.set_yticklabels(range(13))
+bar.ax.set_ylabel("Meses validos",
+                  labelpad=20,
+                  fontsize=14,
+                  rotation=-90)
 ax.set_xticks(range(29),
               data.columns,
               rotation=90)
+ax.set_ylabel("Estaciones",
+              labelpad=10,
+              fontsize=14)
 ax.set_xticks(minior_tick(range(29)),
               minor=True)
 ax.set_yticks(range(16),
@@ -40,6 +50,7 @@ ax.set_yticks(range(16),
 ax.set_yticks(minior_tick(range(16)),
               minor=True)
 ax.grid(ls="--",
+        color="#ffffff",
         which="minor")
 plt.tight_layout()
 filename = join(params["path graphics"],

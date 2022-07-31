@@ -1,6 +1,5 @@
 from pandas import read_csv, DataFrame
 from Modules.params import get_params
-import matplotlib.pyplot as plt
 from os import listdir as ls
 from os.path import join
 from tqdm import tqdm
