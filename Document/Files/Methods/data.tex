@@ -82,6 +82,17 @@ En la figura \ref{fig:example_sky_conditions} se presentan diferentes mediciones
 	\label{fig:example_sky_conditions}
 \end{figure}
 
+\subsection{Distribución de los datos}
+
+En la figura \ref{fig:distribution} se muestra la distribución de las condiciones de cielo clasificadas de manera visual, en esta se observa que existe una mayor cantidad de dias nublados en comparación de los dias categorizados como despejado o parcialmente nublado.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14cm]{Graphics/distribution_classification.png}
+	\caption{}
+	\label{fig:distribution}
+\end{figure}
+
 \subsection{Datos atípicos}
 
 Los datos de las estaciones del SIMA pueden contener ruido o mediciones que fisicamente no son posibles, a estos datos los denominamos como atípicos. Se implemento una limpieza de datos automática la cual consiste en realizar una operación de comparación para cada medición (ecuación \ref{eq:clean_comparison}) con respecto al modelo GHI, si esta operación para alguna hora es mayor a 0.9, entonces este valor corresponde a una medición atípco y se eliminará de la base de datos. Si el $k_t$ es igual a 0, entonces se sobreescribe la medición con el valor 0, esto con el propósito de eliminar el ruido que puede tener el radiometro de la estación analizada.

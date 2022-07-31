@@ -34,7 +34,7 @@ def autolabel(rects: BarContainer) -> None:
 
 params = get_params()
 params.update({
-    "graphics file": "distribution.png"
+    "graphics file": "distribution_classification.png"
 })
 filename = join(params["path results"],
                 params["classification file"])
@@ -44,6 +44,9 @@ classification = read_csv(filename,
 frecuency = get_frecuency(classification)
 frecuency = 100*frecuency / frecuency.sum()
 keys, label = get_labels(params)
+label = ["Nublado",
+         "Parcialmente nublado",
+         "Despejado"]
 colors = get_colors(params)
 plt.subplots(figsize=(8, 4))
 bar = plt.bar(frecuency.index,
@@ -52,7 +55,7 @@ bar = plt.bar(frecuency.index,
 autolabel(bar)
 plt.xticks(keys,
            label)
-plt.xlabel("Condiciones de cielo")
+plt.xlabel("Condiciones de cielo (%)")
 plt.yticks(range(0,
                  60,
                  5))
