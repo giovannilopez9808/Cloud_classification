@@ -39,7 +39,7 @@ En la tabla \ref{table:perceptron} se muestra el número de parámetros y la sal
 		Densa 2       & 128             & 32896                                                                      \\
 		Densa 3       & 3               & 387                                                                        \\ \hline
 	\end{tabular}
-	\caption{Estructura del modelo perceptrón creado.}
+	\caption{Estructura del modelo perceptrón implementado.}
 	\label{table:perceptron}
 \end{table}
 \paragraph{Red Recurrente}
@@ -82,7 +82,7 @@ En la tabla \ref{table:rnn} se muestra la estructura de la RNN creada para este 
 		RNN           & 64              & 4224                                                                       \\
 		Densa         & 3               & 195                                                                        \\ \hline
 	\end{tabular}
-	\caption{Estructura del modelo RNN creado.}
+	\caption{Estructura del modelo RNN implementado.}
 	\label{table:rnn}
 \end{table}
 
@@ -92,7 +92,7 @@ A diferencia de un modelo perceptrón, los modelos de redes neuronales convoluci
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=10cm]{Graphics/maxpolling.png}
+	\includegraphics[width=7cm]{Graphics/maxpolling.png}
 	\caption{Ejemplo de la capa Max-polling sobre una matriz de 4x4\cite{max_polling_image}.}
 	\label{fig:maxpolling}
 \end{figure}
@@ -118,7 +118,7 @@ En la tabla \ref{table:cnn} se muestra la estructura del modelo CNN implementado
 		Global Average & 200             & 0                                                                          \\
 		Densa          & 3               & 603                                                                        \\ \hline
 	\end{tabular}
-	\caption{Estructura del modelo RNN creado.}
+	\caption{Estructura del modelo CNN implementado.}
 	\label{table:cnn}
 \end{table}
 
@@ -129,7 +129,7 @@ El modelo long short-term memory (LSTM) es una red neuronal la cual contiene pro
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=10cm]{Graphics/lstm.png}
+	\includegraphics[width=8cm]{Graphics/lstm.png}
 	\caption{Celda de la red LSTM con sus elementos\cite{lstm_image}.}
 	\label{fig:lstm}
 \end{figure}
@@ -144,7 +144,7 @@ En la tabla \ref{table:lstm} se encuentra la estructura de la red LSTM implement
 		LSTM 2        & 256             & 525312                                                                     \\
 		Densa         & 3               & 771                                                                        \\ \hline
 	\end{tabular}
-	\caption{Estructura del modelo RNN creado.}
+	\caption{Estructura del modelo LSTM implementado.}
 	\label{table:lstm}
 \end{table}
 
@@ -154,12 +154,44 @@ El modelo Bidireccional Long short-term memory (Bi-LSTM) añade la característi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=14cm]{Graphics/bi_lstm.jpg}
+	\includegraphics[width=10cm]{Graphics/bi_lstm.jpg}
 	\caption{Estructura interna de la red Bi-LSTM\cite{bilstm_image}.}
 	\label{fig:bi_lstm}
 \end{figure}
 
+En la tabla \ref{table:bi_lstm} se muestra la estructura interna del modelo Bi-LSTM implementado.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{llr} \hline
+		\textbf{Capa} & \textbf{Salida} & \begin{tabular}{c} \textbf{Número} \\ \textbf{de parámetros} \end{tabular} \\ \hline
+		Bi-LSTM 1     & 24,512          & 528384                                                                     \\
+		Bi-LSTM 2     & 512             & 1574912                                                                    \\
+		Densa         & 3               & 1539                                                                       \\ \hline
+	\end{tabular}
+	\caption{Estructura del modelo Bi-LSTM implementado.}
+	\label{table:bi_lstm}
+\end{table}
+
+
 \paragraph{Red convolucional con atención}
 
+La atención es una técnica que toma la idea de la atención cognitiva de los humanos. La idea principal es que el modelo se enfoque en cierta parte de la entrada e ignore la otra, esto por medio de un sistema de pesado. El uso de multiples mecanismos de atención afronta la desventaja que tiene la convolución\cite{Yunpeng_2018,Yunpeng_2019}. Es por ello, que se implemento esta capa de atención en la estructura de la red CNN descrita en la tabla \ref{table:cnn}. En la tabla \ref{table:cnn_with_attention} se encuentra la estructura de la red CNN con atención implementada.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{llr} \hline
+		\textbf{Capa}  & \textbf{Salida} & \begin{tabular}{c} \textbf{Número} \\ \textbf{de parámetros} \end{tabular} \\ \hline
+		Conv1D 1       & 20,100          & 600                                                                        \\
+		Conv1D 2       & 18,200          & 60200                                                                      \\
+		Conv1D 3       & 16,200          & 120200                                                                     \\
+		Global Average & 32              & 52800                                                                      \\
+		Densa          & 3               & 99                                                                         \\ \hline
+	\end{tabular}
+	\caption{Estructura del modelo CNN con atención implementado.}
+	\label{table:cnn_with_attention}
+\end{table}
 
 \paragraph{Esquema de votación}
+
+En base a los modelos neuronales implementados, se desarrollo un esquema de votación en el cual se seleccionan a los tres mejores modelos en base a su precisión para cada estación y se realiza una media aritmética de su resultado final.

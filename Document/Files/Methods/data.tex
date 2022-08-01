@@ -16,19 +16,19 @@ En la tabla \ref{table:stations_information} se muestra la información geográf
 	\centering
 	\begin{tabular}{llcrrr} \hline
 		\textbf{Ciudad}          & \textbf{Nombre} & \begin{tabular}{cc}														 \textbf{Elevación} \\\textbf{(m s. n. m.)}\end{tabular} & \textbf{Latitud (°N)} & \textbf{Longitud (°O)} \\ \hline
-		Guadalupe                & Sureste         & 492                                                                                                                        & 25.6680               & -100.2490              \\
-		Monterrey                & Centro          & 560                                                                                                                        & 25.6700               & -100.3380              \\
-		Monterrey                & Noroeste        & 571                                                                                                                        & 25.7570               & -100.3660              \\
-		San Nicolas de los Garza & Noreste         & 476                                                                                                                        & 25.7500               & -100.2550              \\
-		Santa Catarina           & Suroeste        & 694                                                                                                                        & 25.6760               & -100.4640              \\
-		Garcia                   & Noroeste2       & 716                                                                                                                        & 25.7830               & -100.5860              \\
-		Escobedo                 & Norte           & 528                                                                                                                        & 25.8000               & -100.3440              \\
-		Apodaca                  & Noreste2        & 432                                                                                                                        & 25.7770               & -100.1880              \\
-		Juarez                   & Sureste2        & 387                                                                                                                        & 25.6460               & -100.0960              \\
-		San Pedro Garza Garcia   & Suroeste2       & 636                                                                                                                        & 25.6650               & -100.4130              \\
-		Cadereyta de Jimenez     & Sureste3        & 340                                                                                                                        & 25.5833               & -99.9872               \\
-		Monterrey                & Sur             & 630                                                                                                                        & 25.5749               & -100.2489              \\
-		San Nicolas de los Garza & Norte2          & 520                                                                                                                        & 25.7295               & -100.3099              \\ \hline
+		Guadalupe                & Sureste         & 492                                                                                       & 25.6680               & -100.2490              \\
+		Monterrey                & Centro          & 560                                                                                       & 25.6700               & -100.3380              \\
+		Monterrey                & Noroeste        & 571                                                                                       & 25.7570               & -100.3660              \\
+		San Nicolas de los Garza & Noreste         & 476                                                                                       & 25.7500               & -100.2550              \\
+		Santa Catarina           & Suroeste        & 694                                                                                       & 25.6760               & -100.4640              \\
+		Garcia                   & Noroeste2       & 716                                                                                       & 25.7830               & -100.5860              \\
+		Escobedo                 & Norte           & 528                                                                                       & 25.8000               & -100.3440              \\
+		Apodaca                  & Noreste2        & 432                                                                                       & 25.7770               & -100.1880              \\
+		Juarez                   & Sureste2        & 387                                                                                       & 25.6460               & -100.0960              \\
+		San Pedro Garza Garcia   & Suroeste2       & 636                                                                                       & 25.6650               & -100.4130              \\
+		Cadereyta de Jimenez     & Sureste3        & 340                                                                                       & 25.5833               & -99.9872               \\
+		Monterrey                & Sur             & 630                                                                                       & 25.5749               & -100.2489              \\
+		San Nicolas de los Garza & Norte2          & 520                                                                                       & 25.7295               & -100.3099              \\ \hline
 	\end{tabular}
 	\caption{Información de la localización geográfica de las estaciones meteorológicas del SIMA en el AMM.}
 	\label{table:stations_information}
@@ -60,24 +60,24 @@ Los criterios para la clasificación de cielo despjado de manera visual de las m
 
 \begin{itemize}
 	\item Cielo despejado
-		\begin{itemize}
-			\item Un día de cielo despejado se caracteriza por tener un comportamiento gaussiano a lo largo del día, teniendo como máximo el mediodía solar. Para el AMM, el mediodía solar debe encontrarse alrededor de las 12:30-14:30 horas. Las mediciones deben registrar un valor diferente a cero entre las 6 a las 20 horas.
-		\end{itemize}
+	      \begin{itemize}
+		      \item Un día de cielo despejado se caracteriza por tener un comportamiento gaussiano a lo largo del día, teniendo como máximo el mediodía solar. Para el AMM, el mediodía solar debe encontrarse alrededor de las 12:30-14:30 horas. Las mediciones deben registrar un valor diferente a cero entre las 6 a las 20 horas.
+	      \end{itemize}
 	\item Cielo parcialmente nublado
-		\begin{itemize}
-			\item Un día de cielo parcialmente nublado se caracteriza por presentar el comportamiento de un día con cielo despejado pero en ciertos intervalos de tiempo. Esto puede ocurrir en solo una hora, o en varias. Si el día contiene entre uno y cinco mediciones que caracterizan a un día despejado, entonces el día será clasificado como parcialmente nublado.
-		\end{itemize}
+	      \begin{itemize}
+		      \item Un día de cielo parcialmente nublado se caracteriza por presentar el comportamiento de un día con cielo despejado pero en ciertos intervalos de tiempo. Esto puede ocurrir en solo una hora, o en varias. Si el día contiene entre uno y cinco mediciones que caracterizan a un día despejado, entonces el día será clasificado como parcialmente nublado.
+	      \end{itemize}
 	\item Cielo nublado
-		\begin{itemize}
-			\item Un día nublado se caracteriza por presentar un comportamiento caótico o un comportamiento gaussiano pero con valores más bajos en comparación a un día de cielo despeajdo.
-		\end{itemize}
+	      \begin{itemize}
+		      \item Un día nublado se caracteriza por presentar un comportamiento caótico o un comportamiento gaussiano pero con valores más bajos en comparación a un día de cielo despeajdo.
+	      \end{itemize}
 \end{itemize}
 
 En la figura \ref{fig:example_sky_conditions} se presentan diferentes mediciones para visualizar las diferentes clasificaciones de las condiciones de cielo.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=15cm]{Graphics/example_sky_conditions.png}
+	\includegraphics[width=12cm]{Graphics/example_sky_conditions.png}
 	\caption{Ejemplos de las clasificaciones de las condiciones de cielo a partir de mediciones diarias de cada una de las estaciones del SIMA.}
 	\label{fig:example_sky_conditions}
 \end{figure}
@@ -88,8 +88,8 @@ En la figura \ref{fig:distribution} se muestra la distribución de las condicion
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=14cm]{Graphics/distribution_classification.png}
-	\caption{}
+	\includegraphics[width=10cm]{Graphics/distribution_classification.png}
+	\caption{Distrubución de las clasificaciones de las condiciones de cielo en la base de datos.}
 	\label{fig:distribution}
 \end{figure}
 
@@ -109,7 +109,7 @@ En la figura \ref{fig:example_clean_data} se visualiza en dos días diferentes e
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=15cm]{Graphics/example_clean_data.png}
+	\includegraphics[width=12cm]{Graphics/example_clean_data.png}
 	\caption{Mediciones de irradiancia solar de la estación noroeste originales (izquierda) y sin valores atípicos (derecha).}
 	\label{fig:example_clean_data}
 \end{figure}
@@ -127,7 +127,7 @@ En la figura \ref{fig:restoration} se muestran los datos restaurados para los ca
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=15cm]{Graphics/example_restoration.png}
+	\includegraphics[width=12cm]{Graphics/example_restoration.png}
 	\caption{Restauracion de mediciones por medio de promerios horarios de las 30 mediciones más semejantes al día seleccioando}
 	\label{fig:restoration}
 \end{figure}
@@ -136,16 +136,16 @@ Con las mediciones restauradas se realizaron las comparaciones (ecuación \ref{e
 
 \begin{equation}
 	d_t = \begin{cases}
-		\text{Modelo} - \text{Medición} & \text{si Modelo}\neq 0\\
-		0 & \text{si Modelo} = 0
+		\text{Modelo} - \text{Medición} & \text{si Modelo}\neq 0 \\
+		0                               & \text{si Modelo} = 0
 	\end{cases}
 	\label{eq:diff}
 \end{equation}
 
 \begin{equation}
 	k_t = \begin{cases}
-		\frac{\text{Medición}}{\text{Modelo}} & \text{si Modelo}\neq 0\\
-		0 & \text{si Modelo} = 0
+		\frac{\text{Medición}}{\text{Modelo}} & \text{si Modelo}\neq 0 \\
+		0                                     & \text{si Modelo} = 0
 	\end{cases}
 	\label{eq:ratio}
 \end{equation}

@@ -1,1 +1,64 @@
 \subsection{Metricas}
+
+Para medir el rendimiento de cada modelo se utilizará como base la matriz de confusión. En la tabla \ref{table:confusion_matrix} se presenta un ejemplo de una matriz de confusión. Cada columna representa el número de predicciones de cada clase, mientras que las filas representa a las clases reales.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lllll}
+		                                                                       &                                                                & \multicolumn{3}{c}{Clase predicha}                                                                              \\ \cline{3-5}
+		                                                                       &                                                                & Nublado                            & \begin{tabular}[c]{@{}l@{}}Parcialmente\\ nublado\end{tabular} & Despejado \\ \cline{3-5}
+		\parbox[t]{5mm}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Clase real}}} & Nublado                                                        & 100                                & 11                                                             & 1         \\
+		                                                                       & \begin{tabular}[c]{@{}l@{}}Parcialmente\\ nublado\end{tabular} & 13                                 & 42                                                             & 10        \\
+		                                                                       & Despejado                                                      & 0                                  & 4                                                              & 51        \\ \cline{3-5}
+	\end{tabular}
+	\caption{Ejemplo de una matriz de confusión con las clases de las condiciones de cielo.}
+	\label{table:confusion_matrix}
+\end{table}
+
+Las metricas precision (ecuación \ref{eq:precision}) y recall (ecuación \ref{eq:recall}) que se pueden obtener a partir de la matriz de confusión. Estas metricas dependen de cada clase.
+
+\begin{minipage}{0.47\linewidth}
+	\begin{equation}
+		\text{Precision} = \frac{tp}{tp+fp}
+		\label{eq:precision}
+	\end{equation}
+\end{minipage}
+\hspace{0.1cm}
+\begin{minipage}{0.47\linewidth}
+	\begin{equation}
+		\text{Recall} = \frac{tp}{tp+fn}
+		\label{eq:recall}
+	\end{equation}
+	\vspace{0.1cm}
+\end{minipage}
+
+donde tp son el número de predicciones correctamente etiquetadas, fn es el número de predicciones que predicen la innexistencia de cierta característica pero en realidad sí la presentan y fp es el número de predicciones que preducen la presencia de cierta característica pero en realidad no la presentan.
+
+La metrica F-Score combina los valores de las metricas precision y recall. La metrica F-Score esta definida en la ecuación \ref{eq:f_measure}.
+
+\begin{equation}
+	F = 2 \frac{\text{precision} \cdot\text{ recall}}{\text{precision}+\text{recall}}
+	\label{eq:f_measure}
+\end{equation}
+
+Para resumir la información de las metricas antes mencionadas se utiliza la metrica accuracy. La metrica accuracy esta definida en la ecuación \ref{eq:accuracy}.
+
+\begin{equation}
+	\text{Accuracy}=\frac{\text{Número correcto de predicciones}}{\text{Número total de predicciones}}
+	\label{eq:accuracy}
+\end{equation}
+
+Para cada modelo se genera un reporte de metricas como el mostrado en la tabla \ref{table:report}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{rrrr} \cline{2-4}
+		                              & \textbf{Precision} & \textbf{Recall} & \textbf{F-Score} \\ \cline{2-4}
+		\textbf{Nublado}              & 0.88               & 0.89            & 0.89             \\
+		\textbf{Parcialmente nublado} & 0.74               & 0.65            & 0.69             \\
+		\textbf{Despejado}            & 0.82               & 0.93            & 0.87             \\
+		\textbf{Accuracy}             &                    &                 & 0.83             \\ \hline
+	\end{tabular}
+	\caption{Ejemplo del reporte de metricas por cada modelo de clasificación.}
+	\label{table:report}
+\end{table}
