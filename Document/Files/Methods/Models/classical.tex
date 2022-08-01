@@ -1,7 +1,36 @@
 \subsection{Modelos clásicos}
 
-\paragraph{SVM}
+Tradicionalmente la solución a los problemas de clasificación se ha realizado por medio de modelos estadísticos ó geométricos. El rendimiento del modelo dependerá del patrón de correlaciones que mantengan los predictores con la información de entada. En este trabajo se implementaron los modelos Support Vector Machine (SVM), K vecnos más cercanos (KNN), Árbol de decisión, Bosque Aleatorio y Naives Bayes Gaussiano.
+
+\paragraph{Support Vector Machine}
+
+El algoritmo de Support Vector Machine (SVM) es un algoritmo de aprendizaje supervisado que se utiliza en problemas de clasificación y regresión. El objetivo del algoritmo SVM es encontrar un conjunto de hiperplanos que separen de la mejor manera posible a las clases de los datos dados. Cada hiperplano resultante tendra un margen amplio entre cada clase de datos. El margen se define como la distancia máxima a la región paralela al hiperplano que no contiene datos en su interior. Existen funciones las cuales pueden transformar las caracteristicas del hiperplano, estas funciones son llamadas funciones kernel. En la tabla \ref{table:kernels} se encuentran las diferentes funciones kernel que son mayormente usadas.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ll} \hline
+		\textbf{Función} & \textbf{Kernel}                                                  \\ \hline
+		Gaussiana        & $K(x_1,x_2) = exp\left(-\frac{||x_1-x_2||^2}{2\sigma^2} \right)$ \\[0.1cm]
+		Lineal           & $K(x_1,x_2)=x_1^Tx_2$                                            \\[0.1cm]
+		Polinómial       & $K(x_1,x_2)= (x_1^Tx_2+1)^\rho $                                 \\[0.1cm]
+		Sigmoide         & $K(x_1,x_2)=tanh(\beta_0 x_1^Tx_2+\beta_1)$                      \\ [0.1cm]\hline
+	\end{tabular}
+	\caption{Funciones kernel con los parámetros de cada función.}
+	\label{table:kernels}
+\end{table}
+
 \paragraph{KNN}
-\paragraph{Random forest}
-\paragraph{Gaussian naive}
-\paragraph{Decision tree}
+
+El algoritmo de k vecinos más cercanos, también conocido como KNN o k-NN, es un algoritmo de aprendizaje supervisado no paramétrico. El algoritmo usa la proximidad para realizar una clasificación o una predicción. Generalmente el algoritmo se usa como un modelo de clasificación. Para problemas de clasificación se asigna una etiqueta de clase en base al número que se presenta con mayor frecuencia alrededor del punto dado. Para este caso se utilizo la metrica de minkowski con $p=2$ y considerando los 3 vecinos más cercanos.
+
+\paragraph{Árbol de decisión}
+
+Un árbol de decisión es un modelo basado en el aprendizaje supervisado. El modelo divide el espacio de predictores aplicando una serie de reglas o decisiones en la que contenga la mayor proporción posible de individuos de una de las categorias dadas. En este trabajo se utilizo la función gini para entrenar el modelo.
+
+\paragraph{Bosques aleatorios}
+
+El algoritmo de bosque aleatorio es un algoritmo de aprendizaje supervisado, el cual esta basado en un conjunto de árboles de decisión combinados con un método de votación. En este trabajo se utilizo la función gini para entrenar el modelo y 1000 estimadores.
+
+\paragraph{Naive Bayes Gaussiano}
+
+El algoritmo Naive Bayes Gaussiano es un algoritmo de aprendizaje supervisado. El algoritmo esta basado el el teorema de bayes. La asunción que toma el algoritmo es la independencia entre las categorias. E
