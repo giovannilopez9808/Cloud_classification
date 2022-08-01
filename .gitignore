@@ -13,3 +13,4 @@ datasets/
 similarity.csv
 *.toc
 *eps-converted-to.pdf
+*.dvi
