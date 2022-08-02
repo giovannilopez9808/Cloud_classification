@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --partition=GPU
+#SBATCH --job-name=All_models
+#SBATCH --output=run.log
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=giovanni.lopez@cimat.mx
+cd /home/est_posgrado_giovanni.lopez/Cloud_classification/Scripts
+source /opt/anaconda3_titan/bin/activate
+conda activate tensorflow
+export TF_ENABLE_ONEDNN_OPTS=0
+hostname
+date
+python Test_neural_model.py
+date

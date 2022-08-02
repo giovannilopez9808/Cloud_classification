@@ -1,7 +1,7 @@
-,Sureste2 2015-02-01,Noreste 2012-08-10,Noroeste 2016-03-19,Suroeste 2017-10-08
-perceptron,2,0,0,0
-CNN,0,0,0,1
-LSTM,0,0,0,1
-RNN,0,0,0,0
-Bi LSTM,0,0,0,1
-Attention CNN,1,0,0,0
+,Sureste2 2015-02-01,Noreste 2012-08-10,Noroeste 2021-10-26,Suroeste 2017-10-08
+perceptron,0,2,1,1
+CNN,0,1,1,0
+LSTM,0,1,1,0
+RNN,0,2,1,1
+Bi LSTM,0,2,1,1
+Attention CNN,0,1,1,1
