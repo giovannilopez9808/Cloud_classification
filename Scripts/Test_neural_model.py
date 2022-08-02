@@ -54,7 +54,7 @@ params.update({
     "top vectors": 10,
     "timezone": -5,
     "test": {
-        "Noreste": {"date": "2021-10-07"},
+        "Noreste": {"date": "2021-10-23"},
         "Sureste2": {"date": "2020-07-25"},
         "Suroeste": {"date": "2019-12-15"},
         "Noroeste": {"date": "2019-04-06"},

@@ -24,10 +24,10 @@ params.update({
         "incorrect": (230/255, 57/255, 70/255),
     },
     "labels": [
-        0,
         2,
         0,
         1,
+        2,
     ],
 })
 results = DataFrame()
@@ -40,6 +40,7 @@ for folder in [params["Classical model path"],
                     index_col=0)
     results = concat([results,
                       data])
+print(results)
 table = DataFrame(results,
                   dtype=int)
 headers = table.columns
@@ -52,6 +53,7 @@ for header, value in zip(table.columns,
                          params["labels"]):
     results[header] = results[header].apply(lambda data: iscorrect(data,
                                                                    value))
+print(results)
 cmap = LinearSegmentedColormap.from_list("custom",
                                          colors,
                                          N=2)
