@@ -55,6 +55,7 @@ def get_reports(models: str,
 
 if __name__ == "__main__":
     params = get_params()
+    params["neural models"] += ["Voting"]
     params.update({
         "station": argv[1],
     })

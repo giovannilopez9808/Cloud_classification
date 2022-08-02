@@ -57,17 +57,11 @@ def get_params() -> dict:
             "Suroeste",
         ],
         "test": {
-            "Sureste2": {
-                "date": "2015-02-01",
-            },
             "Noreste": {
                 "date": "2012-08-10",
             },
             "Noroeste": {
                 "date": "2021-10-26",
-            },
-            "Suroeste": {
-                "date": "2017-10-08",
             },
         },
         "classification": {

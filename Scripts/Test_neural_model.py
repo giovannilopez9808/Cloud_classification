@@ -51,8 +51,15 @@ params.update({
     "file results": "Test_models.csv",
     "comparison operation": "ratio",
     "clear sky model": "RS",
-    "top vectors": 30,
-    "timezone": -6.25,
+    "top vectors": 10,
+    "timezone": -5,
+    "test": {
+        "Noreste": {"date": "2021-10-07"},
+        "Sureste2": {"date": "2020-07-25"},
+        "Suroeste": {"date": "2019-12-15"},
+        "Noroeste": {"date": "2019-04-06"},
+    }
+
 })
 params["threshold"] = get_threshold(params)
 headers = get_test_header(params)
