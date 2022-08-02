@@ -1,6 +1,6 @@
-,Noreste 2021-10-07,Sureste2 2020-07-25,Suroeste 2019-12-15,Noroeste 2019-04-06
-SVM,2.0,0.0,1.0,1.0
-KNN,2.0,0.0,1.0,2.0
-Random forest,2.0,0.0,1.0,2.0
-Gaussian naive,2.0,0.0,1.0,2.0
-Decision tree,2.0,0.0,1.0,2.0
+,Noreste 2021-10-23,Sureste2 2020-07-25,Suroeste 2019-12-15,Noroeste 2019-04-06
+SVM,0.0,0.0,1.0,1.0
+KNN,0.0,0.0,1.0,2.0
+Random forest,0.0,0.0,1.0,2.0
+Gaussian naive,0.0,0.0,1.0,2.0
+Decision tree,1.0,0.0,1.0,2.0

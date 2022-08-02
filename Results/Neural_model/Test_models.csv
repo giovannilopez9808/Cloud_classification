@@ -1,7 +1,7 @@
-,Noreste 2021-10-07,Sureste2 2020-07-25,Suroeste 2019-12-15,Noroeste 2019-04-06
-perceptron,2,0,1,1
-CNN,2,0,1,2
-LSTM,2,0,1,2
-RNN,2,0,1,2
-Bi LSTM,2,0,1,2
-Attention CNN,2,0,1,2
+,Noreste 2021-10-23,Sureste2 2020-07-25,Suroeste 2019-12-15,Noroeste 2019-04-06
+perceptron,0,0,1,1
+CNN,0,0,1,2
+LSTM,0,0,1,2
+RNN,0,0,1,2
+Bi LSTM,0,0,1,2
+Attention CNN,0,0,1,2

@@ -10,5 +10,6 @@ conda activate tensorflow
 export TF_ENABLE_ONEDNN_OPTS=0
 hostname
 date
+python Test_classification_model.py
 python Test_neural_model.py
 date
