@@ -1,1 +1,8 @@
 \section{Discusión y conclusiones}
+
+Con base en las tablas \ref{table:noroeste_accuracy}, \ref{table:noreste_accuracy}, \ref{table:suroeste_accuracy} y \ref{table:sureste2_accuracy} se pueden obtener las siguientes conclusiones:
+\begin{itemize}
+	\item Los modelos entrenados con base en los vectores diarios ratio con el modelo RS exhiben un mejor accuracy en comparación a los modelos entrenados con los otros vectores diarios.
+	\item Los modelos de bosques aleatorios y el CNN muestran los mejores resultados de accuracy independientemente de las estaciones en los cuales fueron entrenados. Sin embargo, el modelo CNN mostró una mayor estabilidad en el momento de pruebas de parámetros. Esto debido a que los valores de accuracy eran cercanos a los mostrados en este trabajo. El modelo de bosques aleatorios era muy sensible a los parámetros, por lo que si se eligen parámetros aleatoriamente puede que se obtengan peores resultados a los antes mostrados.
+\end{itemize}
+En general, cuando un día es clasificado con condiciones de cielo despejado o nublado, es poco probable que el modelo se haya equivocado. Teniendo más seguridad cuando el día es clasificado como nublado. Por otro lado, cuando un día es clasificado como día de cielo parcialmente nublado se recomienda que sea revisado manualmente, debido a que puede estar mal clasificado. En el caso cuando se tenga una topografía representativa, es recomendable entrenar un modelo por cada localidad o lugar de uso. Esto debido a que se mostraron rendimientos menores cuando la base de datos no fue discriminada por estaciones de monitoreo.
