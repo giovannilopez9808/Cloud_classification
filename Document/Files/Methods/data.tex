@@ -1,5 +1,5 @@
 \section{Sistema de Monitoreo Ambiental}
-El Área Metropolitana de Monterrey (AMM) se ubica en una región montañosa donde se realizan extracciones de material para la construcción (pedreras) a la par de actividades industriales y alto flujo vehicular. El Sistema de Monitoreo Ambiental (SIMA) tiene como objetivo evaluar la calidad del aire, monitoreando las concentraciones de contaminantes atmosféricos a las que se encuentra expuesta la población del AMM y, bajo condiciones adversas, advertir sobre los periodos de altos índices de contaminación atmosféria. El SIMA se compone de 13 estaciones de monitoreo repartidas a lo largo del AMM (figura \ref{fig:stations}).
+El Área Metropolitana de Monterrey (AMM) se ubica en una región montañosa donde se realizan extracciones de material para la construcción (pedreras) a la par de actividades industriales y alto flujo vehicular. El Sistema de Monitoreo Ambiental (SIMA) tiene como objetivo evaluar la calidad del aire, monitoreando las concentraciones de contaminantes atmosféricos a las que se encuentra expuesta la población del AMM. Cuando el AMM se encuentra con altos índices de contaminación atmosférica que representa un peligro para el ser humano, el SIMA es el responsable de reportar estos periodos. El SIMA se compone de 13 estaciones de monitoreo repartidas a lo largo del AMM (figura \ref{fig:stations}).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=14cm]{Graphics/map_nolabels.eps}
@@ -29,15 +29,15 @@ En la tabla \ref{table:stations_information} se muestra la información geográf
 	\caption{Información de la localización geográfica de las estaciones del SIMA en el AMM.}
 	\label{table:stations_information}
 \end{table}
-La base de datos que contiene mediciones de irradiancia solar por hora en las estaciones del SIMA en el periodo 1993-2021. Se realizo un filtro de los datos que cumplen las siguientes condiciones:
+La base de datos que contiene mediciones de irradiancia solar por hora en las estaciones del SIMA en el periodo 1993-2021. Se realizó un filtro de los datos que cumplen las siguientes condiciones:
 \begin{itemize}
-	\item Un dato diario es valido cuando contiene al menos 10 mediciones entre las 8 a las 19 horas.
+	\item Un dato diario es válido cuando contiene al menos 10 mediciones entre las 8 a las 19 horas.
 	\item Un mes es considerado cuando contiene al 21 datos diarios validados.
 \end{itemize}
 En la figura \ref{fig:distribution_data} se muestra la distribución de los meses en las estaciones del SIMA que cumplen las condiciones de selección.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=11cm]{Graphics/Distribution_stations.png}
+	\includegraphics[width=13cm]{Graphics/Distribution_stations.png}
 	\caption{Distribución de los meses validos para las estaciones meteorológicas del SIMA en el periodo 1993-2021.}
 	\label{fig:distribution_data}
 \end{figure}
@@ -91,7 +91,7 @@ Se implementaron dos operaciones para comparar las diferencias y proporciones (e
 	\label{eq:ratio}
 \end{equation}
 \subsection{Datos atípicos}
-Los datos de las estaciones del SIMA pueden contener ruido o mediciones que fisicamente no son posibles, a estos datos los denominamos como atípicos. Se implemento un filtrado de datos automática. El filtro de datos consiste en realizar una operación de comparación para cada medición (ecuación \ref{eq:ratio}) con respecto al modelo GHI, si para alguna hora se obtiene un valor mayor a 0.9, entonces la medición corresponde a un dato atípico y se eliminará de la base de datos. Si el modelo GHI$_0$ es igual a 0, entonces se sobreescribe la medición con el valor 0, esto con el propósito de eliminar el ruido que puede tener el radiometro de la estación analizada. En la figura \ref{fig:example_clean_data} se visualiza el proceso de filtrado de datos atípicos en dos fechas diferentes. Los valores atípicos ocurren a menudo al inicio o al final del día solar.
+Los datos de las estaciones del SIMA pueden contener ruido o mediciones que físicamente no son posibles, a estos datos los denominamos como atípicos. Se implemento un filtrado de datos automática. El filtro de datos consiste en realizar una operación de comparación para cada medición (ecuación \ref{eq:ratio}) con respecto al modelo GHI, si para alguna hora se obtiene un valor mayor a 0.9, entonces la medición corresponde a un dato atípico y se eliminará de la base de datos. Si el modelo GHI$_0$ es igual a 0, entonces se sobreescribe la medición con el valor 0, esto con el propósito de eliminar el ruido que puede tener el radiometro de la estación analizada. En la figura \ref{fig:example_clean_data} se visualiza el proceso de filtrado de datos atípicos en dos fechas diferentes. Los valores atípicos ocurren a menudo al inicio o al final del día solar.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{Graphics/example_clean_data.png}
@@ -99,7 +99,7 @@ Los datos de las estaciones del SIMA pueden contener ruido o mediciones que fisi
 	\label{fig:example_clean_data}
 \end{figure}
 \subsection{Reconstrucción}
-A partir de los datos filtrados, se aplicó un proceso de reconstrucción. El proceso de reconstrucción consiste en asignar el valor del promedio horario de las 10 primeras mediciones que tengan mayor semejanza a la medición a reconstruir. Se toman unicamente las mediciones de la misma estación en una ventana de tres meses (un mes anterior, el mes actual y el siguiente). La semejanza se calcula con base en la ecuación \ref{eq:cosine}.
+A partir de los datos filtrados, se aplicó un proceso de reconstrucción. El proceso de reconstrucción consiste en asignar el valor del promedio horario de las 10 primeras mediciones que tengan mayor semejanza a la medición a reconstruir. Se toman unicamente las mediciones de la misma estación en una ventana de tres meses (un mes anterior, el mes actual y el siguiente). La semejanza se calcula como:
 \begin{equation}
 	sim(m_i , m_j ) = \frac{m_i \cdot m_j}{||m_i|| ||m_j||}
 	\label{eq:cosine}

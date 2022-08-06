@@ -1,7 +1,7 @@
 \section{Modelos de irradiancia solar}
-Los modelos de irradiancia solar pueden estimar el valor con respecto a las condiciones de cielo despejado\cite{Gueymard_2012,Perez_Burgos_2017,Ineichen_2016}. Las estimaciones obtenidas por los modelos son usadas para realizar comparaciones sobre mediciones de una locación, las cuales pueden contener datos equivocados o faltantes. Existen diversos modelos basados en redes neuronales donde a partir de parámetros geoespaciales ó datos meteorológicos estiman el promedio por hora, dia, mes o año\cite{Hasni_2012,Kumar_2019,Ozgoren_2012,Sahan_2016}. Estos modelos requieren que se les alimente con una gran cantidad de información, lo cual representa un problema. Aunado a esto, los modelos estan delimitados por la precisión que tienen sus estimaciones\cite{Ruiz_Arias_2018}. En este trabajo se propone el uso de modelos simples que puedan adaptarse a las mediciones in situ con la suficiente precisión para estimar la irradiancia globar bajo condiciones de cielo despejado.
+Los modelos de irradiancia solar pueden estimar el valor con respecto a las condiciones de cielo despejado\cite{Gueymard_2012,Perez_Burgos_2017,Ineichen_2016}. Las estimaciones obtenidas por los modelos son usadas para realizar comparaciones sobre mediciones de una locación, las cuales pueden contener datos equivocados o faltantes. Existen diversos modelos basados en redes neuronales donde a partir de parámetros geoespaciales ó datos meteorológicos estiman el promedio por hora, dia, mes o año\cite{Hasni_2012,Kumar_2019,Ozgoren_2012,Sahan_2016}. Estos modelos requieren que se les alimente con una gran cantidad de información, lo cual representa un problema. Aunado a esto, los modelos estan delimitados por la precisión que tienen sus estimaciones\cite{Ruiz_Arias_2018}. En este trabajo se propone el uso de modelos que puedan adaptarse a las mediciones in situ con la suficiente precisión para estimar la irradiancia globar bajo condiciones de cielo despejado.
 \subsection{Declinación y ángulo solar}
-La dependencia del tiempo de los modelos de irradiancia solar se introduce por medio de la declinación solar (ecuación \ref{eq:declination}) y el ángulo solar (ecuación \ref{eq:angle_solar}).
+La dependencia del tiempo de los modelos de irradiancia solar se introduce por medio de la declinación solar y el ángulo solar (ecuación \ref{eq:declination}  y \ref{eq:angle_solar} respectivamente).
 \begin{equation}
 	\delta = 24.45 sin(\gamma)
 	\label{eq:declination}
@@ -16,13 +16,13 @@ donde h\textsubscript{LTC} es la hora local y $\gamma$ es la fracción de rotaci
 \end{equation*}
 Donde $\phi$ es la latitud de la locación.
 \subsection{Irradiancia solar extraterrestre}
-El modelo de irradiancia solar extraterrestre (GHI$_0$) esta definida como\cite{Muhammad_1983}.
+El modelo de irradiancia solar extraterrestre (GHI$_0$) esta definida como\cite{Muhammad_1983}:
 \begin{equation}
 	\text{GHI}_0 = I_{SC}\left[ 1-0.033 cos\left( \frac{360n}{365}  \right)\right] cos(z)  \label{eq:GHI0}
 \end{equation}
 Donde I\textsubscript{SC} es la constante solar con valor de 1367 W/m\textsuperscript{2}, n es el día consecutivo del año (n=1 y 365 son el primero y último día del año respectivamente, para años bisiestos el denominador cambia a 366 y el último día se toma como 366).
 \subsection{Irradiancia solar global horizontal}
-Kwarikunda\cite{Kwarikunda_2021} menciona que realizo comparaciones entre los modelos Berger-Duffle (BD), Adnot-Bouges-Campana-Gicquel (ABCG) y Robledo-Soler (RS). LLegando a que el modelo RS estima con más cercania a las mediciones a nivel de suelo en diferentes locaciones. El modelo RS se define en la ecuación \ref{eq:rs_model}.
+Kwarikunda et al 2021\cite{Kwarikunda_2021} menciona que realizó comparaciones entre los modelos Berger-Duffle (BD), Adnot-Bouges-Campana-Gicquel (ABCG) y Robledo-Soler (RS). El modelo RS estima con más cercanía a las mediciones a nivel de suelo en diferentes locaciones. El modelo RS se define como:
 \begin{equation}
 	GHI_{RS} = a(cos z)^b exp(-c(90-z))
 	\label{eq:rs_model}
