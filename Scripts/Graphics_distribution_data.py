@@ -15,7 +15,7 @@ def minior_tick(values: list) -> list:
 params = get_params()
 params.update({
     "file distribution": "Distribution.csv",
-    "file graphics": "Distribution_stations.png",
+    "file graphics": "Distribution_stations.pdf",
     "names": {
         "Attention CNN": "CNN con atención",
         "Bi LSTM": "Bi LSTM",
@@ -35,8 +35,13 @@ filename = join(params["path results"],
 data = read_csv(filename,
                 index_col=0)
 data = data+1
-data.index = [params["names"][index]
-              for index in data.index]
+data = data[
+    data.index >= 2015
+]
+data.index = [
+    params["names"][index]
+    for index in data.index
+]
 data = data.T
 fig, ax = plt.subplots(figsize=(12, 10))
 cmap = cm.get_cmap("inferno",
